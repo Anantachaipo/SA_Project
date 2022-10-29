@@ -1,6 +1,8 @@
-module com.example.project {
+module appDBConnect {
+    requires javafx.graphics;
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens ku.cs to javafx.fxml;
