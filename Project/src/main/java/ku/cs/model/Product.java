@@ -1,17 +1,21 @@
 package ku.cs.model;
 public class Product {
-    private int id;
+    private int pid;
     private String name;
     private String type;
     private int qty;
     private int PPU;
 
-    public Product(int id, String name, String type, int qty, int PPU) {
-        this.id = id;
+    public Product(int pid, String name, String type, int qty, int PPU) {
+        this.pid = pid;
         this.name = name;
         this.type = type;
         this.qty = qty;
         this.PPU = PPU;
+    }
+
+    public int getPid() {
+        return pid;
     }
 
     public String getName() {
@@ -34,13 +38,17 @@ public class Product {
         this.qty = qty;
     }
 
+    public void addQty(int qty) {
+        this.qty += qty;
+    }
+
     public void setPPU(int PPU) {
         this.PPU = PPU;
     }
 
     @Override
     public String toString() {
-        return "id[" + id + "] " +
+        return "pid[" + pid + "] " +
                 name +
                 "(" + type + ")" +
                 " QTY : " + qty +

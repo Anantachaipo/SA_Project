@@ -18,6 +18,14 @@ public class ProductList {
         return this.products;
     }
 
+    public Product getProductByName(String name) {
+        for (Product product : products) {
+            if (product.getName().equals(name)) {
+                return product;
+            }
+        }
+        return null;
+    }
     @Override
     public String toString() {
         return "ProductList{" +
