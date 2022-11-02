@@ -27,7 +27,7 @@
                   <Insets bottom="5.0" right="5.0" />
                </padding>
                <children>
-                  <Button alignment="CENTER" layoutX="217.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="35.0" prefWidth="135.0" style="-fx-background-radius: 20;" text="Register" textAlignment="CENTER">
+                  <Button alignment="CENTER" layoutX="129.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="35.0" prefWidth="135.0" style="-fx-background-radius: 20;" text="Register" textAlignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -69,7 +69,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="registerMessageLabel" alignment="CENTER" layoutX="109.0" layoutY="297.0" prefHeight="26.0" prefWidth="351.0">
+                  <Label fx:id="registerMessageLabel" alignment="CENTER" layoutX="109.0" layoutY="297.0" prefHeight="26.0" prefWidth="351.0" textFill="RED">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -79,6 +79,18 @@
                   <Label fx:id="telTag" layoutX="508.0" layoutY="151.0" prefHeight="17.0" prefWidth="28.0" textFill="RED" />
                   <Label fx:id="passwordTag" layoutX="508.0" layoutY="201.0" prefHeight="17.0" prefWidth="28.0" textFill="RED" />
                   <Label fx:id="conPasswordTag" layoutX="508.0" layoutY="249.0" prefHeight="17.0" prefWidth="28.0" textFill="RED" />
+                  <Button alignment="CENTER" layoutX="305.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="35.0" prefWidth="135.0" style="-fx-background-radius: 20;" text="Back" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color opacity="0.10000000149011612" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
                </children>
             </Pane>
          </children>
