@@ -134,6 +134,14 @@ public class RegisterController {
         }
     }
 
-
+    @FXML
+    void handleBackButton(ActionEvent actionEvent) {
+        try {
+            Router.goTo("login");
+        } catch (IOException e) {
+            System.err.println("ไปหน้า login จาก register ไม่ได้");
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -23,13 +23,26 @@ public class MenuController {
     @FXML
     private ListView<Product> productListView;
 
-
     @FXML
     public void initialize() {
-        nameLabel.setText(LoginControlller.user.getName());
+        nameLabel.setText(LoginController.user.getName());
         showOrderList();
         showProductList();
     }
+    private void showOrderList() {
+        OrderList orderList = new OrderList();
+        // TODO: ใช้ DB เอาข้อมูล orderList
+
+        orderListView.getItems().addAll(orderList.getOrders());
+    }
+
+    private void showProductList() {
+        ProductList productList = new ProductList();
+        // TODO: ใช้ DB เอาข้อมูล productList
+
+        productListView.getItems().addAll(productList.getProducts());
+    }
+
     @FXML
     private void ManageLogoutButton(ActionEvent event) {
         try {
@@ -39,28 +52,22 @@ public class MenuController {
             e.printStackTrace();
         }
     }
-
     @FXML
     private void handleManageOrderButton(ActionEvent event) {
         try {
             Router.goTo("manage_order");
         } catch (IOException e) {
-        System.err.println("ไปหน้า manage_order จาก menu ไม่ได้");
+            System.err.println("ไปหน้า manage_order จาก menu ไม่ได้");
             e.printStackTrace();
         }
     }
-
-
-    private void showOrderList() {
-        OrderList orderList = new OrderList();
-        // TODO: ใช้ DB เอาข้อมูล orderList
-
-        orderListView.getItems().addAll(orderList.getOrders());
-    }
-    private void showProductList() {
-        ProductList productList = new ProductList();
-        // TODO: ใช้ DB เอาข้อมูล productList
-
-        productListView.getItems().addAll(productList.getProducts());
+    @FXML
+    private void handleViewContractButton(ActionEvent actionEvent) {
+        try {
+            Router.goTo("view_contract");
+        } catch (IOException e) {
+            System.err.println("ไปหน้า view_contract จาก menu ไม่ได้");
+            e.printStackTrace();
+        }
     }
 }
