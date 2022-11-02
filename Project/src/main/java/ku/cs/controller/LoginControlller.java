@@ -6,10 +6,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ku.cs.Router;
+import ku.cs.connector.DatabaseConnection;
 import ku.cs.model.Customer;
-import ku.cs.service.Account;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class LoginControlller {
     @FXML
@@ -20,27 +24,56 @@ public class LoginControlller {
     private Label loginMessageLabel;
 
     public static Customer user;
-    private Account account = new Account();
-    public void handleLoginButton(ActionEvent actionEvent) throws IOException {
+
+    public void handleLoginButton(ActionEvent actionEvent) {
+        Connection con = DatabaseConnection.connect("customer");
+
         String username = usernameTextField.getText();
         String password = passwordField.getText();
-        user = account.checkLogin(username, password);
-        if (user == null) {
-            loginMessageLabel.setText("username or password is incorrect");
-            return;
+
+        // check empty input
+        if (username.isBlank() || password.isBlank()) {
+            loginMessageLabel.setText("Invalid username or password");
         }
+
         try {
-            Router.goTo("menu");
+            String sqlText = "select * FROM customer WHERE C_Username = ? AND C_Password = ?";
+            PreparedStatement pst = con.prepareStatement(sqlText);
+
+            // TODO: เช็คการทำงาน mysql กับ query ให้ตรง
+            pst.setString(1, username);
+            pst.setString(2, password);
+            ResultSet result = pst.executeQuery();
+
+            if (username.equals("Manager") && password.equals("password")) {
+                Router.goTo("menu_manager");
+
+            // TODO: เช็คการทำงาน mysql กับ query ให้ตรง
+            } else if (result.next()) {
+                user = new Customer(
+                        result.getInt(1),
+                        result.getString(2),
+                        result.getString(3),
+                        result.getString(4));
+                result.close();
+                pst.close();
+                Router.goTo("menu");
+            } else {
+                loginMessageLabel.setText("Invalid username or password");
+            }
+
         } catch (IOException e) {
             System.err.println("ไปหน้า menu ไม่ได้");
             e.printStackTrace();
+        } catch (SQLException e) {
+            loginMessageLabel.setText("Invalid username or password");
         }
     }
     public void handleRegisterButton(ActionEvent actionEvent) {
         try {
-            Router.goTo("create_account");
+            Router.goTo("register");
         } catch (IOException e) {
-            System.err.println("ไปหน้า create_accout ไม่ได้");
+            System.err.println("ไปหน้า register ไม่ได้");
             e.printStackTrace();
         }
     }
