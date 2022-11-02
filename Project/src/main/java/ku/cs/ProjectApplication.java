@@ -27,6 +27,9 @@ public class ProjectApplication extends Application {
         Router.when("menu", pkg + "menu.fxml");
         Router.when("menu_manager", pkg + "menu_manager.fxml");
         Router.when("manage_order", pkg + "manage_order.fxml");
+        Router.when("reserve", pkg + "reserve.fxml");
+        Router.when("new_order", pkg + "new_order.fxml");
+        Router.when("view_contract", pkg + "view_contract");
     }
 
     public static void setRoot(String fxml) throws IOException {
