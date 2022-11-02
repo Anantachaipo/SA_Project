@@ -1,23 +1,29 @@
 package ku.cs;
 
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.HashMap;
 
 public final class Router {
+    private static final String WINDOW_TITLE = "";
     private static final Double WINDOW_WIDTH = 800.0D;
     private static final Double WINDOW_HEIGHT = 600.0D;
+    private static final Double FADE_ANIMATION_DURATION = 800.0D;
     private static Router router;
     private static Object mainRef;
     private static Stage window;
     private static String windowTitle;
     private static Double windowWidth;
     private static Double windowHeight;
+    private static String animationType;
+    private static Double animationDuration;
     private static AbstractMap<String, RouteScene> routes = new HashMap();
     private static RouteScene currentRoute;
 
@@ -100,8 +106,47 @@ public final class Router {
         window.setTitle(route.windowTitle);
         window.setScene(new Scene(resource, route.sceneWidth, route.sceneHeight));
         window.show();
+        routeAnimation(resource);
     }
-    
+
+    public static void startFrom(String routeLabel) throws Exception {
+        goTo(routeLabel);
+    }
+
+    public static void startFrom(String routeLabel, Object data) throws Exception {
+        goTo(routeLabel, data);
+    }
+
+    public static void setAnimationType(String anType) {
+        animationType = anType;
+    }
+
+    public static void setAnimationType(String anType, double anDuration) {
+        animationType = anType;
+        animationDuration = anDuration;
+    }
+
+    private static void routeAnimation(Parent node) {
+        String anType = animationType != null ? animationType.toLowerCase() : "";
+        byte var3 = -1;
+        switch(anType.hashCode()) {
+            case 3135100:
+                if (anType.equals("fade")) {
+                    var3 = 0;
+                }
+            default:
+                switch(var3) {
+                    case 0:
+                        Double fd = animationDuration != null ? animationDuration : FADE_ANIMATION_DURATION;
+                        FadeTransition ftCurrent = new FadeTransition(Duration.millis(fd), node);
+                        ftCurrent.setFromValue(0.0D);
+                        ftCurrent.setToValue(1.0D);
+                        ftCurrent.play();
+                    default:
+                }
+        }
+    }
+
     public static Object getData() {
         return currentRoute.data;
     }
