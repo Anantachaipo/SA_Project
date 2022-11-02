@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.00" prefWidth="800.00" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controller.CreateAccountController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="108.0" style="-fx-background-color: #343434;" />
+      <Pane layoutX="108.0" prefHeight="600.0" prefWidth="692.0">
+         <children>
+            <Text layoutX="289.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" textAlignment="CENTER">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Text>
+            <Pane layoutX="62.0" layoutY="135.0" prefHeight="402.0" prefWidth="568.0">
+               <padding>
+                  <Insets bottom="5.0" right="5.0" />
+               </padding>
+               <children>
+                  <Button alignment="CENTER" layoutX="217.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="35.0" prefWidth="135.0" style="-fx-background-radius: 20;" text="Register" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color opacity="0.10000000149011612" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                  <TextField fx:id="nameTextField" alignment="CENTER" layoutX="208.0" layoutY="45.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
+                  <TextField fx:id="usernameTextField" alignment="CENTER" layoutX="210.0" layoutY="96.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
+                  <TextField fx:id="telTextFleld" alignment="CENTER" layoutX="210.0" layoutY="147.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
+                  <PasswordField fx:id="passwordField" layoutX="210.0" layoutY="197.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
+                  <PasswordField fx:id="conPasswordField" layoutX="210.0" layoutY="245.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
+                  <Label layoutX="125.0" layoutY="45.0" text="Name :" textAlignment="RIGHT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="97.0" layoutY="96.0" text="Username :" textAlignment="RIGHT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="97.0" layoutY="147.0" text="Telephone :" textAlignment="RIGHT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="105.0" layoutY="197.0" text="Password :" textAlignment="RIGHT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="43.0" layoutY="245.0" text="Confirm Password :" textAlignment="RIGHT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="registerMessageLabel" alignment="CENTER" layoutX="109.0" layoutY="297.0" prefHeight="26.0" prefWidth="351.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nameTag" layoutX="508.0" layoutY="49.0" prefHeight="17.0" prefWidth="28.0" textFill="RED" />
+                  <Label fx:id="usernameTag" layoutX="508.0" layoutY="100.0" prefHeight="17.0" prefWidth="28.0" textFill="RED" />
+                  <Label fx:id="telTag" layoutX="508.0" layoutY="151.0" prefHeight="17.0" prefWidth="28.0" textFill="RED" />
+                  <Label fx:id="passwordTag" layoutX="508.0" layoutY="201.0" prefHeight="17.0" prefWidth="28.0" textFill="RED" />
+                  <Label fx:id="conPasswordTag" layoutX="508.0" layoutY="249.0" prefHeight="17.0" prefWidth="28.0" textFill="RED" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
