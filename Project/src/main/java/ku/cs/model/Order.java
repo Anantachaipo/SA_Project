@@ -37,6 +37,10 @@ public class Order {
         return detail;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
     @Override
     public String toString() {
         return "Order ID[" + oid + "]" +
