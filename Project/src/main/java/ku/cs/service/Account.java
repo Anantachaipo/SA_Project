@@ -1,6 +1,6 @@
 package ku.cs.service;
 
-import ku.cs.controller.LoginControlller;
+import ku.cs.controller.LoginController;
 import ku.cs.model.Customer;
 import ku.cs.model.CustomerList;
 
@@ -15,7 +15,7 @@ public class Account {
         for (Customer customer : customerList.getCustomers()) {
             if (customer.getUsername().equals(username)) {
                 if (customer.getPassword().equals(password)) {
-                    LoginControlller.user = customer;
+                    LoginController.user = customer;
                     return customer;
                 }
             }
