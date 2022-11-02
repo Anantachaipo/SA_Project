@@ -20,7 +20,7 @@
                   <Font size="22.0" />
                </font>
             </Text>
-            <Label fx:id="nameLabel" layoutX="140.0" layoutY="19.0" prefHeight="32.0" prefWidth="230.0" textFill="WHITE">
+            <Label fx:id="nameLabel" layoutX="139.0" layoutY="16.0" prefHeight="32.0" prefWidth="230.0" textFill="WHITE">
                <font>
                   <Font size="22.0" />
                </font>
@@ -37,7 +37,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Button alignment="CENTER" layoutX="552.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleManageOrderButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Manage Order" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="548.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleManageOrderButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Manage Order" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>

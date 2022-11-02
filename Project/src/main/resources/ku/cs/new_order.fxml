@@ -1,14 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ku.cs.controller.NewOrderController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controller.NewOrderController">
+   <children>
+      <Pane prefHeight="69.0" prefWidth="800.0" style="-fx-background-color: #343434;">
+         <children>
+            <Text fill="WHITE" layoutX="25.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login as :">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Label fx:id="nameLabel" layoutX="140.0" layoutY="19.0" prefHeight="32.0" prefWidth="260.0" textFill="WHITE">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER" layoutX="700.0" layoutY="16.0" mnemonicParsing="false" onAction="#ManageLogoutButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Log out" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.20000000298023224" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button alignment="CENTER" layoutX="622.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Back" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.20000000298023224" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Label fx:id="nameLabel" layoutX="140.0" layoutY="16.0" prefHeight="32.0" prefWidth="260.0" textFill="WHITE">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="67.0" layoutY="93.0" text="Available Product">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ListView fx:id="productListView" layoutX="41.0" layoutY="149.0" prefHeight="413.0" prefWidth="221.0" />
+      <Line endX="-5.0" endY="430.0" layoutX="303.0" layoutY="131.0" startX="-5.0" startY="18.0" />
+      <Pane layoutX="326.0" layoutY="149.0" prefHeight="318.0" prefWidth="451.0" style="-fx-background-color: #dddddd;">
+         <children>
+            <Label layoutX="8.0" layoutY="14.0" prefHeight="32.0" prefWidth="78.0" text="Product :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="8.0" layoutY="46.0" prefHeight="32.0" prefWidth="78.0" text="Quantity : ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="8.0" layoutY="78.0" prefHeight="32.0" prefWidth="78.0" text="Bid :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="8.0" layoutY="110.0" prefHeight="32.0" prefWidth="78.0" text="Detail :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="productTextField" layoutX="86.0" layoutY="18.0" prefHeight="25.0" prefWidth="336.0" style="-fx-background-radius: 10;" />
+            <TextField fx:id="qtyTextField" layoutX="86.0" layoutY="50.0" prefHeight="25.0" prefWidth="336.0" style="-fx-background-radius: 10;" />
+            <TextField fx:id="bidTextField" layoutX="86.0" layoutY="82.0" prefHeight="25.0" prefWidth="336.0" style="-fx-background-radius: 10;" />
+            <TextArea fx:id="detailTextArea" layoutX="86.0" layoutY="118.0" prefHeight="186.0" prefWidth="336.0" style="-fx-background-radius: 10 10 0 0; -fx-border-radius: 10 10 0 0; -fx-border-color: transparent;" />
+            <Label fx:id="productTag" layoutX="430.0" layoutY="22.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
+            <Label fx:id="qtyTag" layoutX="430.0" layoutY="54.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
+            <Label fx:id="bidTag" layoutX="430.0" layoutY="86.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
+            <Label fx:id="detailTag" layoutX="430.0" layoutY="118.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.15000000596046448" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+      <Button alignment="CENTER" layoutX="493.0" layoutY="509.0" mnemonicParsing="false" onAction="#handlePlaceOrderButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Place Order" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.20000000298023224" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <Label fx:id="placeOrderMessageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="427.0" layoutY="477.0" prefHeight="25.0" prefWidth="250.0" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
