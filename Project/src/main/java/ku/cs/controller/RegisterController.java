@@ -6,12 +6,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ku.cs.Router;
+import ku.cs.connector.DatabaseConnection;
 import ku.cs.service.Account;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.concurrent.TimeUnit;
 
-public class CreateAccountController {
+public class RegisterController {
     private static final String TAG = "*";
     private Account account = new Account();
     @FXML
@@ -40,17 +45,19 @@ public class CreateAccountController {
     @FXML
     private Label registerMessageLabel;
 
+
     @FXML
     void handleRegisterButton(ActionEvent event) {
+        Connection con = DatabaseConnection.connect("customer");;
         String name = nameTextField.getText();
         String username = usernameTextField.getText();
         String tel = telTextFleld.getText();
         String password = passwordField.getText();
         String conPassword = conPasswordField.getText();
 
-        boolean validPassword = true;
         boolean validRegis = true;
-        boolean validUsername = true;
+        boolean validPassword = false;
+        boolean validUsername = false;
 
         // check empty input
         if (name.isBlank()) {
@@ -75,15 +82,39 @@ public class CreateAccountController {
             validRegis = false;
         }
 
-        // check duplicate usernames, only if register is valid (not empty)
+        // check username and password
         if (validRegis) {
-            validUsername = account.checkUsername(username);
-            validPassword = account.checkPassword(password, conPassword);
+
+            // TODO: ทำให้ check username ถูกต้อง
+            // check duplicate username
+            try {
+                String sqlText = "select * FROM customer WHERE C_Username = ?";
+                PreparedStatement pst = con.prepareStatement(sqlText);
+                pst.setString(1, username);
+                ResultSet result = pst.executeQuery();
+
+                if (result.next()) {
+                    validUsername = false;
+                    result.close();
+                    pst.close();
+                }
+                else {
+                    validUsername = true;
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            // check password match
+            validPassword = password.equals(conPassword);
         }
 
         if (validRegis && validUsername && validPassword) {
             // TODO: ใส่ข้อมูลลง DB
+
             try {
+                registerMessageLabel.setText("Register successfully");
                 TimeUnit.SECONDS.wait(1);
                 Router.goTo("login");
             } catch (IOException e) {
