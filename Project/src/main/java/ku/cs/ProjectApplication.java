@@ -11,10 +11,10 @@ import java.io.IOException;
 public class ProjectApplication extends Application {
 
     private static Scene scene;
-    // TODO: แก้ start ให้เปิดหน้า login
+
     @Override
     public void start(Stage stage) throws Exception {
-        Router.bind(this, stage, "Login", 800, 600);
+        Router.bind(this, stage, "SA Project - Fruit Farm", 800, 600);
         configRoute();
         Router.goTo("login");
     }
@@ -22,6 +22,11 @@ public class ProjectApplication extends Application {
     // TODO: ทำ path ของ fxml
     private static void configRoute() {
         String pkg = "ku/cs/";
+        Router.when("login", pkg + "login.fxml");
+        Router.when("register", pkg + "register.fxml");
+        Router.when("menu", pkg + "menu.fxml");
+        Router.when("menu_manager", pkg + "menu_manager.fxml");
+        Router.when("manage_order", pkg + "manage_order.fxml");
     }
 
     public static void setRoot(String fxml) throws IOException {
