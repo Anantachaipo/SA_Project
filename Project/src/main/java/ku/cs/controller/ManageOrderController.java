@@ -24,10 +24,11 @@ public class ManageOrderController {
     @FXML private Button reserveButton;
     @FXML private ListView<Order> orderListView;
 
-    private Order order;
+    private static Order order;
     @FXML
     private void initialize() {
         nameLabel.setText(LoginController.user.getName());
+        reserveButton.setDisable(true);
         showOrderList();
         clearSelectedOrder();
         handleSelectedListView();
@@ -73,7 +74,9 @@ public class ManageOrderController {
             case "A" -> "Accepted";
             case "P" -> "Pending";
             case "R" -> "Rejected";
-            case "D" -> "Done";
+            case "W" -> "Waiting";
+            case "D" -> "Success";
+            case "F" -> "Fail";
             default -> "-";
         };
     }
@@ -105,6 +108,10 @@ public class ManageOrderController {
         } catch (IOException e) {
             System.err.println("ไปหน้า reserve จาก manage_order ไม่ได้");
         }
+    }
+
+    public static Order getSelectedOrder() {
+        return order;
     }
 
 }

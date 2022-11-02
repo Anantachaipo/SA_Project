@@ -24,41 +24,51 @@ public class LoginController {
     private Label loginMessageLabel;
 
     public static Customer user;
-
+    public static Connection connection = DatabaseConnection.connect();
     public void handleLoginButton(ActionEvent actionEvent) {
-        Connection con = DatabaseConnection.connect("customer");
+        loginMessageLabel.setText("");
+
 
         String username = usernameTextField.getText();
         String password = passwordField.getText();
 
         // check empty input
         if (username.isBlank() || password.isBlank()) {
+            System.out.println("In 'blank field'");
             loginMessageLabel.setText("Invalid username or password");
+            return;
         }
 
         try {
+            if (username.equals("Manager") && password.equals("password")) {
+                System.out.println("In 'manager login'");
+                Router.goTo("menu_manager");
+                return;
+            }
+
             String sqlText = "select * FROM customer WHERE C_Username = ? AND C_Password = ?";
-            PreparedStatement pst = con.prepareStatement(sqlText);
+            PreparedStatement pst = connection.prepareStatement(sqlText);
 
             // TODO: เช็คการทำงาน mysql กับ query ให้ตรง
             pst.setString(1, username);
             pst.setString(2, password);
             ResultSet result = pst.executeQuery();
 
-            if (username.equals("Manager") && password.equals("password")) {
-                Router.goTo("menu_manager");
 
             // TODO: เช็คการทำงาน mysql กับ query ให้ตรง
-            } else if (result.next()) {
+            if (result.next()) {
                 user = new Customer(
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
-                        result.getString(4));
+                        result.getString(4),
+                        result.getString(5));
                 result.close();
                 pst.close();
+                System.out.println("Current user = " + user.toString());
                 Router.goTo("menu");
             } else {
+                System.out.println("In 'not found user'");
                 loginMessageLabel.setText("Invalid username or password");
             }
 
@@ -66,7 +76,9 @@ public class LoginController {
             System.err.println("ไปหน้า menu ไม่ได้");
             e.printStackTrace();
         } catch (SQLException e) {
+            System.err.println("ใช้ SQL ไม่ได้");
             loginMessageLabel.setText("Invalid username or password");
+            e.printStackTrace();
         }
     }
     public void handleRegisterButton(ActionEvent actionEvent) {

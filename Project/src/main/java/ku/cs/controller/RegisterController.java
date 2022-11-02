@@ -16,6 +16,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.concurrent.TimeUnit;
 
+import static ku.cs.controller.LoginController.connection;
+
 public class RegisterController {
     private static final String TAG = "*";
     private Account account = new Account();
@@ -48,7 +50,8 @@ public class RegisterController {
 
     @FXML
     void handleRegisterButton(ActionEvent event) {
-        Connection con = DatabaseConnection.connect("customer");;
+        resetTagAndMessage();
+
         String name = nameTextField.getText();
         String username = usernameTextField.getText();
         String tel = telTextFleld.getText();
@@ -89,39 +92,46 @@ public class RegisterController {
             // check duplicate username
             try {
                 String sqlText = "select * FROM customer WHERE C_Username = ?";
-                PreparedStatement pst = con.prepareStatement(sqlText);
+                PreparedStatement pst = connection.prepareStatement(sqlText);
                 pst.setString(1, username);
                 ResultSet result = pst.executeQuery();
 
                 if (result.next()) {
                     validUsername = false;
+                    usernameTag.setText(TAG);
                     result.close();
                     pst.close();
-                }
-                else {
+                } else {
                     validUsername = true;
                 }
-
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
             // check password match
             validPassword = password.equals(conPassword);
         }
 
         if (validRegis && validUsername && validPassword) {
-            // TODO: ใส่ข้อมูลลง DB
-
             try {
+                String sqlText = "insert into customer (C_Name, C_Username, C_Password, C_Tel) values (?,?,?,?)";
+                PreparedStatement pst = connection.prepareStatement(sqlText);
+
+                pst.setString(1, name);
+                pst.setString(2, username);
+                pst.setString(3, password);
+                pst.setString(4, tel);
+                pst.executeUpdate();
+
+                pst.close();
+
                 registerMessageLabel.setText("Register successfully");
-                TimeUnit.SECONDS.wait(1);
                 Router.goTo("login");
             } catch (IOException e) {
                 System.err.println("ไปหน้า login ไป");
                 e.printStackTrace();
-            } catch (InterruptedException e) {
-                System.err.println("TimeUnit.SECONDS.wait() มีปัญหา");
+            } catch (SQLException e) {
+                System.err.println("ใช้ SQL ไม่ได้");
+                registerMessageLabel.setText("Invalid Register");
                 e.printStackTrace();
             }
         } else {
@@ -142,6 +152,15 @@ public class RegisterController {
             System.err.println("ไปหน้า login จาก register ไม่ได้");
             e.printStackTrace();
         }
+    }
+
+    private void resetTagAndMessage() {
+        conPasswordTag.setText("");
+        telTag.setText("");
+        nameTag.setText("");
+        passwordTag.setText("");
+        conPasswordTag.setText("");
+        registerMessageLabel.setText("");
     }
 
 }
