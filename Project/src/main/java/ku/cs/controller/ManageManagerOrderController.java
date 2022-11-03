@@ -68,8 +68,8 @@ public class ManageManagerOrderController {
             result.close();
             pst.close();
         } catch (SQLException e) {
-            System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
+            System.err.println("ใช้ SQL ไม่ได้");
         }
 
         orderListListView.getItems().addAll(orderList.getOrders());
@@ -138,7 +138,7 @@ public class ManageManagerOrderController {
         try {
             String sqlText = "select * from `customer` where `C_ID` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
-            pst.setInt(1, Integer.parseInt(cidHyperlink.toString()));
+            pst.setInt(1, Integer.parseInt(cidHyperlink.getText()));
             ResultSet result = pst.executeQuery();
             if (result.next()) {
                 customer = new Customer(

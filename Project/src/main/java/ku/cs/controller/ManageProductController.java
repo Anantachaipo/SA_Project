@@ -158,7 +158,6 @@ public class ManageProductController {
         try {
             int intNewPPU = Integer.parseInt(newPPU);
             product.setPPU(intNewPPU);
-            // TODO: ทำให้เขียนลงบน DB
 
             String sqlText = "update product set P_PPU = ? where P_ID = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);

@@ -96,7 +96,7 @@ public class ContractHistoryController {
             default -> "-";
         };
     }
-    
+
     @FXML private void handleBackButton(ActionEvent event) {
         try {
             Router.goTo("manage_contract");

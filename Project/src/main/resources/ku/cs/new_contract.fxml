@@ -1,14 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ku.cs.controller.NewContractController"
-            prefHeight="600.0" prefWidth="800.0">
 
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controller.NewContractController">
+   <children>
+      <Pane layoutX="36.0" layoutY="120.0" prefHeight="433.0" prefWidth="728.0" style="-fx-background-color: #dddddd;">
+         <children>
+            <Label layoutX="62.0" layoutY="98.0" prefHeight="32.0" prefWidth="238.0" text="Customer ID :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="62.0" layoutY="154.0" prefHeight="32.0" prefWidth="238.0" text="Contract length (days) :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="62.0" layoutY="210.0" prefHeight="32.0" prefWidth="238.0" text="Deposit (THB) :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="cIdTextField" layoutX="317.0" layoutY="97.0" prefHeight="25.0" prefWidth="336.0" style="-fx-background-radius: 20;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="conLenTextField" layoutX="317.0" layoutY="153.0" prefHeight="25.0" prefWidth="336.0" style="-fx-background-radius: 20;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="depositTextField" layoutX="317.0" layoutY="209.0" prefHeight="25.0" prefWidth="336.0" style="-fx-background-radius: 20;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Button alignment="CENTER" layoutX="279.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleAddNewContractButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Add New Contract" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.20000000298023224" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Label fx:id="newContractMessageLabel" alignment="CENTER" layoutX="177.0" layoutY="319.0" prefHeight="32.0" prefWidth="375.0" textFill="RED" />
+            <Label fx:id="cIdTag" alignment="CENTER" layoutX="675.0" layoutY="102.0" prefHeight="26.0" prefWidth="27.0" textFill="RED" />
+            <Label fx:id="conLenTag" alignment="CENTER" layoutX="675.0" layoutY="157.0" prefHeight="26.0" prefWidth="27.0" textFill="RED" />
+            <Label fx:id="depositTag" alignment="CENTER" layoutX="675.0" layoutY="214.0" prefHeight="26.0" prefWidth="27.0" textFill="RED" />
+            <Text fill="#515151" layoutX="261.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Contract Form">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.15000000596046448" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+      <Pane prefHeight="69.0" prefWidth="800.0" style="-fx-background-color: #343434;">
+         <children>
+            <Button alignment="CENTER" layoutX="725.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Back" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.20000000298023224" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>

@@ -111,7 +111,7 @@ public class NewOrderController {
 
         if (!validBid) {
             bidTag.setText(TAG);
-            placeOrderMessageLabel.setText("Invalid order");
+            placeOrderMessageLabel.setText("Invalid bid");
             return;
         }
 
