@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.concurrent.TimeUnit;
 
 import static ku.cs.controller.LoginController.connection;
 
@@ -47,7 +48,7 @@ public class ManageManagerOrderController {
         orderList = new OrderList();
 
         try {
-            String sqlText = "select * from order where status = ?";
+            String sqlText = "select * from `order` where `status` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setString(1, "P");
             ResultSet result = pst.executeQuery();
@@ -83,6 +84,7 @@ public class ManageManagerOrderController {
                         showSelectedOrderList(newValue);
                     }
                 });
+
     }
 
     private void showSelectedOrderList(Order order) {
@@ -94,9 +96,8 @@ public class ManageManagerOrderController {
         statusLabel.setText(showStatus(order.getStatus()));
         detailLabel.setText(order.getDetail());
 
-        if (!order.getStatus().equals("P")) {
-            acButton.setDisable(true);
-            rejectButton.setDisable(true);
+        if (order.getStatus().equals("P")) {
+            enableButton();
         }
     }
 
@@ -116,6 +117,10 @@ public class ManageManagerOrderController {
         acButton.setDisable(true);
         rejectButton.setDisable(true);
     }
+    private void enableButton() {
+        acButton.setDisable(false);
+        rejectButton.setDisable(false);
+    }
 
     private String showStatus(String status) {
         return switch (status) {
@@ -129,28 +134,11 @@ public class ManageManagerOrderController {
         };
     }
 
-    @FXML private void handleAcceptButton(ActionEvent event) {
-        try {
-            order.setStatus("A");
-            String sqlText = "update order set status = ? where O_ID = ?";
-            PreparedStatement pst = connection.prepareStatement(sqlText);
-            pst.setString(1, "A");
-            pst.setInt(2, order.getOid());
-            pst.executeUpdate();
-
-            pst.close();
-
-            showSelectedOrderList(order);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.err.println("ใช้ SQL ไม่ได้");
-        }
-    }
     @FXML private void handleCIDHyperlink(ActionEvent event) {
         try {
-            String sqlText = "select * from customer where C_ID = ?";
+            String sqlText = "select * from `customer` where `C_ID` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
-            pst.setString(1, cidHyperlink.toString());
+            pst.setInt(1, Integer.parseInt(cidHyperlink.toString()));
             ResultSet result = pst.executeQuery();
             if (result.next()) {
                 customer = new Customer(
@@ -172,11 +160,29 @@ public class ManageManagerOrderController {
             System.err.println("ใช้ SQL ไม่ได้");
         }
     }
+    @FXML private void handleAcceptButton(ActionEvent event) {
+        try {
+            order.setStatus("A");
+            String sqlText = "update `order` set `status` = ? where `O_ID` = ?";
+            PreparedStatement pst = connection.prepareStatement(sqlText);
+            pst.setString(1, "A");
+            pst.setInt(2, order.getOid());
+            pst.executeUpdate();
+
+            pst.close();
+
+            orderListListView.getItems().clear();
+            showOrderListList();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("ใช้ SQL ไม่ได้");
+        }
+    }
 
     @FXML private void handleRejectButton(ActionEvent event) {
         try {
             order.setStatus("R");
-            String sqlText = "update order set status = ? where O_ID = ?";
+            String sqlText = "update `order` set `status` = ? where `O_ID` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setString(1, "R");
             pst.setInt(2, order.getOid());
@@ -184,7 +190,8 @@ public class ManageManagerOrderController {
 
             pst.close();
 
-            showSelectedOrderList(order);
+            orderListListView.getItems().clear();
+            showOrderListList();
         } catch (SQLException e) {
             System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();

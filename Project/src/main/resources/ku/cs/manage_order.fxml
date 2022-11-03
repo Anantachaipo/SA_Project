@@ -124,7 +124,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="detailLabel" layoutX="92.0" layoutY="146.0" prefHeight="191.0" prefWidth="323.0">
+            <Label fx:id="detailLabel" alignment="TOP_LEFT" layoutX="92.0" layoutY="146.0" prefHeight="191.0" prefWidth="323.0">
                <font>
                   <Font size="16.0" />
                </font>

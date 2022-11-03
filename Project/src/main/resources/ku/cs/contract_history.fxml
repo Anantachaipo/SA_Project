@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controller.ContractHistoryController">
+   <children>
+      <Pane prefHeight="69.0" prefWidth="800.0" style="-fx-background-color: #343434;">
+         <children>
+            <Button alignment="CENTER" layoutX="725.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Back" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.20000000298023224" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+         </children>
+      </Pane>
+      <ListView fx:id="contractListView" layoutX="59.0" layoutY="153.0" prefHeight="413.0" prefWidth="250.0" />
+      <Label layoutX="107.0" layoutY="98.0" text="Contract history">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Line endX="-5.0" endY="430.0" layoutX="339.0" layoutY="135.0" startX="-5.0" startY="18.0" />
+      <Label layoutX="525.0" layoutY="98.0" text="Detail">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Pane layoutX="363.0" layoutY="153.0" prefHeight="413.0" prefWidth="381.0" style="-fx-background-color: #dddddd;">
+         <children>
+            <Label layoutX="16.0" layoutY="48.0" prefHeight="32.0" prefWidth="92.0" text="Con ID : ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="165.0" prefHeight="32.0" prefWidth="92.0" text="Con length :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="296.0" prefHeight="32.0" prefWidth="92.0" text="Status :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="conIdLabel" layoutX="135.0" layoutY="48.0" prefHeight="32.0" prefWidth="231.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="depositLabel" layoutX="135.0" layoutY="230.0" prefHeight="32.0" prefWidth="231.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="230.0" prefHeight="32.0" prefWidth="92.0" text="Deposit :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="conLenLabel" layoutX="135.0" layoutY="165.0" prefHeight="32.0" prefWidth="231.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="statusLabel" layoutX="135.0" layoutY="296.0" prefHeight="32.0" prefWidth="231.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="107.0" prefHeight="32.0" prefWidth="107.0" text="Customer ID :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="cIdLabel" layoutX="135.0" layoutY="107.0" prefHeight="32.0" prefWidth="231.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.15000000596046448" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+   </children>
+</AnchorPane>

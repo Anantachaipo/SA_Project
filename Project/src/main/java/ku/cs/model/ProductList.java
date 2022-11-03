@@ -21,7 +21,16 @@ public class ProductList {
     public Product getProductByName(String name) {
         for (Product product : products) {
             System.out.println("Checking product : " + product.getName() + " |with| " + name);
-            if (product.getName().equals(name)) {
+            if (product.getName().trim().equals(name)) {
+                return product;
+            }
+        }
+        return null;
+    }
+
+    public Product getProductByID(int id) {
+        for (Product product : products) {
+            if (product.getPid() == id) {
                 return product;
             }
         }

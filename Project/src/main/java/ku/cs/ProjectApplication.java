@@ -30,13 +30,15 @@ public class ProjectApplication extends Application {
         Router.when("manage_order", pkg + "manage_order.fxml");
         Router.when("reserve", pkg + "reserve.fxml");
         Router.when("new_order", pkg + "new_order.fxml");
-        Router.when("view_contract", pkg + "view_contract");
+        Router.when("view_contract", pkg + "view_contract.fxml");
         // --- Manager side ---
         Router.when("menu_manager", pkg + "menu_manager.fxml");
         Router.when("manage_contract", pkg + "manage_contract.fxml");
         Router.when("manage_manager_order", pkg + "manage_manager_order.fxml");
         Router.when("manage_product", pkg + "manage_product.fxml");
         Router.when("new_product", pkg + "new_product.fxml");
+        Router.when("contract_history", pkg + "contract_history.fxml");
+        Router.when("new_contract", pkg + "new_contract.fxml");
     }
 
     public static void setRoot(String fxml) throws IOException {

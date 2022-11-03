@@ -9,10 +9,15 @@ import ku.cs.Router;
 import ku.cs.model.Order;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.chrono.Chronology;
 import java.util.Date;
+
+import static ku.cs.controller.LoginController.connection;
 
 public class ReserveController {
 
@@ -23,12 +28,10 @@ public class ReserveController {
     @FXML private Label bidLabel;
     @FXML private Label detailLabel;
     @FXML private Button placeReserveButton;
-    @FXML private DatePicker datePicker;
 
     private Order order = ManageOrderController.getSelectedOrder();
     @FXML private void initialize() {
         nameLabel.setText(LoginController.user.getName());
-        placeReserveButton.setDisable(true);
         oidLabel.setText(String.valueOf(order.getOid()));
         pidLabel.setText(String.valueOf(order.getPid()));
         qtyLabel.setText(String.valueOf(order.getQty()));
@@ -53,24 +56,24 @@ public class ReserveController {
         }
     }
 
-    @FXML private void handlePlaceReserveButton(ActionEvent event) throws ParseException {
-
-        // TODO: insert เข้า order, orderList
+    @FXML private void handlePlaceReserveButton(ActionEvent event) {
         try {
+            String sqlText = "update `order` set `status` = ? where `O_ID` = ?";
+            PreparedStatement pst = connection.prepareStatement(sqlText);
+            pst.setString(1, "W");
+            pst.setInt(2, order.getOid());
+            pst.executeUpdate();
+
+            pst.close();
+
             Router.goTo("manage_order");
         } catch (IOException e) {
-            System.err.println("ไปหน้า manage_order จาก reserve ไม่ได้");
             e.printStackTrace();
+            System.err.println("ไปหน้า manage_order จาก reserve ไม่ได้");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("ใช้ SQL ไม่ได้");
         }
     }
 
-    // TODO: เช็คว่าเลือกตรงแล้วปุ่มเปิดใช้งาน
-    @FXML private void handleDatePicker(ActionEvent actionEvent) throws ParseException {
-        String dp = datePicker.toString();
-        Date res = new SimpleDateFormat("dd/MM/yyyy").parse(dp);
-        Date now = new SimpleDateFormat("dd/MM/yyyy").parse(String.valueOf(System.currentTimeMillis()));
-        if (dp != null && res.compareTo(now) > 0) {
-            placeReserveButton.setDisable(false);
-        }
-    }
 }

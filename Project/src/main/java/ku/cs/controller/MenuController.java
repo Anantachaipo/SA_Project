@@ -15,6 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import static ku.cs.controller.LoginController.user;
+
 public class MenuController {
 
     @FXML
@@ -28,14 +30,14 @@ public class MenuController {
 
     @FXML
     public void initialize() {
-        nameLabel.setText(LoginController.user.getName());
+        nameLabel.setText(user.getName());
         showOrderList();
         showProductList();
     }
     private void showOrderList() {
         OrderList orderList = new OrderList();
         try {
-            String sqlText = "select * FROM order WHERE C_ID = " + LoginController.user.getId();
+            String sqlText = "select * FROM `order` WHERE `C_ID` = " + user.getId();
             PreparedStatement pst = LoginController.connection.prepareStatement(sqlText);
             ResultSet result = pst.executeQuery();
 
@@ -77,8 +79,8 @@ public class MenuController {
                 ));
             }
         } catch (SQLException e) {
-            System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
+            System.err.println("ใช้ SQL ไม่ได้");
         }
 
         productListView.getItems().addAll(productList.getProducts());

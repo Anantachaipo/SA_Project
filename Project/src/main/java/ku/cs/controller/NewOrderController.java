@@ -98,7 +98,6 @@ public class NewOrderController {
         int bid = Integer.parseInt(bidTextField.getText());
         String detail = detailTextArea.getText();
 
-        // TODO: เช็ค product qty ว่าถูกต้อง
         // check for invalid input
         Product checkProduct = productList.getProductByName(product);
         if (checkProduct == null) {
@@ -107,8 +106,8 @@ public class NewOrderController {
             return;
         }
 
-        validBid = bid > 0 && bid > checkProduct.getQty() * checkProduct.getPPU();
-        validQty = qty > 0 && qty < checkProduct.getQty();
+        validBid = bid > 0 && bid >= checkProduct.getQty() * checkProduct.getPPU();
+        validQty = qty > 0 && qty <= checkProduct.getQty();
 
         if (!validBid) {
             bidTag.setText(TAG);
@@ -123,8 +122,8 @@ public class NewOrderController {
         }
 
         try {
-            String sqlText = "insert into order (C_ID, P_ID, qty, bid, detail, status) " +
-                    "values (?,?,?,?,?,?)";
+            String sqlText = "INSERT INTO `order`(C_ID, P_ID, qty, bid, detail, status) " +
+                    "VALUES (?,?,?,?,?,?);";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setInt(1, user.getId());
             pst.setInt(2, checkProduct.getPid());

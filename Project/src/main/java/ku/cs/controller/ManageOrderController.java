@@ -12,6 +12,12 @@ import ku.cs.model.Order;
 import ku.cs.model.OrderList;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import static ku.cs.controller.LoginController.connection;
+import static ku.cs.controller.LoginController.user;
 
 public class ManageOrderController {
 
@@ -53,7 +59,8 @@ public class ManageOrderController {
         detailLabel.setText(this.order.getDetail());
         if (!this.order.getStatus().equals("A"))
             reserveButton.setDisable(true);
-        reserveButton.setDisable(false);
+        else
+            reserveButton.setDisable(false);
     }
     private void clearSelectedOrder() {
         oidLabel.setText("-");
@@ -64,7 +71,30 @@ public class ManageOrderController {
     }
     private void showOrderList() {
         OrderList orderList = new OrderList();
-        // TODO: ใช้ DB เอาข้อมูล orderList
+        try {
+            String sqlText = "select * from `order` where `C_ID` = ?";
+            PreparedStatement pst = connection.prepareStatement(sqlText);
+            pst.setInt(1, user.getId());
+            ResultSet result = pst.executeQuery();
+            while (result.next()) {
+                orderList.addOrder(new Order(
+                        result.getInt(1),
+                        result.getInt(2),
+                        result.getInt(3),
+                        result.getInt(4),
+                        result.getInt(5),
+                        result.getString(6),
+                        result.getString(7),
+                        result.getString(8)
+                ));
+            }
+
+            result.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.err.println("ใช้ SQL ไม่ได้");
+            e.printStackTrace();
+        }
 
         orderListView.getItems().addAll(orderList.getOrders());
     }
