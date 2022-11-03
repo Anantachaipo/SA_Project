@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controller.ManageManagerOrderController">
+   <children>
+      <Pane prefHeight="69.0" prefWidth="800.0" style="-fx-background-color: #343434;">
+         <children>
+            <Button alignment="CENTER" layoutX="725.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Back" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.20000000298023224" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+         </children>
+      </Pane>
+      <ListView fx:id="orderListListView" layoutX="52.0" layoutY="153.0" prefHeight="413.0" prefWidth="221.0" />
+      <Label layoutX="98.0" layoutY="98.0" text="List of Orders">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Line endX="-5.0" endY="430.0" layoutX="311.0" layoutY="135.0" startX="-5.0" startY="18.0" />
+      <Button fx:id="acButton" alignment="CENTER" layoutX="469.0" layoutY="527.0" mnemonicParsing="false" onAction="#handleAcceptButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Accept" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.20000000298023224" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <Button fx:id="rejectButton" alignment="CENTER" layoutX="563.0" layoutY="527.0" mnemonicParsing="false" onAction="#handleRejectButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Reject" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.20000000298023224" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <Label layoutX="525.0" layoutY="98.0" text="Detail">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Pane layoutX="340.0" layoutY="153.0" prefHeight="346.0" prefWidth="425.0" style="-fx-background-color: #dddddd;">
+         <children>
+            <Label layoutX="12.0" layoutY="49.0" prefHeight="32.0" prefWidth="102.0" text="Order ID : ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="81.0" prefHeight="32.0" prefWidth="102.0" text="Quantity : ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="145.0" prefHeight="32.0" prefWidth="102.0" text="Status :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="113.0" prefHeight="32.0" prefWidth="102.0" text="Bid :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="oidLabel" layoutX="109.0" layoutY="49.0" prefHeight="32.0" prefWidth="298.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="qtyLabel" layoutX="109.0" layoutY="81.0" prefHeight="32.0" prefWidth="304.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="statusLabel" layoutX="109.0" layoutY="145.0" prefHeight="32.0" prefWidth="304.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="detailLabel" layoutX="109.0" layoutY="177.0" prefHeight="148.0" prefWidth="304.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="177.0" prefHeight="32.0" prefWidth="102.0" text="Detail :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="bidLabel" layoutX="109.0" layoutY="113.0" prefHeight="32.0" prefWidth="304.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="17.0" prefHeight="32.0" prefWidth="102.0" text="Customer ID:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Hyperlink fx:id="cidHyperlink" layoutX="109.0" layoutY="17.0" onAction="#handleCIDHyperlink" prefHeight="23.0" prefWidth="304.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Hyperlink>
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.15000000596046448" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+   </children>
+</AnchorPane>

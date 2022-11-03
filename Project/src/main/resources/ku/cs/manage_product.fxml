@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controller.ManageProductController">
+   <children>
+      <Pane prefHeight="69.0" prefWidth="800.0" style="-fx-background-color: #343434;">
+         <children>
+            <Button alignment="CENTER" layoutX="725.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Back" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.20000000298023224" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button alignment="CENTER" layoutX="580.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleNewProductButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="New Product" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.20000000298023224" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+         </children>
+      </Pane>
+      <Label layoutX="83.0" layoutY="99.0" text="Available Product">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <ListView fx:id="productListView" layoutX="56.0" layoutY="153.0" prefHeight="413.0" prefWidth="224.0" />
+      <Line endX="-5.0" endY="430.0" layoutX="332.0" layoutY="135.0" startX="-5.0" startY="18.0" />
+      <Pane layoutX="372.0" layoutY="153.0" prefHeight="413.0" prefWidth="393.0" style="-fx-background-color: #dddddd;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="32.0" prefWidth="91.0" text="Product ID : ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="68.0" prefHeight="32.0" prefWidth="78.0" text="Name :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="124.0" prefHeight="32.0" prefWidth="78.0" text="Quantity :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="182.0" prefHeight="32.0" prefWidth="78.0" text="PPU :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="addButton" alignment="CENTER" layoutX="309.0" layoutY="269.0" mnemonicParsing="false" onAction="#handleAddButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Add" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.20000000298023224" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <TextField fx:id="addTextField" layoutX="30.0" layoutY="269.0" promptText="add product to stock" style="-fx-background-radius: 20;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="ppuTextField" layoutX="30.0" layoutY="324.0" promptText="change price per unit" style="-fx-background-radius: 20;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Button fx:id="changePPUButton" alignment="CENTER" layoutX="254.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleChangePPUButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Change PPU" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.20000000298023224" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Label fx:id="pidLabel" layoutX="105.0" layoutY="18.0" prefHeight="25.0" prefWidth="266.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel" layoutX="105.0" layoutY="72.0" prefHeight="25.0" prefWidth="266.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="qtyLabel" layoutX="105.0" layoutY="128.0" prefHeight="25.0" prefWidth="266.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ppuLabel" layoutX="105.0" layoutY="186.0" prefHeight="25.0" prefWidth="266.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="detailMessageLabel" layoutX="33.0" layoutY="374.0" prefHeight="25.0" prefWidth="328.0" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.15000000596046448" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+      <Label layoutX="499.0" layoutY="99.0" text="Product Detail">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
