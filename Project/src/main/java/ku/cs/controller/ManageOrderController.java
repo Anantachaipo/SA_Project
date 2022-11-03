@@ -75,7 +75,7 @@ public class ManageOrderController {
             case "P" -> "Pending";
             case "R" -> "Rejected";
             case "W" -> "Waiting";
-            case "D" -> "Success";
+            case "S" -> "Success";
             case "F" -> "Fail";
             default -> "-";
         };

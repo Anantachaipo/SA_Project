@@ -48,8 +48,6 @@ public class LoginController {
 
             String sqlText = "select * FROM customer WHERE C_Username = ? AND C_Password = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
-
-            // TODO: เช็คการทำงาน mysql กับ query ให้ตรง
             pst.setString(1, username);
             pst.setString(2, password);
             ResultSet result = pst.executeQuery();
