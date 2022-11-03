@@ -57,6 +57,10 @@ public class Order {
         this.time = time;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Order ID[" + oid + "]" +

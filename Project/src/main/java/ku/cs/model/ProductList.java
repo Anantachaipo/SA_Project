@@ -20,6 +20,7 @@ public class ProductList {
 
     public Product getProductByName(String name) {
         for (Product product : products) {
+            System.out.println("Checking product : " + product.getName() + " |with| " + name);
             if (product.getName().equals(name)) {
                 return product;
             }
