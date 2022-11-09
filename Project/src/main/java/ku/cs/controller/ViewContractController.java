@@ -7,7 +7,6 @@ import ku.cs.Router;
 import ku.cs.model.Contract;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,8 +26,10 @@ public class ViewContractController {
     @FXML private void initialize() {
         nameLabel.setText(user.getName());
         try {
-            String sqlText = "select * from `contract` where `C_ID` = " + user.getId();
+            String sqlText = "SELECT * FROM `contract` WHERE `C_ID` = ? AND  `Con_Status` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
+            pst.setInt(1, user.getId());
+            pst.setString(2, "V");
             ResultSet result = pst.executeQuery();
             if (result.next()) {
                 contract = new Contract(
@@ -61,16 +62,9 @@ public class ViewContractController {
         conIdLabel.setText(String.valueOf(contract.getCon_Id()));
         conLenLabel.setText(String.valueOf(contract.getCon_Length()));
         conDepositLabel.setText(String.valueOf(contract.getCon_Deposit()));
-        conStatusLabel.setText(showStatus(contract.getCon_Status()));
+        conStatusLabel.setText(Contract.showStatus(contract.getCon_Status()));
     }
 
-    private String showStatus(String status) {
-        return switch (status) {
-            case "V" -> "Valid";
-            case "T" -> "Terminated";
-            default -> "-";
-        };
-    }
     @FXML private void ManageLogoutButton(ActionEvent event) {
         try {
             Router.goTo("login");

@@ -48,10 +48,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "pid[" + pid + "] " +
-                name +
-                "(" + type + ")" +
-                " QTY : " + qty +
-                " PPU : " + PPU;
+        return name + " - QTY: " + qty + " PPU: " + PPU;
     }
 }

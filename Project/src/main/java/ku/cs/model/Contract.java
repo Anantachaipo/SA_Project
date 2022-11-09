@@ -37,4 +37,16 @@ public class Contract {
     public int getC_Id() {
         return c_Id;
     }
+
+    public static String showStatus(String status) {
+        return switch (status) {
+            case "V" -> "Valid";
+            case "T" -> "Terminated";
+            default -> "-";
+        };
+    }
+    @Override
+    public String toString() {
+        return "Contract ID: " + con_Id + " - Status: " + showStatus(con_Status);
+    }
 }

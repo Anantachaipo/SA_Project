@@ -11,7 +11,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controller.ManageProductController">
    <children>
       <Pane prefHeight="69.0" prefWidth="800.0" style="-fx-background-color: #343434;">
@@ -56,12 +55,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="68.0" prefHeight="32.0" prefWidth="78.0" text="Name :">
+            <Label layoutX="14.0" layoutY="56.0" prefHeight="32.0" prefWidth="78.0" text="Name :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="124.0" prefHeight="32.0" prefWidth="78.0" text="Quantity :">
+            <Label layoutX="14.0" layoutY="141.0" prefHeight="32.0" prefWidth="78.0" text="Quantity :">
                <font>
                   <Font size="16.0" />
                </font>
@@ -110,12 +109,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="nameLabel" layoutX="105.0" layoutY="72.0" prefHeight="25.0" prefWidth="266.0">
+            <Label fx:id="nameLabel" layoutX="105.0" layoutY="60.0" prefHeight="25.0" prefWidth="266.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="qtyLabel" layoutX="105.0" layoutY="128.0" prefHeight="25.0" prefWidth="266.0">
+            <Label fx:id="qtyLabel" layoutX="105.0" layoutY="145.0" prefHeight="25.0" prefWidth="266.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -126,6 +125,16 @@
                </font>
             </Label>
             <Label fx:id="detailMessageLabel" layoutX="33.0" layoutY="374.0" prefHeight="25.0" prefWidth="328.0" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="97.0" prefHeight="32.0" prefWidth="78.0" text="Type :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="typeLabel" layoutX="105.0" layoutY="101.0" prefHeight="25.0" prefWidth="266.0">
                <font>
                   <Font size="16.0" />
                </font>

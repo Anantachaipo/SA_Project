@@ -53,7 +53,7 @@ public class ContractHistoryController {
         cIdLabel.setText(String.valueOf(contract.getC_Id()));
         conLenLabel.setText(String.valueOf(contract.getCon_Length()));
         depositLabel.setText(String.valueOf(contract.getCon_Deposit()));
-        statusLabel.setText(showStatus(contract.getCon_Status()));
+        statusLabel.setText(Contract.showStatus(contract.getCon_Status()));
     }
 
     private void clearSelectedContract() {
@@ -89,13 +89,6 @@ public class ContractHistoryController {
         contractListView.getItems().addAll(contractList.getContracts());
     }
 
-    private String showStatus(String status) {
-        return switch (status) {
-            case "V" -> "Accepted";
-            case "T" -> "Pending";
-            default -> "-";
-        };
-    }
 
     @FXML private void handleBackButton(ActionEvent event) {
         try {

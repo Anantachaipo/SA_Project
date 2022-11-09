@@ -93,7 +93,7 @@ public class ManageManagerOrderController {
         oidLabel.setText(String.valueOf(order.getOid()));
         qtyLabel.setText(String.valueOf(order.getQty()));
         bidLabel.setText(String.valueOf(order.getBid()));
-        statusLabel.setText(showStatus(order.getStatus()));
+        statusLabel.setText(Order.showStatus(order.getStatus()));
         detailLabel.setText(order.getDetail());
 
         if (order.getStatus().equals("P")) {
@@ -120,18 +120,6 @@ public class ManageManagerOrderController {
     private void enableButton() {
         acButton.setDisable(false);
         rejectButton.setDisable(false);
-    }
-
-    private String showStatus(String status) {
-        return switch (status) {
-            case "A" -> "Accepted";
-            case "P" -> "Pending";
-            case "R" -> "Rejected";
-            case "W" -> "Waiting";
-            case "S" -> "Success";
-            case "F" -> "Fail";
-            default -> "-";
-        };
     }
 
     @FXML private void handleCIDHyperlink(ActionEvent event) {

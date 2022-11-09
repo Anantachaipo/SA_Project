@@ -1,11 +1,14 @@
 package ku.cs.controller;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.InputMethodEvent;
 import ku.cs.Router;
 import ku.cs.model.Product;
 import ku.cs.model.ProductList;
@@ -21,22 +24,56 @@ import static ku.cs.controller.LoginController.user;
 public class NewOrderController {
 
     private static final String TAG = "*";
+    // customer name
+    @FXML private Label productNameLabel;
+    // Product info
+    @FXML private Label nameLabel;
+    @FXML private Label availableQtyLabel;
+    @FXML private Label ppuLabel;
+    // Customer inputs
     @FXML private TextField bidTextField;
-    @FXML private TextField productTextField;
     @FXML private TextField qtyTextField;
     @FXML private TextArea detailTextArea;
-    @FXML private Label nameLabel;
-    @FXML private Label placeOrderMessageLabel;
-    @FXML private Label productTag;
+    // Tags and Message
     @FXML private Label qtyTag;
     @FXML private Label bidTag;
     @FXML private Label detailTag;
+    @FXML private Label placeOrderMessageLabel;
+    // List of products
     @FXML private ListView<Product> productListView;
 
-    ProductList productList;
+    private ProductList productList;
+    private Product product;
     @FXML private void initialize() {
         nameLabel.setText(LoginController.user.getName());
         showProductList();
+        clearSelectedProduct();
+        handleSelectedListView();
+    }
+
+    private void handleSelectedListView() {
+        productListView.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<Product>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Product> observable, Product oldValue, Product newValue) {
+                        System.out.println(newValue + " is selected");
+                        showSelectedProduct(newValue);
+                    }
+                }
+        );
+    }
+
+    private void showSelectedProduct(Product product) {
+        this.product = product;
+        productNameLabel.setText(this.product.getName());
+        availableQtyLabel.setText(String.valueOf(this.product.getQty()));
+        ppuLabel.setText(String.valueOf(this.product.getPPU()));
+    }
+
+    private void clearSelectedProduct() {
+        productNameLabel.setText("-");
+        availableQtyLabel.setText("-");
+        ppuLabel.setText("-");
     }
 
     private void showProductList() {
@@ -68,14 +105,10 @@ public class NewOrderController {
         resetTagAndMessage();
 
         boolean validInput = true;
-        boolean validBid = false;
-        boolean validQty = false;
+        boolean validBid;
+        boolean validQty;
 
         // check for empty input
-        if (productTextField.getText().isBlank()) {
-            validInput = false;
-            productTag.setText(TAG);
-        }
         if (qtyTextField.getText().isBlank()) {
             validInput = false;
             qtyTag.setText(TAG);
@@ -93,31 +126,23 @@ public class NewOrderController {
             return;
         }
 
-        String product = productTextField.getText();
         int qty = Integer.parseInt(qtyTextField.getText());
         int bid = Integer.parseInt(bidTextField.getText());
         String detail = detailTextArea.getText();
 
         // check for invalid input
-        Product checkProduct = productList.getProductByName(product);
-        if (checkProduct == null) {
-            productTag.setText(TAG);
-            placeOrderMessageLabel.setText("Invalid order");
-            return;
-        }
 
-        validBid = bid > 0 && bid >= checkProduct.getQty() * checkProduct.getPPU();
-        validQty = qty > 0 && qty <= checkProduct.getQty();
-
-        if (!validBid) {
-            bidTag.setText(TAG);
-            placeOrderMessageLabel.setText("Invalid bid");
-            return;
-        }
+        validBid = bid > 0 && bid >= this.product.getQty() * this.product.getPPU();
+        validQty = qty > 0 && qty <= this.product.getQty();
 
         if (!validQty) {
             qtyTag.setText(TAG);
             placeOrderMessageLabel.setText("Invalid quantity");
+            return;
+        }
+        if (!validBid) {
+            bidTag.setText(TAG);
+            placeOrderMessageLabel.setText("Invalid bid");
             return;
         }
 
@@ -126,7 +151,7 @@ public class NewOrderController {
                     "VALUES (?,?,?,?,?,?);";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setInt(1, user.getId());
-            pst.setInt(2, checkProduct.getPid());
+            pst.setInt(2, this.product.getPid());
             pst.setInt(3, qty);
             pst.setInt(4, bid);
             pst.setString(5, detail);
@@ -150,7 +175,6 @@ public class NewOrderController {
         bidTag.setText("");
         detailTag.setText("");
         qtyTag.setText("");
-        productTag.setText("");
         placeOrderMessageLabel.setText("");
     }
 

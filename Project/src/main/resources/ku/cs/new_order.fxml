@@ -72,12 +72,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="8.0" layoutY="46.0" prefHeight="32.0" prefWidth="78.0" text="Quantity : ">
+            <Label layoutX="8.0" layoutY="46.0" prefHeight="32.0" prefWidth="78.0" text="Available :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="8.0" layoutY="78.0" prefHeight="32.0" prefWidth="78.0" text="Bid :">
+            <Label layoutX="265.0" layoutY="79.0" prefHeight="32.0" prefWidth="46.0" text="Bid :">
                <font>
                   <Font size="16.0" />
                </font>
@@ -87,14 +87,37 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="productTextField" layoutX="86.0" layoutY="18.0" prefHeight="25.0" prefWidth="336.0" style="-fx-background-radius: 10;" />
-            <TextField fx:id="qtyTextField" layoutX="86.0" layoutY="50.0" prefHeight="25.0" prefWidth="336.0" style="-fx-background-radius: 10;" />
-            <TextField fx:id="bidTextField" layoutX="86.0" layoutY="82.0" prefHeight="25.0" prefWidth="336.0" style="-fx-background-radius: 10;" />
+            <TextField fx:id="qtyTextField" layoutX="86.0" layoutY="83.0" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 10;" />
+            <TextField fx:id="bidTextField" layoutX="311.0" layoutY="82.0" prefHeight="25.0" prefWidth="111.0" style="-fx-background-radius: 10;" />
             <TextArea fx:id="detailTextArea" layoutX="86.0" layoutY="118.0" prefHeight="186.0" prefWidth="336.0" style="-fx-background-radius: 10 10 0 0; -fx-border-radius: 10 10 0 0; -fx-border-color: transparent;" />
-            <Label fx:id="productTag" layoutX="430.0" layoutY="22.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
-            <Label fx:id="qtyTag" layoutX="430.0" layoutY="54.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
+            <Label fx:id="qtyTag" layoutX="184.0" layoutY="88.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
             <Label fx:id="bidTag" layoutX="430.0" layoutY="86.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
             <Label fx:id="detailTag" layoutX="430.0" layoutY="118.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
+            <Label layoutX="8.0" layoutY="79.0" prefHeight="32.0" prefWidth="78.0" text="Quantity :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="265.0" layoutY="47.0" prefHeight="32.0" prefWidth="46.0" text="PPU :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="productNameLabel" layoutX="86.0" layoutY="15.0" prefHeight="32.0" prefWidth="336.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="availableQtyLabel" layoutX="86.0" layoutY="46.0" prefHeight="32.0" prefWidth="126.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ppuLabel" layoutX="311.0" layoutY="46.0" prefHeight="32.0" prefWidth="111.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
          </children>
          <effect>
             <DropShadow>

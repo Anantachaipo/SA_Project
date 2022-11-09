@@ -10,6 +10,7 @@ import javafx.scene.control.ListView;
 import ku.cs.Router;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
+import ku.cs.model.Product;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -31,8 +32,7 @@ public class ManageOrderController {
     @FXML private ListView<Order> orderListView;
 
     private static Order order;
-    @FXML
-    private void initialize() {
+    @FXML private void initialize() {
         nameLabel.setText(LoginController.user.getName());
         reserveButton.setDisable(true);
         showOrderList();
@@ -55,7 +55,7 @@ public class ManageOrderController {
         oidLabel.setText(String.valueOf(this.order.getOid()));
         qtyLabel.setText(String.valueOf(this.order.getQty()));
         bidLabel.setText(String.valueOf(this.order.getBid()));
-        statusLabel.setText(showStatus(this.order.getStatus()));
+        statusLabel.setText(Order.showStatus(this.order.getStatus()));
         detailLabel.setText(this.order.getDetail());
         if (!this.order.getStatus().equals("A"))
             reserveButton.setDisable(true);
@@ -97,18 +97,6 @@ public class ManageOrderController {
         }
 
         orderListView.getItems().addAll(orderList.getOrders());
-    }
-
-    private String showStatus(String status) {
-        return switch (status) {
-            case "A" -> "Accepted";
-            case "P" -> "Pending";
-            case "R" -> "Rejected";
-            case "W" -> "Waiting";
-            case "S" -> "Success";
-            case "F" -> "Fail";
-            default -> "-";
-        };
     }
 
     @FXML private void ManageLogoutButton(ActionEvent event) {

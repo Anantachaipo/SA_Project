@@ -23,15 +23,20 @@ import static ku.cs.controller.LoginController.connection;
 
 public class ManageProductController {
 
+    // Labels
     @FXML private Label detailMessageLabel;
     @FXML private Label nameLabel;
+    @FXML private Label typeLabel;
     @FXML private Label pidLabel;
     @FXML private Label ppuLabel;
     @FXML private Label qtyLabel;
+    // Textfields
     @FXML private TextField addTextField;
     @FXML private TextField ppuTextField;
+    // Buttons
     @FXML private Button addButton;
     @FXML private Button changePPUButton;
+    // List of products
     @FXML private ListView<Product> productListView;
 
     private Product product;
@@ -89,6 +94,7 @@ public class ManageProductController {
         this.product = product;
         pidLabel.setText(String.valueOf(product.getPid()));
         nameLabel.setText(product.getName());
+        typeLabel.setText(product.getType());
         qtyLabel.setText(String.valueOf(product.getQty()));
         ppuLabel.setText(String.valueOf(product.getPPU()));
         addButton.setDisable(false);
@@ -99,6 +105,7 @@ public class ManageProductController {
         this.product = null;
         pidLabel.setText("");
         nameLabel.setText("");
+        typeLabel.setText("");
         qtyLabel.setText("");
         ppuLabel.setText("");
         addButton.setDisable(true);
@@ -118,14 +125,15 @@ public class ManageProductController {
         detailMessageLabel.setText("");
 
         String addQty = addTextField.getText();
-        if (addQty.equals("")) {
+
+        // Invalid input
+        if (addQty.equals("") || Integer.parseInt(addQty) < 1) {
             detailMessageLabel.setText("Invalid Quantity");
             return;
         }
         try {
             int intAddQty = Integer.parseInt(addQty);
             product.addQty(intAddQty);
-            // TODO: ทำให้เขียนลงบน DB
 
             String sqlText = "update product set P_Qty = ? where P_ID = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
@@ -137,6 +145,7 @@ public class ManageProductController {
 
             addTextField.setText("");
             addTextField.setPromptText("add product to stock");
+            productListView.refresh();
             showSelectedProduct(product);
         } catch (IllegalArgumentException e) {
             detailMessageLabel.setText("Invalid Quantity");
@@ -151,7 +160,7 @@ public class ManageProductController {
         detailMessageLabel.setText("");
 
         String newPPU = ppuTextField.getText();
-        if (newPPU.equals("")) {
+        if (newPPU.equals("") || Integer.parseInt(newPPU) < 1) {
             detailMessageLabel.setText("Invalid Price Per Unit");
             return;
         }
@@ -169,6 +178,7 @@ public class ManageProductController {
 
             ppuTextField.setText("");
             ppuTextField.setPromptText("change price per unit");
+            productListView.refresh();
             showSelectedProduct(product);
         } catch (IllegalArgumentException e) {
             detailMessageLabel.setText("Invalid Price Per Unit");

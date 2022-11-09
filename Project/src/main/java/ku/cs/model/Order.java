@@ -61,9 +61,21 @@ public class Order {
         this.status = status;
     }
 
+    public static String showStatus(String status) {
+        return switch (status) {
+            case "P" -> "Pending";
+            case "A" -> "Accepted";
+            case "R" -> "Rejected";
+            case "W" -> "Waiting";
+            case "S" -> "Success";
+            case "F" -> "Fail";
+            default -> "-";
+        };
+    }
+
     @Override
     public String toString() {
         return "Order ID[" + oid + "]" +
-                " Status : " + status;
+                " Status : " + showStatus(status);
     }
 }

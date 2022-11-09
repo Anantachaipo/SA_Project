@@ -120,7 +120,7 @@ public class ManageContractController {
     }
     @FXML private void handleTerminateContractButton(ActionEvent event) {
         try {
-            String sqlText = "update `contract` set `Con_Status` = " + "'V'" +
+            String sqlText = "update `contract` set `Con_Status` = " + "'T'" +
                     " where `Con_Status` = " + "'V'";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.executeUpdate();

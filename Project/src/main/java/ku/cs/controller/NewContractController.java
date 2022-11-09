@@ -77,8 +77,8 @@ public class NewContractController {
             return;
         }
         try {
-            String sqlText = "insert into 'contract' ('Con_length', 'Con_Disposit', 'Con_Status', 'C_ID') " +
-                    "values (?,?,?,?)";
+            String sqlText = "INSERT INTO `contract` (`Con_length`, `Con_Disposit`, `Con_Status`, `C_ID`) " +
+                    "VALUES (?,?,?,?)";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setInt(1, len);
             pst.setInt(2, depos);
