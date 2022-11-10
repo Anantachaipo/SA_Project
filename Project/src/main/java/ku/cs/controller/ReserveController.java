@@ -3,6 +3,7 @@ package ku.cs.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import ku.cs.Router;
 import ku.cs.model.OrderList;
@@ -19,6 +20,8 @@ public class ReserveController {
     @FXML private Label olidLabel;
     @FXML private Label numProductLabel;
     @FXML private Label totalBidLabel;
+
+    @FXML private CheckBox conCheckbox;
     @FXML private Button placeReserveButton;
 
     private OrderList orderList = ManageOrderController.getOrderList();
@@ -27,23 +30,7 @@ public class ReserveController {
         olidLabel.setText(String.valueOf(orderList.getOL_ID()));
         numProductLabel.setText(String.valueOf(orderList.getNumOrder()));
         totalBidLabel.setText(String.valueOf(orderList.getTotalBid()));
-    }
-    @FXML void ManageLogoutButton(ActionEvent event) {
-        try {
-            Router.goTo("login");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า login จาก menu ไม่ได้");
-            e.printStackTrace();
-        }
-    }
-
-    @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("manage_order");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า manage_order จาก reserve ไม่ได้");
-            e.printStackTrace();
-        }
+        placeReserveButton.setDisable(true);
     }
 
     @FXML private void handlePlaceReserveButton(ActionEvent event) {
@@ -66,4 +53,28 @@ public class ReserveController {
         }
     }
 
+    @FXML private void handleConCheckbox(ActionEvent event) {
+        if (conCheckbox.isSelected())
+            placeReserveButton.setDisable(false);
+        else
+            placeReserveButton.setDisable(true);
+    }
+
+    @FXML private void ManageLogoutButton(ActionEvent event) {
+        try {
+            Router.goTo("login");
+        } catch (IOException e) {
+            System.err.println("ไปหน้า login จาก menu ไม่ได้");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML private void handleBackButton(ActionEvent event) {
+        try {
+            Router.goTo("manage_order");
+        } catch (IOException e) {
+            System.err.println("ไปหน้า manage_order จาก reserve ไม่ได้");
+            e.printStackTrace();
+        }
+    }
 }

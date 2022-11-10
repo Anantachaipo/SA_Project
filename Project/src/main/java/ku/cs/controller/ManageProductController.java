@@ -127,10 +127,16 @@ public class ManageProductController {
         String addQty = addTextField.getText();
 
         // Invalid input
-        if (addQty.equals("") || Integer.parseInt(addQty) < 1) {
+        try {
+            if (addQty.equals("") || Integer.parseInt(addQty) < 1) {
+                detailMessageLabel.setText("Invalid Quantity");
+                return;
+            }
+        } catch (IllegalArgumentException e) {
             detailMessageLabel.setText("Invalid Quantity");
             return;
         }
+
         try {
             int intAddQty = Integer.parseInt(addQty);
             product.addQty(intAddQty);
@@ -160,10 +166,16 @@ public class ManageProductController {
         detailMessageLabel.setText("");
 
         String newPPU = ppuTextField.getText();
-        if (newPPU.equals("") || Integer.parseInt(newPPU) < 1) {
+        try {
+            if (newPPU.equals("") || Integer.parseInt(newPPU) < 1) {
+                detailMessageLabel.setText("Invalid Price Per Unit");
+                return;
+            }
+        } catch (IllegalArgumentException e) {
             detailMessageLabel.setText("Invalid Price Per Unit");
             return;
         }
+
         try {
             int intNewPPU = Integer.parseInt(newPPU);
             product.setPPU(intNewPPU);

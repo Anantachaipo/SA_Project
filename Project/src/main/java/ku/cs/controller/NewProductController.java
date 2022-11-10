@@ -53,7 +53,7 @@ public class NewProductController {
         }
 
         if (!validInput) {
-            newProductMessageLabel.setText("Invalid New Product");
+            newProductMessageLabel.setText("Input cannot be blank");
             return;
         }
 

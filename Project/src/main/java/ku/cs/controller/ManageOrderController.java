@@ -56,6 +56,8 @@ public class ManageOrderController {
 
     private void showOrder() {
         try {
+            orderList.clearOrder();
+            orderListView.getItems().clear();
             // Read Order
             String sqlText = "SELECT `P_ID`, `qty`, `bid`, `detail` FROM `order` " +
                     "WHERE `OL_ID` = ?";
@@ -139,6 +141,8 @@ public class ManageOrderController {
                         showSelectedOrderList(newValue);
                         clearSelectedOrder();
                         showOrder();
+                        numProductLabel.setText(String.valueOf(orderList.getNumOrder()));
+                        totalBidLabel.setText(String.valueOf(orderList.getTotalBid()));
                     }
                 }
         );
@@ -147,8 +151,6 @@ public class ManageOrderController {
     private void showSelectedOrderList(OrderList orderList) {
         this.orderList = orderList;
         olidLabel.setText(String.valueOf(orderList.getOL_ID()));
-        numProductLabel.setText(String.valueOf(orderList.getNumOrder()));
-        totalBidLabel.setText(String.valueOf(orderList.getTotalBid()));
         statusLabel.setText(OrderList.showStatus(orderList.getStatus()));
         if (!orderList.getStatus().equals("A"))
             reserveButton.setDisable(true);

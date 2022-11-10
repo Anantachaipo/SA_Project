@@ -52,11 +52,11 @@ public class ManageManagerOrderController {
 
     @FXML private void initialize() {
         checkActiveContract();
+        clearSelectedOrderList();
+        clearSelectedOrder();
         mapIDtoProductName();
         disableButtons();
         showOrderList();
-        clearSelectedOrderList();
-        clearSelectedOrder();
         handleSelectedOrderListListView();
         handleSelectedOrderListView();
     }
@@ -64,6 +64,7 @@ public class ManageManagerOrderController {
     private void showOrder(OrderList orderList) {
         try {
             orderList.clearOrder();
+            orderListView.getItems().clear();
             // Read Order
             String sqlText = "SELECT `P_ID`, `qty`, `bid`, `detail` FROM `order` " +
                     "WHERE `OL_ID` = ?";
@@ -107,9 +108,10 @@ public class ManageManagerOrderController {
     }
 
     private void clearSelectedOrder() {
+        orderListView.getItems().clear();
+
         this.order = null;
 
-        orderListView.getItems().clear();
         productNameLabel.setText("");
         qtyLabel.setText("");
         bidLabel.setText("");
@@ -154,6 +156,8 @@ public class ManageManagerOrderController {
                         showOrder(newValue);
                         disableButtons();
                         showSelectedOrderList(newValue);
+                        numProductLabel.setText(String.valueOf(orderList.getNumOrder()));
+                        totalBidLabel.setText(String.valueOf(orderList.getTotalBid()));
                     }
                 });
 
@@ -167,8 +171,6 @@ public class ManageManagerOrderController {
         cidHyperlink.setText(String.valueOf(orderList.getC_ID()));
         cNameLabel.setText(custMap.get(orderList.getC_ID()));
         olidLabel.setText(String.valueOf(orderList.getOL_ID()));
-        numProductLabel.setText(String.valueOf(orderList.getNumOrder()));
-        totalBidLabel.setText(String.valueOf(orderList.getTotalBid()));
         statusLabel.setText(OrderList.showStatus(orderList.getStatus()));
 
         if (contract.getC_Id() == orderList.getC_ID())
@@ -177,6 +179,8 @@ public class ManageManagerOrderController {
     }
 
     private void clearSelectedOrderList() {
+        orderListListView.getItems().clear();
+
         this.orderList = null;
         this.order = null;
 

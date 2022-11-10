@@ -7,20 +7,16 @@ public class Order {
     private int qty;
     private int bid;
     private String detail;
-    private String time;
 
-    public Order(int O_ID, int OL_ID, int P_ID, int qty, int bid, String detail, String time) {
+
+    public Order(int O_ID, int OL_ID, int P_ID, int qty, int bid, String detail) {
         this.O_ID = O_ID;
         this.OL_ID = OL_ID;
         this.P_ID = P_ID;
         this.qty = qty;
         this.bid = bid;
         this.detail = detail;
-        this.time = time;
-    }
 
-    public Order(int O_ID, int OL_ID, int P_ID, int qty, int bid, String detail) {
-        this(O_ID, OL_ID, P_ID, qty, bid, detail, "-");
     }
 
     public Order(int P_ID, int qty, int bid, String detail) {
@@ -55,14 +51,6 @@ public class Order {
         return detail;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
     public void addBid(int bid) {
         this.bid += bid;
     }
@@ -75,7 +63,6 @@ public class Order {
         this.detail = detail;
     }
 
-    // TODO แก้ toString ให้แสดงผลถูกต้อง
     @Override
     public String toString() {
         return "Product ID[" + P_ID + "] " + "qty: " + qty + " bid: " + bid ;
