@@ -4,7 +4,6 @@ module appDBConnect {
     requires java.sql;
     requires mysql.connector.j;
 
-
     opens ku.cs to javafx.fxml;
     exports ku.cs to javafx.fxml, javafx.graphics;
 

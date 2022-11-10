@@ -7,14 +7,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+
 import ku.cs.Router;
-import ku.cs.model.Contract;
-import ku.cs.model.OrderList;
+import ku.cs.model.*;
+
 
 import java.io.IOException;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import static ku.cs.controller.LoginController.connection;
 
@@ -25,10 +28,14 @@ public class ReceiptController {
     @FXML private Button makeReceiptButton;
     @FXML private ListView<OrderList> orderListListView;
 
+    private HashMap<Integer, String> nameMap = new HashMap<>();
+    private HashMap<Integer, Integer> qtyMap = new HashMap<>();
+
     private Contract contract;
     private OrderList orderList;
 
     @FXML private void initialize() {
+        mapProdID();
         disableButton();
         getCurrentContract();
         showOrderList();
@@ -61,7 +68,7 @@ public class ReceiptController {
     private void showOrderList() {
         try {
             // Read OrderList
-            String sqlText = "SELECT `OL_ID`, `Status`, `Con_ID`  FROM `order_list` WHERE `Status` = ?";
+            String sqlText = "SELECT `OL_ID`, `C_ID`,`Status`, `Con_ID`  FROM `order_list` WHERE `Status` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setString(1, "W");
             ResultSet result = pst.executeQuery();
@@ -69,8 +76,9 @@ public class ReceiptController {
             while (result.next()) {
                 orderList = new OrderList(
                         result.getInt(1),
-                        result.getString(2),
-                        result.getInt(3)
+                        result.getInt(2),
+                        result.getString(3),
+                        result.getInt(4)
                 );
                 orderListListView.getItems().add(orderList);
             }
@@ -88,6 +96,7 @@ public class ReceiptController {
                     @Override
                     public void changed(ObservableValue<? extends OrderList> observable, OrderList oldValue, OrderList newValue) {
                         System.out.println(newValue + " is selected");
+                        orderList = newValue;
 
                         // order not in contract
                         if (contract.getCon_Id() != newValue.getCon_ID()) {
@@ -106,13 +115,90 @@ public class ReceiptController {
     }
 
     @FXML private void handleMakeReceiptButton(ActionEvent event) {
-        // TODO: code here
-
+        getOrderContent();
         try {
+            // Update Product
+            String sqlText = "UPDATE `product` SET `P_QTY` = ? where `P_ID` = ?";
+            PreparedStatement pst = connection.prepareStatement(sqlText);
+            for (Order order : orderList.getOrders()) {
+                int pid = order.getP_ID();
+                pst.setInt(1, qtyMap.get(pid) - order.getQty());
+                pst.setInt(2, pid);
+                pst.executeUpdate();
+            }
+
+            // Update status of order_list
+            String sqlText2 = "UPDATE `order_list` SET `Status` = ? WHERE `OL_ID` = ?";
+            pst = connection.prepareStatement(sqlText2);
+            pst.setString(1, "S");
+            pst.setInt(2, orderList.getOL_ID());
+            pst.executeUpdate();
+
+            // Add new receipt
+            String sqlText3 = "INSERT INTO `receipt`(`C_ID`, `OL_ID`) VALUES (?,?)";
+            pst = connection.prepareStatement(sqlText3);
+            pst.setInt(1, orderList.getC_ID());
+            pst.setInt(2, orderList.getOL_ID());
+            pst.executeUpdate();
+
+            pst.close();
+
             Router.goTo("menu_manager");
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("ไปหน้า menu_manager จาก receipt ไม่ได้");
+        } catch (SQLException e) {
+            System.err.println("ใช้ SQL ไม่ได้");
+            e.printStackTrace();
+        }
+    }
+
+    private void getOrderContent() {
+        try {
+            String sqlText = "SELECT `P_ID`, `qty`, `bid` FROM `order` " +
+                    "WHERE `OL_ID` = ?";
+            PreparedStatement pst = connection.prepareStatement(sqlText);
+            pst.setInt(1, orderList.getOL_ID());
+            ResultSet result = pst.executeQuery();
+
+            while (result.next()) {
+                Order order = new Order(result.getInt(1),
+                        result.getInt(2),
+                        result.getInt(3)
+                );
+                orderList.addOrder(order);
+
+            }
+
+            pst.close();
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("ใช้ SQL ไม่ได้");
+        }
+    }
+
+    private  void mapProdID() {
+        try {
+            String sqlText = "SELECT  `P_ID`, `P_Name`, `P_Qty` FROM `product`";
+            PreparedStatement pst = connection.prepareStatement(sqlText);
+            ResultSet result = pst.executeQuery();
+
+            while (result.next()) {
+                nameMap.put(
+                        result.getInt(1),
+                        result.getString(2)
+                );
+                qtyMap.put(
+                        result.getInt(1),
+                        result.getInt(3)
+                );
+            }
+            pst.close();
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("ใช้ sql ไม่ได้");
         }
     }
 
@@ -120,10 +206,19 @@ public class ReceiptController {
         // TODO: code here
 
         try {
+            String sqlText = "UPDATE `order_list` SET `Status` = ? WHERE `OL_ID` = ?";
+            PreparedStatement pst = connection.prepareStatement(sqlText);
+            pst.setString(1, "F");
+            pst.setInt(2, orderList.getOL_ID());
+            pst.executeUpdate();
+
+            pst.close();
             Router.goTo("menu_manager");
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("ไปหน้า menu_manager จาก receipt ไม่ได้");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
