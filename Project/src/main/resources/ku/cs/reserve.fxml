@@ -56,37 +56,27 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="11.0" layoutY="78.0" prefHeight="32.0" prefWidth="78.0" text="Quantity : ">
+            <Label layoutX="11.0" layoutY="78.0" prefHeight="32.0" prefWidth="78.0" text="Product :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="11.0" layoutY="110.0" prefHeight="32.0" prefWidth="78.0" text="Bid :">
+            <Label layoutX="11.0" layoutY="110.0" prefHeight="32.0" prefWidth="78.0" text="Total Bid :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="oidLabel" layoutX="92.0" layoutY="14.0" prefHeight="32.0" prefWidth="323.0">
+            <Label fx:id="olidLabel" layoutX="166.0" layoutY="14.0" prefHeight="32.0" prefWidth="249.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="qtyLabel" layoutX="91.0" layoutY="78.0" prefHeight="32.0" prefWidth="323.0">
+            <Label fx:id="productLabel" layoutX="91.0" layoutY="78.0" prefHeight="32.0" prefWidth="323.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="detailLabel" alignment="TOP_LEFT" layoutX="89.0" layoutY="142.0" prefHeight="178.0" prefWidth="323.0">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="11.0" layoutY="142.0" prefHeight="32.0" prefWidth="78.0" text="Detail :">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="bidLabel" layoutX="89.0" layoutY="110.0" prefHeight="32.0" prefWidth="323.0">
+            <Label fx:id="totalBidLabel" layoutX="90.0" layoutY="110.0" prefHeight="32.0" prefWidth="323.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -103,12 +93,12 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Label layoutX="11.0" layoutY="46.0" prefHeight="32.0" prefWidth="78.0" text="Product :">
+            <Label layoutX="11.0" layoutY="46.0" prefHeight="32.0" prefWidth="152.0" text="Number of Product :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="pidLabel" layoutX="92.0" layoutY="46.0" prefHeight="32.0" prefWidth="323.0">
+            <Label fx:id="numProductLabel" layoutX="166.0" layoutY="46.0" prefHeight="32.0" prefWidth="249.0">
                <font>
                   <Font size="16.0" />
                </font>

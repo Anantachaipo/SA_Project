@@ -4,8 +4,8 @@ public class Customer {
     private int id;
     private String name;
     private String username;
-    private String tel;
     private String password;
+    private String tel;
 
     public Customer(int id, String name, String username, String password, String tel) {
         this.id = id;
@@ -13,6 +13,17 @@ public class Customer {
         this.username = username;
         this.password = password;
         this.tel = tel;
+    }
+
+    public Customer(int id, String name, String username, String password) {
+        this(id, name, username, password, "-");
+    }
+
+    public Customer(int id, String name, String tel) {
+        this(id, name, "-", "-", tel);
+    }
+    public Customer(int id, String name) {
+        this(id, name, "-");
     }
 
     public int getId() {

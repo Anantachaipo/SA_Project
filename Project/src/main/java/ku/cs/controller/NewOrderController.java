@@ -4,12 +4,10 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.input.InputMethodEvent;
+import javafx.scene.control.*;
 import ku.cs.Router;
+import ku.cs.model.Order;
+import ku.cs.model.OrderList;
 import ku.cs.model.Product;
 import ku.cs.model.ProductList;
 
@@ -17,9 +15,6 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import static ku.cs.controller.LoginController.connection;
-import static ku.cs.controller.LoginController.user;
 
 public class NewOrderController {
 
@@ -38,14 +33,29 @@ public class NewOrderController {
     @FXML private Label qtyTag;
     @FXML private Label bidTag;
     @FXML private Label detailTag;
-    @FXML private Label placeOrderMessageLabel;
+    @FXML private Label addOrderMessageLabel;
+    // Buttons
+    @FXML private Button addOrderButton;
+    @FXML private Button checkoutButton;
+    @FXML private Button clearOrderButton;
     // List of products
     @FXML private ListView<Product> productListView;
 
-    private ProductList productList;
+    private ProductList productList = new ProductList();
     private Product product;
+    private static OrderList orderList = new OrderList();
+
     @FXML private void initialize() {
         nameLabel.setText(LoginController.user.getName());
+        addOrderButton.setDisable(true);
+        if (orderList.getNumOrder()<=0) {
+            checkoutButton.setDisable(true);
+            clearOrderButton.setDisable(true);
+        }
+        else {
+            checkoutButton.setDisable(false);
+            clearOrderButton.setDisable(false);
+        }
         showProductList();
         clearSelectedProduct();
         handleSelectedListView();
@@ -68,12 +78,15 @@ public class NewOrderController {
         productNameLabel.setText(this.product.getName());
         availableQtyLabel.setText(String.valueOf(this.product.getQty()));
         ppuLabel.setText(String.valueOf(this.product.getPPU()));
+        addOrderButton.setDisable(false);
     }
 
     private void clearSelectedProduct() {
+        this.product = null;
         productNameLabel.setText("-");
         availableQtyLabel.setText("-");
         ppuLabel.setText("-");
+        addOrderButton.setDisable(true);
     }
 
     private void showProductList() {
@@ -101,12 +114,26 @@ public class NewOrderController {
         productListView.getItems().addAll(productList.getProducts());
     }
 
-    @FXML void handlePlaceOrderButton(ActionEvent event) {
+    private void resetTagAndMessage() {
+        bidTag.setText("");
+        detailTag.setText("");
+        qtyTag.setText("");
+        addOrderMessageLabel.setText("");
+    }
+
+    private void clearText() {
+        detailTextArea.clear();
+        qtyTextField.clear();
+        bidTextField.clear();
+    }
+
+    public static OrderList getOrderList() {
+        return orderList;
+    }
+    @FXML private void handleAddOrderButton(ActionEvent event) {
         resetTagAndMessage();
 
-        boolean validInput = true;
-        boolean validBid;
-        boolean validQty;
+        boolean validBid, validQty, validInput = true;
 
         // check for empty input
         if (qtyTextField.getText().isBlank()) {
@@ -122,63 +149,83 @@ public class NewOrderController {
             detailTag.setText(TAG);
         }
         if (!validInput){
-            placeOrderMessageLabel.setText("Invalid order");
+            addOrderMessageLabel.setText("Invalid order");
             return;
         }
 
-        int qty = Integer.parseInt(qtyTextField.getText());
-        int bid = Integer.parseInt(bidTextField.getText());
+        // check illegal input
+        int bid = 0, qty = 0;
+        try {
+            qty = Integer.parseInt(qtyTextField.getText());
+            validQty = qty > 0 && qty <= this.product.getQty();
+        } catch (IllegalArgumentException e) {
+            validQty = false;
+            System.err.println("Illegal bid");
+        }
+        try {
+            bid = Integer.parseInt(bidTextField.getText());
+            int minimun = qty * this.product.getPPU();
+            validBid = bid > 0 && bid >= minimun;
+        } catch (IllegalArgumentException e) {
+            validBid = false;
+            System.err.println("Illegal bid");
+        }
+
         String detail = detailTextArea.getText();
 
         // check for invalid input
-
-        validBid = bid > 0 && bid >= this.product.getQty() * this.product.getPPU();
-        validQty = qty > 0 && qty <= this.product.getQty();
-
         if (!validQty) {
             qtyTag.setText(TAG);
-            placeOrderMessageLabel.setText("Invalid quantity");
+            addOrderMessageLabel.setText("Invalid quantity");
             return;
         }
         if (!validBid) {
             bidTag.setText(TAG);
-            placeOrderMessageLabel.setText("Invalid bid");
+            addOrderMessageLabel.setText("Invalid bid");
+            System.out.println("ASD");
             return;
         }
 
+        // check duplicate order
+        if (orderList.getOrderByID(product.getPid()) != null) {
+            // duplicated order found
+            orderList.getOrderByID(product.getPid()).addBid(bid);
+            orderList.getOrderByID(product.getPid()).addQty(qty);
+            orderList.getOrderByID(product.getPid()).changeDetail(detail);
+        } else {
+            Order order = new Order(product.getPid(), qty, bid, detail);
+            orderList.addOrder(order);
+        }
+
+        checkoutButton.setDisable(false);
+        clearOrderButton.setDisable(false);
+
+        clearSelectedProduct();
+        clearText();
+    }
+
+    @FXML private void handleCheckoutButton(ActionEvent event) {
+        // DEBUG
+        for (Order order : orderList.getOrders()) {
+            System.out.println(order.toString());
+        }
+
         try {
-            String sqlText = "INSERT INTO `order`(C_ID, P_ID, qty, bid, detail, status) " +
-                    "VALUES (?,?,?,?,?,?);";
-            PreparedStatement pst = connection.prepareStatement(sqlText);
-            pst.setInt(1, user.getId());
-            pst.setInt(2, this.product.getPid());
-            pst.setInt(3, qty);
-            pst.setInt(4, bid);
-            pst.setString(5, detail);
-            pst.setString(6, "P");
-            pst.executeUpdate();
-
-            pst.close();
-
-            Router.goTo("menu");
+            Router.goTo("new_order_checkout");
         } catch (IOException e) {
-            System.err.println("ไปหน้า menu จาก new_order ไม่ได้");
             e.printStackTrace();
-        } catch (SQLException e) {
-            System.err.println("ใช้ SQL ไม่ได้");
-            placeOrderMessageLabel.setText("Invalid Order");
-            e.printStackTrace();
+            System.err.println("ไปหน้า new_order_checkout จาก new_order ไม่ได้");
         }
     }
 
-    private void resetTagAndMessage() {
-        bidTag.setText("");
-        detailTag.setText("");
-        qtyTag.setText("");
-        placeOrderMessageLabel.setText("");
+    @FXML private void handleClearOrderButton(ActionEvent event) {
+        orderList.clearOrder();
+        checkoutButton.setDisable(true);
+        clearOrderButton.setDisable(true);
+        clearSelectedProduct();
+        clearText();
     }
-
-    @FXML void ManageLogoutButton(ActionEvent event) {
+    @FXML private void ManageLogoutButton(ActionEvent event) {
         try {
             Router.goTo("login");
         } catch (IOException e) {
@@ -187,7 +234,8 @@ public class NewOrderController {
         }
     }
 
-    @FXML void handleBackButton(ActionEvent event) {
+    @FXML private void handleBackButton(ActionEvent event) {
+        orderList.clearOrder();
         try {
             Router.goTo("manage_order");
         } catch (IOException e) {

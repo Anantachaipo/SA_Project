@@ -29,14 +29,13 @@
             </Button>
          </children>
       </Pane>
-      <ListView fx:id="orderListListView" layoutX="52.0" layoutY="153.0" prefHeight="413.0" prefWidth="221.0" />
-      <Label layoutX="98.0" layoutY="98.0" text="List of Orders">
+      <ListView fx:id="orderListListView" layoutX="52.0" layoutY="153.0" prefHeight="107.0" prefWidth="310.0" />
+      <Label layoutX="142.0" layoutY="98.0" text="List of Orders">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Line endX="-5.0" endY="430.0" layoutX="311.0" layoutY="135.0" startX="-5.0" startY="18.0" />
-      <Button fx:id="acButton" alignment="CENTER" layoutX="469.0" layoutY="527.0" mnemonicParsing="false" onAction="#handleAcceptButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Accept" textFill="WHITE">
+      <Button fx:id="acButton" alignment="CENTER" layoutX="115.0" layoutY="527.0" mnemonicParsing="false" onAction="#handleAcceptButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Accept" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -48,7 +47,7 @@
             </DropShadow>
          </effect>
       </Button>
-      <Button fx:id="rejectButton" alignment="CENTER" layoutX="563.0" layoutY="527.0" mnemonicParsing="false" onAction="#handleRejectButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Reject" textFill="WHITE">
+      <Button fx:id="rejectButton" alignment="CENTER" layoutX="219.0" layoutY="527.0" mnemonicParsing="false" onAction="#handleRejectButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Reject" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -60,73 +59,73 @@
             </DropShadow>
          </effect>
       </Button>
-      <Label layoutX="525.0" layoutY="98.0" text="Detail">
+      <Label layoutX="571.0" layoutY="98.0" text="Detail">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Pane layoutX="340.0" layoutY="153.0" prefHeight="346.0" prefWidth="425.0" style="-fx-background-color: #dddddd;">
+      <Pane layoutX="52.0" layoutY="279.0" prefHeight="223.0" prefWidth="310.0" style="-fx-background-color: #dddddd;">
          <children>
-            <Label layoutX="12.0" layoutY="49.0" prefHeight="32.0" prefWidth="102.0" text="Order ID : ">
+            <Label layoutX="12.0" layoutY="81.0" prefHeight="32.0" prefWidth="130.0" text="Order ID : ">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="12.0" layoutY="81.0" prefHeight="32.0" prefWidth="102.0" text="Quantity : ">
+            <Label layoutX="12.0" layoutY="113.0" prefHeight="32.0" prefWidth="150.0" text="Number of Product :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="12.0" layoutY="145.0" prefHeight="32.0" prefWidth="102.0" text="Status :">
+            <Label layoutX="12.0" layoutY="177.0" prefHeight="32.0" prefWidth="102.0" text="Status :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="12.0" layoutY="113.0" prefHeight="32.0" prefWidth="102.0" text="Bid :">
+            <Label layoutX="12.0" layoutY="145.0" prefHeight="32.0" prefWidth="130.0" text="Total Bid :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="oidLabel" layoutX="109.0" layoutY="49.0" prefHeight="32.0" prefWidth="298.0">
+            <Label fx:id="olidLabel" layoutX="160.0" layoutY="81.0" prefHeight="32.0" prefWidth="130.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="qtyLabel" layoutX="109.0" layoutY="81.0" prefHeight="32.0" prefWidth="304.0">
+            <Label fx:id="numProductLabel" layoutX="160.0" layoutY="113.0" prefHeight="32.0" prefWidth="130.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="statusLabel" layoutX="109.0" layoutY="145.0" prefHeight="32.0" prefWidth="304.0">
+            <Label fx:id="statusLabel" layoutX="160.0" layoutY="177.0" prefHeight="32.0" prefWidth="130.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="detailLabel" layoutX="109.0" layoutY="177.0" prefHeight="148.0" prefWidth="304.0">
+            <Label fx:id="totalBidLabel" layoutX="160.0" layoutY="145.0" prefHeight="32.0" prefWidth="130.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="12.0" layoutY="177.0" prefHeight="32.0" prefWidth="102.0" text="Detail :">
+            <Label layoutX="12.0" layoutY="17.0" prefHeight="32.0" prefWidth="130.0" text="Customer ID:">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="bidLabel" layoutX="109.0" layoutY="113.0" prefHeight="32.0" prefWidth="304.0">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="12.0" layoutY="17.0" prefHeight="32.0" prefWidth="102.0" text="Customer ID:">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Hyperlink fx:id="cidHyperlink" layoutX="109.0" layoutY="17.0" onAction="#handleCIDHyperlink" prefHeight="23.0" prefWidth="304.0">
+            <Hyperlink fx:id="cidHyperlink" layoutX="160.0" layoutY="17.0" onAction="#handleCIDHyperlink" prefHeight="33.0" prefWidth="130.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Hyperlink>
+            <Label layoutX="12.0" layoutY="49.0" prefHeight="32.0" prefWidth="130.0" text="Customer Name :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="cNameLabel" layoutX="160.0" layoutY="49.0" prefHeight="32.0" prefWidth="130.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
          </children>
          <effect>
             <DropShadow>
@@ -136,5 +135,58 @@
             </DropShadow>
          </effect>
       </Pane>
+      <Line endX="-5.0" endY="443.0" layoutX="405.0" layoutY="122.0" startX="-5.0" startY="-16.0" />
+      <Pane layoutX="445.0" layoutY="279.0" prefHeight="223.0" prefWidth="310.0" style="-fx-background-color: #dddddd;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="32.0" prefWidth="78.0" text="Product :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="46.0" prefHeight="32.0" prefWidth="78.0" text="Quantity : ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="78.0" prefHeight="32.0" prefWidth="78.0" text="Bid :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="productNameLabel" alignment="CENTER_RIGHT" layoutX="92.0" layoutY="14.0" prefHeight="32.0" prefWidth="202.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="qtyLabel" alignment="CENTER_RIGHT" layoutX="92.0" layoutY="46.0" prefHeight="32.0" prefWidth="202.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="detailLabel" alignment="TOP_RIGHT" layoutX="92.0" layoutY="109.0" prefHeight="102.0" prefWidth="202.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="110.0" prefHeight="32.0" prefWidth="78.0" text="Detail :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="bidLabel" alignment="CENTER_RIGHT" layoutX="92.0" layoutY="78.0" prefHeight="32.0" prefWidth="202.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.15000000596046448" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+      <ListView fx:id="orderListView" layoutX="445.0" layoutY="153.0" prefHeight="107.0" prefWidth="310.0" />
    </children>
 </AnchorPane>

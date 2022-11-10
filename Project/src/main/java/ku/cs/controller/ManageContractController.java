@@ -84,7 +84,7 @@ public class ManageContractController {
         conLenLabel.setText(String.valueOf(contract.getCon_Length()));
         conDepositLabel.setText(String.valueOf(contract.getCon_Deposit()));
         conStatusLabel.setText(showStatus(contract.getCon_Status()));
-        cIdLabel.setText(String.valueOf(contract.getCon_Id()));
+        cIdLabel.setText(String.valueOf(contract.getC_Id()));
         cNameLabel.setText(name);
     }
     private String showStatus(String status) {

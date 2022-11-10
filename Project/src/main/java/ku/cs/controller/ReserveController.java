@@ -3,40 +3,30 @@ package ku.cs.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import ku.cs.Router;
-import ku.cs.model.Order;
+import ku.cs.model.OrderList;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.chrono.Chronology;
-import java.util.Date;
 
 import static ku.cs.controller.LoginController.connection;
 
 public class ReserveController {
 
     @FXML private Label nameLabel;
-    @FXML private Label oidLabel;
-    @FXML private Label pidLabel;
-    @FXML private Label qtyLabel;
-    @FXML private Label bidLabel;
-    @FXML private Label detailLabel;
+    @FXML private Label olidLabel;
+    @FXML private Label numProductLabel;
+    @FXML private Label totalBidLabel;
     @FXML private Button placeReserveButton;
 
-    private Order order = ManageOrderController.getSelectedOrder();
+    private OrderList orderList = ManageOrderController.getOrderList();
     @FXML private void initialize() {
         nameLabel.setText(LoginController.user.getName());
-        oidLabel.setText(String.valueOf(order.getOid()));
-        pidLabel.setText(String.valueOf(order.getPid()));
-        qtyLabel.setText(String.valueOf(order.getQty()));
-        bidLabel.setText(String.valueOf(order.getBid()));
-        detailLabel.setText(order.getDetail());
+        olidLabel.setText(String.valueOf(orderList.getOL_ID()));
+        numProductLabel.setText(String.valueOf(orderList.getNumOrder()));
+        totalBidLabel.setText(String.valueOf(orderList.getTotalBid()));
     }
     @FXML void ManageLogoutButton(ActionEvent event) {
         try {
@@ -58,10 +48,10 @@ public class ReserveController {
 
     @FXML private void handlePlaceReserveButton(ActionEvent event) {
         try {
-            String sqlText = "update `order` set `status` = ? where `O_ID` = ?";
+            String sqlText = "UPDATE `order_list` SET `Status` = ? where `OL_ID` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setString(1, "W");
-            pst.setInt(2, order.getOid());
+            pst.setInt(2, orderList.getOL_ID());
             pst.executeUpdate();
 
             pst.close();

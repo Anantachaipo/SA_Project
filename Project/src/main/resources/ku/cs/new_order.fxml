@@ -127,7 +127,7 @@
             </DropShadow>
          </effect>
       </Pane>
-      <Button alignment="CENTER" layoutX="493.0" layoutY="509.0" mnemonicParsing="false" onAction="#handlePlaceOrderButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Place Order" textFill="WHITE">
+      <Button fx:id="addOrderButton" alignment="CENTER" layoutX="500.0" layoutY="523.0" mnemonicParsing="false" onAction="#handleAddOrderButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Add Order" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -139,9 +139,38 @@
             </DropShadow>
          </effect>
       </Button>
-      <Label fx:id="placeOrderMessageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="427.0" layoutY="477.0" prefHeight="25.0" prefWidth="250.0" textAlignment="CENTER" textFill="RED">
+      <Label fx:id="addOrderMessageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="427.0" layoutY="484.0" prefHeight="25.0" prefWidth="250.0" textAlignment="CENTER" textFill="RED">
          <font>
             <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="checkoutButton" alignment="CENTER" layoutX="359.0" layoutY="523.0" mnemonicParsing="false" onAction="#handleCheckoutButton" prefHeight="39.0" prefWidth="117.0" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Checkout" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.20000000298023224" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <Button fx:id="clearOrderButton" alignment="CENTER" layoutX="629.0" layoutY="523.0" mnemonicParsing="false" onAction="#handleClearOrderButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Clear Order" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.20000000298023224" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Button>
+      <Label layoutX="523.0" layoutY="93.0" text="Detail">
+         <font>
+            <Font size="22.0" />
          </font>
       </Label>
    </children>

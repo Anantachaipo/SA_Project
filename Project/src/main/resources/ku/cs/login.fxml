@@ -5,24 +5,20 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.00" prefWidth="800.00" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controller.LoginController">
    <children>
-      <Pane layoutX="108.0" prefHeight="600.0" prefWidth="692.0">
+      <Pane prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Label layoutX="336.0" layoutY="88.0" text="LOGIN">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Label>
-            <Pane layoutX="139.0" layoutY="225.0" prefHeight="252.0" prefWidth="458.0">
+            <Pane layoutX="171.0" layoutY="336.0" prefHeight="207.0" prefWidth="458.0">
                <children>
-                  <Button layoutX="245.0" layoutY="211.0" mnemonicParsing="false" onAction="#handleRegisterButton" style="-fx-background-radius: 20;" text="Register">
+                  <Button layoutX="245.0" layoutY="156.0" mnemonicParsing="false" onAction="#handleRegisterButton" style="-fx-background-radius: 20;" text="Register">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -34,7 +30,7 @@
                         </DropShadow>
                      </effect>
                   </Button>
-                  <Button layoutX="133.0" layoutY="211.0" mnemonicParsing="false" onAction="#handleLoginButton" style="-fx-background-radius: 20;" text="Login">
+                  <Button layoutX="133.0" layoutY="156.0" mnemonicParsing="false" onAction="#handleLoginButton" style="-fx-background-radius: 20;" text="Login">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -46,27 +42,31 @@
                         </DropShadow>
                      </effect>
                   </Button>
-                  <PasswordField fx:id="passwordField" layoutX="182.0" layoutY="123.0" prefHeight="25.0" prefWidth="248.0" style="-fx-background-radius: 10;" />
-                  <TextField id="usernamewTextField" fx:id="usernameTextField" layoutX="181.0" layoutY="75.0" prefHeight="25.0" prefWidth="248.0" style="-fx-background-radius: 10;" />
-                  <Label layoutX="33.0" layoutY="119.0" text="Password :">
+                  <PasswordField fx:id="passwordField" layoutX="182.0" layoutY="68.0" prefHeight="25.0" prefWidth="248.0" style="-fx-background-radius: 10;" />
+                  <TextField id="usernamewTextField" fx:id="usernameTextField" layoutX="181.0" layoutY="20.0" prefHeight="25.0" prefWidth="248.0" style="-fx-background-radius: 10;" />
+                  <Label layoutX="33.0" layoutY="64.0" text="Password :">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <Label layoutX="29.0" layoutY="71.0" text="Username :">
+                  <Label layoutX="29.0" layoutY="16.0" text="Username :">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="98.0" layoutY="166.0" prefHeight="25.0" prefWidth="263.0" textAlignment="CENTER" textFill="RED">
+                  <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="98.0" layoutY="114.0" prefHeight="25.0" prefWidth="263.0" textAlignment="CENTER" textFill="RED">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="300.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/FruitFarmLogo.PNG" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <Pane prefHeight="600.0" prefWidth="108.0" style="-fx-background-color: #343434;" />
    </children>
 </AnchorPane>

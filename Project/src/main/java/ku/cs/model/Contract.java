@@ -7,10 +7,6 @@ public class Contract {
     private String con_Status;
     private int c_Id;
 
-    public Contract(int con_Id, int con_Length, int con_Deposit, int c_Id) {
-        this(con_Id, con_Length, con_Deposit, "V", c_Id);
-    }
-
     public Contract(int con_Id, int con_Length, int con_Deposit, String con_Status, int c_Id) {
         this.con_Id = con_Id;
         this.con_Length = con_Length;
@@ -18,7 +14,9 @@ public class Contract {
         this.con_Status = con_Status;
         this.c_Id = c_Id;
     }
-
+    public Contract(int con_Id, int con_Length, int con_Deposit, int c_Id) {
+        this(con_Id, con_Length, con_Deposit, "V", c_Id);
+    }
     public int getCon_Id() {
         return con_Id;
     }
@@ -37,7 +35,6 @@ public class Contract {
     public int getC_Id() {
         return c_Id;
     }
-
     public static String showStatus(String status) {
         return switch (status) {
             case "V" -> "Valid";

@@ -9,117 +9,266 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import ku.cs.Router;
+import ku.cs.model.Contract;
 import ku.cs.model.Customer;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
-import ku.cs.model.Product;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
 
 import static ku.cs.controller.LoginController.connection;
 
 public class ManageManagerOrderController {
 
-    private Order order;
-    private OrderList orderList;
-    private static Customer customer;
+    // Orderlist
     @FXML private Hyperlink cidHyperlink;
-    @FXML private Label oidLabel;
-    @FXML private Label bidLabel;
-    @FXML private Label qtyLabel;
+    @FXML private Label cNameLabel;
+    @FXML private Label olidLabel;
+    @FXML private Label numProductLabel;
+    @FXML private Label totalBidLabel;
     @FXML private Label statusLabel;
+    // Order
+    @FXML private Label productNameLabel;
+    @FXML private Label qtyLabel;
+    @FXML private Label bidLabel;
     @FXML private Label detailLabel;
-    @FXML private ListView<Order> orderListListView;
+
+    @FXML private ListView<OrderList> orderListListView;
+    @FXML private ListView<Order> orderListView;
+
     @FXML private Button acButton;
     @FXML private Button rejectButton;
 
+    private Order order;
+    private OrderList orderList;
+    private Contract contract;
+    private static Customer customer;
+    private static HashMap<Integer, String> prodMap = new HashMap<>();
+    private static HashMap<Integer, String> custMap = new HashMap<>();
+
     @FXML private void initialize() {
+        checkActiveContract();
+        mapIDtoProductName();
         disableButtons();
-        showOrderListList();
+        showOrderList();
         clearSelectedOrderList();
-        handleSelectedListView();
+        clearSelectedOrder();
+        handleSelectedOrderListListView();
+        handleSelectedOrderListView();
     }
 
-    private void showOrderListList() {
-        orderList = new OrderList();
-
+    private void showOrder(OrderList orderList) {
         try {
-            String sqlText = "select * from `order` where `status` = ?";
+            orderList.clearOrder();
+            // Read Order
+            String sqlText = "SELECT `P_ID`, `qty`, `bid`, `detail` FROM `order` " +
+                    "WHERE `OL_ID` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
-            pst.setString(1, "P");
+            pst.setInt(1, orderList.getOL_ID());
             ResultSet result = pst.executeQuery();
             while (result.next()) {
-                orderList.addOrder(new Order(
-                        result.getInt(1),
+                Order order = new Order(result.getInt(1),
                         result.getInt(2),
                         result.getInt(3),
-                        result.getInt(4),
-                        result.getInt(5),
-                        result.getString(6),
-                        result.getString(7),
-                        result.getString(8)
-                ));
+                        result.getString(4)
+                );
+                orderList.addOrder(order);
+                orderListView.getItems().add(order);
             }
-
-            result.close();
             pst.close();
+            result.close();
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("ใช้ SQL ไม่ได้");
         }
-
-        orderListListView.getItems().addAll(orderList.getOrders());
     }
 
-    private void handleSelectedListView() {
-        orderListListView.getSelectionModel().selectedItemProperty().addListener(
+    private void handleSelectedOrderListView() {
+        orderListView.getSelectionModel().selectedItemProperty().addListener(
                 new ChangeListener<Order>() {
                     @Override
                     public void changed(ObservableValue<? extends Order> observable, Order oldValue, Order newValue) {
                         System.out.println(newValue + " is selected");
+                        showSelectedOrder(newValue);
+                    }
+                });
+    }
+
+    private void showSelectedOrder(Order order) {
+        this.order = order;
+        productNameLabel.setText(prodMap.get(order.getP_ID()));
+        qtyLabel.setText(String.valueOf(order.getQty()));
+        bidLabel.setText(String.valueOf(order.getBid()));
+        detailLabel.setText(order.getDetail());
+    }
+
+    private void clearSelectedOrder() {
+        this.order = null;
+
+        orderListView.getItems().clear();
+        productNameLabel.setText("");
+        qtyLabel.setText("");
+        bidLabel.setText("");
+        detailLabel.setText("");
+    }
+
+    private void showOrderList() {
+        try {
+            // Read OrderList
+            String sqlText = "SELECT `C_ID`, `OL_ID`, `C_Name`, `Status`, `Con_ID` FROM `order_list` NATURAL JOIN `customer` " +
+                    "WHERE `Status` = ?";
+            PreparedStatement pst = connection.prepareStatement(sqlText);
+            pst.setString(1, "P");
+            ResultSet result = pst.executeQuery();
+
+            while (result.next()) {
+
+                custMap.put(result.getInt(1), result.getString(3));
+                orderList = new OrderList(
+                        result.getInt(2),
+                        result.getInt(1),
+                        result.getString(4),
+                        result.getInt(5)
+                );
+                orderListListView.getItems().add(orderList);
+            }
+            pst.close();
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("ใช้ SQL ไม่ได้");
+        }
+    }
+
+    private void handleSelectedOrderListListView() {
+        orderListListView.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<OrderList>() {
+                    @Override
+                    public void changed(ObservableValue<? extends OrderList> observable, OrderList oldValue, OrderList newValue) {
+                        System.out.println(newValue + " is selected");
+                        clearSelectedOrder();
+                        showOrder(newValue);
+                        disableButtons();
                         showSelectedOrderList(newValue);
                     }
                 });
 
     }
 
-    private void showSelectedOrderList(Order order) {
-        this.order = order;
-        cidHyperlink.setText(String.valueOf(order.getCid()));
-        oidLabel.setText(String.valueOf(order.getOid()));
-        qtyLabel.setText(String.valueOf(order.getQty()));
-        bidLabel.setText(String.valueOf(order.getBid()));
-        statusLabel.setText(Order.showStatus(order.getStatus()));
-        detailLabel.setText(order.getDetail());
+    private void showSelectedOrderList(OrderList orderList) {
+        this.orderList = orderList;
+        cidHyperlink.setDisable(false);
 
-        if (order.getStatus().equals("P")) {
+        System.out.println("C_ID = " + orderList.getC_ID());
+        cidHyperlink.setText(String.valueOf(orderList.getC_ID()));
+        cNameLabel.setText(custMap.get(orderList.getC_ID()));
+        olidLabel.setText(String.valueOf(orderList.getOL_ID()));
+        numProductLabel.setText(String.valueOf(orderList.getNumOrder()));
+        totalBidLabel.setText(String.valueOf(orderList.getTotalBid()));
+        statusLabel.setText(OrderList.showStatus(orderList.getStatus()));
+
+        if (contract.getC_Id() == orderList.getC_ID())
             enableButton();
-        }
+        rejectButton.setDisable(false);
     }
 
     private void clearSelectedOrderList() {
+        this.orderList = null;
         this.order = null;
+
         cidHyperlink.setText("");
-        oidLabel.setText("");
-        qtyLabel.setText("");
-        bidLabel.setText("");
+        cNameLabel.setText("");
+        olidLabel.setText("");
+        numProductLabel.setText("");
+        totalBidLabel.setText("");
         statusLabel.setText("");
-        detailLabel.setText("");
-        acButton.setDisable(true);
-        rejectButton.setDisable(true);
+
+        cidHyperlink.setDisable(true);
+        disableButtons();
     }
 
     private void disableButtons() {
         acButton.setDisable(true);
         rejectButton.setDisable(true);
     }
+
     private void enableButton() {
         acButton.setDisable(false);
         rejectButton.setDisable(false);
+    }
+
+    public static Customer getCustomer() {
+        return customer;
+    }
+
+    private void mapIDtoProductName() {
+        try {
+            String sqlText = "SELECT  `P_ID`, `P_Name` FROM `product`";
+            PreparedStatement pst = connection.prepareStatement(sqlText);
+            ResultSet result = pst.executeQuery();
+
+            while (result.next()) {
+                prodMap.put(
+                        result.getInt(1),
+                        result.getString(2)
+                );
+            }
+
+            pst.close();
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("ใช้ sql ไม่ได้");
+        }
+    }
+
+    private void mapIDtoCustomerName() {
+        try {
+            String sqlText = "SELECT  `C_ID`, `C_Name` FROM `customer`";
+            PreparedStatement pst = connection.prepareStatement(sqlText);
+            ResultSet result = pst.executeQuery();
+
+            while (result.next()) {
+                custMap.put(
+                        result.getInt(1),
+                        result.getString(2)
+                );
+            }
+
+            pst.close();
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("ใช้ sql ไม่ได้");
+        }
+    }
+
+    private void checkActiveContract() {
+        try {
+            String sqlText = "SELECT * FROM `contract` WHERE `Con_status` = ?";
+            PreparedStatement pst = connection.prepareStatement(sqlText);
+            pst.setString(1, "V");
+            ResultSet result = pst.executeQuery();
+
+            if (result.next()) {
+                this.contract = new Contract(
+                        result.getInt(1),
+                        result.getInt(2),
+                        result.getInt(3),
+                        result.getString(4),
+                        result.getInt(5)
+                );
+            } else {
+                this.contract = null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("ใช้ sql ไม่ได้");
+        }
     }
 
     @FXML private void handleCIDHyperlink(ActionEvent event) {
@@ -148,19 +297,18 @@ public class ManageManagerOrderController {
             System.err.println("ใช้ SQL ไม่ได้");
         }
     }
+
     @FXML private void handleAcceptButton(ActionEvent event) {
         try {
-            order.setStatus("A");
-            String sqlText = "update `order` set `status` = ? where `O_ID` = ?";
+            String sqlText = "UPDATE `order_list` SET `Status` = ? WHERE `OL_ID` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setString(1, "A");
-            pst.setInt(2, order.getOid());
+            pst.setInt(2, order.getO_ID());
             pst.executeUpdate();
 
             pst.close();
 
-            orderListListView.getItems().clear();
-            showOrderListList();
+            orderListListView.refresh();
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("ใช้ SQL ไม่ได้");
@@ -169,22 +317,21 @@ public class ManageManagerOrderController {
 
     @FXML private void handleRejectButton(ActionEvent event) {
         try {
-            order.setStatus("R");
-            String sqlText = "update `order` set `status` = ? where `O_ID` = ?";
+            String sqlText = "UPDATE `order_list` SET `Status` = ? WHERE `OL_ID` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setString(1, "R");
-            pst.setInt(2, order.getOid());
+            pst.setInt(2, order.getO_ID());
             pst.executeUpdate();
 
             pst.close();
 
-            orderListListView.getItems().clear();
-            showOrderListList();
+            orderListListView.refresh();
         } catch (SQLException e) {
             System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
         }
     }
+
     @FXML private void handleBackButton(ActionEvent event) {
         try {
             Router.goTo("menu_manager");
@@ -194,7 +341,4 @@ public class ManageManagerOrderController {
         }
     }
 
-    public static Customer getCustomerHyperlink() {
-        return customer;
-    }
 }

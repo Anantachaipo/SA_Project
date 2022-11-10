@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import static ku.cs.controller.LoginController.user;
 
@@ -23,7 +24,7 @@ public class MenuController {
     private Label nameLabel;
 
     @FXML
-    private ListView<Order> orderListView;
+    private ListView<OrderList> orderListView;
 
     @FXML
     private ListView<Product> productListView;
@@ -35,37 +36,35 @@ public class MenuController {
         showProductList();
     }
     private void showOrderList() {
-        OrderList orderList = new OrderList();
+        OrderList orderList;
         try {
-            String sqlText = "select * FROM `order` WHERE `C_ID` = " + user.getId();
+            // TODO เช็คว่าสามารถใช้งานได้
+            // Read OrderList
+            String sqlText = "SELECT `OL_ID`, `Status` FROM `order_list` WHERE `C_ID` = ?";
             PreparedStatement pst = LoginController.connection.prepareStatement(sqlText);
+            pst.setInt(1, user.getId());
             ResultSet result = pst.executeQuery();
 
             while (result.next()) {
-                orderList.addOrder(new Order(
+                orderList = new OrderList(
                         result.getInt(1),
-                        result.getInt(2),
-                        result.getInt(3),
-                        result.getInt(4),
-                        result.getInt(5),
-                        result.getString(6),
-                        result.getString(7),
-                        result.getString(8)
-                ));
+                        result.getString(2)
+                );
+                // TODO เช็คว่าแสดง listview ถูกต้อง
+                orderListView.getItems().add(orderList);
             }
+
         } catch (SQLException e) {
             System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
         }
-
-        orderListView.getItems().addAll(orderList.getOrders());
     }
 
     private void showProductList() {
         ProductList productList = new ProductList();
 
         try {
-            String sqlText = "select * FROM product";
+            String sqlText = "SELECT * FROM `product`";
             PreparedStatement pst = LoginController.connection.prepareStatement(sqlText);
             ResultSet result = pst.executeQuery();
 

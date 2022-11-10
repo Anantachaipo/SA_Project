@@ -1,52 +1,54 @@
 package ku.cs.model;
 
 public class Order {
-    private int oid;
-    private int cid;
-    private int pid;
+    private int O_ID;
+    private int OL_ID;
+    private int P_ID;
     private int qty;
     private int bid;
     private String detail;
-    private String status;
     private String time;
 
-    public Order(int oid, int cid, int pid, int qty, int bid, String detail, String status, String time) {
-        this.oid = oid;
-        this.cid = cid;
-        this.pid = pid;
+    public Order(int O_ID, int OL_ID, int P_ID, int qty, int bid, String detail, String time) {
+        this.O_ID = O_ID;
+        this.OL_ID = OL_ID;
+        this.P_ID = P_ID;
         this.qty = qty;
         this.bid = bid;
         this.detail = detail;
-        this.status = status;
         this.time = time;
     }
 
-    public int getOid() {
-        return oid;
+    public Order(int O_ID, int OL_ID, int P_ID, int qty, int bid, String detail) {
+        this(O_ID, OL_ID, P_ID, qty, bid, detail, "-");
     }
 
-    public int getCid() {
-        return cid;
+    public Order(int P_ID, int qty, int bid, String detail) {
+        this(-1, -1, P_ID, qty, bid, detail);
     }
 
-    public int getPid() {
-        return pid;
+    public int getO_ID() {
+        return O_ID;
+    }
+
+    public int getOL_ID() {
+        return OL_ID;
+    }
+
+    public int getP_ID() {
+        return P_ID;
     }
 
     public int getQty() {
         return qty;
     }
 
-    public double getBid() {
+    public int getBid() {
         return bid;
     }
 
     public String getDetail() {
         return detail;
-    }
-
-    public String getStatus() {
-        return status;
     }
 
     public String getTime() {
@@ -57,25 +59,21 @@ public class Order {
         this.time = time;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void addBid(int bid) {
+        this.bid += bid;
     }
 
-    public static String showStatus(String status) {
-        return switch (status) {
-            case "P" -> "Pending";
-            case "A" -> "Accepted";
-            case "R" -> "Rejected";
-            case "W" -> "Waiting";
-            case "S" -> "Success";
-            case "F" -> "Fail";
-            default -> "-";
-        };
+    public void addQty(int qty) {
+        this.qty += qty;
     }
 
+    public void changeDetail(String detail) {
+        this.detail = detail;
+    }
+
+    // TODO แก้ toString ให้แสดงผลถูกต้อง
     @Override
     public String toString() {
-        return "Order ID[" + oid + "]" +
-                " Status : " + showStatus(status);
+        return "Product ID[" + P_ID + "] " + "qty: " + qty + " bid: " + bid ;
     }
 }

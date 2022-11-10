@@ -38,12 +38,16 @@ public class Product {
         this.qty = qty;
     }
 
+    public void setPPU(int PPU) {
+        this.PPU = PPU;
+    }
+
     public void addQty(int qty) {
         this.qty += qty;
     }
 
-    public void setPPU(int PPU) {
-        this.PPU = PPU;
+    public void removeQty(int qty) {
+        this.qty -= qty;
     }
 
     @Override
