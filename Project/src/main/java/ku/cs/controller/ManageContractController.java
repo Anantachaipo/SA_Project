@@ -34,8 +34,9 @@ public class ManageContractController {
     private void showContract() {
         // get current active contract
         try {
-            String sqlText = "select * from `contract` where `Con_Status` = " + "'V'";
+            String sqlText = "select * from `contract` where `Con_Status` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
+            pst.setString(1, "V");
             ResultSet result = pst.executeQuery();
 
             if (result.next()) {
@@ -83,17 +84,11 @@ public class ManageContractController {
         conIdLabel.setText(String.valueOf(contract.getCon_Id()));
         conLenLabel.setText(String.valueOf(contract.getCon_Length()));
         conDepositLabel.setText(String.valueOf(contract.getCon_Deposit()));
-        conStatusLabel.setText(showStatus(contract.getCon_Status()));
+        conStatusLabel.setText(Contract.showStatus(contract.getCon_Status()));
         cIdLabel.setText(String.valueOf(contract.getC_Id()));
         cNameLabel.setText(name);
     }
-    private String showStatus(String status) {
-        return switch (status) {
-            case "V" -> "Valid";
-            case "T" -> "Terminated";
-            default -> "-";
-        };
-    }
+
     @FXML private void handleBackButton(ActionEvent event) {
         try {
             Router.goTo("menu_manager");

@@ -45,7 +45,7 @@ public class ManageManagerOrderController {
 
     private Order order;
     private OrderList orderList;
-    private Contract contract;
+    private static Contract contract;
     private static Customer customer;
     private static HashMap<Integer, String> prodMap = new HashMap<>();
     private static HashMap<Integer, String> custMap = new HashMap<>();
@@ -207,6 +207,10 @@ public class ManageManagerOrderController {
 
     public static Customer getCustomer() {
         return customer;
+    }
+
+    public static Contract getContract() {
+        return contract;
     }
 
     private void mapIDtoProductName() {

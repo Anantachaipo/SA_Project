@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import ku.cs.Router;
+import ku.cs.model.Customer;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -13,6 +14,7 @@ import java.sql.SQLException;
 import static ku.cs.controller.LoginController.connection;
 
 public class NewContractController {
+    private Customer customer;
 
     private static final String TAG = "*";
     @FXML private Label cIdTag;
@@ -22,6 +24,17 @@ public class NewContractController {
     @FXML private TextField cIdTextField;
     @FXML private TextField conLenTextField;
     @FXML private TextField depositTextField;
+
+    @FXML private void initialize() {
+        customer = CustomerDetailController.getCustomer();
+        if (customer==null) {
+            cIdTextField.clear();
+            return;
+        }
+
+        cIdTextField.setText(String.valueOf(customer.getId()));
+    }
+
     @FXML private void handleAddNewContractButton(ActionEvent event) {
         resetTagAndMessage();
         boolean validInput = true;
@@ -66,6 +79,11 @@ public class NewContractController {
             validLen = false;
         }
 
+        if (!validID) {
+            cIdTag.setText(TAG);
+            newContractMessageLabel.setText("Invalid ID");
+            return;
+        }
         if (!validDeposit) {
             depositTag.setText(TAG);
             newContractMessageLabel.setText("Invalid deposit");
@@ -76,6 +94,7 @@ public class NewContractController {
             newContractMessageLabel.setText("Invalid length");
             return;
         }
+
         try {
             String sqlText = "INSERT INTO `contract` (`Con_length`, `Con_Deposit`, `Con_Status`, `C_ID`) " +
                     "VALUES (?,?,?,?)";
@@ -88,13 +107,13 @@ public class NewContractController {
 
             pst.close();
 
-            Router.goTo("manage_contract");
+            Router.goTo("menu_manager");
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("ใช้ SQL ไม่ได้");
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปหน้า manage_contract จาก new_contract ไม่ได้");
+            System.err.println("ไปหน้า menu_manager จาก new_contract ไม่ได้");
         }
     }
 
@@ -106,6 +125,7 @@ public class NewContractController {
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
+        CustomerDetailController.setNullCustomer();
         try {
             Router.goTo("manage_contract");
         } catch (IOException e) {

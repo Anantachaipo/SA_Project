@@ -4,9 +4,11 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import ku.cs.Router;
+import ku.cs.model.Contract;
 import ku.cs.model.Customer;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
@@ -32,15 +34,23 @@ public class CustomerDetailController {
     @FXML private Label totalBidLabel;
     @FXML private Label statusLabel;
 
+    @FXML private Button makeNewConButton;
     @FXML private ListView<OrderList> orderListListView;
 
-    private Customer customer;
+    private static Customer customer;
+    private static Contract contract;
     private OrderList orderList = new OrderList();
     private int numOrder = 0;
     private int numContract = 0;
     @FXML private void initialize() {
         // import data
-        this.customer = ManageManagerOrderController.getCustomer();
+        customer = ManageManagerOrderController.getCustomer();
+        contract = ManageManagerOrderController.getContract();
+        if (contract==null)
+            makeNewConButton.setDisable(false);
+        else
+            makeNewConButton.setDisable(true);
+
         findAssociatedContract(customer);
         // show customer
         cidLabel.setText(String.valueOf(customer.getId()));
@@ -149,6 +159,22 @@ public class CustomerDetailController {
         statusLabel.setText("-");
     }
 
+    public static Customer getCustomer() {
+        return customer;
+    }
+
+    public static void setNullCustomer() {
+        customer = null;
+    }
+
+    @FXML private void handleMakeNewConButton(ActionEvent event) {
+        try {
+            Router.goTo("new_contract");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("ไปหน้า new_contract จาก customer_detail ไม่ได้");
+        }
+    }
     @FXML private void handleBackButton(ActionEvent event) {
         try {
             Router.goTo("manage_manager_order");

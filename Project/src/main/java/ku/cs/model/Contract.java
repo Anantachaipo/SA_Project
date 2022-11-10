@@ -17,6 +17,10 @@ public class Contract {
     public Contract(int con_Id, int con_Length, int con_Deposit, int c_Id) {
         this(con_Id, con_Length, con_Deposit, "V", c_Id);
     }
+
+    public Contract(int con_Id) {
+        this(con_Id, -1, -1, -1);
+    }
     public int getCon_Id() {
         return con_Id;
     }

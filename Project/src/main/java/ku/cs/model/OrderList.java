@@ -21,9 +21,18 @@ public class OrderList {
         this(OL_ID, C_ID, status, -1);
     }
 
+    public OrderList(int OL_ID, String status, int Con_ID) {
+        this(OL_ID, -1, status, Con_ID);
+    }
+
     public OrderList(int OL_ID, String status) {
         this(OL_ID, -1, status);
     }
+
+    public OrderList(int OL_ID) {
+        this(OL_ID, "-");
+    }
+
     public OrderList() {
         orders = new ArrayList<>();
     }
