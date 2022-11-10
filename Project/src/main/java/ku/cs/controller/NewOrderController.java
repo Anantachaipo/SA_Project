@@ -46,6 +46,7 @@ public class NewOrderController {
     private static OrderList orderList = new OrderList();
 
     @FXML private void initialize() {
+        orderList.clearOrder();
         nameLabel.setText(LoginController.user.getName());
         addOrderButton.setDisable(true);
         if (orderList.getNumOrder()<=0) {

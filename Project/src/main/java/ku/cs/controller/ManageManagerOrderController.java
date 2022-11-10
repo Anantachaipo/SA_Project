@@ -226,27 +226,6 @@ public class ManageManagerOrderController {
         }
     }
 
-    private void mapIDtoCustomerName() {
-        try {
-            String sqlText = "SELECT  `C_ID`, `C_Name` FROM `customer`";
-            PreparedStatement pst = connection.prepareStatement(sqlText);
-            ResultSet result = pst.executeQuery();
-
-            while (result.next()) {
-                custMap.put(
-                        result.getInt(1),
-                        result.getString(2)
-                );
-            }
-
-            pst.close();
-            result.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.err.println("ใช้ sql ไม่ได้");
-        }
-    }
-
     private void checkActiveContract() {
         try {
             String sqlText = "SELECT * FROM `contract` WHERE `Con_status` = ?";
@@ -300,15 +279,18 @@ public class ManageManagerOrderController {
 
     @FXML private void handleAcceptButton(ActionEvent event) {
         try {
-            String sqlText = "UPDATE `order_list` SET `Status` = ? WHERE `OL_ID` = ?";
+            String sqlText = "UPDATE `order_list` SET `Status` = ? , `Con_ID` = ? WHERE `OL_ID` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setString(1, "A");
-            pst.setInt(2, order.getO_ID());
+            pst.setInt(2, contract.getCon_Id());
+            pst.setInt(3, orderList.getOL_ID());
             pst.executeUpdate();
 
             pst.close();
-
+            clearSelectedOrder();
+            clearSelectedOrderList();
             orderListListView.refresh();
+            showOrderList();
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("ใช้ SQL ไม่ได้");
@@ -320,11 +302,12 @@ public class ManageManagerOrderController {
             String sqlText = "UPDATE `order_list` SET `Status` = ? WHERE `OL_ID` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setString(1, "R");
-            pst.setInt(2, order.getO_ID());
+            pst.setInt(2, orderList.getOL_ID());
             pst.executeUpdate();
 
             pst.close();
-
+            clearSelectedOrder();
+            clearSelectedOrderList();
             orderListListView.refresh();
         } catch (SQLException e) {
             System.err.println("ใช้ SQL ไม่ได้");

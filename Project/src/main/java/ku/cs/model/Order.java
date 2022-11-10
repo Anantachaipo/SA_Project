@@ -27,6 +27,10 @@ public class Order {
         this(-1, -1, P_ID, qty, bid, detail);
     }
 
+    public Order(int P_ID, int qty, int bid) {
+        this(P_ID, qty, bid, "-");
+    }
+
     public int getO_ID() {
         return O_ID;
     }

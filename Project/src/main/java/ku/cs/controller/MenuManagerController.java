@@ -8,6 +8,15 @@ import java.io.IOException;
 
 public class MenuManagerController {
 
+    @FXML private void handleReceiptButton(ActionEvent event) {
+        try {
+            Router.goTo("receipt");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("ไปหน้า receipt จาก menu_manager ไม่ได้");
+        }
+    }
+
     @FXML private void handleManageContractButton(ActionEvent event) {
         try {
             Router.goTo("manage_contract");

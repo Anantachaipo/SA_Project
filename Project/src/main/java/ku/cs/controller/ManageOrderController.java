@@ -136,9 +136,9 @@ public class ManageOrderController {
                     @Override
                     public void changed(ObservableValue<? extends OrderList> observable, OrderList oldValue, OrderList newValue) {
                         System.out.println(newValue + " is selected");
+                        showSelectedOrderList(newValue);
                         clearSelectedOrder();
                         showOrder();
-                        showSelectedOrderList(newValue);
                     }
                 }
         );
@@ -188,22 +188,6 @@ public class ManageOrderController {
         }
     }
 
-    @FXML private void handleLogoutButton(ActionEvent event) {
-        try {
-            Router.goTo("login");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า login จาก manage_order ไม่ได้");
-        }
-    }
-
-    @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("menu");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า menu จาก manage_order ไม่ได้");
-        }
-    }
-
     @FXML private void handleNewOrderButton(ActionEvent event) {
         try {
             Router.goTo("new_order");
@@ -217,6 +201,22 @@ public class ManageOrderController {
             Router.goTo("reserve");
         } catch (IOException e) {
             System.err.println("ไปหน้า reserve จาก manage_order ไม่ได้");
+        }
+    }
+
+    @FXML private void handleLogoutButton(ActionEvent event) {
+        try {
+            Router.goTo("login");
+        } catch (IOException e) {
+            System.err.println("ไปหน้า login จาก manage_order ไม่ได้");
+        }
+    }
+
+    @FXML private void handleBackButton(ActionEvent event) {
+        try {
+            Router.goTo("menu");
+        } catch (IOException e) {
+            System.err.println("ไปหน้า menu จาก manage_order ไม่ได้");
         }
     }
 }

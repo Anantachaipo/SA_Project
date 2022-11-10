@@ -41,6 +41,7 @@ public class ProjectApplication extends Application {
         Router.when("new_contract", pkg + "new_contract.fxml");
         Router.when("contract_history", pkg + "contract_history.fxml");
         Router.when("receipt", pkg + "receipt.fxml");
+        Router.when("customer_detail", pkg + "customer_detail.fxml");
     }
 
     public static void setRoot(String fxml) throws IOException {
