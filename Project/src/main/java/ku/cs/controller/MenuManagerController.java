@@ -10,10 +10,10 @@ public class MenuManagerController {
 
     @FXML private void handleReceiptButton(ActionEvent event) {
         try {
-            Router.goTo("receipt");
+            Router.goTo("manager_receipt");
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปหน้า receipt จาก menu_manager ไม่ได้");
+            System.err.println("ไปหน้า manager_receipt จาก menu_manager ไม่ได้");
         }
     }
 

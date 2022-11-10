@@ -14,12 +14,11 @@ public class ProjectApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Router.bind(this, stage, "SA Project - Fruit Farm", 800, 600);
+        Router.bind(this, stage, "Fruit Farm", 800, 600);
         configRoute();
         Router.goTo("login");
     }
 
-    // TODO: ทำ path ของ fxml
     private static void configRoute() {
         String pkg = "ku/cs/";
         // --- Startup ---
@@ -32,6 +31,8 @@ public class ProjectApplication extends Application {
         Router.when("new_order", pkg + "new_order.fxml");
         Router.when("new_order_checkout", pkg + "new_order_checkout.fxml");
         Router.when("view_contract", pkg + "view_contract.fxml");
+        Router.when("view_receipt", pkg + "view_receipt.fxml");
+        Router.when("receipt", pkg + "receipt.fxml");
         // --- Manager side ---
         Router.when("menu_manager", pkg + "menu_manager.fxml");
         Router.when("manage_contract", pkg + "manage_contract.fxml");
@@ -40,7 +41,7 @@ public class ProjectApplication extends Application {
         Router.when("new_product", pkg + "new_product.fxml");
         Router.when("new_contract", pkg + "new_contract.fxml");
         Router.when("contract_history", pkg + "contract_history.fxml");
-        Router.when("receipt", pkg + "receipt.fxml");
+        Router.when("manager_receipt", pkg + "manager_receipt.fxml");
         Router.when("customer_detail", pkg + "customer_detail.fxml");
     }
 

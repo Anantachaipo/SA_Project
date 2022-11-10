@@ -20,7 +20,7 @@
                   <Font size="22.0" />
                </font>
             </Text>
-            <Label fx:id="nameLabel" layoutX="139.0" layoutY="16.0" prefHeight="32.0" prefWidth="230.0" textFill="WHITE">
+            <Label fx:id="nameLabel" layoutX="139.0" layoutY="16.0" prefHeight="32.0" prefWidth="104.0" textFill="WHITE">
                <font>
                   <Font size="22.0" />
                </font>
@@ -50,6 +50,18 @@
                </effect>
             </Button>
             <Button alignment="CENTER" layoutX="400.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleViewContractButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="View Contract" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.20000000298023224" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button alignment="CENTER" layoutX="261.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleViewReceiptButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="View Receipt" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>

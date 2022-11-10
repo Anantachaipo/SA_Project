@@ -38,7 +38,7 @@ public class MenuController {
     private void showOrderList() {
         OrderList orderList;
         try {
-            // TODO เช็คว่าสามารถใช้งานได้
+
             // Read OrderList
             String sqlText = "SELECT `OL_ID`, `Status` FROM `order_list` WHERE `C_ID` = ?";
             PreparedStatement pst = LoginController.connection.prepareStatement(sqlText);
@@ -50,7 +50,7 @@ public class MenuController {
                         result.getInt(1),
                         result.getString(2)
                 );
-                // TODO เช็คว่าแสดง listview ถูกต้อง
+
                 orderListView.getItems().add(orderList);
             }
 
@@ -90,8 +90,8 @@ public class MenuController {
         try {
             Router.goTo("login");
         } catch (IOException e) {
-            System.err.println("ไปหน้า login จาก menu ไม่ได้");
             e.printStackTrace();
+            System.err.println("ไปหน้า login จาก menu ไม่ได้");
         }
     }
     @FXML
@@ -99,17 +99,25 @@ public class MenuController {
         try {
             Router.goTo("manage_order");
         } catch (IOException e) {
-            System.err.println("ไปหน้า manage_order จาก menu ไม่ได้");
             e.printStackTrace();
+            System.err.println("ไปหน้า manage_order จาก menu ไม่ได้");
         }
     }
-    @FXML
-    private void handleViewContractButton(ActionEvent actionEvent) {
+    @FXML private void handleViewContractButton(ActionEvent actionEvent) {
         try {
             Router.goTo("view_contract");
         } catch (IOException e) {
-            System.err.println("ไปหน้า view_contract จาก menu ไม่ได้");
             e.printStackTrace();
+            System.err.println("ไปหน้า view_contract จาก menu ไม่ได้");
+        }
+    }
+
+    @FXML private void handleViewReceiptButton(ActionEvent actionEvent) {
+        try {
+            Router.goTo("view_receipt");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("ไปหน้า view_receipt จาก menu ไม่ได้");
         }
     }
 }

@@ -72,7 +72,8 @@ public class ManageManagerOrderController {
             pst.setInt(1, orderList.getOL_ID());
             ResultSet result = pst.executeQuery();
             while (result.next()) {
-                Order order = new Order(result.getInt(1),
+                Order order = new Order(
+                        result.getInt(1),
                         result.getInt(2),
                         result.getInt(3),
                         result.getString(4)

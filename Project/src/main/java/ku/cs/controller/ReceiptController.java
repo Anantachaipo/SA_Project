@@ -20,6 +20,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 import static ku.cs.controller.LoginController.connection;
+import static ku.cs.controller.LoginController.user;
 
 public class ReceiptController {
 
@@ -68,9 +69,10 @@ public class ReceiptController {
     private void showOrderList() {
         try {
             // Read OrderList
-            String sqlText = "SELECT `OL_ID`, `C_ID`,`Status`, `Con_ID`  FROM `order_list` WHERE `Status` = ?";
+            String sqlText = "SELECT `OL_ID`, `C_ID`,`Status`, `Con_ID`  FROM `order_list` WHERE `Status` = ? AND `C_ID` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setString(1, "W");
+            pst.setInt(2, user.getId());
             ResultSet result = pst.executeQuery();
 
             while (result.next()) {
@@ -99,7 +101,7 @@ public class ReceiptController {
                         orderList = newValue;
 
                         // order not in contract
-                        if (contract.getCon_Id() != newValue.getCon_ID()) {
+                        if (contract == null) {
                             cancelButton.setDisable(false);
                             makeReceiptButton.setDisable(true);
                             warningLabel.setText("This order is not in current contract");
@@ -143,10 +145,10 @@ public class ReceiptController {
 
             pst.close();
 
-            Router.goTo("menu_manager");
+            Router.goTo("view_receipt");
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปหน้า menu_manager จาก receipt ไม่ได้");
+            System.err.println("ไปหน้า view_receipt จาก receipt ไม่ได้");
         } catch (SQLException e) {
             System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
@@ -203,8 +205,6 @@ public class ReceiptController {
     }
 
     @FXML private void handleCancelButton(ActionEvent event) {
-        // TODO: code here
-
         try {
             String sqlText = "UPDATE `order_list` SET `Status` = ? WHERE `OL_ID` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
@@ -213,10 +213,10 @@ public class ReceiptController {
             pst.executeUpdate();
 
             pst.close();
-            Router.goTo("menu_manager");
+            Router.goTo("view_receipt");
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปหน้า menu_manager จาก receipt ไม่ได้");
+            System.err.println("ไปหน้า view_receipt จาก receipt ไม่ได้");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -224,10 +224,10 @@ public class ReceiptController {
 
     @FXML private void handleBackButton(ActionEvent event) {
         try {
-            Router.goTo("menu_manager");
+            Router.goTo("view_receipt");
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("ไปหน้า menu_manager จาก receipt ไม่ได้");
+            System.err.println("ไปหน้า view_receipt จาก receipt ไม่ได้");
         }
     }
 
