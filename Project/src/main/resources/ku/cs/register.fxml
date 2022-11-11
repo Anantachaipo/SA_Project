@@ -39,9 +39,9 @@
                         </DropShadow>
                      </effect>
                   </Button>
-                  <TextField fx:id="nameTextField" alignment="CENTER" layoutX="208.0" layoutY="45.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
-                  <TextField fx:id="usernameTextField" alignment="CENTER" layoutX="210.0" layoutY="96.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
-                  <TextField fx:id="telTextFleld" alignment="CENTER" layoutX="210.0" layoutY="147.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
+                  <TextField fx:id="nameTextField" layoutX="208.0" layoutY="45.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
+                  <TextField fx:id="usernameTextField" layoutX="210.0" layoutY="96.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
+                  <TextField fx:id="telTextFleld" layoutX="210.0" layoutY="147.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
                   <PasswordField fx:id="passwordField" layoutX="210.0" layoutY="197.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
                   <PasswordField fx:id="conPasswordField" layoutX="210.0" layoutY="245.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
                   <Label layoutX="125.0" layoutY="45.0" text="Name :" textAlignment="RIGHT">
