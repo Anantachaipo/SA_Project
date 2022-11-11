@@ -110,7 +110,7 @@ public class ReceiptController {
 
                         // order in contract
                         warningLabel.setText("");
-                        cancelButton.setDisable(true);
+                        cancelButton.setDisable(false);
                         makeReceiptButton.setDisable(false);
                     }
                 });
