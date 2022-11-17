@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import ku.cs.Router;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -100,13 +101,10 @@ public class NewProductController {
 
             pst.close();
 
-            Router.goTo("manage_product");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไป manage_product จาก new_product ไม่ได้");
+            PageChanger.gotoPage("manage_product");
         } catch (SQLException e) {
-            System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
+            System.err.println("ใช้ SQL ไม่ได้");
         }
     }
 
@@ -119,12 +117,7 @@ public class NewProductController {
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("manage_product");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไป manage_product จาก new_product ไม่ได้");
-        }
+        PageChanger.gotoPage("manage_product");
     }
 
 }

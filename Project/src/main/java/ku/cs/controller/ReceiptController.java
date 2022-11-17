@@ -10,6 +10,7 @@ import javafx.scene.control.ListView;
 
 import ku.cs.Router;
 import ku.cs.model.*;
+import ku.cs.service.PageChanger;
 
 
 import java.io.IOException;
@@ -213,22 +214,15 @@ public class ReceiptController {
             pst.executeUpdate();
 
             pst.close();
-            Router.goTo("view_receipt");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า view_receipt จาก receipt ไม่ได้");
+            PageChanger.gotoPage("view_receipt");
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.err.println("ใช้ sql ไม่ได้");
         }
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("view_receipt");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า view_receipt จาก receipt ไม่ได้");
-        }
+        PageChanger.gotoPage("view_receipt");
     }
 
 }

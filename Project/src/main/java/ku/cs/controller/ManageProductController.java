@@ -13,6 +13,7 @@ import ku.cs.Router;
 import ku.cs.model.Order;
 import ku.cs.model.Product;
 import ku.cs.model.ProductList;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -111,15 +112,6 @@ public class ManageProductController {
         addButton.setDisable(true);
         changePPUButton.setDisable(true);
     }
-    @FXML private void handleNewProductButton(ActionEvent event) {
-        try {
-            Router.goTo("new_product");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า new_product จาก manage_product ไม่ได้");
-        }
-    }
-
     @FXML private void handleAddButton(ActionEvent event) {
         // reset message
         detailMessageLabel.setText("");
@@ -200,13 +192,12 @@ public class ManageProductController {
         }
     }
 
+    @FXML private void handleNewProductButton(ActionEvent event) {
+        PageChanger.gotoPage("new_product");
+    }
+
     @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("menu_manager");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า menu_manager จาก manage_product ไม่ได้");
-        }
+        PageChanger.gotoPage("menu_manager");
     }
 
 }

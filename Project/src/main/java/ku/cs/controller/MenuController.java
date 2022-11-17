@@ -9,6 +9,7 @@ import ku.cs.model.Order;
 import ku.cs.model.OrderList;
 import ku.cs.model.Product;
 import ku.cs.model.ProductList;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -87,37 +88,17 @@ public class MenuController {
 
     @FXML
     private void ManageLogoutButton(ActionEvent event) {
-        try {
-            Router.goTo("login");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า login จาก menu ไม่ได้");
-        }
+        PageChanger.gotoPage("login");
     }
     @FXML
     private void handleManageOrderButton(ActionEvent event) {
-        try {
-            Router.goTo("manage_order");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า manage_order จาก menu ไม่ได้");
-        }
+        PageChanger.gotoPage("manage_order");
     }
     @FXML private void handleViewContractButton(ActionEvent actionEvent) {
-        try {
-            Router.goTo("view_contract");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า view_contract จาก menu ไม่ได้");
-        }
+        PageChanger.gotoPage("view_contract");
     }
 
     @FXML private void handleViewReceiptButton(ActionEvent actionEvent) {
-        try {
-            Router.goTo("view_receipt");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า view_receipt จาก menu ไม่ได้");
-        }
+        PageChanger.gotoPage("view_receipt");
     }
 }

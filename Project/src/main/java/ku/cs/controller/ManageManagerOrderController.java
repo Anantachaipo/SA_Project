@@ -13,6 +13,7 @@ import ku.cs.model.Contract;
 import ku.cs.model.Customer;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -273,13 +274,10 @@ public class ManageManagerOrderController {
                         result.getString(4),
                         result.getString(5)
                 );
-                Router.goTo("customer_detail");
+                PageChanger.gotoPage("customer_detail");
             } else {
                 System.err.println("user not found");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า customer_detail จาก manager_manage_order ไม่ได้");
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("ใช้ SQL ไม่ได้");
@@ -325,12 +323,7 @@ public class ManageManagerOrderController {
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("menu_manager");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า menu_manager จาก manager_manage_order ไม่ได้");
-        }
+        PageChanger.gotoPage("menu_manager");
     }
 
 }

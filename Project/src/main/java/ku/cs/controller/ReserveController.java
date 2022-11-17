@@ -7,6 +7,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import ku.cs.Router;
 import ku.cs.model.OrderList;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -43,13 +44,10 @@ public class ReserveController {
 
             pst.close();
 
-            Router.goTo("manage_order");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า manage_order จาก reserve ไม่ได้");
+            PageChanger.gotoPage("manage_order");
         } catch (SQLException e) {
-            e.printStackTrace();
             System.err.println("ใช้ SQL ไม่ได้");
+            e.printStackTrace();
         }
     }
 
@@ -61,20 +59,10 @@ public class ReserveController {
     }
 
     @FXML private void ManageLogoutButton(ActionEvent event) {
-        try {
-            Router.goTo("login");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า login จาก menu ไม่ได้");
-            e.printStackTrace();
-        }
+        PageChanger.gotoPage("login");
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("manage_order");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า manage_order จาก reserve ไม่ได้");
-            e.printStackTrace();
-        }
+        PageChanger.gotoPage("manage_order");
     }
 }

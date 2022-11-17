@@ -11,6 +11,7 @@ import javafx.scene.control.ListView;
 import ku.cs.Router;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -170,32 +171,19 @@ public class NewOrderCheckoutController {
 
             pst.close();
 
-            Router.goTo("menu");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า menu จาก new_order ไม่ได้");
-            e.printStackTrace();
+            PageChanger.gotoPage("menu");
         } catch (SQLException e) {
-            System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
+            System.err.println("ใช้ SQL ไม่ได้");
         }
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("new_order");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า new_order จาก new_order_checkout ไม่ได้");
-        }
+        PageChanger.gotoPage("new_order");
     }
 
     @FXML private void handleLogoutButton(ActionEvent event) {
-        try {
-            Router.goTo("login");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า login จาก new_order_checkout ไม่ได้");
-        }
+        PageChanger.gotoPage("login");
     }
 
 }

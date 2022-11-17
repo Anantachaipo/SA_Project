@@ -11,6 +11,7 @@ import ku.cs.Router;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
 import ku.cs.model.Product;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -191,34 +192,18 @@ public class ManageOrderController {
     }
 
     @FXML private void handleNewOrderButton(ActionEvent event) {
-        try {
-            Router.goTo("new_order");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า new_order จาก manage_order ไม่ได้");
-        }
+        PageChanger.gotoPage("new_order");
     }
 
     @FXML private void handleReserveButton(ActionEvent event) {
-        try {
-            Router.goTo("reserve");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า reserve จาก manage_order ไม่ได้");
-        }
+        PageChanger.gotoPage("reserve");
     }
 
     @FXML private void handleLogoutButton(ActionEvent event) {
-        try {
-            Router.goTo("login");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า login จาก manage_order ไม่ได้");
-        }
+        PageChanger.gotoPage("login");
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("menu");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า menu จาก manage_order ไม่ได้");
-        }
+        PageChanger.gotoPage("menu");
     }
 }

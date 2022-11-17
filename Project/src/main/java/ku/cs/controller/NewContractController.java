@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import ku.cs.Router;
 import ku.cs.model.Customer;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -107,13 +108,10 @@ public class NewContractController {
 
             pst.close();
 
-            Router.goTo("menu_manager");
+            PageChanger.gotoPage("menu_manager");
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("ใช้ SQL ไม่ได้");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า menu_manager จาก new_contract ไม่ได้");
         }
     }
 
@@ -126,11 +124,6 @@ public class NewContractController {
 
     @FXML private void handleBackButton(ActionEvent event) {
         CustomerDetailController.setNullCustomer();
-        try {
-            Router.goTo("manage_contract");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า manage_contract จาก new_contract ไม่ได้");
-        }
+        PageChanger.gotoPage("manage_contract");
     }
 }

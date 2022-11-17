@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import ku.cs.Router;
 import ku.cs.model.Contract;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -66,21 +67,11 @@ public class ViewContractController {
     }
 
     @FXML private void ManageLogoutButton(ActionEvent event) {
-        try {
-            Router.goTo("login");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า login จาก view_contract ไม่ได้");
-            e.printStackTrace();
-        }
+        PageChanger.gotoPage("login");
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("menu");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า menu จาก view_contract ไม่ได้");
-            e.printStackTrace();
-        }
+        PageChanger.gotoPage("menu");
     }
 
 }

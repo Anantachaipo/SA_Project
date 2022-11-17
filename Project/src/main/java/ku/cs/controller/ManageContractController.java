@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import ku.cs.Router;
 import ku.cs.model.Contract;
 import ku.cs.model.Customer;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -90,28 +91,13 @@ public class ManageContractController {
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("menu_manager");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า menu_manager จาก manage_contract ไม่ได้");
-        }
+        PageChanger.gotoPage("menu_manager");
     }
     @FXML private void handleContractHistButton(ActionEvent event) {
-        try {
-            Router.goTo("contract_history");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า contract_history จาก manage_contract ไม่ได้");
-        }
+        PageChanger.gotoPage("contract_history");
     }
     @FXML private void handleNewContractButton(ActionEvent event) {
-        try {
-            Router.goTo("new_contract");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า new_contract จาก manage_contract ไม่ได้");
-        }
+        PageChanger.gotoPage("new_contract");
     }
     @FXML private void handleTerminateContractButton(ActionEvent event) {
         try {

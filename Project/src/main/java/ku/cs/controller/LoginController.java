@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import ku.cs.Router;
 import ku.cs.connector.DatabaseConnection;
 import ku.cs.model.Customer;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -39,13 +40,13 @@ public class LoginController {
             return;
         }
 
-        try {
-            if (username.equals("Manager") && password.equals("password")) {
-                System.out.println("In 'manager login'");
-                Router.goTo("menu_manager");
-                return;
-            }
+        if (username.equals("Manager") && password.equals("password")) {
+            System.out.println("In 'manager login'");
+            PageChanger.gotoPage("menu_manager");
+            return;
+        }
 
+        try {
             String sqlText = "select * FROM customer WHERE C_Username = ? AND C_Password = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setString(1, username);
@@ -64,27 +65,17 @@ public class LoginController {
                 result.close();
                 pst.close();
                 System.out.println("Current user = " + user.toString());
-                Router.goTo("menu");
+                PageChanger.gotoPage("menu");
             } else {
-                System.out.println("In 'not found user'");
+                System.err.println("In 'not found user'");
                 loginMessageLabel.setText("Invalid username or password");
             }
-
-        } catch (IOException e) {
-            System.err.println("ไปหน้า menu ไม่ได้");
-            e.printStackTrace();
         } catch (SQLException e) {
             System.err.println("ใช้ SQL ไม่ได้");
-            loginMessageLabel.setText("Invalid username or password");
             e.printStackTrace();
         }
     }
     public void handleRegisterButton(ActionEvent actionEvent) {
-        try {
-            Router.goTo("register");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า register ไม่ได้");
-            e.printStackTrace();
-        }
+        PageChanger.gotoPage("register");
     }
 }

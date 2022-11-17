@@ -6,21 +6,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ku.cs.Router;
-import ku.cs.connector.DatabaseConnection;
-import ku.cs.service.Account;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.concurrent.TimeUnit;
 
 import static ku.cs.controller.LoginController.connection;
 
 public class RegisterController {
     private static final String TAG = "*";
-    private Account account = new Account();
+
     @FXML
     private Label nameTag;
     @FXML
@@ -125,10 +122,7 @@ public class RegisterController {
                 pst.close();
 
                 registerMessageLabel.setText("Register successfully");
-                Router.goTo("login");
-            } catch (IOException e) {
-                System.err.println("ไปหน้า login ไป");
-                e.printStackTrace();
+                PageChanger.gotoPage("login");
             } catch (SQLException e) {
                 System.err.println("ใช้ SQL ไม่ได้");
                 registerMessageLabel.setText("Invalid Register");
@@ -146,12 +140,7 @@ public class RegisterController {
 
     @FXML
     void handleBackButton(ActionEvent actionEvent) {
-        try {
-            Router.goTo("login");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า login จาก register ไม่ได้");
-            e.printStackTrace();
-        }
+        PageChanger.gotoPage("login");
     }
 
     private void resetTagAndMessage() {

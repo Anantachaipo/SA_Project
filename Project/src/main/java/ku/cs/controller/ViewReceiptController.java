@@ -11,6 +11,7 @@ import ku.cs.Router;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
 import ku.cs.model.Receipt;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -190,30 +191,15 @@ public class ViewReceiptController {
     }
 
     @FXML private void handleManageReceiptButton(ActionEvent event) {
-        try {
-            Router.goTo("receipt");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า receipt จาก view_receipt ไม่ได้");
-        }
+        PageChanger.gotoPage("receipt");
     }
 
     @FXML private void ManageLogoutButton(ActionEvent event) {
-        try {
-            Router.goTo("login");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า login จาก view_receipt ไม่ได้");
-        }
+        PageChanger.gotoPage("login");
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("menu");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า menu จาก view_receipt ไม่ได้");
-        }
+        PageChanger.gotoPage("menu");
     }
 
 }

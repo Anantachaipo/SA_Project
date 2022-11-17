@@ -10,6 +10,7 @@ import ku.cs.Router;
 import ku.cs.model.Contract;
 import ku.cs.model.ContractList;
 import ku.cs.model.Order;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -91,12 +92,7 @@ public class ContractHistoryController {
 
 
     @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("manage_contract");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า manage_contract จาก contract_history ไม่ได้");
-        }
+        PageChanger.gotoPage("manage_contract");
     }
 
 }

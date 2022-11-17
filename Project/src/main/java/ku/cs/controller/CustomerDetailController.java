@@ -12,6 +12,7 @@ import ku.cs.model.Contract;
 import ku.cs.model.Customer;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -168,20 +169,10 @@ public class CustomerDetailController {
     }
 
     @FXML private void handleMakeNewConButton(ActionEvent event) {
-        try {
-            Router.goTo("new_contract");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า new_contract จาก customer_detail ไม่ได้");
-        }
+        PageChanger.gotoPage("new_contract");
     }
     @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("manage_manager_order");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า manage_manager_order จาก customer_detail ไม่ได้");
-        }
+        PageChanger.gotoPage("manage_manager_order");
     }
 
 }

@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import ku.cs.Router;
 import ku.cs.model.Receipt;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -45,12 +46,7 @@ public class ManagerReceiptController {
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        try {
-            Router.goTo("menu_manager");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า menu_manager จาก manager_manage_order ไม่ได้");
-        }
+        PageChanger.gotoPage("menu_manager");
     }
 
 }

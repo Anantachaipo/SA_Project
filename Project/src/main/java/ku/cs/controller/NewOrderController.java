@@ -10,6 +10,7 @@ import ku.cs.model.Order;
 import ku.cs.model.OrderList;
 import ku.cs.model.Product;
 import ku.cs.model.ProductList;
+import ku.cs.service.PageChanger;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -183,7 +184,6 @@ public class NewOrderController {
         if (!validBid) {
             bidTag.setText(TAG);
             addOrderMessageLabel.setText("Invalid bid");
-            System.out.println("ASD");
             return;
         }
 
@@ -206,17 +206,7 @@ public class NewOrderController {
     }
 
     @FXML private void handleCheckoutButton(ActionEvent event) {
-        // DEBUG
-        for (Order order : orderList.getOrders()) {
-            System.out.println(order.toString());
-        }
-
-        try {
-            Router.goTo("new_order_checkout");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า new_order_checkout จาก new_order ไม่ได้");
-        }
+        PageChanger.gotoPage("new_order_checkout");
     }
 
     @FXML private void handleClearOrderButton(ActionEvent event) {
@@ -227,22 +217,12 @@ public class NewOrderController {
         clearText();
     }
     @FXML private void ManageLogoutButton(ActionEvent event) {
-        try {
-            Router.goTo("login");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า login จาก new_order ไม่ได้");
-            e.printStackTrace();
-        }
+        PageChanger.gotoPage("login");
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
         orderList.clearOrder();
-        try {
-            Router.goTo("manage_order");
-        } catch (IOException e) {
-            System.err.println("ไปหน้า manage_order จาก new_order ไม่ได้");
-            e.printStackTrace();
-        }
+        PageChanger.gotoPage("manage_order");
     }
 
 }
