@@ -56,8 +56,8 @@ public class RegisterController {
         String conPassword = conPasswordField.getText();
 
         boolean validRegis = true;
-        boolean validPassword = false;
         boolean validUsername = false;
+        boolean validPassword;
 
         // check empty input
         if (name.isBlank()) {
@@ -69,7 +69,13 @@ public class RegisterController {
             validRegis = false;
         }
         // Thailand phone len range 9 - 10
-        if (tel.isBlank() || !(tel.length() == 9 || tel.length() == 10) ){
+        try {
+            Integer.parseInt(tel);
+            if (tel.isBlank() || !(tel.length() == 9 || tel.length() == 10)){
+                telTag.setText(TAG);
+                validRegis = false;
+            }
+        } catch (IllegalArgumentException e) {
             telTag.setText(TAG);
             validRegis = false;
         }
@@ -82,10 +88,9 @@ public class RegisterController {
             validRegis = false;
         }
 
-        // check username and password
+        // if input is not blank, check username
         if (validRegis) {
 
-            // TODO: ทำให้ check username ถูกต้อง
             // check duplicate username
             try {
                 String sqlText = "select * FROM customer WHERE C_Username = ?";
@@ -95,7 +100,6 @@ public class RegisterController {
 
                 if (result.next()) {
                     validUsername = false;
-                    usernameTag.setText(TAG);
                     result.close();
                     pst.close();
                 } else {
@@ -104,9 +108,11 @@ public class RegisterController {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            // check password match
-            validPassword = password.equals(conPassword);
+
         }
+
+        // check password match
+        validPassword = password.equals(conPassword);
 
         if (validRegis && validUsername && validPassword) {
             try {
@@ -131,10 +137,15 @@ public class RegisterController {
         } else {
             if (!validRegis)
                 registerMessageLabel.setText("Invalid information");
-            else if (!validUsername)
+            else if (!validUsername) {
                 registerMessageLabel.setText("Username is already used");
-            else if (!validPassword)
+                usernameTag.setText(TAG);
+            }
+            else if (!validPassword) {
                 registerMessageLabel.setText("Password is not matched");
+                passwordTag.setText(TAG);
+                conPasswordTag.setText(TAG);
+            }
         }
     }
 
@@ -147,6 +158,7 @@ public class RegisterController {
         conPasswordTag.setText("");
         telTag.setText("");
         nameTag.setText("");
+        usernameTag.setText("");
         passwordTag.setText("");
         conPasswordTag.setText("");
         registerMessageLabel.setText("");
