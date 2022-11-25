@@ -10,10 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controller.NewContractController">
    <children>
-      <Pane layoutX="36.0" layoutY="120.0" prefHeight="433.0" prefWidth="728.0" style="-fx-background-color: #dddddd;">
+      <Pane layoutX="113.0" layoutY="119.0" prefHeight="433.0" prefWidth="575.0" style="-fx-background-color: #dddddd;">
          <children>
             <Label layoutX="62.0" layoutY="98.0" prefHeight="32.0" prefWidth="238.0" text="Customer ID :">
                <font>
@@ -30,22 +29,22 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="cIdTextField" layoutX="317.0" layoutY="97.0" prefHeight="25.0" prefWidth="336.0" style="-fx-background-radius: 20;">
+            <TextField fx:id="cIdTextField" alignment="CENTER_RIGHT" layoutX="317.0" layoutY="97.0" prefHeight="35.0" prefWidth="206.0" style="-fx-background-radius: 20;">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
-            <TextField fx:id="conLenTextField" layoutX="317.0" layoutY="153.0" prefHeight="25.0" prefWidth="336.0" style="-fx-background-radius: 20;">
+            <TextField fx:id="conLenTextField" alignment="CENTER_RIGHT" layoutX="317.0" layoutY="153.0" prefHeight="35.0" prefWidth="206.0" promptText="max 365 days" style="-fx-background-radius: 20;">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
-            <TextField fx:id="depositTextField" layoutX="317.0" layoutY="209.0" prefHeight="25.0" prefWidth="336.0" style="-fx-background-radius: 20;">
+            <TextField fx:id="depositTextField" alignment="CENTER_RIGHT" layoutX="317.0" layoutY="209.0" prefHeight="35.0" prefWidth="206.0" promptText="max 1,000,000 THB" style="-fx-background-radius: 20;">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
-            <Button alignment="CENTER" layoutX="279.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleAddNewContractButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Add New Contract" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="202.0" layoutY="351.0" mnemonicParsing="false" onAction="#handleAddNewContractButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Add New Contract" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -57,11 +56,14 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Label fx:id="newContractMessageLabel" alignment="CENTER" layoutX="177.0" layoutY="319.0" prefHeight="32.0" prefWidth="375.0" textFill="RED" />
-            <Label fx:id="cIdTag" alignment="CENTER" layoutX="675.0" layoutY="102.0" prefHeight="26.0" prefWidth="27.0" textFill="RED" />
-            <Label fx:id="conLenTag" alignment="CENTER" layoutX="675.0" layoutY="157.0" prefHeight="26.0" prefWidth="27.0" textFill="RED" />
-            <Label fx:id="depositTag" alignment="CENTER" layoutX="675.0" layoutY="214.0" prefHeight="26.0" prefWidth="27.0" textFill="RED" />
-            <Text fill="#515151" layoutX="261.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Contract Form">
+            <Label fx:id="newContractMessageLabel" alignment="CENTER" layoutX="100.0" layoutY="308.0" prefHeight="32.0" prefWidth="375.0" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label fx:id="cIdTag" alignment="CENTER" layoutX="534.0" layoutY="102.0" prefHeight="26.0" prefWidth="27.0" textFill="RED" />
+            <Label fx:id="conLenTag" alignment="CENTER" layoutX="534.0" layoutY="158.0" prefHeight="26.0" prefWidth="27.0" textFill="RED" />
+            <Label fx:id="depositTag" alignment="CENTER" layoutX="534.0" layoutY="214.0" prefHeight="26.0" prefWidth="27.0" textFill="RED" />
+            <Text fill="#515151" layoutX="184.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Contract Form">
                <font>
                   <Font size="24.0" />
                </font>
