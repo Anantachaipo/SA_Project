@@ -102,8 +102,8 @@ public class ManageManagerOrderController {
     private void showSelectedOrder(Order order) {
         this.order = order;
         productNameLabel.setText(prodMap.get(order.getP_ID()));
-        qtyLabel.setText(String.valueOf(order.getQty()));
-        bidLabel.setText(String.valueOf(order.getBid()));
+        qtyLabel.setText(Utilities.thousandSeparator(order.getQty()));
+        bidLabel.setText(Utilities.thousandSeparator(order.getBid()));
         detailLabel.setText(order.getDetail());
     }
 
@@ -156,8 +156,8 @@ public class ManageManagerOrderController {
                         showOrder(newValue);
                         disableButtons();
                         showSelectedOrderList(newValue);
-                        numProductLabel.setText(String.valueOf(orderList.getNumOrder()));
-                        totalBidLabel.setText(String.valueOf(orderList.getTotalBid()));
+                        numProductLabel.setText(Utilities.thousandSeparator(orderList.getNumOrder()));
+                        totalBidLabel.setText(Utilities.thousandSeparator(orderList.getTotalBid()));
                     }
                 });
 
@@ -167,7 +167,6 @@ public class ManageManagerOrderController {
         this.orderList = orderList;
         cidHyperlink.setDisable(false);
 
-        System.out.println("C_ID = " + orderList.getC_ID());
         cidHyperlink.setText(String.valueOf(orderList.getC_ID()));
         cNameLabel.setText(custMap.get(orderList.getC_ID()));
         olidLabel.setText(String.valueOf(orderList.getOL_ID()));

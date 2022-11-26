@@ -86,22 +86,22 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="olidLabel" layoutX="160.0" layoutY="81.0" prefHeight="32.0" prefWidth="130.0">
+            <Label fx:id="olidLabel" alignment="CENTER_RIGHT" layoutX="160.0" layoutY="81.0" prefHeight="32.0" prefWidth="130.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="numProductLabel" layoutX="160.0" layoutY="113.0" prefHeight="32.0" prefWidth="130.0">
+            <Label fx:id="numProductLabel" alignment="CENTER_RIGHT" layoutX="160.0" layoutY="113.0" prefHeight="32.0" prefWidth="130.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="statusLabel" layoutX="160.0" layoutY="177.0" prefHeight="32.0" prefWidth="130.0">
+            <Label fx:id="statusLabel" alignment="CENTER_RIGHT" layoutX="160.0" layoutY="177.0" prefHeight="32.0" prefWidth="130.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="totalBidLabel" layoutX="160.0" layoutY="145.0" prefHeight="32.0" prefWidth="130.0">
+            <Label fx:id="totalBidLabel" alignment="CENTER_RIGHT" layoutX="160.0" layoutY="145.0" prefHeight="32.0" prefWidth="130.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -111,7 +111,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Hyperlink fx:id="cidHyperlink" layoutX="160.0" layoutY="17.0" onAction="#handleCIDHyperlink" prefHeight="33.0" prefWidth="130.0">
+            <Hyperlink fx:id="cidHyperlink" alignment="CENTER_RIGHT" layoutX="160.0" layoutY="17.0" onAction="#handleCIDHyperlink" prefHeight="33.0" prefWidth="130.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -121,7 +121,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="cNameLabel" layoutX="160.0" layoutY="49.0" prefHeight="32.0" prefWidth="130.0">
+            <Label fx:id="cNameLabel" alignment="CENTER_RIGHT" layoutX="160.0" layoutY="49.0" prefHeight="32.0" prefWidth="130.0">
                <font>
                   <Font size="16.0" />
                </font>
