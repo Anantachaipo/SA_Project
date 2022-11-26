@@ -13,6 +13,7 @@ import ku.cs.service.Utilities;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collections;
 
 import static ku.cs.controller.LoginController.connection;
 
@@ -38,7 +39,6 @@ public class ContractHistoryController {
                 new ChangeListener<Contract>() {
                     @Override
                     public void changed(ObservableValue<? extends Contract> observableValue, Contract oldValue, Contract newValue) {
-                        System.out.println(newValue + "is selected");
                         showSelectedContract(newValue);
                     }
                 }
@@ -49,7 +49,7 @@ public class ContractHistoryController {
         conIdLabel.setText(String.valueOf(contract.getCon_Id()));
         cIdLabel.setText(String.valueOf(contract.getC_Id()));
         conLenLabel.setText(String.valueOf(contract.getCon_Length()));
-        depositLabel.setText(String.valueOf(contract.getCon_Deposit()));
+        depositLabel.setText(Utilities.thousandSeparator(contract.getCon_Deposit()));
         statusLabel.setText(Contract.showStatus(contract.getCon_Status()));
     }
 
@@ -64,7 +64,7 @@ public class ContractHistoryController {
     private void showContractList() {
         ContractList contractList = new ContractList();
         try {
-            String sqlText = "select * from `contract`";
+            String sqlText = "SELECT * FROM `contract`";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             ResultSet result = pst.executeQuery();
             while (result.next()) {
@@ -83,6 +83,7 @@ public class ContractHistoryController {
             System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
         }
+        Collections.reverse(contractList.getContracts());
         contractListView.getItems().addAll(contractList.getContracts());
     }
 

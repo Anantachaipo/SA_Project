@@ -32,7 +32,7 @@ public class ManageContractController {
     private void showContract() {
         // get current active contract
         try {
-            String sqlText = "select * from `contract` where `Con_Status` = ?";
+            String sqlText = "SELECT * FROM `contract` WHERE `Con_Status` = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setString(1, "V");
             ResultSet result = pst.executeQuery();
@@ -45,8 +45,10 @@ public class ManageContractController {
                         result.getString(4),
                         result.getInt(5)
                 );
-                sqlText = "select C_Name from `customer` where `C_ID` = " + contract.getC_Id();
+                // get customer name
+                sqlText = "SELECT `C_Name` FROM `customer` WHERE `C_ID` = ?";
                 pst = connection.prepareStatement(sqlText);
+                pst.setInt(1, contract.getC_Id());
                 result = pst.executeQuery();
                 String name = "";
                 if (result.next())
@@ -81,7 +83,7 @@ public class ManageContractController {
     private void fillText(Contract contract, String name) {
         conIdLabel.setText(String.valueOf(contract.getCon_Id()));
         conLenLabel.setText(String.valueOf(contract.getCon_Length()));
-        conDepositLabel.setText(String.valueOf(contract.getCon_Deposit()));
+        conDepositLabel.setText(Utilities.thousandSeparator(contract.getCon_Deposit()));
         conStatusLabel.setText(Contract.showStatus(contract.getCon_Status()));
         cIdLabel.setText(String.valueOf(contract.getC_Id()));
         cNameLabel.setText(name);

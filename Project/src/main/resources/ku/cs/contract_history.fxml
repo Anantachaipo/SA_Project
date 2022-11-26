@@ -10,7 +10,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controller.ContractHistoryController">
    <children>
       <Pane prefHeight="69.0" prefWidth="800.0" style="-fx-background-color: #343434;">
@@ -43,52 +42,52 @@
       </Label>
       <Pane layoutX="363.0" layoutY="153.0" prefHeight="413.0" prefWidth="381.0" style="-fx-background-color: #dddddd;">
          <children>
-            <Label layoutX="16.0" layoutY="48.0" prefHeight="32.0" prefWidth="92.0" text="Con ID : ">
+            <Label layoutX="16.0" layoutY="48.0" prefHeight="32.0" prefWidth="135.0" text="Con ID : ">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="16.0" layoutY="165.0" prefHeight="32.0" prefWidth="92.0" text="Con length :">
+            <Label layoutX="16.0" layoutY="165.0" prefHeight="32.0" prefWidth="135.0" text="Con length (days) :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="16.0" layoutY="296.0" prefHeight="32.0" prefWidth="92.0" text="Status :">
+            <Label layoutX="16.0" layoutY="296.0" prefHeight="32.0" prefWidth="135.0" text="Status :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="conIdLabel" layoutX="135.0" layoutY="48.0" prefHeight="32.0" prefWidth="231.0">
+            <Label fx:id="conIdLabel" alignment="CENTER_RIGHT" layoutX="163.0" layoutY="48.0" prefHeight="32.0" prefWidth="192.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="depositLabel" layoutX="135.0" layoutY="230.0" prefHeight="32.0" prefWidth="231.0">
+            <Label fx:id="depositLabel" alignment="CENTER_RIGHT" layoutX="135.0" layoutY="230.0" prefHeight="32.0" prefWidth="220.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="16.0" layoutY="230.0" prefHeight="32.0" prefWidth="92.0" text="Deposit :">
+            <Label layoutX="16.0" layoutY="230.0" prefHeight="32.0" prefWidth="111.0" text="Deposit (THB):">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="conLenLabel" layoutX="135.0" layoutY="165.0" prefHeight="32.0" prefWidth="231.0">
+            <Label fx:id="conLenLabel" alignment="CENTER_RIGHT" layoutX="163.0" layoutY="165.0" prefHeight="32.0" prefWidth="192.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="statusLabel" layoutX="135.0" layoutY="296.0" prefHeight="32.0" prefWidth="231.0">
+            <Label fx:id="statusLabel" alignment="CENTER_RIGHT" layoutX="163.0" layoutY="296.0" prefHeight="32.0" prefWidth="192.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="16.0" layoutY="107.0" prefHeight="32.0" prefWidth="107.0" text="Customer ID :">
+            <Label layoutX="16.0" layoutY="107.0" prefHeight="32.0" prefWidth="135.0" text="Customer ID :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="cIdLabel" layoutX="135.0" layoutY="107.0" prefHeight="32.0" prefWidth="231.0">
+            <Label fx:id="cIdLabel" alignment="CENTER_RIGHT" layoutX="163.0" layoutY="107.0" prefHeight="32.0" prefWidth="192.0">
                <font>
                   <Font size="16.0" />
                </font>
