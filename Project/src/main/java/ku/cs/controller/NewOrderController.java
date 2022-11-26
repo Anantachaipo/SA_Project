@@ -98,13 +98,15 @@ public class NewOrderController {
             ResultSet result = pst.executeQuery();
 
             while (result.next()) {
-                productList.addProduct(new Product(
+                Product localProd = new Product(
                         result.getInt(1),
                         result.getString(2),
                         result.getString(3),
                         result.getInt(4),
                         result.getInt(5)
-                ));
+                );
+                if (localProd.getQty() != 0)
+                    productList.addProduct(localProd);
             }
         } catch (SQLException e) {
             System.err.println("ใช้ SQL ไม่ได้");
