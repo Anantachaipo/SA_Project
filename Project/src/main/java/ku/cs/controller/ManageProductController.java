@@ -136,14 +136,14 @@ public class ManageProductController {
         }
 
         // check valid input range
-        if (qty < 1 || qty > 99999) {
+        if (qty < 1 || qty > 9999) {
             detailMessageLabel.setText("Value range out of bound");
             return;
         }
 
         // check result value doesn't exceed DB size
-        if (product.getQty() + qty > 99999) {
-            detailMessageLabel.setText("Added quantity will exceed limit (99,999)");
+        if (product.getQty() + qty > 9999) {
+            detailMessageLabel.setText("Added quantity will exceed limit (9,999)");
             return;
         }
 

@@ -82,7 +82,7 @@ public class NewProductController {
         }
 
         // check valid input size (number)
-        if (qty < 0 || qty > 99999) {
+        if (qty < 0 || qty > 9999) {
             check.set(2, false);
             qtyTag.setText(TAG);
         }

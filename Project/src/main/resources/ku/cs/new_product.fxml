@@ -60,7 +60,7 @@
                   <Font size="16.0" />
                </font>
             </TextField>
-            <TextField fx:id="qtyTextField" alignment="CENTER_RIGHT" layoutX="149.0" layoutY="151.0" prefHeight="25.0" prefWidth="336.0" promptText="range 0 - 99,999" style="-fx-background-radius: 20;">
+            <TextField fx:id="qtyTextField" alignment="CENTER_RIGHT" layoutX="149.0" layoutY="151.0" prefHeight="25.0" prefWidth="336.0" promptText="range 0 - 9,999" style="-fx-background-radius: 20;">
                <font>
                   <Font size="16.0" />
                </font>
