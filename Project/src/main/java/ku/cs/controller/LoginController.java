@@ -5,12 +5,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import ku.cs.Router;
 import ku.cs.connector.DatabaseConnection;
 import ku.cs.model.Customer;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,7 +40,7 @@ public class LoginController {
 
         if (username.equals("Manager") && password.equals("password")) {
             System.out.println("In 'manager login'");
-            PageChanger.gotoPage("menu_manager");
+            Utilities.gotoPage("menu_manager");
             return;
         }
 
@@ -65,7 +63,7 @@ public class LoginController {
                 result.close();
                 pst.close();
                 System.out.println("Current user = " + user.toString());
-                PageChanger.gotoPage("menu");
+                Utilities.gotoPage("menu");
             } else {
                 System.err.println("In 'not found user'");
                 loginMessageLabel.setText("Invalid username or password");
@@ -76,6 +74,6 @@ public class LoginController {
         }
     }
     public void handleRegisterButton(ActionEvent actionEvent) {
-        PageChanger.gotoPage("register");
+        Utilities.gotoPage("register");
     }
 }

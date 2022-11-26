@@ -5,11 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import ku.cs.Router;
 import ku.cs.model.OrderList;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -44,7 +42,7 @@ public class ReserveController {
 
             pst.close();
 
-            PageChanger.gotoPage("manage_order");
+            Utilities.gotoPage("manage_order");
         } catch (SQLException e) {
             System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
@@ -59,10 +57,10 @@ public class ReserveController {
     }
 
     @FXML private void ManageLogoutButton(ActionEvent event) {
-        PageChanger.gotoPage("login");
+        Utilities.gotoPage("login");
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        PageChanger.gotoPage("manage_order");
+        Utilities.gotoPage("manage_order");
     }
 }

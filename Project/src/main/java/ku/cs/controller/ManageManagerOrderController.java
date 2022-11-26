@@ -8,14 +8,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import ku.cs.Router;
 import ku.cs.model.Contract;
 import ku.cs.model.Customer;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -274,7 +272,7 @@ public class ManageManagerOrderController {
                         result.getString(4),
                         result.getString(5)
                 );
-                PageChanger.gotoPage("customer_detail");
+                Utilities.gotoPage("customer_detail");
             } else {
                 System.err.println("user not found");
             }
@@ -323,7 +321,7 @@ public class ManageManagerOrderController {
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        PageChanger.gotoPage("menu_manager");
+        Utilities.gotoPage("menu_manager");
     }
 
 }

@@ -1,14 +1,11 @@
 package ku.cs.controller;
 
-import com.mysql.cj.util.StringUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import ku.cs.Router;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -101,7 +98,7 @@ public class NewProductController {
 
             pst.close();
 
-            PageChanger.gotoPage("manage_product");
+            Utilities.gotoPage("manage_product");
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("ใช้ SQL ไม่ได้");
@@ -117,7 +114,7 @@ public class NewProductController {
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        PageChanger.gotoPage("manage_product");
+        Utilities.gotoPage("manage_product");
     }
 
 }

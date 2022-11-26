@@ -4,18 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import ku.cs.Router;
-import ku.cs.model.Order;
 import ku.cs.model.OrderList;
 import ku.cs.model.Product;
 import ku.cs.model.ProductList;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import static ku.cs.controller.LoginController.user;
 
@@ -88,17 +84,17 @@ public class MenuController {
 
     @FXML
     private void ManageLogoutButton(ActionEvent event) {
-        PageChanger.gotoPage("login");
+        Utilities.gotoPage("login");
     }
     @FXML
     private void handleManageOrderButton(ActionEvent event) {
-        PageChanger.gotoPage("manage_order");
+        Utilities.gotoPage("manage_order");
     }
     @FXML private void handleViewContractButton(ActionEvent actionEvent) {
-        PageChanger.gotoPage("view_contract");
+        Utilities.gotoPage("view_contract");
     }
 
     @FXML private void handleViewReceiptButton(ActionEvent actionEvent) {
-        PageChanger.gotoPage("view_receipt");
+        Utilities.gotoPage("view_receipt");
     }
 }

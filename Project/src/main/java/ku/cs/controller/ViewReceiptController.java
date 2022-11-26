@@ -6,14 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.Menu;
-import ku.cs.Router;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
 import ku.cs.model.Receipt;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -191,15 +188,15 @@ public class ViewReceiptController {
     }
 
     @FXML private void handleManageReceiptButton(ActionEvent event) {
-        PageChanger.gotoPage("receipt");
+        Utilities.gotoPage("receipt");
     }
 
     @FXML private void ManageLogoutButton(ActionEvent event) {
-        PageChanger.gotoPage("login");
+        Utilities.gotoPage("login");
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        PageChanger.gotoPage("menu");
+        Utilities.gotoPage("menu");
     }
 
 }

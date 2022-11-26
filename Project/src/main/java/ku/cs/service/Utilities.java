@@ -4,7 +4,7 @@ import ku.cs.Router;
 
 import java.io.IOException;
 
-public class PageChanger {
+public class Utilities {
 
 
     public static void gotoPage(String toPage) {

@@ -5,14 +5,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import ku.cs.Router;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
 import ku.cs.model.Product;
 import ku.cs.model.ProductList;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -206,7 +204,7 @@ public class NewOrderController {
     }
 
     @FXML private void handleCheckoutButton(ActionEvent event) {
-        PageChanger.gotoPage("new_order_checkout");
+        Utilities.gotoPage("new_order_checkout");
     }
 
     @FXML private void handleClearOrderButton(ActionEvent event) {
@@ -217,12 +215,12 @@ public class NewOrderController {
         clearText();
     }
     @FXML private void ManageLogoutButton(ActionEvent event) {
-        PageChanger.gotoPage("login");
+        Utilities.gotoPage("login");
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
         orderList.clearOrder();
-        PageChanger.gotoPage("manage_order");
+        Utilities.gotoPage("manage_order");
     }
 
 }

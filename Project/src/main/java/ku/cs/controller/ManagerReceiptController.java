@@ -3,17 +3,14 @@ package ku.cs.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import ku.cs.Router;
 import ku.cs.model.Receipt;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static ku.cs.controller.LoginController.connection;
-import static ku.cs.controller.LoginController.user;
 
 public class ManagerReceiptController {
 
@@ -46,7 +43,7 @@ public class ManagerReceiptController {
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        PageChanger.gotoPage("menu_manager");
+        Utilities.gotoPage("menu_manager");
     }
 
 }

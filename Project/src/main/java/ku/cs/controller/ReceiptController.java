@@ -10,7 +10,7 @@ import javafx.scene.control.ListView;
 
 import ku.cs.Router;
 import ku.cs.model.*;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
 
 import java.io.IOException;
@@ -214,7 +214,7 @@ public class ReceiptController {
             pst.executeUpdate();
 
             pst.close();
-            PageChanger.gotoPage("view_receipt");
+            Utilities.gotoPage("view_receipt");
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("ใช้ sql ไม่ได้");
@@ -222,7 +222,7 @@ public class ReceiptController {
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        PageChanger.gotoPage("view_receipt");
+        Utilities.gotoPage("view_receipt");
     }
 
 }

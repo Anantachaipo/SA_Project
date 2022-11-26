@@ -7,14 +7,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import ku.cs.Router;
 import ku.cs.model.Contract;
 import ku.cs.model.Customer;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -169,10 +167,10 @@ public class CustomerDetailController {
     }
 
     @FXML private void handleMakeNewConButton(ActionEvent event) {
-        PageChanger.gotoPage("new_contract");
+        Utilities.gotoPage("new_contract");
     }
     @FXML private void handleBackButton(ActionEvent event) {
-        PageChanger.gotoPage("manage_manager_order");
+        Utilities.gotoPage("manage_manager_order");
     }
 
 }

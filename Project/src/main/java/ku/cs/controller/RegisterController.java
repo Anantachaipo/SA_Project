@@ -5,10 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import ku.cs.Router;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -128,7 +126,7 @@ public class RegisterController {
                 pst.close();
 
                 registerMessageLabel.setText("Register successfully");
-                PageChanger.gotoPage("login");
+                Utilities.gotoPage("login");
             } catch (SQLException e) {
                 System.err.println("ใช้ SQL ไม่ได้");
                 registerMessageLabel.setText("Invalid Register");
@@ -151,7 +149,7 @@ public class RegisterController {
 
     @FXML
     void handleBackButton(ActionEvent actionEvent) {
-        PageChanger.gotoPage("login");
+        Utilities.gotoPage("login");
     }
 
     private void resetTagAndMessage() {

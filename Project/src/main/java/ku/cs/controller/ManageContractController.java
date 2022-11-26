@@ -4,12 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import ku.cs.Router;
 import ku.cs.model.Contract;
-import ku.cs.model.Customer;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -91,13 +88,13 @@ public class ManageContractController {
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        PageChanger.gotoPage("menu_manager");
+        Utilities.gotoPage("menu_manager");
     }
     @FXML private void handleContractHistButton(ActionEvent event) {
-        PageChanger.gotoPage("contract_history");
+        Utilities.gotoPage("contract_history");
     }
     @FXML private void handleNewContractButton(ActionEvent event) {
-        PageChanger.gotoPage("new_contract");
+        Utilities.gotoPage("new_contract");
     }
     @FXML private void handleTerminateContractButton(ActionEvent event) {
         try {

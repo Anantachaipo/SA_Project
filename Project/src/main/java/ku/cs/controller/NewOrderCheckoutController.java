@@ -8,12 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import ku.cs.Router;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -171,7 +169,7 @@ public class NewOrderCheckoutController {
 
             pst.close();
 
-            PageChanger.gotoPage("menu");
+            Utilities.gotoPage("menu");
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("ใช้ SQL ไม่ได้");
@@ -179,11 +177,11 @@ public class NewOrderCheckoutController {
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        PageChanger.gotoPage("new_order");
+        Utilities.gotoPage("new_order");
     }
 
     @FXML private void handleLogoutButton(ActionEvent event) {
-        PageChanger.gotoPage("login");
+        Utilities.gotoPage("login");
     }
 
 }

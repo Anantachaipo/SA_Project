@@ -1,6 +1,5 @@
 package ku.cs.controller;
 
-import com.mysql.cj.util.StringUtils;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -9,13 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import ku.cs.Router;
-import ku.cs.model.Order;
 import ku.cs.model.Product;
 import ku.cs.model.ProductList;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -193,11 +189,11 @@ public class ManageProductController {
     }
 
     @FXML private void handleNewProductButton(ActionEvent event) {
-        PageChanger.gotoPage("new_product");
+        Utilities.gotoPage("new_product");
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        PageChanger.gotoPage("menu_manager");
+        Utilities.gotoPage("menu_manager");
     }
 
 }

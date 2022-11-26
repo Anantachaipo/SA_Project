@@ -6,19 +6,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import ku.cs.Router;
 import ku.cs.model.Contract;
 import ku.cs.model.ContractList;
-import ku.cs.model.Order;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static ku.cs.controller.LoginController.connection;
-import static ku.cs.controller.LoginController.user;
 
 public class ContractHistoryController {
 
@@ -92,7 +88,7 @@ public class ContractHistoryController {
 
 
     @FXML private void handleBackButton(ActionEvent event) {
-        PageChanger.gotoPage("manage_contract");
+        Utilities.gotoPage("manage_contract");
     }
 
 }

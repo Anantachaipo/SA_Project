@@ -1,20 +1,15 @@
 package ku.cs.controller;
 
-import com.mysql.cj.conf.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import ku.cs.Router;
 import ku.cs.model.Customer;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -154,7 +149,7 @@ public class NewContractController {
 
             pst.close();
 
-            PageChanger.gotoPage("menu_manager");
+            Utilities.gotoPage("menu_manager");
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("ใช้ SQL ไม่ได้");
@@ -170,6 +165,6 @@ public class NewContractController {
 
     @FXML private void handleBackButton(ActionEvent event) {
         CustomerDetailController.setNullCustomer();
-        PageChanger.gotoPage("manage_contract");
+        Utilities.gotoPage("manage_contract");
     }
 }

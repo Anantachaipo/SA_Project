@@ -3,11 +3,9 @@ package ku.cs.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import ku.cs.Router;
 import ku.cs.model.Contract;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -67,11 +65,11 @@ public class ViewContractController {
     }
 
     @FXML private void ManageLogoutButton(ActionEvent event) {
-        PageChanger.gotoPage("login");
+        Utilities.gotoPage("login");
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        PageChanger.gotoPage("menu");
+        Utilities.gotoPage("menu");
     }
 
 }

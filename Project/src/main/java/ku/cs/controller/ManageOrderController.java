@@ -7,13 +7,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import ku.cs.Router;
 import ku.cs.model.Order;
 import ku.cs.model.OrderList;
-import ku.cs.model.Product;
-import ku.cs.service.PageChanger;
+import ku.cs.service.Utilities;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -192,18 +189,18 @@ public class ManageOrderController {
     }
 
     @FXML private void handleNewOrderButton(ActionEvent event) {
-        PageChanger.gotoPage("new_order");
+        Utilities.gotoPage("new_order");
     }
 
     @FXML private void handleReserveButton(ActionEvent event) {
-        PageChanger.gotoPage("reserve");
+        Utilities.gotoPage("reserve");
     }
 
     @FXML private void handleLogoutButton(ActionEvent event) {
-        PageChanger.gotoPage("login");
+        Utilities.gotoPage("login");
     }
 
     @FXML private void handleBackButton(ActionEvent event) {
-        PageChanger.gotoPage("menu");
+        Utilities.gotoPage("menu");
     }
 }
