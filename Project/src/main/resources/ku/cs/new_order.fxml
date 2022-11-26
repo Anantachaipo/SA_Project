@@ -89,7 +89,7 @@
             </Label>
             <TextField fx:id="qtyTextField" layoutX="86.0" layoutY="83.0" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 10;" />
             <TextField fx:id="bidTextField" layoutX="272.0" layoutY="83.0" prefHeight="25.0" prefWidth="151.0" promptText="Bid limit 1,000,000" style="-fx-background-radius: 10;" />
-            <TextArea fx:id="detailTextArea" layoutX="86.0" layoutY="118.0" prefHeight="186.0" prefWidth="336.0" style="-fx-background-radius: 10 10 0 0; -fx-border-radius: 10 10 0 0; -fx-border-color: transparent;" />
+            <TextArea fx:id="detailTextArea" layoutX="86.0" layoutY="118.0" prefHeight="186.0" prefWidth="336.0" promptText="200 Characters limit" style="-fx-background-radius: 10 10 0 0; -fx-border-radius: 10 10 0 0; -fx-border-color: transparent;" />
             <Label fx:id="qtyTag" layoutX="184.0" layoutY="88.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
             <Label fx:id="bidTag" layoutX="430.0" layoutY="86.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
             <Label fx:id="detailTag" layoutX="430.0" layoutY="118.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
