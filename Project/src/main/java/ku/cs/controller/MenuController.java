@@ -12,6 +12,8 @@ import ku.cs.service.Utilities;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import static ku.cs.controller.LoginController.user;
 
@@ -33,24 +35,22 @@ public class MenuController {
         showProductList();
     }
     private void showOrderList() {
-        OrderList orderList;
         try {
-
             // Read OrderList
             String sqlText = "SELECT `OL_ID`, `Status` FROM `order_list` WHERE `C_ID` = ?";
             PreparedStatement pst = LoginController.connection.prepareStatement(sqlText);
             pst.setInt(1, user.getId());
             ResultSet result = pst.executeQuery();
 
+            ArrayList<OrderList> arr = new ArrayList<>();
             while (result.next()) {
-                orderList = new OrderList(
+                arr.add(new OrderList(
                         result.getInt(1),
                         result.getString(2)
-                );
-
-                orderListView.getItems().add(orderList);
+                ));
             }
-
+            Collections.reverse(arr);
+            orderListView.getItems().addAll(arr);
         } catch (SQLException e) {
             System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
