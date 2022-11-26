@@ -92,8 +92,8 @@ public class ManageProductController {
         pidLabel.setText(String.valueOf(product.getPid()));
         nameLabel.setText(product.getName());
         typeLabel.setText(product.getType());
-        qtyLabel.setText(String.valueOf(product.getQty()));
-        ppuLabel.setText(String.valueOf(product.getPPU()));
+        qtyLabel.setText(Utilities.thousandSeparator(product.getQty()));
+        ppuLabel.setText(Utilities.thousandSeparator(product.getPPU()));
         addButton.setDisable(false);
         changePPUButton.setDisable(false);
     }
@@ -112,24 +112,45 @@ public class ManageProductController {
         // reset message
         detailMessageLabel.setText("");
 
-        String addQty = addTextField.getText();
+        /*
+            0 -> check empty input
+            1 -> check non-numeric input
+            2 -> check valid input range
+            3 -> check result value doesn't exceed DB size
+        */
 
-        // Invalid input
+        String str = addTextField.getText();
+        int qty = 0;
+        // check empty input
+        if (str.equals("")) {
+            detailMessageLabel.setText("Input field must not be empty");
+            return;
+        }
+
+        // check non-numeric input
         try {
-            if (addQty.equals("") || Integer.parseInt(addQty) < 1) {
-                detailMessageLabel.setText("Invalid Quantity");
-                return;
-            }
+            qty = Integer.parseInt(str);
         } catch (IllegalArgumentException e) {
-            detailMessageLabel.setText("Invalid Quantity");
+            detailMessageLabel.setText("Input field can only contain numeric values");
+            return;
+        }
+
+        // check valid input range
+        if (qty < 1 || qty > 99999) {
+            detailMessageLabel.setText("Value range out of bound");
+            return;
+        }
+
+        // check result value doesn't exceed DB size
+        if (product.getQty() + qty > 99999) {
+            detailMessageLabel.setText("Added quantity will exceed limit (99,999)");
             return;
         }
 
         try {
-            int intAddQty = Integer.parseInt(addQty);
-            product.addQty(intAddQty);
+            product.addQty(qty);
 
-            String sqlText = "update product set P_Qty = ? where P_ID = ?";
+            String sqlText = "UPDATE product SET P_Qty = ? WHERE P_ID = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setInt(1, product.getQty());
             pst.setInt(2, product.getPid());
@@ -138,11 +159,8 @@ public class ManageProductController {
             pst.close();
 
             addTextField.setText("");
-            addTextField.setPromptText("add product to stock");
             productListView.refresh();
             showSelectedProduct(product);
-        } catch (IllegalArgumentException e) {
-            detailMessageLabel.setText("Invalid Quantity");
         } catch (SQLException e) {
             System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
@@ -153,22 +171,40 @@ public class ManageProductController {
         // reset message
         detailMessageLabel.setText("");
 
-        String newPPU = ppuTextField.getText();
+        /*
+            0 -> check empty input
+            1 -> check non-numeric input
+            2 -> check valid input range
+        */
+
+        String str = ppuTextField.getText();
+        int ppu = 0;
+
+        // check empty input
+        if (str.equals("")) {
+            detailMessageLabel.setText("Input field must not be empty");
+            return;
+        }
+
+        // check non-numeric input
         try {
-            if (newPPU.equals("") || Integer.parseInt(newPPU) < 1) {
-                detailMessageLabel.setText("Invalid Price Per Unit");
-                return;
-            }
+            ppu = Integer.parseInt(str);
         } catch (IllegalArgumentException e) {
-            detailMessageLabel.setText("Invalid Price Per Unit");
+            detailMessageLabel.setText("Input field can only contain numeric values");
+            return;
+        }
+
+        // check valid input range
+        if (ppu < 1 || ppu > 99999) {
+            detailMessageLabel.setText("Value range out of bound");
             return;
         }
 
         try {
-            int intNewPPU = Integer.parseInt(newPPU);
-            product.setPPU(intNewPPU);
 
-            String sqlText = "update product set P_PPU = ? where P_ID = ?";
+            product.setPPU(ppu);
+
+            String sqlText = "UPDATE product SET P_PPU = ? WHERE P_ID = ?";
             PreparedStatement pst = connection.prepareStatement(sqlText);
             pst.setInt(1, product.getPPU());
             pst.setInt(2, product.getPid());
@@ -177,11 +213,8 @@ public class ManageProductController {
             pst.close();
 
             ppuTextField.setText("");
-            ppuTextField.setPromptText("change price per unit");
             productListView.refresh();
             showSelectedProduct(product);
-        } catch (IllegalArgumentException e) {
-            detailMessageLabel.setText("Invalid Price Per Unit");
         } catch (SQLException e) {
             System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
