@@ -39,10 +39,10 @@
                         </DropShadow>
                      </effect>
                   </Button>
-                  <TextField fx:id="nameTextField" layoutX="208.0" layoutY="45.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
-                  <TextField fx:id="usernameTextField" layoutX="210.0" layoutY="96.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
+                  <TextField fx:id="nameTextField" layoutX="208.0" layoutY="45.0" prefHeight="25.0" prefWidth="290.0" promptText="50 characters limit" style="-fx-background-radius: 10;" />
+                  <TextField fx:id="usernameTextField" layoutX="210.0" layoutY="96.0" prefHeight="25.0" prefWidth="290.0" promptText="30 characters limit" style="-fx-background-radius: 10;" />
                   <TextField fx:id="telTextFleld" layoutX="210.0" layoutY="147.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
-                  <PasswordField fx:id="passwordField" layoutX="210.0" layoutY="197.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
+                  <PasswordField fx:id="passwordField" layoutX="210.0" layoutY="197.0" prefHeight="25.0" prefWidth="290.0" promptText="20 characters limit" style="-fx-background-radius: 10;" />
                   <PasswordField fx:id="conPasswordField" layoutX="210.0" layoutY="245.0" prefHeight="25.0" prefWidth="290.0" style="-fx-background-radius: 10;" />
                   <Label layoutX="125.0" layoutY="45.0" text="Name :" textAlignment="RIGHT">
                      <font>
@@ -71,7 +71,7 @@
                   </Label>
                   <Label fx:id="registerMessageLabel" alignment="CENTER" layoutX="109.0" layoutY="297.0" prefHeight="26.0" prefWidth="351.0" textFill="RED">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                   <Label fx:id="nameTag" layoutX="508.0" layoutY="49.0" prefHeight="17.0" prefWidth="28.0" textFill="RED" />
