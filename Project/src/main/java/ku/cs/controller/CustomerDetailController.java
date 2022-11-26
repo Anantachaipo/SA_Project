@@ -54,14 +54,14 @@ public class CustomerDetailController {
         // show customer
         cidLabel.setText(String.valueOf(customer.getId()));
         cNameLabel.setText(customer.getName());
-        cTelLabel.setText(customer.getTel());
+        cTelLabel.setText(Utilities.phoneSeparator(customer.getTel()));
 
         clearSelectedOrderList();
         showOrderList();
         handleSelectedOrderListListView();
 
-        numOrderLabel.setText(String.valueOf(numOrder));
-        numContractLabel.setText(String.valueOf(numContract));
+        numOrderLabel.setText(Utilities.thousandSeparator(numOrder));
+        numContractLabel.setText(Utilities.thousandSeparator(numContract));
     }
 
     private void findAssociatedContract(Customer customer) {
@@ -146,8 +146,8 @@ public class CustomerDetailController {
 
     private void showSelectedOrderList(OrderList orderList) {
         olidLabel.setText(String.valueOf(orderList.getOL_ID()));
-        numProductLabel.setText(String.valueOf(orderList.getNumOrder()));
-        totalBidLabel.setText(String.valueOf(orderList.getTotalBid()));
+        numProductLabel.setText(Utilities.thousandSeparator(orderList.getNumOrder()));
+        totalBidLabel.setText(Utilities.thousandSeparator(orderList.getTotalBid()));
         statusLabel.setText(OrderList.showStatus(orderList.getStatus()));
     }
 

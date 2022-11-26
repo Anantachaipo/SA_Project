@@ -103,7 +103,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="13.0" layoutY="159.0" prefHeight="32.0" prefWidth="166.0" text="Tel :">
+            <Label layoutX="13.0" layoutY="159.0" prefHeight="32.0" prefWidth="107.0" text="Telephone :">
                <font>
                   <Font size="16.0" />
                </font>
@@ -123,12 +123,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="cNameLabel" alignment="CENTER_RIGHT" layoutX="179.0" layoutY="83.0" prefHeight="32.0" prefWidth="94.0">
+            <Label fx:id="cNameLabel" alignment="CENTER_RIGHT" layoutX="144.0" layoutY="83.0" prefHeight="32.0" prefWidth="129.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="cTelLabel" alignment="CENTER_RIGHT" layoutX="179.0" layoutY="159.0" prefHeight="32.0" prefWidth="94.0">
+            <Label fx:id="cTelLabel" alignment="CENTER_RIGHT" layoutX="144.0" layoutY="159.0" prefHeight="32.0" prefWidth="129.0">
                <font>
                   <Font size="16.0" />
                </font>

@@ -35,4 +35,14 @@ public class Utilities {
         }
         return sb.reverse().toString();
     }
+
+    public static String phoneSeparator(String s) {
+
+        StringBuilder sb = new StringBuilder(s);
+        int offset = (s.length()==9) ? 0 : 1;
+
+        sb.insert(2+offset, "-");
+        sb.insert(6+offset, "-");
+        return sb.toString();
+    }
 }
