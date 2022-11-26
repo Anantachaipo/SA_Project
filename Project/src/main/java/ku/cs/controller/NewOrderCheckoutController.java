@@ -66,8 +66,8 @@ public class NewOrderCheckoutController {
 
     private void showSelectedOrder(Order order) {
         productNameLabel.setText(prodMap.get(order.getP_ID()));
-        qtyLabel.setText(String.valueOf(order.getQty()));
-        bidLabel.setText(String.valueOf(order.getBid()));
+        qtyLabel.setText(Utilities.thousandSeparator(order.getQty()));
+        bidLabel.setText(Utilities.thousandSeparator(order.getBid()));
         detailLabel.setText(order.getDetail());
     }
 
@@ -84,8 +84,8 @@ public class NewOrderCheckoutController {
 
     private void showDescription() {
         numProductLabel.setText(String.valueOf(orderList.getNumOrder()));
-        totalQtyLabel.setText(String.valueOf(orderList.getTotalQty()));
-        totalBidLabel.setText(String.valueOf(orderList.getTotalBid()));
+        totalQtyLabel.setText(Utilities.thousandSeparator(orderList.getTotalQty()));
+        totalBidLabel.setText(Utilities.thousandSeparator(orderList.getTotalBid()));
     }
 
     private void mapIDtoProductName() {

@@ -14,6 +14,8 @@ import ku.cs.service.Utilities;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import static ku.cs.controller.LoginController.connection;
@@ -93,8 +95,8 @@ public class ManageOrderController {
     private void showSelectedOrder(Order order) {
         this.order = order;
         productNameLabel.setText(map.get(order.getP_ID()));
-        qtyLabel.setText(String.valueOf(order.getQty()));
-        bidLabel.setText(String.valueOf(order.getBid()));
+        qtyLabel.setText(Utilities.thousandSeparator(order.getQty()));
+        bidLabel.setText(Utilities.thousandSeparator(order.getBid()));
         detailLabel.setText(order.getDetail());
     }
 
@@ -115,13 +117,19 @@ public class ManageOrderController {
             pst.setInt(1, user.getId());
             ResultSet result = pst.executeQuery();
 
+            ArrayList<OrderList> arr = new ArrayList<>();
             while (result.next()) {
-                orderList = new OrderList(
+                OrderList localOrderList = new OrderList(
                         result.getInt(1),
                         result.getString(2)
                 );
-                orderListListView.getItems().add(orderList);
+                if (localOrderList.getStatus().equals("P") || localOrderList.getStatus().equals("A"))
+                    arr.add(localOrderList);
             }
+
+            Collections.reverse(arr);
+            orderListListView.getItems().addAll(arr);
+
             pst.close();
             result.close();
         } catch (SQLException e) {
@@ -140,7 +148,7 @@ public class ManageOrderController {
                         clearSelectedOrder();
                         showOrder();
                         numProductLabel.setText(String.valueOf(orderList.getNumOrder()));
-                        totalBidLabel.setText(String.valueOf(orderList.getTotalBid()));
+                        totalBidLabel.setText(Utilities.thousandSeparator(orderList.getTotalBid()));
                     }
                 }
         );

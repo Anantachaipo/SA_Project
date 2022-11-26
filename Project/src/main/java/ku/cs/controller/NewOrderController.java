@@ -14,6 +14,8 @@ import ku.cs.service.Utilities;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
 
 public class NewOrderController {
 
@@ -45,17 +47,10 @@ public class NewOrderController {
     private static OrderList orderList = new OrderList();
 
     @FXML private void initialize() {
-        orderList.clearOrder();
         nameLabel.setText(LoginController.user.getName());
         addOrderButton.setDisable(true);
-        if (orderList.getNumOrder()<=0) {
-            checkoutButton.setDisable(true);
-            clearOrderButton.setDisable(true);
-        }
-        else {
-            checkoutButton.setDisable(false);
-            clearOrderButton.setDisable(false);
-        }
+
+        checkOrder();
         showProductList();
         clearSelectedProduct();
         handleSelectedListView();
@@ -67,6 +62,7 @@ public class NewOrderController {
                     @Override
                     public void changed(ObservableValue<? extends Product> observable, Product oldValue, Product newValue) {
                         System.out.println(newValue + " is selected");
+                        clearText();
                         showSelectedProduct(newValue);
                     }
                 }
@@ -76,8 +72,8 @@ public class NewOrderController {
     private void showSelectedProduct(Product product) {
         this.product = product;
         productNameLabel.setText(this.product.getName());
-        availableQtyLabel.setText(String.valueOf(this.product.getQty()));
-        ppuLabel.setText(String.valueOf(this.product.getPPU()));
+        availableQtyLabel.setText(Utilities.thousandSeparator(this.product.getQty()));
+        ppuLabel.setText(Utilities.thousandSeparator(this.product.getPPU()));
         addOrderButton.setDisable(false);
     }
 
@@ -129,61 +125,111 @@ public class NewOrderController {
         bidTextField.clear();
     }
 
+    private void checkOrder() {
+        if (orderList.getNumOrder()<=0) {
+            checkoutButton.setDisable(true);
+            clearOrderButton.setDisable(true);
+        }
+        else {
+            checkoutButton.setDisable(false);
+            clearOrderButton.setDisable(false);
+        }
+    }
+
     public static OrderList getOrderList() {
         return orderList;
     }
+
     @FXML private void handleAddOrderButton(ActionEvent event) {
         resetTagAndMessage();
-
-        boolean validBid, validQty, validInput = true;
+        /*
+            index 0 -> check empty input
+            index 1 -> check non-numeric input
+            * -> check valid quantity
+            * -> check bid is equal or more than minimum
+            * -> check valid bid (less than 1,000,000)
+            * -> check valid input size
+         */
+        List<Boolean> check = Arrays.asList(true, true);
+        int bid = 0, qty = 0;
 
         // check for empty input
         if (qtyTextField.getText().isBlank()) {
-            validInput = false;
+            check.set(0, false);
             qtyTag.setText(TAG);
         }
         if (bidTextField.getText().isBlank()) {
-            validInput = false;
+            check.set(0, false);
             bidTag.setText(TAG);
         }
         if (detailTextArea.getText().isBlank()) {
-            validInput = false;;
+            check.set(0, false);
             detailTag.setText(TAG);
         }
-        if (!validInput){
-            addOrderMessageLabel.setText("Invalid order");
+        if (!check.get(0)){
+            addOrderMessageLabel.setText("Input field must not be empty");
             return;
         }
 
-        // check illegal input
-        int bid = 0, qty = 0;
+        // check non-numeric input
         try {
             qty = Integer.parseInt(qtyTextField.getText());
-            validQty = qty > 0 && qty <= this.product.getQty();
         } catch (IllegalArgumentException e) {
-            validQty = false;
-            System.err.println("Illegal bid");
+            check.set(1, false);
+            qtyTag.setText(TAG);
         }
         try {
             bid = Integer.parseInt(bidTextField.getText());
-            int minimun = qty * this.product.getPPU();
-            validBid = bid > 0 && bid >= minimun;
         } catch (IllegalArgumentException e) {
-            validBid = false;
-            System.err.println("Illegal bid");
+            check.set(1, false);
+            bidTag.setText(TAG);
         }
-
-        String detail = detailTextArea.getText();
-
-        // check for invalid input
-        if (!validQty) {
-            qtyTag.setText(TAG);
-            addOrderMessageLabel.setText("Invalid quantity");
+        if (!check.get(1)) {
+            addOrderMessageLabel.setText("Input field can only contain numeric values");
             return;
         }
-        if (!validBid) {
+
+        // check valid quantity
+        if (qty > product.getQty()) {
+            qtyTag.setText(TAG);
+            addOrderMessageLabel.setText("Quantity must be less than available product");
+            return;
+        } else if (qty <= 0) {
+            qtyTag.setText(TAG);
+            addOrderMessageLabel.setText("Quantity lower than minimum (1)");
+            return;
+        } else if (orderList.getOrderByID(product.getPid()) != null) {
+            int localQty = qty + orderList.getOrderByID(product.getPid()).getQty();
+            if (localQty > product.getQty()) {
+                qtyTag.setText(TAG);
+                String qtyStr = Utilities.thousandSeparator(localQty);
+                addOrderMessageLabel.setText("Total quantity (" + qtyStr + ") exceed available product");
+                return;
+            }
+        }
+
+        // check bid is equal or more than minimum
+        int minimum = qty * this.product.getPPU();
+        if (bid < minimum) {
             bidTag.setText(TAG);
-            addOrderMessageLabel.setText("Invalid bid");
+            String minStr = Utilities.thousandSeparator(minimum);
+            addOrderMessageLabel.setText("Your bid is lower than minimum bid (" + minStr + ")");
+            return;
+        }
+
+        // check valid bid (less than 1,000,000)
+        if (bid > 1000000) {
+            String maxStr = Utilities.thousandSeparator(1000000);
+            bidTag.setText(TAG);
+            addOrderMessageLabel.setText("Bid limit exceeded (" + maxStr + ")");
+            return;
+        }
+
+        // check valid input size
+        String detail = detailTextArea.getText();
+        if (detail.length() > 200) {
+            detailTag.setText(TAG);
+            addOrderMessageLabel.setText("Characters input limit exceeded (200)");
             return;
         }
 
@@ -216,7 +262,9 @@ public class NewOrderController {
         clearSelectedProduct();
         clearText();
     }
+
     @FXML private void ManageLogoutButton(ActionEvent event) {
+        orderList.clearOrder();
         Utilities.gotoPage("login");
     }
 

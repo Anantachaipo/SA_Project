@@ -65,7 +65,7 @@
       </Label>
       <ListView fx:id="productListView" layoutX="41.0" layoutY="149.0" prefHeight="413.0" prefWidth="221.0" />
       <Line endX="-5.0" endY="430.0" layoutX="303.0" layoutY="131.0" startX="-5.0" startY="18.0" />
-      <Pane layoutX="326.0" layoutY="149.0" prefHeight="318.0" prefWidth="451.0" style="-fx-background-color: #dddddd;">
+      <Pane layoutX="334.0" layoutY="149.0" prefHeight="318.0" prefWidth="441.0" style="-fx-background-color: #dddddd;">
          <children>
             <Label layoutX="8.0" layoutY="14.0" prefHeight="32.0" prefWidth="78.0" text="Product :">
                <font>
@@ -77,7 +77,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="265.0" layoutY="79.0" prefHeight="32.0" prefWidth="46.0" text="Bid :">
+            <Label layoutX="226.0" layoutY="80.0" prefHeight="32.0" prefWidth="46.0" text="Bid :">
                <font>
                   <Font size="16.0" />
                </font>
@@ -88,7 +88,7 @@
                </font>
             </Label>
             <TextField fx:id="qtyTextField" layoutX="86.0" layoutY="83.0" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 10;" />
-            <TextField fx:id="bidTextField" layoutX="311.0" layoutY="82.0" prefHeight="25.0" prefWidth="111.0" style="-fx-background-radius: 10;" />
+            <TextField fx:id="bidTextField" layoutX="272.0" layoutY="83.0" prefHeight="25.0" prefWidth="151.0" promptText="Bid limit 1,000,000" style="-fx-background-radius: 10;" />
             <TextArea fx:id="detailTextArea" layoutX="86.0" layoutY="118.0" prefHeight="186.0" prefWidth="336.0" style="-fx-background-radius: 10 10 0 0; -fx-border-radius: 10 10 0 0; -fx-border-color: transparent;" />
             <Label fx:id="qtyTag" layoutX="184.0" layoutY="88.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
             <Label fx:id="bidTag" layoutX="430.0" layoutY="86.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
@@ -98,7 +98,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="265.0" layoutY="47.0" prefHeight="32.0" prefWidth="46.0" text="PPU :">
+            <Label layoutX="226.0" layoutY="48.0" prefHeight="32.0" prefWidth="46.0" text="PPU :">
                <font>
                   <Font size="16.0" />
                </font>
@@ -108,12 +108,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="availableQtyLabel" layoutX="86.0" layoutY="46.0" prefHeight="32.0" prefWidth="126.0">
+            <Label fx:id="availableQtyLabel" layoutX="86.0" layoutY="46.0" prefHeight="32.0" prefWidth="91.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="ppuLabel" layoutX="311.0" layoutY="46.0" prefHeight="32.0" prefWidth="111.0">
+            <Label fx:id="ppuLabel" layoutX="272.0" layoutY="47.0" prefHeight="32.0" prefWidth="151.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -139,7 +139,7 @@
             </DropShadow>
          </effect>
       </Button>
-      <Label fx:id="addOrderMessageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="427.0" layoutY="484.0" prefHeight="25.0" prefWidth="250.0" textAlignment="CENTER" textFill="RED">
+      <Label fx:id="addOrderMessageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="369.0" layoutY="482.0" prefHeight="25.0" prefWidth="371.0" textAlignment="CENTER" textFill="RED">
          <font>
             <Font size="16.0" />
          </font>
