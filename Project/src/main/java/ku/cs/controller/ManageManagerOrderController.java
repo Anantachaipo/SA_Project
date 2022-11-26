@@ -313,6 +313,7 @@ public class ManageManagerOrderController {
             clearSelectedOrder();
             clearSelectedOrderList();
             orderListListView.refresh();
+            showOrderList();
         } catch (SQLException e) {
             System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
