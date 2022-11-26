@@ -143,7 +143,8 @@ public class ManageProductController {
 
         // check result value doesn't exceed DB size
         if (product.getQty() + qty > 9999) {
-            detailMessageLabel.setText("Added quantity will exceed limit (9,999)");
+            String localQty = Utilities.thousandSeparator(product.getQty() + qty);
+            detailMessageLabel.setText("Added quantity (" + localQty + ") will exceed limit (9,999)");
             return;
         }
 
