@@ -53,8 +53,8 @@ public class OrderList {
         return Con_ID;
     }
 
-    public int getTotalBid() {
-        int total = 0;
+    public long getTotalBid() {
+        long total = 0;
         for (Order order : orders) {
             total += order.getBid();
         }
