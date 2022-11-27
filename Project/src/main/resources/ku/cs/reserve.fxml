@@ -57,17 +57,17 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="11.0" layoutY="150.0" prefHeight="32.0" prefWidth="78.0" text="Total Bid :">
+            <Label layoutX="11.0" layoutY="150.0" prefHeight="32.0" prefWidth="119.0" text="Total Bid (THB) :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="olidLabel" layoutX="166.0" layoutY="14.0" prefHeight="32.0" prefWidth="249.0">
+            <Label fx:id="olidLabel" alignment="CENTER_RIGHT" layoutX="166.0" layoutY="14.0" prefHeight="32.0" prefWidth="249.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="totalBidLabel" layoutX="90.0" layoutY="150.0" prefHeight="32.0" prefWidth="323.0">
+            <Label fx:id="totalBidLabel" alignment="CENTER_RIGHT" layoutX="131.0" layoutY="150.0" prefHeight="32.0" prefWidth="282.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -89,7 +89,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="numProductLabel" layoutX="166.0" layoutY="86.0" prefHeight="32.0" prefWidth="249.0">
+            <Label fx:id="numProductLabel" alignment="CENTER_RIGHT" layoutX="166.0" layoutY="86.0" prefHeight="32.0" prefWidth="249.0">
                <font>
                   <Font size="16.0" />
                </font>

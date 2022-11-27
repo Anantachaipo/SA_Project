@@ -27,8 +27,8 @@ public class ReserveController {
     @FXML private void initialize() {
         nameLabel.setText(LoginController.user.getName());
         olidLabel.setText(String.valueOf(orderList.getOL_ID()));
-        numProductLabel.setText(String.valueOf(orderList.getNumOrder()));
-        totalBidLabel.setText(String.valueOf(orderList.getTotalBid()));
+        numProductLabel.setText(Utilities.thousandSeparator(orderList.getNumOrder()));
+        totalBidLabel.setText(Utilities.thousandSeparator(orderList.getTotalBid()));
         placeReserveButton.setDisable(true);
     }
 
