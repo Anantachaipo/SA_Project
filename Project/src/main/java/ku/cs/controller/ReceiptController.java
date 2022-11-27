@@ -25,6 +25,9 @@ import static ku.cs.controller.LoginController.user;
 
 public class ReceiptController {
 
+    @FXML private Label numProductLabel;
+    @FXML private Label totalBidLabel;
+    @FXML private Label totalQtyLabel;
     @FXML private Label warningLabel;
     @FXML private Button cancelButton;
     @FXML private Button makeReceiptButton;
@@ -41,6 +44,7 @@ public class ReceiptController {
         disableButton();
         getCurrentContract();
         showOrderList();
+        clearOrderContent();
         handleSelectedOrderList();
     }
 
@@ -99,14 +103,28 @@ public class ReceiptController {
                     @Override
                     public void changed(ObservableValue<? extends OrderList> observable, OrderList oldValue, OrderList newValue) {
                         System.out.println(newValue + " is selected");
+                        clearOrderContent();
+                        orderList.clearOrder();
                         orderList = newValue;
-
+                        getOrderContent();
+                        showOrderContent();
                         // order not in contract
                         if (contract == null) {
                             cancelButton.setDisable(false);
                             makeReceiptButton.setDisable(true);
                             warningLabel.setText("This order is not in current contract");
                             return;
+                        }
+                        // not enough available product
+                        for (Order order : orderList.getOrders()) {
+                            int pid = order.getP_ID();
+                            if (order.getQty() > qtyMap.get(pid)) {
+
+                                cancelButton.setDisable(false);
+                                makeReceiptButton.setDisable(true);
+                                warningLabel.setText("There is not enough product for one or more order");
+                                return;
+                            }
                         }
 
                         // order in contract
@@ -118,7 +136,6 @@ public class ReceiptController {
     }
 
     @FXML private void handleMakeReceiptButton(ActionEvent event) {
-        getOrderContent();
         try {
             // Update Product
             String sqlText = "UPDATE `product` SET `P_QTY` = ? where `P_ID` = ?";
@@ -146,10 +163,7 @@ public class ReceiptController {
 
             pst.close();
 
-            Router.goTo("view_receipt");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("ไปหน้า view_receipt จาก receipt ไม่ได้");
+            Utilities.gotoPage("view_receipt");
         } catch (SQLException e) {
             System.err.println("ใช้ SQL ไม่ได้");
             e.printStackTrace();
@@ -179,6 +193,18 @@ public class ReceiptController {
             e.printStackTrace();
             System.err.println("ใช้ SQL ไม่ได้");
         }
+    }
+
+    private void showOrderContent() {
+        totalQtyLabel.setText(Utilities.thousandSeparator(orderList.getTotalQty()));
+        numProductLabel.setText(Utilities.thousandSeparator(orderList.getNumOrder()));
+        totalBidLabel.setText(Utilities.thousandSeparator(orderList.getTotalBid()));
+    }
+
+    private void clearOrderContent() {
+        totalQtyLabel.setText("-");
+        numProductLabel.setText("-");
+        totalBidLabel.setText("-");
     }
 
     private  void mapProdID() {

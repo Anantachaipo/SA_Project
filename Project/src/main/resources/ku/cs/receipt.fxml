@@ -9,7 +9,6 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controller.ReceiptController">
    <children>
       <Pane prefHeight="69.0" prefWidth="800.0" style="-fx-background-color: #343434;">
@@ -28,9 +27,9 @@
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="262.0" layoutY="465.0" prefHeight="88.0" prefWidth="276.0">
+      <Pane layoutX="201.0" layoutY="485.0" prefHeight="88.0" prefWidth="398.0">
          <children>
-            <Button fx:id="cancelButton" alignment="CENTER" layoutX="148.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleCancelButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Cancel Order" textFill="WHITE">
+            <Button fx:id="cancelButton" alignment="CENTER" layoutX="209.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleCancelButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Cancel Order" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -42,7 +41,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Button fx:id="makeReceiptButton" alignment="CENTER" layoutX="1.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleMakeReceiptButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Make Receipt" textFill="WHITE">
+            <Button fx:id="makeReceiptButton" alignment="CENTER" layoutX="62.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleMakeReceiptButton" style="-fx-background-radius: 20; -fx-background-color: #454545;" text="Make Receipt" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -54,21 +53,62 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Label fx:id="warningLabel" alignment="CENTER" layoutX="13.0" layoutY="2.0" prefHeight="17.0" prefWidth="250.0" textFill="RED">
+            <Label fx:id="warningLabel" alignment="CENTER" layoutX="11.0" layoutY="2.0" prefHeight="25.0" prefWidth="377.0" textFill="RED">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="228.0" layoutY="94.0" prefHeight="353.0" prefWidth="344.0" style="-fx-background-color: #aaaaaa; -fx-background-radius: 10;">
+      <Pane layoutX="245.0" layoutY="288.0" prefHeight="142.0" prefWidth="310.0" style="-fx-background-color: #dddddd; -fx-background-radius: 10;">
+         <children>
+            <Label layoutX="12.0" layoutY="97.0" prefHeight="32.0" prefWidth="117.0" text="Total Bid (THB) :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="totalBidLabel" alignment="CENTER_RIGHT" layoutX="129.0" layoutY="97.0" prefHeight="32.0" prefWidth="170.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="33.0" prefHeight="32.0" prefWidth="156.0" text="Number of Product :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="numProductLabel" alignment="CENTER_RIGHT" layoutX="168.0" layoutY="33.0" prefHeight="32.0" prefWidth="128.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="65.0" prefHeight="32.0" prefWidth="117.0" text="Total Quantity :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="totalQtyLabel" alignment="CENTER_RIGHT" layoutX="129.0" layoutY="65.0" prefHeight="32.0" prefWidth="170.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.15000000596046448" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+      <Pane layoutX="228.0" layoutY="116.0" prefHeight="184.0" prefWidth="344.0" style="-fx-background-color: #aaaaaa; -fx-background-radius: 10;">
          <children>
             <Label layoutX="107.0" layoutY="22.0" text="List of Orders">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <ListView fx:id="orderListListView" layoutX="17.0" layoutY="66.0" prefHeight="273.0" prefWidth="310.0" />
+            <ListView fx:id="orderListListView" layoutX="17.0" layoutY="66.0" prefHeight="94.0" prefWidth="310.0" />
          </children>
          <effect>
             <DropShadow>
