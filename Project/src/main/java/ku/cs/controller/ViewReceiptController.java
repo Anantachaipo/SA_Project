@@ -14,6 +14,8 @@ import ku.cs.service.Utilities;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import static ku.cs.controller.LoginController.connection;
@@ -93,16 +95,16 @@ public class ViewReceiptController {
         showOrder();
 
         olidLabel.setText(String.valueOf(receipt.getOL_ID()));
-        totalBidLabel.setText(String.valueOf(orderList.getTotalBid()));
-        numProductLabel.setText(String.valueOf(orderList.getNumOrder()));
+        totalBidLabel.setText(Utilities.thousandSeparator(orderList.getTotalBid()));
+        numProductLabel.setText(Utilities.thousandSeparator(orderList.getNumOrder()));
     }
 
     private void showSelectedOrder(Order order) {
         this.order = order;
 
         productNameLabel.setText(prodMap.get(order.getP_ID()));
-        qtyLabel.setText(String.valueOf(order.getQty()));
-        bidLabel.setText(String.valueOf(order.getBid()));
+        qtyLabel.setText(Utilities.thousandSeparator(order.getQty()));
+        bidLabel.setText(Utilities.thousandSeparator(order.getBid()));
         detailLabel.setText(order.getDetail());
     }
 
@@ -113,14 +115,19 @@ public class ViewReceiptController {
             pst.setInt(1, user.getId());
             ResultSet result = pst.executeQuery();
 
+            ArrayList<Receipt> arr = new ArrayList<>();
             while (result.next()) {
                 Receipt receipt = new Receipt(
                         result.getInt(1),
                         result.getInt(2),
                         result.getInt(3)
                 );
-                receiptListView.getItems().add(receipt);
+                arr.add(receipt);
             }
+
+            Collections.reverse(arr);
+            receiptListView.getItems().addAll(arr);
+
             result.close();
             pst.close();
         } catch (SQLException e) {

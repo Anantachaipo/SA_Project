@@ -11,7 +11,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controller.ViewReceiptController">
    <children>
       <Pane prefHeight="69.0" prefWidth="800.0" style="-fx-background-color: #343434;">
@@ -69,9 +68,9 @@
             </Button>
          </children>
       </Pane>
-      <ListView fx:id="receiptListView" layoutX="77.0" layoutY="182.0" prefHeight="142.0" prefWidth="245.0" />
+      <ListView fx:id="receiptListView" layoutX="77.0" layoutY="182.0" prefHeight="142.0" prefWidth="254.0" />
       <Line endX="-5.0" endY="443.0" layoutX="405.0" layoutY="122.0" startX="-5.0" startY="-16.0" />
-      <Label layoutX="163.0" layoutY="110.0" text="Receipt">
+      <Label layoutX="168.0" layoutY="110.0" text="Receipt">
          <font>
             <Font size="22.0" />
          </font>
@@ -81,24 +80,24 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Pane layoutX="77.0" layoutY="367.0" prefHeight="156.0" prefWidth="245.0" style="-fx-background-color: #dddddd;">
+      <Pane layoutX="77.0" layoutY="367.0" prefHeight="156.0" prefWidth="254.0" style="-fx-background-color: #dddddd;">
          <children>
             <Label layoutX="14.0" layoutY="14.0" prefHeight="32.0" prefWidth="78.0" text="Order ID : ">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="110.0" prefHeight="32.0" prefWidth="78.0" text="Total Bid :">
+            <Label layoutX="14.0" layoutY="110.0" prefHeight="32.0" prefWidth="117.0" text="Total Bid (THB) :">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="olidLabel" alignment="CENTER_RIGHT" layoutX="168.0" layoutY="14.0" prefHeight="32.0" prefWidth="57.0">
+            <Label fx:id="olidLabel" alignment="CENTER_RIGHT" layoutX="167.0" layoutY="14.0" prefHeight="32.0" prefWidth="73.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="totalBidLabel" alignment="CENTER_RIGHT" layoutX="92.0" layoutY="110.0" prefHeight="32.0" prefWidth="133.0">
+            <Label fx:id="totalBidLabel" alignment="CENTER_RIGHT" layoutX="131.0" layoutY="110.0" prefHeight="32.0" prefWidth="111.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -108,7 +107,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="numProductLabel" alignment="CENTER_RIGHT" layoutX="171.0" layoutY="62.0" prefHeight="32.0" prefWidth="57.0">
+            <Label fx:id="numProductLabel" alignment="CENTER_RIGHT" layoutX="168.0" layoutY="62.0" prefHeight="32.0" prefWidth="73.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -135,7 +134,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="78.0" prefHeight="32.0" prefWidth="78.0" text="Bid :">
+            <Label layoutX="14.0" layoutY="78.0" prefHeight="32.0" prefWidth="78.0" text="Bid (THB) :">
                <font>
                   <Font size="16.0" />
                </font>
