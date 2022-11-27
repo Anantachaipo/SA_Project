@@ -43,6 +43,10 @@ public class Order {
         return qty;
     }
 
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+
     public int getBid() {
         return bid;
     }
