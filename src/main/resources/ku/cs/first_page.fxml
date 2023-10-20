@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #053F5E;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.FirstPageController">
+   <children>
+      <ImageView fitHeight="412.0" fitWidth="438.0" layoutX="95.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/sgshrjxd.jpg" />
+         </image>
+      </ImageView>
+      <Text fill="#f5f5f5" layoutX="167.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="---------- เลือกการใช้งาน ----------" textAlignment="CENTER" wrappingWidth="268.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="290.0" layoutY="601.0" strokeType="OUTSIDE" strokeWidth="0.0" text="หรือ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <JFXButton id="button-change-color-green" layoutX="201.0" layoutY="511.0" onAction="#handleToUserLogin" prefHeight="50.0" prefWidth="201.0" style="-fx-background-radius: 30; -fx-background-color: #FFFFFF;" text="สมาชิกทั่วไป">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="200.0" layoutY="630.0" onAction="#handleToLawyerLogin" prefHeight="50.0" prefWidth="201.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30; -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 5.0, 0.0, 0.0, 5.0);" text="ทนายความ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
