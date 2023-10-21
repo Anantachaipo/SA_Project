@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserRegisterController">
+<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserRegisterController">
    <children>
-      <AnchorPane prefHeight="112.0" prefWidth="618.0" style="-fx-background-color: #4169E1;">
+      <AnchorPane prefHeight="112.0" prefWidth="625.0" style="-fx-background-color: #4169E1;">
          <children>
             <Button layoutX="27.0" layoutY="44.0" mnemonicParsing="false" onAction="#backToUserLogin" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" text="back" />
             <Text fill="WHITE" layoutX="234.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สมัครสมาชิก">
@@ -38,7 +38,7 @@
       </AnchorPane>
       <AnchorPane layoutY="315.0" prefHeight="344.0" prefWidth="618.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <ImageView fitHeight="478.0" fitWidth="618.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="478.0" fitWidth="625.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/Untitled%20design.jpg" />
                </image>
