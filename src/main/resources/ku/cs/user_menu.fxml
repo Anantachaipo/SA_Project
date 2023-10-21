@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserMenuController">
    <children>
-      <Label layoutX="204.0" layoutY="164.0" text="โดมหำเล็ก">
+      <Label layoutX="204.0" layoutY="164.0" text="โดม">
          <font>
             <Font size="55.0" />
          </font>
