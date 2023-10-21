@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserSettingsController">
+   <children>
+      <AnchorPane layoutY="-3.0" prefHeight="50.0" prefWidth="600.0">
+         <children>
+            <JFXButton layoutX="14.0" layoutY="27.0" text="back" />
+            <Label layoutX="79.0" layoutY="31.0" text="Label" />
+         </children>
+      </AnchorPane>
+      <Text layoutX="81.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <PasswordField layoutX="138.0" layoutY="179.0" promptText="Enter your password" />
+      <PasswordField layoutX="138.0" layoutY="262.0" promptText="Enter your password" />
+      <PasswordField layoutX="138.0" layoutY="343.0" promptText="Enter your password" />
+      <Label layoutX="199.0" layoutY="128.0" text="เปลี่ยน psssword" />
+      <Label layoutX="138.0" layoutY="163.0" text="Password" />
+      <Label layoutX="138.0" layoutY="245.0" text="New Password" />
+      <Label layoutX="139.0" layoutY="319.0" text="Cofirm New Password" />
+      <JFXButton layoutX="137.0" layoutY="388.0" text="Change" />
+      <JFXButton layoutX="161.0" layoutY="542.0" text="Logout" />
+      <JFXButton layoutX="135.0" layoutY="445.0" text="ยกเลิกการเป็นสมชิก" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserConsultLawyerController">
+   <children>
+      <AnchorPane prefHeight="100.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="28.0" layoutY="30.0" text="บริการของเรา">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="500.0" layoutX="50.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="500.0" layoutX="50.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="500.0" layoutX="50.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton layoutX="265.0" layoutY="265.0" style="-fx-background-color: #4169E1;" text="ปรึกษาทันที" textFill="WHITE" />
+      <JFXButton layoutX="269.0" layoutY="438.0" style="-fx-background-color: #4169E1;" text="เลือกทนาย" textFill="WHITE" />
+      <JFXButton layoutX="272.0" layoutY="615.0" style="-fx-background-color: #4169E1;" text="ถาม-ตอบ" textFill="WHITE" />
+      <AnchorPane layoutX="2.0" layoutY="737.0" prefHeight="75.0" prefWidth="600.0">
+         <children>
+            <JFXButton fx:id="homepage_button" layoutX="14.0" layoutY="25.0" style="-fx-background-color: #4169E1;" text="หน้าหลัก" textFill="WHITE" />
+            <JFXButton layoutX="136.0" layoutY="25.0" style="-fx-background-color: #4169E1;" textFill="WHITE" />
+            <JFXButton fx:id="consult_a_lawyer" layoutX="263.0" layoutY="25.0" style="-fx-background-color: #4169E1;" text="ปรึกษาทนาย" textFill="WHITE" />
+            <JFXButton fx:id="search_lawyer" layoutX="389.0" layoutY="25.0" style="-fx-background-color: #4169E1;" text="ค้นหาทนาย" textFill="WHITE" />
+            <JFXButton fx:id="history" layoutX="524.0" layoutY="25.0" style="-fx-background-color: #4169E1;" text="ประวัติ" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

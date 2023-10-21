@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ede2c6ed-5149-46a1-95bd-409b7dc5251d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserConsultLawyerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserHomePageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserSettingsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/image/cartoon lawyer.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/image/pngtree-cartoon-lawyer-illustration-design-design-png-image_592719.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/image/—Pngtree—cartoon business male lawyer element_4074667.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/image/—Pngtree—warm color lawyer advisory cartoon_3775330 (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_consult_lawyer.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_home_paga.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_settings.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,13 +66,13 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_directory_selection": "C:/System analyst (SA)/Project_SA/src/main/java/ku/cs",
-    "last_opened_file_path": "C:/jfoenix-9.0.10.jar",
+    "last_opened_file_path": "C:/Users/HP/Downloads",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
@@ -128,7 +137,8 @@
       <option name="presentableId" value="Default" />
       <updated>1697734236249</updated>
       <workItem from="1697894491058" duration="591000" />
-      <workItem from="1697895092977" duration="101000" />
+      <workItem from="1697895092977" duration="964000" />
+      <workItem from="1697905926306" duration="5125000" />
     </task>
     <servers />
   </component>
