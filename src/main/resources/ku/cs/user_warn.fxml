@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserWarnController">
+   <children>
+      <HBox layoutY="745.0" prefHeight="50.0" prefWidth="600.0">
+         <children>
+            <JFXButton fx:id="homepage_button" onAction="#goToHomePage" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4169E1;" text="หน้าหลัก" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4169E1;" text="เเจ้งเตือน" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="consult_a_lawyer" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4169E1;" text="ปรึกษาทนาย" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="search_lawyer" onAction="#goToSearchLawyerPage" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4169E1;" text="ค้นหาทนาย" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="history" onAction="#goToUserHistory" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4169E1;" text="ประวัติ" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+      </HBox>
+      <SplitPane dividerPositions="0.5" layoutX="18.0" layoutY="74.0" prefHeight="663.0" prefWidth="570.0">
+         <items>
+            <VBox prefHeight="735.0" prefWidth="281.0">
+               <children>
+                  <Label text="ปรึกษา">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="ถาม-ตอบ">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </items>
+      </SplitPane>
+      <HBox layoutY="4.0" prefHeight="50.0" prefWidth="600.0">
+         <children>
+            <Label text="เเจ้งเตือน">
+               <HBox.margin>
+                  <Insets left="20.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

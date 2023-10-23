@@ -3,19 +3,19 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserSettingsController">
    <children>
       <AnchorPane layoutY="-3.0" prefHeight="50.0" prefWidth="600.0">
          <children>
-            <JFXButton layoutX="14.0" layoutY="27.0" text="back" />
-            <Label layoutX="79.0" layoutY="31.0" text="Label" />
+            <JFXButton layoutX="14.0" layoutY="27.0" onAction="#backToUserHomePage" text="back" />
+            <Text layoutX="79.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ตั้งค่า" />
          </children>
       </AnchorPane>
-      <Text layoutX="81.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <PasswordField layoutX="138.0" layoutY="179.0" promptText="Enter your password" />
       <PasswordField layoutX="138.0" layoutY="262.0" promptText="Enter your password" />
       <PasswordField layoutX="138.0" layoutY="343.0" promptText="Enter your password" />
@@ -24,7 +24,13 @@
       <Label layoutX="138.0" layoutY="245.0" text="New Password" />
       <Label layoutX="139.0" layoutY="319.0" text="Cofirm New Password" />
       <JFXButton layoutX="137.0" layoutY="388.0" text="Change" />
-      <JFXButton layoutX="161.0" layoutY="542.0" text="Logout" />
+      <JFXButton layoutX="161.0" layoutY="542.0" onAction="#Logout" text="Logout" />
       <JFXButton layoutX="135.0" layoutY="445.0" text="ยกเลิกการเป็นสมชิก" />
+      <Label layoutX="81.0" layoutY="66.0" text="ชื่อ user" />
+      <ImageView fitHeight="69.0" fitWidth="117.0" layoutX="458.0" layoutY="49.0" onMouseClicked="#Logout" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/user.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

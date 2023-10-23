@@ -37,8 +37,13 @@ public class Main extends Application {
         com.github.saacsos.FXRouter.when("lawyer_register", packageStr+"lawyer_register.fxml");
         com.github.saacsos.FXRouter.when("user_menu", packageStr+"user_menu.fxml");
         com.github.saacsos.FXRouter.when("user_home_page", packageStr+"user_home_page.fxml");
+
         com.github.saacsos.FXRouter.when("user_consult_lawyer", packageStr+"user_consult_lawyer.fxml");
+        com.github.saacsos.FXRouter.when("user_home_page", packageStr+"user_home_page.fxml");
         com.github.saacsos.FXRouter.when("user_settings", packageStr+"user_settings.fxml");
+        com.github.saacsos.FXRouter.when("user_warn", packageStr+"user_warn.fxml");
+        com.github.saacsos.FXRouter.when("user_history", packageStr+"user_history.fxml");
+        com.github.saacsos.FXRouter.when("search_lawyer", packageStr+"search_lawyer.fxml");
     }
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));

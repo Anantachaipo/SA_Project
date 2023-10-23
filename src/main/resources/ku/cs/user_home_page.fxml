@@ -22,7 +22,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXButton layoutX="521.0" layoutY="23.0" text="ตั้งค่า" />
+            <JFXButton fx:id="button_user_settings" layoutX="521.0" layoutY="23.0" onAction="#goToSettingsUser" text="ตั้งค่า" />
          </children>
       </AnchorPane>
       <JFXButton layoutX="262.0" layoutY="385.0" text="เข้าใจบริการ" />
@@ -49,10 +49,10 @@
       <AnchorPane layoutX="1.0" layoutY="725.0" prefHeight="75.0" prefWidth="600.0">
          <children>
             <JFXButton fx:id="homepage_button" layoutX="33.0" layoutY="23.0" text="หน้าหลัก" />
-            <JFXButton layoutX="135.0" layoutY="23.0" />
-            <JFXButton fx:id="consult_a_lawyer" layoutX="248.0" layoutY="23.0" text="ปรึกษาทนาย" />
-            <JFXButton fx:id="search_lawyer" layoutX="370.0" layoutY="23.0" text="ค้นหาทนาย" />
-            <JFXButton fx:id="history" layoutX="498.0" layoutY="23.0" text="ประวัติ" />
+            <JFXButton layoutX="135.0" layoutY="23.0" onAction="#goToUserWarn" text="เเจ้งเตือน" />
+            <JFXButton fx:id="consult_a_lawyer" layoutX="248.0" layoutY="23.0" onAction="#goToConsultLawyer" onMouseClicked="#goToConsultLawyer" text="ปรึกษาทนาย" />
+            <JFXButton fx:id="search_lawyer" layoutX="370.0" layoutY="23.0" onAction="#goToSearchLawyerPage" text="ค้นหาทนาย" />
+            <JFXButton fx:id="history" layoutX="498.0" layoutY="23.0" onAction="#goToUserHistory" text="ประวัติ" />
          </children>
       </AnchorPane>
    </children>

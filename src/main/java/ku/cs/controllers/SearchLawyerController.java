@@ -5,16 +5,7 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class UserHomePageController {
-    @FXML
-    public void goToSettingsUser(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("user_settings");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า help ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
+public class SearchLawyerController {
     @FXML
     public void goToConsultLawyer(ActionEvent actionEvent) {
         try {
@@ -51,5 +42,22 @@ public class UserHomePageController {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+    @FXML
+    public void goToHomePage(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("user_home_page");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า help ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+    @FXML
+    public void goToSettingsUser(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("user_settings");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า help ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 }
-
