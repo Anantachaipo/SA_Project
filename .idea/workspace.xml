@@ -5,21 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ede2c6ed-5149-46a1-95bd-409b7dc5251d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/SearchLawyerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserHistoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserWarnController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/search_lawyer.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_history.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_warn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerConsultationServiceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerHistoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerHomePageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerQuestionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerWarnController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/Lawyer_question.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/Lawyer_warn.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_consultation_service.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_history.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_home_page.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserHomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserHomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserSettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserSettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/first_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/first_page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/search_lawyer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/search_lawyer.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_consult_lawyer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_consult_lawyer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_home_paga.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_home_page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_home_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_home_page.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_register.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_settings.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +35,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -150,6 +154,10 @@
       <workItem from="1697965980619" duration="10472000" />
       <workItem from="1698001967129" duration="70000" />
       <workItem from="1698002240619" duration="1497000" />
+      <workItem from="1698044550127" duration="1331000" />
+      <workItem from="1698326030607" duration="2658000" />
+      <workItem from="1698331473673" duration="3748000" />
+      <workItem from="1698393211807" duration="914000" />
     </task>
     <servers />
   </component>

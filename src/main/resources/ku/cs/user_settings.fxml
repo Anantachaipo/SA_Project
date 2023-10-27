@@ -1,36 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserSettingsController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserSettingsController">
    <children>
-      <AnchorPane layoutY="-3.0" prefHeight="50.0" prefWidth="600.0">
+      <AnchorPane layoutY="-3.0" prefHeight="100.0" prefWidth="1000.0">
          <children>
-            <JFXButton layoutX="14.0" layoutY="27.0" onAction="#backToUserHomePage" text="back" />
-            <Text layoutX="79.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ตั้งค่า" />
+            <JFXButton layoutX="14.0" layoutY="39.0" onAction="#backToUserHomePage" text="back" />
+            <Text layoutX="141.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ตั้งค่า" />
+            <ImageView fitHeight="69.0" fitWidth="117.0" layoutX="912.0" layoutY="11.0" onMouseClicked="#Logout" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/user.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="794.0" layoutY="34.0" text="ชื่อ user" />
          </children>
       </AnchorPane>
-      <PasswordField layoutX="138.0" layoutY="179.0" promptText="Enter your password" />
-      <PasswordField layoutX="138.0" layoutY="262.0" promptText="Enter your password" />
-      <PasswordField layoutX="138.0" layoutY="343.0" promptText="Enter your password" />
-      <Label layoutX="199.0" layoutY="128.0" text="เปลี่ยน psssword" />
-      <Label layoutX="138.0" layoutY="163.0" text="Password" />
-      <Label layoutX="138.0" layoutY="245.0" text="New Password" />
-      <Label layoutX="139.0" layoutY="319.0" text="Cofirm New Password" />
-      <JFXButton layoutX="137.0" layoutY="388.0" text="Change" />
-      <JFXButton layoutX="161.0" layoutY="542.0" onAction="#Logout" text="Logout" />
-      <JFXButton layoutX="135.0" layoutY="445.0" text="ยกเลิกการเป็นสมชิก" />
-      <Label layoutX="81.0" layoutY="66.0" text="ชื่อ user" />
-      <ImageView fitHeight="69.0" fitWidth="117.0" layoutX="458.0" layoutY="49.0" onMouseClicked="#Logout" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../image/user.png" />
-         </image>
-      </ImageView>
+      <JFXButton layoutX="922.0" layoutY="761.0" onAction="#Logout" text="Logout" />
+      <JFXButton layoutX="446.0" layoutY="425.0" text="ยกเลิกการเป็นสมชิก" />
+      <VBox layoutX="250.0" layoutY="139.0" prefHeight="200.0" prefWidth="500.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="167.0" text="เปลี่ยน psssword">
+               <padding>
+                  <Insets right="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="200.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Password">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <PasswordField promptText="Enter your password">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Label text="New Password">
+               <padding>
+                  <Insets right="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <PasswordField promptText="Enter your password">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Label text="Cofirm New Password">
+               <padding>
+                  <Insets right="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <PasswordField promptText="Enter your password">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </PasswordField>
+            <JFXButton text="Change">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+      </VBox>
    </children>
 </AnchorPane>
