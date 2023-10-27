@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ede2c6ed-5149-46a1-95bd-409b7dc5251d" name="Changes" comment="" />
+    <list default="true" id="ede2c6ed-5149-46a1-95bd-409b7dc5251d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/file_csv/user.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sun/glass/FXrouter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/model/Lawyer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/model/UserList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/service/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/service/DataSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/service/UserListFileDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserRegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserRegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_register.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,13 +65,16 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ignore.virus.scanning.warn.message": "true",
     "last_directory_selection": "C:/System analyst (SA)/Project_SA/src/main/java/ku/cs",
-    "last_opened_file_path": "C:/System analyst (SA)/New folder/SA_Project/jfoenix-9.0.10.jar",
+    "last_opened_file_path": "C:/System analyst (SA)/New folder/SA_Project",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.sun.glass" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\System analyst (SA)\Project_SA\src\main\resources\ku\cs" />
     </key>
@@ -69,6 +86,7 @@
       <recent name="ku.cs" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ku.cs.service" />
       <recent name="ku.cs" />
     </key>
   </component>
@@ -89,7 +107,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ku.cs.Main" />
       <module name="Project_SA" />
-      <option name="VM_PARAMETERS" value="--module-path --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path C:\javafx-sdk-17.0.9\lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ku.cs.*" />
