@@ -1,6 +1,7 @@
 package ku.cs.service;
 
 import ku.cs.controllers.UserLoginController;
+import ku.cs.model.Lawyer;
 import ku.cs.model.User;
 import ku.cs.model.UserList;
 
@@ -41,31 +42,29 @@ public class Account {
 
         return "P";
     }
-
-//    public String recordAccountLawyer(String username, String name,String surname, String password, String confirmPassword, String pathProfile,String organizationName) {
-//
-//        //ใช้ตรวจสอบข้อความที่กรอกเข้ามา
+    public String recordAccountLawyer(String username, String name, String surname, String password, String dateOfBirth, String attorneyLicensenumber,String idcard,String lawyerTicket, String cardIssueDate,String cardReplacementDate,String number,String email, String pathProfile, String lawOffice, String county) {
+        //ใช้ตรวจสอบข้อความที่กรอกเข้ามา
 //        if (accountName.equals("") || username.equals("")) {
 //            return "ยังไม่ได้กรอก Account Name หรือ Username ";
 //        } else if (!checkPassword(password, confirmPassword)) {
 //            return "กรอก Password ไม่ตรงกัน";
 //        }
-//
-//        Officer officer = new Officer(accountName, username, password, pathProfile,organizationName );
-//
-//        DataSource<UserList> dataSource;
-//        dataSource = new UserListFileDataSource();
-//        UserList userList = dataSource.readData();
-//
-//        if (userList.searchByUsername(username))
-//            return "Username นี้ถูกใช้ไปแล้ว";
-//
-//        userList.addUser(officer);
-//
-//        dataSource.writeData(userList);
-//
-//        return "P";
-//    }
+        //String username,String name,String surname,String password,String dateOfBirth, String attorneyLicensenumber,String idCard, String lawyerTicket,String cardIssueDate,String cardReplacementDate,String number, String email ,String pathProfile, String lawOffice ,String county
+        Lawyer lawyer = new Lawyer(username,name,surname,password,dateOfBirth,attorneyLicensenumber,idcard ,lawyerTicket,cardIssueDate,cardReplacementDate,number,email,pathProfile,lawOffice,county);
+
+        DataSource<UserList> dataSource;
+        dataSource = new UserListFileDataSource();
+        UserList userList = dataSource.readData();
+
+        if (userList.searchByUsername(username))
+            return "Username นี้ถูกใช้ไปแล้ว";
+
+        userList.addUser(lawyer);
+
+        dataSource.writeData(userList);
+
+        return "P";
+    }
 
 
     //หน้า login
@@ -161,4 +160,6 @@ public class Account {
         }
         dataSource.writeData(userList);
     }
+
+
 }

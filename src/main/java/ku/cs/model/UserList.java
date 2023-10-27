@@ -8,7 +8,7 @@ public class UserList {
 
     private ArrayList<User> users;
 
-//    private ArrayList<Lawyer> lawyers;
+    private ArrayList<Lawyer> lawyers;
 
     public UserList(){
         users = new ArrayList<>();

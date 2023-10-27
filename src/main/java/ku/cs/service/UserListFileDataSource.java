@@ -2,6 +2,7 @@ package ku.cs.service;
 
 
 
+import ku.cs.model.Lawyer;
 import ku.cs.model.User;
 import ku.cs.model.UserList;
 
@@ -68,14 +69,25 @@ public class UserListFileDataSource implements DataSource<UserList>{
                             data[7],
                             LocalDateTime.parse(data[8])));
                 }
-//                else if(role.equals("Lawyer")){
-//                    userList.addUser(new Lawyer(data[1],
-//                            data[2],
-//                            data[3],
-//                            data[4],
-//                            LocalDateTime.parse(data[5]),
-//                            data[6]));
-//                }
+                else if(role.equals("Lawyer")){
+                    String dateTime;
+                    userList.addUser(new Lawyer(data[1],
+                            data[2],
+                            data[3],
+                            data[4],
+                            data[3],
+                            data[6],
+                            data[7],
+                            data[8],
+                            data[9],
+                            data[10],
+                            data[11],
+                            data[12],
+                            data[13],
+                            data[14],
+                            data[15],
+                            LocalDateTime.parse(data[16])));
+                }
 //                else if(role.equals("Admin")){
 //                    userList.addUser(new Admin(data[1],
 //                            data[2],

@@ -32,9 +32,11 @@ public class User {
     }
 
 
-
     public String getAccountName() {
         return name;
+    }
+    public String getSurname() {
+        return surname;
     }
 
     public String getUsername() {
@@ -43,6 +45,14 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNumber() {
+        return number;
     }
 
     public String getPathProfile() {
@@ -64,6 +74,7 @@ public class User {
         this.password = password;
     }
 
+
     public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
     }
@@ -71,6 +82,7 @@ public class User {
     public void setPathProfile(String pathProfile) {
         this.pathProfile = pathProfile;
     }
+
 
 
     @Override
