@@ -90,7 +90,7 @@ public class LawyerRegisterController {
         registerLabel.setText(status);
         if(status.equals("P")){
             try{
-                com.github.saacsos.FXRouter.goTo("lawyer_menu");
+                com.github.saacsos.FXRouter.goTo("lawyer_login");
             }catch (IOException e) {
                 System.err.println("ไปที่หน้า user_login ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");

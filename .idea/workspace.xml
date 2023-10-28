@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ede2c6ed-5149-46a1-95bd-409b7dc5251d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_csv/user.csv" beforeDir="false" afterPath="$PROJECT_DIR$/file_csv/user.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerHomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerHomePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerLoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerRegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerRegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/model/Lawyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/model/Lawyer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/Lawyer_question.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_question.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/Lawyer_warn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_warn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_home_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_home_page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +64,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_directory_selection": "C:/System analyst (SA)/Project_SA/src/main/java/ku/cs",
-    "last_opened_file_path": "C:/jfoenix-9.0.10.jar",
+    "last_opened_file_path": "C:/Users/Anantachai/OneDrive/Desktop/project/SA_Project/src/main/resources/ku/cs",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,6 +78,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Anantachai\OneDrive\Desktop\project\SA_Project\src\main\resources\ku\cs" />
       <recent name="D:\New folder\SA_Project\src\main\resources\ku\cs" />
       <recent name="C:\System analyst (SA)\Project_SA\src\main\resources\ku\cs" />
     </key>
