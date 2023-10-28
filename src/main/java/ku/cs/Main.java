@@ -24,7 +24,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        com.github.saacsos.FXRouter.bind(this, stage, "Lawyer Of The Public", 600, 800);
+        com.github.saacsos.FXRouter.bind(this, stage, "Lawyer Of The Public", 1000, 800);
         configRoute();
         com.github.saacsos.FXRouter.goTo("first_page");
     }
