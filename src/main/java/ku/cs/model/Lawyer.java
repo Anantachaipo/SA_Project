@@ -25,12 +25,12 @@ public class Lawyer extends User{
 
     public Lawyer(String username,String name, String surname,String password, String dateOfBirth, String attorneyLicensenumber, String idCard,String lawyerTicket, String cardIssueDate, String cardReplacementDate, String number, String email, String pathProfile, String lawOffice,String county, LocalDateTime lastLogin) {
         super(username,name,surname,password,pathProfile,email,number,lastLogin);
-//        this.dateOfBirth = String.valueOf(dateOfBirth);
+        this.dateOfBirth = String.valueOf(dateOfBirth);
         this.attorneyLicensenumber = attorneyLicensenumber;
         this.idCard = idCard;
         this.lawerTicket = lawyerTicket;
-//        this.cardIssueDate = String.valueOf(cardIssueDate);
-//        this.cardReplacementDate =String.valueOf(cardReplacementDate);
+        this.cardIssueDate = String.valueOf(cardIssueDate);
+        this.cardReplacementDate =String.valueOf(cardReplacementDate);
         this.lawOffice = lawOffice;
         this.county = county;
 

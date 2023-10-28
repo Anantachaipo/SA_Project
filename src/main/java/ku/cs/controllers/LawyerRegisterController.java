@@ -41,11 +41,11 @@ public class LawyerRegisterController {
     @FXML
     private ImageView profile;
     @FXML
-    private DatePicker dateOfBirthDatePicker;
+    private TextField myDateOfBirth;
     @FXML
-    private DatePicker cardIssueDateDatePicker;
+    private TextField cardReplacementDateField;
     @FXML
-    private DatePicker cardReplacementDateDatePicker;
+    private TextField cardIssueDateField;
     @FXML
     private TextField lawOfficeField;
     @FXML
@@ -60,7 +60,6 @@ public class LawyerRegisterController {
     private String pathProfile = "images/user.png";
     private String idCard = "0" ;
     private String lawyerTicket = "00";
-    private LocalDate myDateOfBirth;
 
 
 
@@ -77,18 +76,17 @@ public class LawyerRegisterController {
         String number = numberTextField.getText();
         String username = usernameTextField.getText();
         String password = passwordField.getText();
-        myDateOfBirth = dateOfBirthDatePicker.getValue();
-        String dateOfBirthString = myDateOfBirth.format(DateTimeFormatter.ofPattern("MMM-dd-yyyy"));
+        String dateOfBirth = myDateOfBirth.getText();
 
-        LocalDate cardIssueDate = cardIssueDateDatePicker.getValue();
-        LocalDate cardReplacementDate = cardReplacementDateDatePicker.getValue();
+        String cardIssueDate = cardIssueDateField.getText();
+        String cardReplacementDate = cardReplacementDateField.getText();
         String lawOffice = lawOfficeField.getText();
         String county = countyField.getText();
         String attorneyLicensenumber = attorneyLicensenumberField.getText();
 
 
         //String username,String name,String surname,String password,Loca dateOfBirth, String attorneyLicensenumber,String idCard, String lawyerTicket,String cardIssueDate,String cardReplacementDate,String number, String email ,String pathProfile, String lawOffice ,String county
-        String status = account.recordAccountLawyer(username,name,surname,password,dateOfBirthString ,attorneyLicensenumber,idCard,lawyerTicket,String.valueOf(cardIssueDate),String.valueOf(cardReplacementDate),number,email,pathProfile,lawOffice,county);
+        String status = account.recordAccountLawyer(username,name,surname,password,dateOfBirth ,attorneyLicensenumber,idCard,lawyerTicket,cardIssueDate,cardReplacementDate,number,email,pathProfile,lawOffice,county);
         registerLabel.setText(status);
         if(status.equals("P")){
             try{
