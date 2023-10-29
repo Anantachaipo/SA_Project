@@ -2,10 +2,25 @@ package ku.cs.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import ku.cs.model.Lawyer;
+import ku.cs.model.User;
+import ku.cs.service.Account;
+import ku.cs.DBConnect;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserHomePageController {
+
+    @FXML
+    private Text username;
+
+
     @FXML
     public void goToSettingsUser(ActionEvent actionEvent) {
         try {
@@ -51,5 +66,21 @@ public class UserHomePageController {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
+    private DBConnect db;
+    @FXML
+    public void goTo(ActionEvent actionEvent) throws SQLException {
+
+        db = new DBConnect();
+        ResultSet rs = db.getConnect("SELECT * FROM user.users;");
+        rs.next();
+        String name = rs.getString("name");
+        username.setText(name);
+
+
+    }
+
+
+
 }
 

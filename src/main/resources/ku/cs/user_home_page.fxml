@@ -12,7 +12,7 @@
    <children>
       <AnchorPane layoutX="1.0" prefHeight="112.0" prefWidth="600.0" style="-fx-background-color: #4169E1;">
          <children>
-            <Text fill="WHITE" layoutX="29.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ User">
+            <Text fx:id="username" fill="WHITE" layoutX="29.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ User">
                <font>
                   <Font size="28.0" />
                </font>
@@ -25,7 +25,7 @@
             <JFXButton fx:id="button_user_settings" layoutX="521.0" layoutY="23.0" onAction="#goToSettingsUser" text="ตั้งค่า" />
          </children>
       </AnchorPane>
-      <JFXButton layoutX="262.0" layoutY="385.0" text="เข้าใจบริการ" />
+      <JFXButton layoutX="262.0" layoutY="385.0" onAction="#goTo" text="เข้าใจบริการ" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="50.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../image/—Pngtree—cartoon%20business%20male%20lawyer%20element_4074667.png" />
