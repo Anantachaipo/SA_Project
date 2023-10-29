@@ -66,8 +66,7 @@ public class UserListFileDataSource implements DataSource<UserList>{
                             data[4],
                             data[5],
                             data[6],
-                            data[7],
-                            LocalDateTime.parse(data[8])));
+                            data[7]));
                 }
                 else if(role.equals("Lawyer")){
                     String dateTime;
@@ -85,15 +84,14 @@ public class UserListFileDataSource implements DataSource<UserList>{
                             data[12],
                             data[13],
                             data[14],
-                            data[15],
-                            LocalDateTime.parse(data[16])));
+                            data[15]));
                 }
 //                else if(role.equals("Admin")){
-//                    userList.addUser(new Admin(data[1],
-//                            data[2],
-//                            data[3],
-//                            data[4],
-//                            LocalDateTime.parse(data[5])));
+//                    userList.addUser(new Admin(data_csv.text[1],
+//                            data_csv.text[2],
+//                            data_csv.text[3],
+//                            data_csv.text[4],
+//                            LocalDateTime.parse(data_csv.text[5])));
 //                }
             }
             buffer.close();

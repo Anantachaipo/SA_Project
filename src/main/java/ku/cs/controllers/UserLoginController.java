@@ -39,7 +39,7 @@ public class UserLoginController {
         try {
             DBConnect db = new DBConnect();
             ResultSet rs = null;
-            String sql = String.format("SELECT* FROM users WHERE username = '%s' and password = '%s'",userName,password);
+            String sql = String.format("SELECT* FROM mydb WHERE user_information U_username = '%s' and U_password = '%s'",userName,password);
             rs = db.getConnect(sql);
             return rs.next();
         } catch (Exception ex) {

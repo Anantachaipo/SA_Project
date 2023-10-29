@@ -77,7 +77,6 @@ public class Account {
         for (User user : userList.getUsers()) {
             if (user.getUsername().equals(username)) {
                 if (user.getPassword().equals(password)) {
-                    user.setLastLogin(LocalDateTime.now());
                     UserLoginController.user = user;
                     dataSource.writeData(userList);
                     return user;

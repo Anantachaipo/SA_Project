@@ -1,7 +1,6 @@
 package ku.cs.model;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 
 public class User {
 
@@ -13,14 +12,13 @@ public class User {
     private String pathProfile;
     private String email;
     private String number;
-    private LocalDateTime lastLogin;
 
 
-    public User(String username, String name, String surname, String password,String email,String number ,String pathProfile) {
-        this(username, name,surname, password,email,number,pathProfile ,LocalDateTime.of(0,1,1,0,0));
-    }
+//    public User(String username, String name, String surname, String number,String email,String password ,String pathProfile) {
+//        this(username, name,surname, number,email,password,pathProfile));
+//    }
 
-    public User(String username, String name,String surname, String password,String email,String number, String pathProfile, LocalDateTime lastLogin) {
+    public User(String username, String name,String surname, String number,String email,String password, String pathProfile) {
         this.username = username;
         this.name = name;
         this.surname = surname;
@@ -28,7 +26,7 @@ public class User {
         this.email = email;
         this.number = number;
         this.pathProfile = pathProfile;
-        this.lastLogin = lastLogin;
+
     }
 
 
@@ -59,9 +57,7 @@ public class User {
         return pathProfile;
     }
 
-    public LocalDateTime getLastLogin() {
-        return lastLogin;
-    }
+
     public void setAccountName(String accountName) {
          this.name = name;
     }
@@ -74,29 +70,12 @@ public class User {
         this.password = password;
     }
 
-
-    public void setLastLogin(LocalDateTime lastLogin) {
-        this.lastLogin = lastLogin;
-    }
-
     public void setPathProfile(String pathProfile) {
         this.pathProfile = pathProfile;
     }
 
 
-
-    @Override
-    public String toString() {
-        if(lastLogin.equals(LocalDateTime.of(0,1,1,0,0))){
-            return "-------------------"  + "  |  " + "Username :  " + username ;
-        }
-
-        return  lastLogin.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "  |  " + "Username :  " + username ;
-    }
-
-
-
     public String toCsv(){
-        return "User" + "," + username + "," + name + "," + surname + "," + password+ "," + number+  "," + email +","+ pathProfile +  "," +lastLogin ;
+        return "User" + "," + username + "," + name + "," + surname + "," + number+ "," + email+  "," + password +","+ pathProfile ;
     }
 }

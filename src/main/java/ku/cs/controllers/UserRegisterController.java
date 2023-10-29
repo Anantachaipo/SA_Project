@@ -66,10 +66,10 @@ public class UserRegisterController implements ActionListener {
         registerLabel.setText(status);
 
         db = new DBConnect();
-        ResultSet rs = db.getConnect("SELECT * FROM user.users;");
+        ResultSet rs = db.getConnect("SELECT * FROM mydb.user_information;");
 
 
-        String sql = String.format("INSERT INTO users (username,name,surname,email,password) VALUES('%s','%s','%s','%s','%s');",name,surname,username,email,password);
+        String sql = String.format("INSERT INTO user_information (U_username,U_name,U_surname,U_number,U_email,U_password) VALUES('%s','%s','%s','%s','%s','%s');",username,name,surname,number,email,password);
 
         if(status.equals("P")){
             try{

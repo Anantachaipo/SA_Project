@@ -68,7 +68,7 @@ public class LawyerRegisterController {
 
     }
     @FXML
-    private void registerNewLawyer() throws IOException{
+    private void registerNewLawyer() {
 
         String name = nameTextField.getText();
         String surname = surnameTextField.getText();
@@ -77,7 +77,6 @@ public class LawyerRegisterController {
         String username = usernameTextField.getText();
         String password = passwordField.getText();
         String dateOfBirth = myDateOfBirth.getText();
-
         String cardIssueDate = cardIssueDateField.getText();
         String cardReplacementDate = cardReplacementDateField.getText();
         String lawOffice = lawOfficeField.getText();

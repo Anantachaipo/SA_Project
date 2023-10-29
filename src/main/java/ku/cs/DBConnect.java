@@ -5,9 +5,9 @@ public class DBConnect {
     public Connection conn = null;
     public Statement stm;
     public ResultSet rs;
-    private String url = "jdbc:mysql://localhost:3306/user";
+    private String url = "jdbc:mysql://localhost:3306/mydb";
     private String username = "root";
-    private String password = "@Shane2543";
+    private String password = "1234";
     public ResultSet getConnect(String sql) {
         try {
             conn = DriverManager.getConnection(url,username,password);
