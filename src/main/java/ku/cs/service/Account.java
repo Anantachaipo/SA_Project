@@ -1,7 +1,9 @@
 package ku.cs.service;
 
 import ku.cs.controllers.UserLoginController;
+import ku.cs.controllers.LawyerLoginController;
 import ku.cs.model.Lawyer;
+import ku.cs.model.LawyerList;
 import ku.cs.model.User;
 import ku.cs.model.UserList;
 
@@ -42,26 +44,41 @@ public class Account {
 
         return "P";
     }
-    public String recordAccountLawyer(String username, String name, String surname, String password, String dateOfBirth, String attorneyLicensenumber,String idcard,String lawyerTicket, String cardIssueDate,String cardReplacementDate,String number,String email, String pathProfile, String lawOffice, String county) {
+    public String recordAccountLawyer(String username, String name, String surname, String password,String confirmPassword, String dateOfBirth, String attorneyLicensenumber,String idcard, String cardIssueDate,String cardReplacementDate,String number,String email, String lawOffice, String county,String pathProfile) {
         //ใช้ตรวจสอบข้อความที่กรอกเข้ามา
-//        if (accountName.equals("") || username.equals("")) {
-//            return "ยังไม่ได้กรอก Account Name หรือ Username ";
-//        } else if (!checkPassword(password, confirmPassword)) {
-//            return "กรอก Password ไม่ตรงกัน";
-//        }
+        if (username.equals("")) {
+            return "ยังไม่ได้กรอก Username ";
+        } else if (name.equals("") || surname.equals("")) {
+            return "ยังไม่ได้กรอก Name หรือ Surname ";
+        } else if (idcard.equals("")) {
+            return "ยังไม่ได้กรอก หมายเลขบัตรประชาชน";
+        } else if (dateOfBirth.equals("")) {
+            return "ยังไม่ได้กรอก วันเดือนปี เกิด";
+        } else if (attorneyLicensenumber.equals("")) {
+            return "ยังไม่ได้กรอก ทนายความหมายเลขใบอนุญาตทนายความ";
+        } else if (cardIssueDate.equals("")||cardReplacementDate.equals("")) {
+            return "ยังไม่ได้กรอก วันเดือนที่ออกบัตร/เปลี่ยนบัตร";
+        } else if (lawOffice.equals("")) {
+            return "ยังไม่ได้กรอก สังกัดทนาย";
+        } else if (county.equals("")) {
+            return "ยังไม่ได้กรอก จังหวัด";
+        } else if (email.equals("") || number.equals("")) {
+            return "ยังไม่ได้กรอก email หรือ เบอร์โทรศัพท์";
+        } else if (!checkPassword(password, confirmPassword)) {
+            return "กรอก Password ไม่ตรงกัน";
+        }
         //String username,String name,String surname,String password,String dateOfBirth, String attorneyLicensenumber,String idCard, String lawyerTicket,String cardIssueDate,String cardReplacementDate,String number, String email ,String pathProfile, String lawOffice ,String county
-        Lawyer lawyer = new Lawyer(username,name,surname,password,dateOfBirth,attorneyLicensenumber,idcard ,lawyerTicket,cardIssueDate,cardReplacementDate,number,email,pathProfile,lawOffice,county);
+        Lawyer lawyer = new Lawyer(username,name,surname,password,number,email,dateOfBirth,attorneyLicensenumber,idcard ,cardIssueDate,cardReplacementDate,pathProfile,lawOffice,county);
 
-        DataSource<UserList> dataSource;
-        dataSource = new UserListFileDataSource();
-        UserList userList = dataSource.readData();
+        DataSourceLawyer<LawyerList> dataSource;
+        dataSource = new LawyerListFileDataSource();
+        LawyerList lawyerList = dataSource.readDataLawyer();
 
-        if (userList.searchByUsername(username))
+        if (lawyerList.searchByUsername(username))
             return "Username นี้ถูกใช้ไปแล้ว";
+        lawyerList.addLawyer(lawyer);
 
-        userList.addUser(lawyer);
-
-        dataSource.writeData(userList);
+        dataSource.writeDataLawyer(lawyerList);
 
         return "P";
     }
@@ -80,6 +97,26 @@ public class Account {
                     UserLoginController.user = user;
                     dataSource.writeData(userList);
                     return user;
+                }
+            }
+        }
+
+        return null;
+
+
+    }
+    public Lawyer checkUserNameLawyer(String username, String password) {
+
+        DataSourceLawyer<LawyerList> dataSource;
+        dataSource = new LawyerListFileDataSource();
+        LawyerList lawyerList = dataSource.readDataLawyer();
+
+        for (Lawyer lawyer : lawyerList.getLawyers()) {
+            if (lawyer.getUsernameLawyer().equals(username)) {
+                if (lawyer.getPassword().equals(password)) {
+                    LawyerLoginController.lawyer = lawyer;
+                    dataSource.writeDataLawyer(lawyerList);
+                    return lawyer;
                 }
             }
         }

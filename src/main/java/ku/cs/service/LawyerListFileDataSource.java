@@ -1,25 +1,21 @@
 package ku.cs.service;
 
-
-
+import ku.cs.model.LawyerList;
 import ku.cs.model.Lawyer;
-import ku.cs.model.User;
 import ku.cs.model.UserList;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
-public class UserListFileDataSource implements DataSource<UserList>{
-
-    // การทำงาน ใน ส่วนของ Userb อ่านและเขียนไฟล์
+public class LawyerListFileDataSource implements DataSourceLawyer<LawyerList>{
     private String directoryName;
     private String filename;
 
-    public UserListFileDataSource(){
-        this("file_csv","user.csv");
+    public LawyerListFileDataSource(){
+        this("file_csv","lawyer.csv");
     }
 
-    public UserListFileDataSource(String directoryName,String filename){
+    public LawyerListFileDataSource(String directoryName, String filename){
         this.directoryName = directoryName;
         this.filename = filename;
         initialFileIfNotExist();
@@ -43,8 +39,8 @@ public class UserListFileDataSource implements DataSource<UserList>{
     }
 
     @Override
-    public UserList readData() {
-        UserList userList = new UserList();
+    public LawyerList readDataLawyer() {
+        LawyerList lawyerList = new LawyerList();
         String path = directoryName + File.separator + filename;
         File file = new File(path);
 
@@ -58,33 +54,22 @@ public class UserListFileDataSource implements DataSource<UserList>{
             while( (line = buffer.readLine()) != null){
                 String [] data = line.split(",");
                 String role = data[0];
-                if (role.equals("User")){
-                    userList.addUser(new User(data[1],
+                if(role.equals("Lawyer")){
+                    lawyerList.addLawyer(new Lawyer(data[1],
                             data[2],
                             data[3],
                             data[4],
-                            data[5],
+                            data[3],
                             data[6],
-                            data[7]));
+                            data[7],
+                            data[8],
+                            data[9],
+                            data[10],
+                            data[11],
+                            data[12],
+                            data[13],
+                            data[14]));
                 }
-//                else if(role.equals("Lawyer")){
-//                    String dateTime;
-//                    userList.addUser(new Lawyer(data[1],
-//                            data[2],
-//                            data[3],
-//                            data[4],
-//                            data[3],
-//                            data[6],
-//                            data[7],
-//                            data[8],
-//                            data[9],
-//                            data[10],
-//                            data[11],
-//                            data[12],
-//                            data[13],
-//                            data[14]
-//                    ));
-//                }
 //                else if(role.equals("Admin")){
 //                    userList.addUser(new Admin(data_csv.text[1],
 //                            data_csv.text[2],
@@ -109,11 +94,11 @@ public class UserListFileDataSource implements DataSource<UserList>{
                 e.printStackTrace();
             }
         }
-        return userList;
+        return lawyerList;
     }
 
     @Override
-    public void writeData(UserList userList) {
+    public void writeDataLawyer(LawyerList lawyerList) {
         String path = directoryName + File.separator + filename;
         File file = new File(path);
 
@@ -124,7 +109,7 @@ public class UserListFileDataSource implements DataSource<UserList>{
             writer = new FileWriter(file, StandardCharsets.UTF_8);
             buffer = new BufferedWriter(writer);
 
-            buffer.write(userList.toCsv());
+            buffer.write(lawyerList.toCsv());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

@@ -26,12 +26,12 @@
         </AnchorPane>
         <AnchorPane layoutX="4.0" layoutY="100.0" prefHeight="200.0" prefWidth="1000.0" style="-fx-background-color: #FFFFFF;">
             <children>
-                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="425.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="profile" fitHeight="150.0" fitWidth="200.0" layoutX="425.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../image/user.png" />
                     </image>
                 </ImageView>
-                <JFXButton layoutX="614.0" layoutY="39.0" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: #696969;" text="Edit" textFill="#fcfcfc">
+                <JFXButton layoutX="614.0" layoutY="39.0" onAction="#handleToChangeImage" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: #696969;" text="Edit" textFill="#fcfcfc">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -40,7 +40,7 @@
         </AnchorPane>
         <AnchorPane layoutX="1.0" layoutY="323.0" prefHeight="484.0" prefWidth="1007.0" style="-fx-background-color: #FFFFFF;">
             <children>
-                <TextField fx:id="nameTextField" layoutX="184.0" layoutY="14.0" prefHeight="35.0" prefWidth="226.0" promptText="ชื่อ">
+                <TextField fx:id="nameTextField" layoutX="184.0" layoutY="21.0" prefHeight="35.0" prefWidth="226.0" promptText="ชื่อ">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -48,7 +48,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </TextField>
-                <TextField fx:id="surnameTextField" layoutX="424.0" layoutY="14.0" prefHeight="35.0" prefWidth="226.0" promptText="นามสกุล">
+                <TextField fx:id="surnameTextField" layoutX="430.0" layoutY="21.0" prefHeight="35.0" prefWidth="226.0" promptText="นามสกุล">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -64,7 +64,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </TextField>
-                <TextField fx:id="numberTextField" layoutX="184.0" layoutY="151.0" prefHeight="35.0" prefWidth="353.0" promptText="เบอร์โทรศัพท์">
+                <TextField fx:id="numberTextField" layoutX="184.0" layoutY="169.0" prefHeight="35.0" prefWidth="353.0" promptText="เบอร์โทรศัพท์">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -72,7 +72,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </TextField>
-                <TextField fx:id="emailTextField" layoutX="184.0" layoutY="201.0" prefHeight="35.0" prefWidth="353.0" promptText="email">
+                <TextField fx:id="emailTextField" layoutX="184.0" layoutY="219.0" prefHeight="35.0" prefWidth="353.0" promptText="email">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -80,7 +80,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </TextField>
-                <TextField fx:id="countyField" layoutX="184.0" layoutY="252.0" prefHeight="30.0" prefWidth="353.0" promptText="จังหวัด">
+                <TextField fx:id="countyField" layoutX="184.0" layoutY="270.0" prefHeight="30.0" prefWidth="353.0" promptText="จังหวัด">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -88,24 +88,12 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </TextField>
-                <JFXButton layoutX="376.0" layoutY="116.0" style="-fx-background-color: #696969;" text="แนบไฟล์" textFill="WHITE" />
-                <JFXButton layoutX="747.0" layoutY="116.0" style="-fx-background-color: #696969;" text="แนบไฟล์" textFill="WHITE" />
-                <Text layoutX="184.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="แนบไฟล์สำเนาบัตรประชาชน">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Text>
-                <Text layoutX="592.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="แนบไฟล์สำเนาตั๋วทนาย">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                </Text>
                 <JFXButton layoutX="373.0" layoutY="370.0" onAction="#registerNewLawyer" prefHeight="53.0" prefWidth="295.0" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="สมัครสมาชิก" textFill="WHITE">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </JFXButton>
-                <TextField fx:id="lawOfficeField" layoutX="597.0" layoutY="252.0" prefHeight="35.0" prefWidth="226.0" promptText="สำนักงานกฏหมาย">
+                <TextField fx:id="lawOfficeField" layoutX="566.0" layoutY="270.0" prefHeight="35.0" prefWidth="226.0" promptText="สำนักงานกฏหมาย">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -139,7 +127,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField fx:id="cardIssueDateField" layoutX="566.0" layoutY="201.0" prefHeight="35.0" prefWidth="226.0" promptText="วันออกบัตร">
+            <TextField fx:id="cardIssueDateField" layoutX="566.0" layoutY="219.0" prefHeight="35.0" prefWidth="226.0" promptText="วันออกบัตร">
                <font>
                   <Font size="16.0" />
                </font>
@@ -147,7 +135,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField fx:id="cardReplacementDateField" layoutX="566.0" layoutY="151.0" prefHeight="35.0" prefWidth="226.0" promptText="กำหนดวันเปลี่ยนบัตร">
+            <TextField fx:id="cardReplacementDateField" layoutX="566.0" layoutY="169.0" prefHeight="35.0" prefWidth="226.0" promptText="กำหนดวันเปลี่ยนบัตร">
                <font>
                   <Font size="16.0" />
                </font>
@@ -156,6 +144,14 @@
                </cursor>
             </TextField>
             <Label fx:id="registerLabel" layoutX="733.0" layoutY="388.0" textFill="RED" />
+            <TextField fx:id="idcardField" layoutX="184.0" layoutY="121.0" prefHeight="35.0" prefWidth="226.0" promptText="เลขบัตรประชาชน">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TextField>
             </children>
         </AnchorPane>
     </children>

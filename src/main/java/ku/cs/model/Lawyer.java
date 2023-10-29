@@ -1,21 +1,25 @@
 package ku.cs.model;
 
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
-public class Lawyer extends User{
+public class Lawyer {
 
 
     //officer
+    private String nameLawyer;
+    private String surnameLawyer;
+    private String usernameLawyer;
+    private String password;
+    private String email;
+    private String number;
     private String dateOfBirth;
     private String attorneyLicensenumber;
-    private String lawerTicket;
+
     private String cardIssueDate;
     private String cardReplacementDate;
     private String lawOffice;
     private String county;
     private String idCard;
+    private String pathProfile;
 
 //    public Lawyer(String username, String name, String surname, String password, String dateOfBirth, String attorneyLicensenumber, String idCard, String lawyerTicket,String cardIssueDate, String cardReplacementDate, String number, String email , String pathProfile, String lawOffice , String county) {
 //        this(username,name, surname,password, dateOfBirth,attorneyLicensenumber,idCard,lawyerTicket,cardIssueDate,cardReplacementDate,number,email,pathProfile, lawOffice,county,LocalDateTime.of(0,1,1,0,0));
@@ -23,56 +27,64 @@ public class Lawyer extends User{
 
 
 
-    public Lawyer(String username,String name, String surname,String password, String dateOfBirth, String attorneyLicensenumber, String idCard,String lawyerTicket, String cardIssueDate, String cardReplacementDate, String number, String email, String pathProfile, String lawOffice,String county) {
-        super(username,name,surname,password,pathProfile,email,number);
-        this.dateOfBirth = String.valueOf(dateOfBirth);
+    public Lawyer(String usernameLawyer,String nameLawyer, String surnameLawyer,String password,String number, String email, String dateOfBirth, String attorneyLicensenumber, String idCard, String cardIssueDate, String cardReplacementDate, String lawOffice,String county,String pathProfile) {
+//        super(username,name,surname,password,pathProfile,email,number);
+        this.usernameLawyer = usernameLawyer;
+        this.nameLawyer = nameLawyer;
+        this.surnameLawyer = surnameLawyer;
+        this.password = password;
+        this.number = number;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
         this.attorneyLicensenumber = attorneyLicensenumber;
         this.idCard = idCard;
-        this.lawerTicket = lawyerTicket;
-        this.cardIssueDate = String.valueOf(cardIssueDate);
-        this.cardReplacementDate =String.valueOf(cardReplacementDate);
+        this.cardIssueDate = cardIssueDate;
+        this.cardReplacementDate = cardReplacementDate;
         this.lawOffice = lawOffice;
         this.county = county;
-
-
+        this.pathProfile = pathProfile;
     }
 
+    public String getNameLawyer() {
+        return nameLawyer;
+    }
 
+    public String getSurnameLawyer() {
+        return surnameLawyer;
+    }
 
-    @Override
-    public String getAccountName() {
-        return super.getAccountName();
+    public String getUsernameLawyer() {
+        return usernameLawyer;
     }
-    @Override
-    public String getSurname() {return super.getSurname();
-    }
-    @Override
-    public String getUsername() {
-        return super.getUsername();
-    }
-    @Override
+
     public String getPassword() {
-        return super.getPassword();
+        return password;
     }
-    @Override
-    public String getPathProfile() {return super.getPathProfile();}
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNumber() {
+        return number;
+    }
 
     public String getDateOfBirth() {
         return dateOfBirth;
     }
+
     public String getAttorneyLicensenumber() {
         return attorneyLicensenumber;
     }
 
-    public String getLawerTicket() {
-        return lawerTicket;
-    }
     public String getCardIssueDate() {
         return cardIssueDate;
     }
+
     public String getCardReplacementDate() {
         return cardReplacementDate;
     }
+
     public String getLawOffice() {
         return lawOffice;
     }
@@ -84,8 +96,11 @@ public class Lawyer extends User{
     public String getIdCard() {
         return idCard;
     }
+    public String getPathProfile() {
+        return pathProfile;
+    }
 
     public String toCsv(){
-        return "Lawyer" + "," +getUsername() + "," + getAccountName()  +"," + getSurname()  + "," + getPassword() + "," + getNumber() + ","+ getEmail() +","+ dateOfBirth + "," + attorneyLicensenumber  + "," + idCard + "," +lawerTicket+","+ cardIssueDate + "," +cardReplacementDate+ "," +lawOffice+ "," + county +"," + getPathProfile()  ;
+        return "Lawyer" + "," +getUsernameLawyer() + "," + getNameLawyer()  +"," + getSurnameLawyer()  + "," + getNumber() + ","+ getEmail() + "," + getPassword()+","+ getDateOfBirth() + "," + getAttorneyLicensenumber()  + "," + getIdCard() + ","+ getCardIssueDate() + "," +getCardReplacementDate()+ "," +getLawOffice()+ "," + getCounty() +"," + getPathProfile()  ;
     }
 }

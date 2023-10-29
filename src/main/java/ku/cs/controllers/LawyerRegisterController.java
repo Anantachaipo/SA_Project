@@ -3,14 +3,16 @@ package ku.cs.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.DatePicker;
+
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import ku.cs.DBConnect;
 import ku.cs.service.Account;
+import java.awt.event.ActionListener;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,11 +20,11 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.sql.ResultSet;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
-public class LawyerRegisterController {
+
+public class LawyerRegisterController implements ActionListener {
 
     @FXML
     private TextField usernameTextField;
@@ -41,6 +43,8 @@ public class LawyerRegisterController {
     @FXML
     private ImageView profile;
     @FXML
+    private TextField idcardField;
+    @FXML
     private TextField myDateOfBirth;
     @FXML
     private TextField cardReplacementDateField;
@@ -58,8 +62,7 @@ public class LawyerRegisterController {
     private Account account = new Account();
 
     private String pathProfile = "images/user.png";
-    private String idCard = "0" ;
-    private String lawyerTicket = "00";
+
 
 
 
@@ -67,8 +70,10 @@ public class LawyerRegisterController {
     public void initialize(){
 
     }
+    public DBConnect db;
+
     @FXML
-    private void registerNewLawyer() {
+    private void registerNewLawyer()  {
 
         String name = nameTextField.getText();
         String surname = surnameTextField.getText();
@@ -76,19 +81,26 @@ public class LawyerRegisterController {
         String number = numberTextField.getText();
         String username = usernameTextField.getText();
         String password = passwordField.getText();
+        String confirmPassword = confirmPasswordField.getText();
         String dateOfBirth = myDateOfBirth.getText();
+        String idCard = idcardField.getText();
         String cardIssueDate = cardIssueDateField.getText();
         String cardReplacementDate = cardReplacementDateField.getText();
         String lawOffice = lawOfficeField.getText();
         String county = countyField.getText();
         String attorneyLicensenumber = attorneyLicensenumberField.getText();
-
-
-        //String username,String name,String surname,String password,Loca dateOfBirth, String attorneyLicensenumber,String idCard, String lawyerTicket,String cardIssueDate,String cardReplacementDate,String number, String email ,String pathProfile, String lawOffice ,String county
-        String status = account.recordAccountLawyer(username,name,surname,password,dateOfBirth ,attorneyLicensenumber,idCard,lawyerTicket,cardIssueDate,cardReplacementDate,number,email,pathProfile,lawOffice,county);
+        String status = account.recordAccountLawyer( username,  name,  surname,  password,confirmPassword,  dateOfBirth,  attorneyLicensenumber, idCard, cardIssueDate ,cardReplacementDate, number, email,  lawOffice,  county, pathProfile);
         registerLabel.setText(status);
+
+        db = new DBConnect();
+        ResultSet rs = db.getConnect("SELECT * FROM mydb.lawyer_information;");
+
+        String sql = String.format("INSERT INTO lawyer_information (L_username,L_name,L_surname,L_number,L_email,L_password,L_dateOfBirth,L_attorneyLicensenumber,L_idCard,L_cardIssueDate,L_cardReplacementDate,L_lawOffice,L_county,L_pathProfile) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');",username,  name,  surname, number, email ,password, dateOfBirth,  attorneyLicensenumber, idCard, cardIssueDate,cardReplacementDate,lawOffice,county,pathProfile);
+        //String username,String name,String surname,String password,Loca dateOfBirth, String attorneyLicensenumber,String idCard, String lawyerTicket,String cardIssueDate,String cardReplacementDate,String number, String email ,String pathProfile, String lawOffice ,String county
+
         if(status.equals("P")){
             try{
+                db.getUpdate(sql);
                 com.github.saacsos.FXRouter.goTo("lawyer_login");
             }catch (IOException e) {
                 System.err.println("ไปที่หน้า user_login ไม่ได้");
@@ -142,13 +154,9 @@ public class LawyerRegisterController {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-    @FXML
-    public void handleToUserLogin(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("lawyer_login");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า help ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
+
+    @Override
+    public void actionPerformed(java.awt.event.ActionEvent e) {
+
     }
 }
