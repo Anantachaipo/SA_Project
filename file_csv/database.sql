@@ -1,0 +1,1 @@
+SELECT * FROM mydb.lawyer_information;

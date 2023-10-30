@@ -5,47 +5,65 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserHomePageController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserHomePageController">
    <children>
-      <AnchorPane layoutX="1.0" prefHeight="112.0" prefWidth="600.0" style="-fx-background-color: #4169E1;">
+      <AnchorPane prefHeight="176.0" prefWidth="1001.0" style="-fx-background-color: #4169E1;">
          <children>
-            <Text fx:id="username" fill="WHITE" layoutX="29.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ User">
+            <Text fx:id="usernameText" fill="WHITE" layoutX="17.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ User">
                <font>
-                  <Font size="28.0" />
+                  <Font size="35.0" />
                </font>
             </Text>
-            <Label layoutX="30.0" layoutY="23.0" text="สวัสดี" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="23.0" text="Welcome" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font size="30.0" />
                </font>
             </Label>
-            <JFXButton fx:id="button_user_settings" layoutX="521.0" layoutY="23.0" onAction="#goToSettingsUser" text="ตั้งค่า" />
+            <JFXButton fx:id="button_user_settings" layoutX="769.0" layoutY="30.0" onAction="#goToSettingsUser" text="ตั้งค่า" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+            <ImageView fx:id="profile" fitHeight="150.0" fitWidth="200.0" layoutX="838.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/user.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="nameText" fill="WHITE" layoutX="176.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="surnameText" fill="WHITE" layoutX="287.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
-      <JFXButton layoutX="262.0" layoutY="385.0" onAction="#goTo" text="เข้าใจบริการ" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="50.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../image/—Pngtree—cartoon%20business%20male%20lawyer%20element_4074667.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="397.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../image/—Pngtree—warm%20color%20lawyer%20advisory%20cartoon_3775330%20(1).png" />
-         </image>
-      </ImageView>
-      <Label fx:id="number_lawyer" layoutX="82.0" layoutY="609.0" text="จำนวนทนาย">
+<!--      <JFXButton layoutX="415.0" layoutY="261.0" onAction="#goTo" text="เข้าใช้บริการ">-->
+<!--         <font>-->
+<!--            <Font size="28.0" />-->
+<!--         </font></JFXButton>-->
+      <Label fx:id="number_lawyer" layoutX="207.0" layoutY="446.0" text="จำนวนทนาย">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="number_case" layoutX="442.0" layoutY="609.0" text="จำนวนที่ว่าคดี">
+      <Label fx:id="number_case" layoutX="727.0" layoutY="446.0" text="จำนวนที่ว่าคดี">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="175.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/lawyer.png" />
+         </image>
+      </ImageView>
       <AnchorPane layoutX="1.0" layoutY="725.0" prefHeight="75.0" prefWidth="600.0">
          <children>
             <JFXButton fx:id="homepage_button" layoutX="33.0" layoutY="23.0" text="หน้าหลัก" />
@@ -55,5 +73,12 @@
             <JFXButton fx:id="history" layoutX="498.0" layoutY="23.0" onAction="#goToUserHistory" text="ประวัติ" />
          </children>
       </AnchorPane>
+      <Line endX="241.0" layoutX="180.0" layoutY="417.0" startX="-100.0" />
+      <Line endX="241.0" layoutX="703.0" layoutY="416.0" startX="-100.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="699.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/lawyer3.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

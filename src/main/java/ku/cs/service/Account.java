@@ -7,8 +7,6 @@ import ku.cs.model.LawyerList;
 import ku.cs.model.User;
 import ku.cs.model.UserList;
 
-import java.time.LocalDateTime;
-
 public class Account {
 
     //account
@@ -44,7 +42,7 @@ public class Account {
 
         return "P";
     }
-    public String recordAccountLawyer(String username, String name, String surname, String password,String confirmPassword, String dateOfBirth, String attorneyLicensenumber,String idcard, String cardIssueDate,String cardReplacementDate,String number,String email, String lawOffice, String county,String pathProfile) {
+    public String recordAccountLawyer(String username, String name, String surname,String sex, String password,String confirmPassword, String dateOfBirth, String attorneyLicensenumber,String idcard, String cardIssueDate,String cardReplacementDate,String number,String email, String lawOffice, String county,String caseAptitude,String pathProfile) {
         //ใช้ตรวจสอบข้อความที่กรอกเข้ามา
         if (username.equals("")) {
             return "ยังไม่ได้กรอก Username ";
@@ -68,7 +66,7 @@ public class Account {
             return "กรอก Password ไม่ตรงกัน";
         }
         //String username,String name,String surname,String password,String dateOfBirth, String attorneyLicensenumber,String idCard, String lawyerTicket,String cardIssueDate,String cardReplacementDate,String number, String email ,String pathProfile, String lawOffice ,String county
-        Lawyer lawyer = new Lawyer(username,name,surname,password,number,email,dateOfBirth,attorneyLicensenumber,idcard ,cardIssueDate,cardReplacementDate,pathProfile,lawOffice,county);
+        Lawyer lawyer = new Lawyer(username,name,surname,sex,password,number,email,dateOfBirth,attorneyLicensenumber,idcard ,cardIssueDate,cardReplacementDate,lawOffice,county,caseAptitude,pathProfile);
 
         DataSourceLawyer<LawyerList> dataSource;
         dataSource = new LawyerListFileDataSource();

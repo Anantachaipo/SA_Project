@@ -20,6 +20,8 @@ public class Lawyer {
     private String county;
     private String idCard;
     private String pathProfile;
+    private String caseAptitude;
+    private String sex;
 
 //    public Lawyer(String username, String name, String surname, String password, String dateOfBirth, String attorneyLicensenumber, String idCard, String lawyerTicket,String cardIssueDate, String cardReplacementDate, String number, String email , String pathProfile, String lawOffice , String county) {
 //        this(username,name, surname,password, dateOfBirth,attorneyLicensenumber,idCard,lawyerTicket,cardIssueDate,cardReplacementDate,number,email,pathProfile, lawOffice,county,LocalDateTime.of(0,1,1,0,0));
@@ -27,7 +29,7 @@ public class Lawyer {
 
 
 
-    public Lawyer(String usernameLawyer,String nameLawyer, String surnameLawyer,String password,String number, String email, String dateOfBirth, String attorneyLicensenumber, String idCard, String cardIssueDate, String cardReplacementDate, String lawOffice,String county,String pathProfile) {
+    public Lawyer(String usernameLawyer,String nameLawyer, String surnameLawyer,String sex,String password,String number, String email, String dateOfBirth, String attorneyLicensenumber, String idCard, String cardIssueDate, String cardReplacementDate, String lawOffice,String county,String caseAptitude,String pathProfile) {
 //        super(username,name,surname,password,pathProfile,email,number);
         this.usernameLawyer = usernameLawyer;
         this.nameLawyer = nameLawyer;
@@ -43,6 +45,8 @@ public class Lawyer {
         this.lawOffice = lawOffice;
         this.county = county;
         this.pathProfile = pathProfile;
+        this.caseAptitude = caseAptitude;
+        this.sex = sex;
     }
 
     public String getNameLawyer() {
@@ -100,7 +104,15 @@ public class Lawyer {
         return pathProfile;
     }
 
+    public String getCaseAptitude() {
+        return caseAptitude;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
     public String toCsv(){
-        return "Lawyer" + "," +getUsernameLawyer() + "," + getNameLawyer()  +"," + getSurnameLawyer()  + "," + getNumber() + ","+ getEmail() + "," + getPassword()+","+ getDateOfBirth() + "," + getAttorneyLicensenumber()  + "," + getIdCard() + ","+ getCardIssueDate() + "," +getCardReplacementDate()+ "," +getLawOffice()+ "," + getCounty() +"," + getPathProfile()  ;
+        return "Lawyer" + "," +getUsernameLawyer() + "," + getNameLawyer()  +"," + getSurnameLawyer()+","+ getSex() + "," + getNumber() + ","+ getEmail() + "," + getPassword()+","+ getDateOfBirth() + "," + getAttorneyLicensenumber()  + "," + getIdCard() + ","+ getCardIssueDate() + "," +getCardReplacementDate()+ "," +getLawOffice()+ "," + getCounty() +","+getCaseAptitude()+"," + getPathProfile()  ;
     }
 }

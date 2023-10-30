@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -55,9 +56,14 @@ public class LawyerRegisterController implements ActionListener {
     @FXML
     private TextField attorneyLicensenumberField;
     @FXML
-    private TextField countyField;
+    private TextField sexField;
+
     @FXML
     private Label registerLabel;
+    @FXML
+    private MenuButton menuButton ;
+    @FXML
+    private MenuButton menuButton2 ;
 
     private Account account = new Account();
 
@@ -87,15 +93,17 @@ public class LawyerRegisterController implements ActionListener {
         String cardIssueDate = cardIssueDateField.getText();
         String cardReplacementDate = cardReplacementDateField.getText();
         String lawOffice = lawOfficeField.getText();
-        String county = countyField.getText();
+        String county = menuButton.getText();
+        String caseAptitude = menuButton2.getText();
+        String sex = sexField.getText();
         String attorneyLicensenumber = attorneyLicensenumberField.getText();
-        String status = account.recordAccountLawyer( username,  name,  surname,  password,confirmPassword,  dateOfBirth,  attorneyLicensenumber, idCard, cardIssueDate ,cardReplacementDate, number, email,  lawOffice,  county, pathProfile);
+        String status = account.recordAccountLawyer( username,  name,  surname, sex, password,confirmPassword,  dateOfBirth,  attorneyLicensenumber, idCard, cardIssueDate ,cardReplacementDate, number, email,  lawOffice,  county,caseAptitude, pathProfile);
         registerLabel.setText(status);
 
         db = new DBConnect();
         ResultSet rs = db.getConnect("SELECT * FROM mydb.lawyer_information;");
 
-        String sql = String.format("INSERT INTO lawyer_information (L_username,L_name,L_surname,L_number,L_email,L_password,L_dateOfBirth,L_attorneyLicensenumber,L_idCard,L_cardIssueDate,L_cardReplacementDate,L_lawOffice,L_county,L_pathProfile) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');",username,  name,  surname, number, email ,password, dateOfBirth,  attorneyLicensenumber, idCard, cardIssueDate,cardReplacementDate,lawOffice,county,pathProfile);
+        String sql = String.format("INSERT INTO lawyer_information (L_username,L_name,L_surname,L_sex,L_number,L_email,L_password,L_dateOfBirth,L_attorneyLicensenumber,L_idCard,L_cardIssueDate,L_cardReplacementDate,L_lawOffice,L_county,L_caseAptitude,L_pathProfile) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');",username,  name,  surname,sex, number, email ,password, dateOfBirth,  attorneyLicensenumber, idCard, cardIssueDate,cardReplacementDate,lawOffice,county,caseAptitude,pathProfile);
         //String username,String name,String surname,String password,Loca dateOfBirth, String attorneyLicensenumber,String idCard, String lawyerTicket,String cardIssueDate,String cardReplacementDate,String number, String email ,String pathProfile, String lawOffice ,String county
 
         if(status.equals("P")){
@@ -154,6 +162,66 @@ public class LawyerRegisterController implements ActionListener {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+
+    @FXML
+    public void handleToItem11(){
+        menuButton2.setText("การขโมย");
+    }
+    @FXML
+    public void handleToItem12(){
+        menuButton2.setText("คุกคามเพศ");
+    }
+    @FXML
+    public void handleToItem13(){
+        menuButton2.setText("มรดกและพินัยกรรม");
+    }
+    @FXML
+    public void handleToItem14(){
+        menuButton2.setText("กฏหมายทรรัพย์สินทางปัญญา");
+    }
+    @FXML
+    public void handleToItem15(){
+        menuButton2.setText("อุบัติเหตุและการจราจรทั่วไป");
+    }
+    @FXML
+    public void handleToItem16(){
+        menuButton2.setText("การโกงออนไลน์และซื้อขายแลกเปลี่ยน");
+    }
+    @FXML
+    public void handleToItem17(){
+        menuButton2.setText("การหย่าร้างและครอบครัว");
+    }
+
+
+
+
+
+
+    @FXML
+    public void handleToItem1(){
+        menuButton.setText("กรุงเทพมหานคร (Bangkok)");
+    }
+    @FXML
+    public void handleToItem2(){
+        menuButton.setText("เชียงใหม่ (Chiang Mai)");
+    }
+    @FXML
+    public void handleToItem3(){
+        menuButton.setText("ขอนแก่น (Khon Kaen)");
+    }
+    @FXML
+    public void handleToItem4(){
+        menuButton.setText("นครราชสีมา (Nakhon Ratchasima)");
+    }
+    @FXML
+    public void handleToItem5(){
+        menuButton.setText("ชลบุรี (Chon Buri)");
+    }
+    @FXML
+    public void handleToItem6(){
+        menuButton.setText("นครศรีธรรมราช (Nakhon Si Thammarat)");
+    }
+
 
     @Override
     public void actionPerformed(java.awt.event.ActionEvent e) {

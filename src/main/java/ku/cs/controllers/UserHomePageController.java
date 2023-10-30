@@ -10,15 +10,41 @@ import ku.cs.model.Lawyer;
 import ku.cs.model.User;
 import ku.cs.service.Account;
 import ku.cs.DBConnect;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+//import javax.swing.text.html.ImageView;
+//import java.awt.*;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import static ku.cs.controllers.UserLoginController.user;
+
 public class UserHomePageController {
 
     @FXML
-    private Text username;
+    private Text usernameText;
+    @FXML
+    private Text nameText;
+    @FXML
+    private Text surnameText;
+    @FXML
+    private ImageView profile;
+
+    private DBConnect db;
+    private Account account = new Account();
+
+    @FXML
+    public void initialize() throws SQLException {
+        System.out.println(user);
+        System.out.println(user.getUsername());
+        usernameText.setText(user.getUsername());
+        nameText.setText(user.getAccountName());
+        surnameText.setText(user.getSurname());
+        profile.setImage(new Image("file:" + user.getPathProfile(), true));
+
+    }
 
 
     @FXML
@@ -67,18 +93,18 @@ public class UserHomePageController {
         }
     }
 
-    private DBConnect db;
-    @FXML
-    public void goTo(ActionEvent actionEvent) throws SQLException {
 
-        db = new DBConnect();
-        ResultSet rs = db.getConnect("SELECT * FROM user.users;");
-        rs.next();
-        String name = rs.getString("name");
-        username.setText(name);
-
-
-    }
+//    @FXML
+//    public void goTo(ActionEvent actionEvent) throws SQLException {
+//
+//        db = new DBConnect();
+//        ResultSet rs = db.getConnect("SELECT * FROM user.users;");
+//        rs.next();
+//        String name = rs.getString("name");
+//        username.setText(name);
+//
+//
+//    }
 
 
 

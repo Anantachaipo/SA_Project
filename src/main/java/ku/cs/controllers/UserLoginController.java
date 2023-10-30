@@ -9,9 +9,12 @@ import ku.cs.DBConnect;
 import ku.cs.model.Lawyer;
 import ku.cs.model.User;
 import ku.cs.service.Account;
+import java.sql.*;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserLoginController {
@@ -26,13 +29,14 @@ public class UserLoginController {
     @FXML
     private Label loginLabel;
 
+    public static ResultSet rs;
 
     public static User user ;
 
     private Account account = new Account();
 
-
-    public boolean loginUser() {
+    @FXML
+    public void login () throws IOException{
         String userName = usernameTextField.getText();
         String password = passwordPasswordField.getText();
         loginLabel.setText("ไม่สามารถ login ได้ โปรดลองอีกครั้ง");
@@ -41,26 +45,74 @@ public class UserLoginController {
             ResultSet rs = null;
             String sql = String.format("SELECT * FROM mydb.user_information WHERE U_username = '%s' AND U_password = '%s'",userName,password);
             rs = db.getConnect(sql);
-            return rs.next();
+
+            if(rs.next()){
+                user = new User(
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8));
+                rs.close();
+                System.out.println("login successful");
+                System.out.println("Current user = " + user.toString());
+                com.github.saacsos.FXRouter.goTo("user_home_page");
+
+            }else {
+                System.out.println("login fail");
+                rs.close();
+            }
+
         } catch (Exception ex) {
             ex.printStackTrace();
-            return false;
+            System.out.println("ไม่สามารถ login ได้");
         }
     }
-    @FXML
-    public void login () throws IOException{
-        if (loginUser()) {
-            try {
-                com.github.saacsos.FXRouter.goTo("user_home_page");
-            } catch (IOException e) {
-                System.err.println("ไปที่หน้า ีuser_menu ไม่ได้");
-                System.err.println("ตรวจสอบความถูกต้องของ username และ password");
-                System.err.println("ให้ตรวจสอบการกำหนด router");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null,"login false");
-        }
-    }
+
+//    public boolean loginUser() {
+//        String userName = usernameTextField.getText();
+//        String password = passwordPasswordField.getText();
+//        loginLabel.setText("ไม่สามารถ login ได้ โปรดลองอีกครั้ง");
+//        try {
+//            DBConnect db = new DBConnect();
+//            ResultSet rs = null;
+//            String sql = String.format("SELECT * FROM mydb.user_information WHERE U_username = '%s' AND U_password = '%s'",userName,password);
+//            rs = db.getConnect(sql);
+//
+//            if(rs.next()){
+//                user = new User(
+//                        rs.getString(1),
+//                        rs.getString(2),
+//                        rs.getString(3),
+//                        rs.getString(4),
+//                        rs.getString(5),
+//                        rs.getString(6),
+//                        rs.getString(7));
+//            }else {
+//                System.out.println("Current user = " + user.toString());
+//            }
+//            return rs.next();
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//            return false;
+//        }
+//    }
+//    @FXML
+//    public void login () throws IOException{
+//        if (loginUser()) {
+//            try {
+//                com.github.saacsos.FXRouter.goTo("user_home_page");
+//            } catch (IOException e) {
+//                System.err.println("ไปที่หน้า ีuser_menu ไม่ได้");
+//                System.err.println("ตรวจสอบความถูกต้องของ username และ password");
+//                System.err.println("ให้ตรวจสอบการกำหนด router");
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null,"login false");
+//        }
+//    }
 
 
 
@@ -110,7 +162,7 @@ public class UserLoginController {
         try {
             com.github.saacsos.FXRouter.goTo("first_page");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า help ไม่ได้");
+            System.err.println("ไปที่หน้า แรก ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
@@ -119,7 +171,7 @@ public class UserLoginController {
         try {
             com.github.saacsos.FXRouter.goTo("user_register");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า help ไม่ได้");
+            System.err.println("ไปที่หน้า user_register ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
