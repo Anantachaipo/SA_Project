@@ -6,11 +6,20 @@ import java.util.Comparator;
 
 
 public class LawyerList {
+    private String name;
+    private String surname;
     private ArrayList<Lawyer> lawyers;
 
+//    public LawyerList(String name,String surname){
+//        this.name = name;
+//        this.surname = surname;
+//        lawyers = new ArrayList<>();
+//
+//    }
     public LawyerList(){
         lawyers = new ArrayList<>();
     }
+
     public void addLawyer(Lawyer lawyer){
         lawyers.add(lawyer);
     }

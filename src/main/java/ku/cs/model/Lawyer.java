@@ -1,7 +1,7 @@
 package ku.cs.model;
 
 
-public class Lawyer {
+public class Lawyer  {
 
 
     //officer
@@ -48,6 +48,11 @@ public class Lawyer {
         this.caseAptitude = caseAptitude;
         this.sex = sex;
     }
+    public Lawyer(String nameLawyer,String surnameLawyer){
+        this.nameLawyer = nameLawyer;
+        this.surnameLawyer = surnameLawyer;
+    }
+
 
     public String getNameLawyer() {
         return nameLawyer;
@@ -110,6 +115,25 @@ public class Lawyer {
 
     public String getSex() {
         return sex;
+    }
+
+    @Override
+    public String toString() {
+        return usernameLawyer+ " "+ nameLawyer + " "+
+               surnameLawyer + " "+
+               password + " "+
+               email + " "+
+               number + " "+
+               dateOfBirth + " "+
+               attorneyLicensenumber + " "+
+               cardIssueDate +" "+
+               cardReplacementDate + " "+
+               lawOffice + " "+
+                county + " "+
+                idCard + " "+
+                pathProfile +" "+
+                caseAptitude +" "+
+                sex ;
     }
 
     public String toCsv(){
