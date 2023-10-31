@@ -5,49 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ede2c6ed-5149-46a1-95bd-409b7dc5251d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/file_csv/database.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/file_csv/er.mwb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/file_csv/lawsuitsInformation.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/2023-10-30_1698653945250.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/2023-10-30_1698655051445.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/2023-10-30_1698655491275.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/2023-10-30_1698655811026.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/2023-10-30_1698656061157.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/2023-10-30_1698657734300.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/2023-10-30_1698657786026.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/2023-10-30_1698658077610.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/2023-10-30_1698658327095.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/2023-10-30_1698658664535.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/2023-10-30_1698664701629.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/2023-10-30_1698665496318.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/2023-10-30_1698669693760.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/model/LawsuitsInformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/model/LawsuitsInformationList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/service/DataSourceLawsuitsInformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/service/LawsuitsInformationListFileDataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/image/lawyer.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/2023-10-31_1698737984972.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/2023-10-31_1698738830454.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/2023-10-31_1698738886361.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/2023-10-31_1698739313101.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/2023-10-31_1698739537888.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/2023-10-31_1698739591232.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/2023-10-31_1698739766142.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/2023-10-31_1698739808705.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/2023-10-31_1698740094751.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/image/Preaw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/image/firstpage.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/image/lawyer4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/image/po.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_csv/data_csv.text" beforeDir="false" afterPath="$PROJECT_DIR$/file_csv/data_csv.text" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_csv/lawyer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/file_csv/lawyer.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file_csv/user.csv" beforeDir="false" afterPath="$PROJECT_DIR$/file_csv/user.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerHomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerHomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerRegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerRegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserHomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserHomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserMenuController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserRegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserRegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/model/Lawyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/model/Lawyer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/service/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/service/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/service/LawyerListFileDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/service/LawyerListFileDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/image/Untitled design.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/image/Untitled-design.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/image/pngtree-cartoon-lawyer-illustration-design-design-png-image_592719.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/image/lawyer2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/image/—Pngtree—cartoon business male lawyer element_4074667.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/image/—Pngtree—warm color lawyer advisory cartoon_3775330 (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/image/lawyer3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_menu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/image/Facultad de derecho, curso de ilustración de dibujos animados _ Vector Premium.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/image/sgshrjxd.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/first_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/first_page.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_home_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_home_page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_register.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -11,34 +11,34 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserHomePageController">
    <children>
-      <AnchorPane prefHeight="176.0" prefWidth="1001.0" style="-fx-background-color: #4169E1;">
+      <AnchorPane prefHeight="150.0" prefWidth="1001.0" style="-fx-background-color: #4169E1;">
          <children>
-            <Text fx:id="usernameText" fill="WHITE" layoutX="17.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ User">
+            <Text fx:id="usernameText" fill="WHITE" layoutX="17.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ User">
                <font>
                   <Font size="35.0" />
                </font>
             </Text>
-            <Label layoutX="14.0" layoutY="23.0" text="Welcome" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="14.0" text="Welcome" textFill="WHITE">
                <font>
-                  <Font size="30.0" />
+                  <Font size="36.0" />
                </font>
             </Label>
-            <JFXButton fx:id="button_user_settings" layoutX="769.0" layoutY="30.0" onAction="#goToSettingsUser" text="ตั้งค่า" textFill="WHITE">
+            <JFXButton fx:id="button_user_settings" layoutX="778.0" layoutY="14.0" onAction="#goToSettingsUser" text="ตั้งค่า" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </JFXButton>
-            <ImageView fx:id="profile" fitHeight="150.0" fitWidth="200.0" layoutX="838.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="profile" fitHeight="172.0" fitWidth="162.0" layoutX="839.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/user.png" />
                </image>
             </ImageView>
-            <Text fx:id="nameText" fill="WHITE" layoutX="176.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ">
+            <Text fx:id="nameText" fill="WHITE" layoutX="178.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ">
                <font>
                   <Font size="16.0" />
                </font>
             </Text>
-            <Text fx:id="surnameText" fill="WHITE" layoutX="287.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล">
+            <Text fx:id="surnameText" fill="WHITE" layoutX="254.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล">
                <font>
                   <Font size="16.0" />
                </font>
