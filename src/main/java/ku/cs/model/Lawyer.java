@@ -48,6 +48,15 @@ public class Lawyer {
         this.caseAptitude = caseAptitude;
         this.sex = sex;
     }
+    public Lawyer(String nameLawyer,String surnameLawyer,String sex ,String attorneyLicensenumber,String lawOffice,String county,String caseAptitude){
+        this.nameLawyer = nameLawyer ;
+        this.surnameLawyer = surnameLawyer ;
+        this.sex = sex ;
+        this.attorneyLicensenumber = attorneyLicensenumber ;
+        this.lawOffice = lawOffice ;
+        this.county = county ;
+        this.caseAptitude = caseAptitude ;
+    }
 
     public String getNameLawyer() {
         return nameLawyer;

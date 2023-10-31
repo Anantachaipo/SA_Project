@@ -3,7 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -161,24 +161,12 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <ScrollPane prefHeight="250.0" prefWidth="1000.0">
-                     <content>
-                        <HBox prefHeight="250.0" prefWidth="1400.0" />
-                     </content>
-                     <VBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </VBox.margin>
-                  </ScrollPane>
                   <Label prefHeight="40.0" prefWidth="200.0" text="Label">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" />
-                     </VBox.margin>
-                  </ScrollPane>
+                  <ListView fx:id="lawyerListView" prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
          </center>
