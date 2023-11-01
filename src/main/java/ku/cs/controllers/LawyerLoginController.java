@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import ku.cs.DBConnect;
 import ku.cs.model.Lawyer;
 import ku.cs.model.User;
-import ku.cs.service.Account;
+
 
 import javax.swing.*;
 import java.io.IOException;
@@ -28,7 +28,6 @@ public class LawyerLoginController {
 
     public static User user ;
 
-    private Account account = new Account();
 
     public boolean loginUser() {
         String userName = usernameTextField.getText();

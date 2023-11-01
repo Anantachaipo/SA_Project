@@ -10,7 +10,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import ku.cs.DBConnect;
-import ku.cs.service.Account;
 
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -42,7 +41,6 @@ public class UserRegisterController implements ActionListener {
     private ImageView profile;
     @FXML
     private Label registerLabel;
-    private Account account = new Account();
     private String pathProfile = "images/user.png";
 
     @FXML
@@ -60,8 +58,7 @@ public class UserRegisterController implements ActionListener {
         String username = usernameTextField.getText();
         String password = passwordField.getText();
         String confirmPassword =  confirmPasswordField.getText();
-        String status = account.recordAccount(username,name,surname,number,email,password,confirmPassword,pathProfile);
-        registerLabel.setText(status);
+
 
         db = new DBConnect();
         ResultSet rs = db.getConnect("SELECT * FROM mydb.user_information;");
@@ -69,17 +66,17 @@ public class UserRegisterController implements ActionListener {
 
         String sql = String.format("INSERT INTO user_information (U_username,U_name,U_surname,U_number,U_email,U_password,U_pathProfile) VALUES('%s','%s','%s','%s','%s','%s','%s');",username,name,surname,number,email,password,pathProfile);
 
-        if(status.equals("P")){
-            try{
-                db.getUpdate(sql);
-                com.github.saacsos.FXRouter.goTo("user_login");
-            }catch (IOException e) {
-                System.err.println("ไปที่หน้า user_login ไม่ได้");
-                System.err.println("ให้ตรวจสอบการกำหนด route");
-            }
-        }
 
+        try{
+            db.getUpdate(sql);
+            com.github.saacsos.FXRouter.goTo("user_login");
+        }catch (IOException e) {
+            System.err.println("ไปที่หน้า user_login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
+
+
     @FXML
     public void handleToChangeImage(ActionEvent actionEvent) {
 

@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import ku.cs.DBConnect;
 import ku.cs.model.Lawyer;
-import ku.cs.service.Account;
+
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -20,7 +20,7 @@ import static ku.cs.controllers.UserLoginController.user;
 
 public class SearchLawyerController {
     private DBConnect db;
-    private Account account = new Account();
+
     @FXML
     private ListView<Lawyer> lawyerListListView;
     @FXML

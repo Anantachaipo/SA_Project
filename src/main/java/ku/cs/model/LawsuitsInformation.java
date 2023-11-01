@@ -2,17 +2,23 @@ package ku.cs.model;
 
 public class LawsuitsInformation {
 
+    private Integer id;
     private String name;
 
     private String type;
     private String information;
     private String date;
+    private Integer uID;
+    private Integer lID;
 
-    public LawsuitsInformation(String name, String type, String information, String date) {
+    public LawsuitsInformation(Integer id,String name, String type, String information, String date,Integer uID,Integer lID) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.information = information;
         this.date = date;
+        this.uID = uID;
+        this.lID = lID;
     }
 
     public String getName() {
@@ -45,6 +51,30 @@ public class LawsuitsInformation {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getuID() {
+        return uID;
+    }
+
+    public void setuID(Integer uID) {
+        this.uID = uID;
+    }
+
+    public Integer getlID() {
+        return lID;
+    }
+
+    public void setlID(Integer lID) {
+        this.lID = lID;
     }
 
     public String toCsv(){

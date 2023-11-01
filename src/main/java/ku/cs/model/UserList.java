@@ -31,13 +31,6 @@ public class UserList {
         }
         return false;
     }
-    public String toCsv() {
-        String result = "";
-        for (User user : this.users){
-            result += user.toCsv() + "\n";
-        }
-        return result;
-    }
     @Override
     public String toString() {
         return "UserList{" +

@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -50,12 +49,12 @@
 <!--         <font>-->
 <!--            <Font size="28.0" />-->
 <!--         </font></JFXButton>-->
-      <Label fx:id="number_lawyer" layoutX="207.0" layoutY="446.0" text="จำนวนทนาย">
+      <Label fx:id="number_lawyer" layoutX="132.0" layoutY="446.0" text="จำนวนทนาย">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="number_case" layoutX="727.0" layoutY="446.0" text="จำนวนที่ว่าคดี">
+      <Label fx:id="number_case" layoutX="637.0" layoutY="445.0" text="จำนวนที่ว่าคดี">
          <font>
             <Font size="18.0" />
          </font>
@@ -81,6 +80,25 @@
             <Image url="@../../image/lawyer3.png" />
          </image>
       </ImageView>
-      <ListView fx:id="lawyerListListView" layoutX="224.0" layoutY="490.0" prefHeight="230.0" prefWidth="553.0" />
+      <Label fx:id="countLawyerLabel" layoutX="240.0" layoutY="446.0" prefHeight="27.0" prefWidth="21.0" textAlignment="CENTER" textFill="#ff7777">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Text fontSmoothingType="LCD" layoutX="271.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คน">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="795.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คดี">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="countLawsuitsLabel" layoutX="763.0" layoutY="445.0" prefHeight="27.0" prefWidth="21.0" textAlignment="CENTER" textFill="#ff7777">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

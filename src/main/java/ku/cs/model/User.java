@@ -19,8 +19,8 @@ public class User {
 //        this(username, name,surname, number,email,password,pathProfile));
 //    }
 
-    public User(String username, String name,String surname, String number,String email,String password, String pathProfile) {
-
+    public User(Integer id,String username, String name,String surname, String number,String email,String password, String pathProfile) {
+        this.id = id;
         this.username = username;
         this.name = name;
         this.surname = surname;
@@ -31,7 +31,7 @@ public class User {
 
     }
 
-
+    public Integer getId(){return id;}
     public String getAccountName() {
         return name;
     }
@@ -77,7 +77,7 @@ public class User {
     }
 
 
-    public String toCsv(){
-        return "User" + "," + username + "," + name + "," + surname + "," + number+ "," + email+  "," + password +","+ pathProfile ;
-    }
+//    public String toCsv(){
+//        return "User" + "," + username + "," + name + "," + surname + "," + number+ "," + email+  "," + password +","+ pathProfile ;
+//    }
 }

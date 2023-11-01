@@ -12,7 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import ku.cs.DBConnect;
-import ku.cs.service.Account;
+
 import java.awt.event.ActionListener;
 
 import java.io.File;
@@ -65,7 +65,7 @@ public class LawyerRegisterController implements ActionListener {
     @FXML
     private MenuButton menuButton2 ;
 
-    private Account account = new Account();
+
 
     private String pathProfile = "images/user.png";
 
@@ -97,8 +97,8 @@ public class LawyerRegisterController implements ActionListener {
         String caseAptitude = menuButton2.getText();
         String sex = sexField.getText();
         String attorneyLicensenumber = attorneyLicensenumberField.getText();
-        String status = account.recordAccountLawyer( username,  name,  surname, sex, password,confirmPassword,  dateOfBirth,  attorneyLicensenumber, idCard, cardIssueDate ,cardReplacementDate, number, email,  lawOffice,  county,caseAptitude, pathProfile);
-        registerLabel.setText(status);
+
+
 
         db = new DBConnect();
         ResultSet rs = db.getConnect("SELECT * FROM mydb.lawyer_information;");
@@ -106,15 +106,16 @@ public class LawyerRegisterController implements ActionListener {
         String sql = String.format("INSERT INTO lawyer_information (L_username,L_name,L_surname,L_sex,L_number,L_email,L_password,L_dateOfBirth,L_attorneyLicensenumber,L_idCard,L_cardIssueDate,L_cardReplacementDate,L_lawOffice,L_county,L_caseAptitude,L_pathProfile) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');",username,  name,  surname,sex, number, email ,password, dateOfBirth,  attorneyLicensenumber, idCard, cardIssueDate,cardReplacementDate,lawOffice,county,caseAptitude,pathProfile);
         //String username,String name,String surname,String password,Loca dateOfBirth, String attorneyLicensenumber,String idCard, String lawyerTicket,String cardIssueDate,String cardReplacementDate,String number, String email ,String pathProfile, String lawOffice ,String county
 
-        if(status.equals("P")){
-            try{
-                db.getUpdate(sql);
-                com.github.saacsos.FXRouter.goTo("lawyer_login");
-            }catch (IOException e) {
-                System.err.println("ไปที่หน้า user_login ไม่ได้");
-                System.err.println("ให้ตรวจสอบการกำหนด route");
-            }
+        try{
+            db.getUpdate(sql);
+            com.github.saacsos.FXRouter.goTo("lawyer_login");
+        }catch (IOException e) {
+            System.err.println("ไปที่หน้า user_login ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
         }
+
+
+
 
     }
     @FXML

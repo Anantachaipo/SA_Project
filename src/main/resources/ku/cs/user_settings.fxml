@@ -1,86 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserSettingsController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserSettingsController">
    <children>
-      <AnchorPane layoutY="-3.0" prefHeight="100.0" prefWidth="1000.0">
+      <AnchorPane layoutY="-3.0" prefHeight="126.0" prefWidth="1000.0" style="-fx-background-color: #4169E1;">
          <children>
-            <JFXButton layoutX="14.0" layoutY="39.0" onAction="#backToUserHomePage" text="back" />
-            <Text layoutX="141.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ตั้งค่า" />
-            <ImageView fitHeight="69.0" fitWidth="117.0" layoutX="912.0" layoutY="11.0" onMouseClicked="#Logout" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/user.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="794.0" layoutY="34.0" text="ชื่อ user" />
-         </children>
-      </AnchorPane>
-      <JFXButton layoutX="922.0" layoutY="761.0" onAction="#Logout" text="Logout" />
-      <JFXButton layoutX="446.0" layoutY="425.0" text="ยกเลิกการเป็นสมชิก" />
-      <VBox layoutX="250.0" layoutY="139.0" prefHeight="200.0" prefWidth="500.0">
-         <children>
-            <Label prefHeight="17.0" prefWidth="167.0" text="เปลี่ยน psssword">
-               <padding>
-                  <Insets right="50.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="200.0" />
-               </VBox.margin>
-            </Label>
-            <Label text="Password">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Label>
-            <PasswordField promptText="Enter your password">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </PasswordField>
-            <Label text="New Password">
-               <padding>
-                  <Insets right="50.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Label>
-            <PasswordField promptText="Enter your password">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </PasswordField>
-            <Label text="Cofirm New Password">
-               <padding>
-                  <Insets right="50.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </Label>
-            <PasswordField promptText="Enter your password">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-            </PasswordField>
-            <JFXButton text="Change">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
+            <JFXButton layoutX="29.0" layoutY="33.0" onAction="#backToUserHomePage" text="back" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font></JFXButton>
+            <Text fill="WHITE" layoutX="480.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ตั้งค่า">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <JFXButton layoutX="889.0" layoutY="33.0" onAction="#Logout" text="Logout" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
             </JFXButton>
          </children>
-         <padding>
-            <Insets right="50.0" />
-         </padding>
-      </VBox>
+      </AnchorPane>
+      <JFXButton layoutX="853.0" layoutY="741.0" text="ยกเลิกการเป็นสมชิก" />
+      <PasswordField fx:id="oldPasswordField" layoutX="451.0" layoutY="499.0" promptText="Enter your password" style="-fx-background-radius: 30;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="newPasswordField" layoutX="451.0" layoutY="560.0" promptText="Enter your password" style="-fx-background-radius: 30;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="confirmPasswordField" layoutX="451.0" layoutY="614.0" promptText="Enter your password" style="-fx-background-radius: 30;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <JFXButton layoutX="457.0" layoutY="692.0" onAction="#setNewPasswordAnd" style="-fx-background-color: #4169E1;" text="Change" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <Text layoutX="421.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เปลี่ยน psssword">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <Text layoutX="286.0" layoutY="586.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Password   :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="327.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password   :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="231.0" layoutY="640.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cofirm New Password   :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="usernameText" layoutX="436.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ user">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="695.0" layoutY="149.0" onAction="#handleToChangeImage" style="-fx-background-color: #4169E1;" text="Edit" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <ImageView fx:id="profileImageView" fitHeight="187.0" fitWidth="213.0" layoutX="407.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/user.png" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <Label fx:id="statusLabel" layoutX="332.0" layoutY="466.0" prefHeight="25.0" prefWidth="338.0" textFill="RED">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import ku.cs.DBConnect;
 import ku.cs.model.Lawyer;
 import ku.cs.model.User;
-import ku.cs.service.Account;
+
 import java.sql.*;
 
 import javax.swing.*;
@@ -33,8 +33,6 @@ public class UserLoginController {
 
     public static User user ;
 
-    private Account account = new Account();
-
     @FXML
     public void login () throws IOException{
         String userName = usernameTextField.getText();
@@ -48,6 +46,7 @@ public class UserLoginController {
 
             if(rs.next()){
                 user = new User(
+                        rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
