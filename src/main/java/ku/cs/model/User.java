@@ -12,6 +12,7 @@ public class User {
     private String pathProfile;
     private String email;
     private String number;
+    private Integer id;
 
 
 //    public User(String username, String name, String surname, String number,String email,String password ,String pathProfile) {
@@ -19,6 +20,7 @@ public class User {
 //    }
 
     public User(String username, String name,String surname, String number,String email,String password, String pathProfile) {
+
         this.username = username;
         this.name = name;
         this.surname = surname;

@@ -59,14 +59,13 @@ public class UserHomePageController {
         try {
             DBConnect db = new DBConnect();
             ResultSet rs = null;
-            String sql = String.format("SELECT * FROM mydb.lawyer_information;");
+            String sql = String.format("SELECT * FROM mydb.lawyer_information WHERE L_county = 'กรุงเทพมหานคร (Bangkok)';");
             rs = db.getConnect(sql);
 
             ArrayList<Lawyer> lawyerArrayList = new ArrayList<>();
 
             while (rs.next()) {
                 Lawyer law = new Lawyer(
-                        rs.getString("L_name"),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -81,10 +80,9 @@ public class UserHomePageController {
                         rs.getString(13),
                         rs.getString(14),
                         rs.getString(15),
-                        rs.getString(16)
+                        rs.getString(16),
+                        rs.getString(17)
                 );
-
-                System.out.println(rs.getString(2));
                 lawyerArrayList.add(law);
             }
 
@@ -139,23 +137,11 @@ public class UserHomePageController {
         try {
             com.github.saacsos.FXRouter.goTo("search_lawyer");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า help ไม่ได้");
+            System.err.println("ไปที่หน้า search ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
 
-
-//    @FXML
-//    public void goTo(ActionEvent actionEvent) throws SQLException {
-//
-//        db = new DBConnect();
-//        ResultSet rs = db.getConnect("SELECT * FROM user.users;");
-//        rs.next();
-//        String name = rs.getString("name");
-//        username.setText(name);
-//
-//
-//    }
 
 
 

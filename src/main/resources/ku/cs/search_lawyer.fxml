@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.SearchLawyerController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.SearchLawyerController">
    <children>
       <BorderPane prefHeight="800.0" prefWidth="1000.0">
          <top>
@@ -35,7 +36,7 @@
                         <Insets bottom="10.0" left="5.0" top="10.0" />
                      </HBox.margin>
                      <children>
-                        <TextField prefHeight="25.0" prefWidth="190.0">
+                        <TextField fx:id="searchTextField" prefHeight="25.0" prefWidth="190.0">
                            <HBox.margin>
                               <Insets top="5.0" />
                            </HBox.margin>
@@ -154,7 +155,7 @@
             </VBox>
          </left>
          <center>
-            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="200.0" prefWidth="643.0" BorderPane.alignment="CENTER">
                <children>
                   <Label prefHeight="40.0" prefWidth="200.0" text="Label">
                      <VBox.margin>
@@ -163,7 +164,10 @@
                   </Label>
                   <ScrollPane prefHeight="250.0" prefWidth="1000.0">
                      <content>
-                        <HBox prefHeight="250.0" prefWidth="1400.0" />
+                        <HBox prefHeight="250.0" prefWidth="1400.0">
+                           <children>
+                              <ListView fx:id="lawyerListListView" prefHeight="250.0" prefWidth="1400.0" />
+                           </children></HBox>
                      </content>
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" />

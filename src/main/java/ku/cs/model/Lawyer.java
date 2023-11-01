@@ -119,21 +119,10 @@ public class Lawyer  {
 
     @Override
     public String toString() {
-        return usernameLawyer+ " "+ nameLawyer + " "+
-               surnameLawyer + " "+
-               password + " "+
-               email + " "+
-               number + " "+
-               dateOfBirth + " "+
-               attorneyLicensenumber + " "+
-               cardIssueDate +" "+
-               cardReplacementDate + " "+
-               lawOffice + " "+
-                county + " "+
-                idCard + " "+
-                pathProfile +" "+
-                caseAptitude +" "+
-                sex ;
+        return "LAWYER"+ " ชื่อ-นามสกุล : "+ nameLawyer + " - "+
+               surnameLawyer + " หมายเลขทนายความ : "+
+               attorneyLicensenumber + " สำนักงานทนายความ : "+
+               lawOffice + " จังหวัด : "+ county ;
     }
 
     public String toCsv(){
