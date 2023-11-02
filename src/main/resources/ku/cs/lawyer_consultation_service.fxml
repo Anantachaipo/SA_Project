@@ -1,235 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.LawyerConsultationServiceController">
    <children>
-      <BorderPane layoutY="3.0" prefHeight="800.0" prefWidth="1000.0">
-         <top>
-            <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Label prefHeight="50.0" prefWidth="200.0" text="ปรึกษา">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <HBox maxHeight="-Infinity" prefHeight="36.0" prefWidth="309.0">
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="5.0" top="10.0" />
-                     </HBox.margin>
-                     <children>
-                        <ImageView fitHeight="34.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets left="5.0" />
-                           </HBox.margin>
-                        </ImageView>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="56.0" prefWidth="389.0" />
-                  <HBox alignment="TOP_CENTER" prefHeight="56.0" prefWidth="175.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ User" wrappingWidth="124.13671875">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets right="20.0" top="20.0" />
-                           </HBox.margin>
-                        </Text>
-                        <ImageView fitHeight="56.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-                           <image>
-                              <Image url="@../../image/user.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-               </children>
-            </HBox>
-         </top>
-         <center>
-            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Label prefHeight="40.0" prefWidth="200.0" text="Label">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <HBox prefHeight="400.0" prefWidth="800.0">
-                     <children>
-                        <ListView prefHeight="400.0" prefWidth="400.0">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ListView>
-                        <VBox prefHeight="200.0" prefWidth="100.0" />
-                        <AnchorPane prefHeight="600.0" prefWidth="322.0">
-                           <children>
-                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="61.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../image/user.png" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="61.0" layoutY="179.0" text="ชื่อ">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="reportTypeLabel" layoutX="91.0" layoutY="179.0" prefHeight="19.0" prefWidth="141.0" text="UserName">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <AnchorPane fx:id="reviewBlock" layoutX="41.0" layoutY="291.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="241.0">
-                                 <children>
-                                    <Line endX="241.0" startX="3.0" />
-                                    <Text layoutX="86.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายละเอียด" />
-                                 </children>
-                              </AnchorPane>
-                              <Label layoutX="61.0" layoutY="247.0" text="email">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="reportTypeLabel1" layoutX="114.0" layoutY="247.0" prefHeight="19.0" prefWidth="141.0" text="emailName">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="61.0" layoutY="210.0" text="เบอร์">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="reportTypeLabel2" layoutX="114.0" layoutY="210.0" prefHeight="19.0" prefWidth="141.0" text="เบอร์">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </HBox>
-                  <AnchorPane prefHeight="217.0" prefWidth="832.0">
-                     <children>
-                        <JFXButton layoutX="257.0" layoutY="88.0" text="ไม่รับปรึกษา" />
-                        <JFXButton layoutX="498.0" layoutY="88.0" text="รับปรึกษา" />
-                     </children>
-                  </AnchorPane>
-               </children>
-            </VBox>
-         </center>
-         <left>
-            <VBox prefHeight="744.0" prefWidth="168.0" BorderPane.alignment="CENTER">
-               <children>
-                  <VBox prefHeight="290.0" prefWidth="177.0">
-                     <children>
-                        <Label prefHeight="40.0" prefWidth="128.0" text="Label">
-                           <VBox.margin>
-                              <Insets left="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <HBox prefHeight="50.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <JFXButton prefHeight="70.0" prefWidth="110.0" text="หน้าหลัก">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </JFXButton>
-                           </children>
-                        </HBox>
-                        <Separator prefWidth="200.0" />
-                        <HBox prefHeight="50.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <JFXButton prefHeight="63.0" prefWidth="110.0" text="เเจ้งเตือน">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </JFXButton>
-                           </children>
-                        </HBox>
-                        <Separator prefWidth="200.0" />
-                        <HBox prefHeight="50.0" prefWidth="154.0">
-                           <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <JFXButton onMouseClicked="#goToConsultLawyer" prefHeight="56.0" prefWidth="117.0" text="รับปรึกษา">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </JFXButton>
-                           </children>
-                        </HBox>
-                        <Separator prefWidth="200.0" />
-                        <HBox prefHeight="50.0" prefWidth="154.0">
-                           <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <JFXButton prefHeight="61.0" prefWidth="128.0" text="ประวัติ">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </JFXButton>
-                           </children>
-                        </HBox>
-                        <Separator prefWidth="200.0" />
-                        <HBox prefHeight="50.0" prefWidth="181.0">
-                           <children>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <JFXButton prefHeight="59.0" prefWidth="110.0" text="ถาม-ตอบ">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </JFXButton>
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-                  <Separator prefWidth="200.0" />
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-               </children>
-            </VBox>
-         </left>
-      </BorderPane>
+      <AnchorPane layoutX="2.0" layoutY="125.0" prefHeight="675.0" prefWidth="1000.0">
+         <children>
+            <TableView fx:id="lsTableView" layoutX="72.0" layoutY="41.0" prefHeight="310.0" prefWidth="504.0">
+               <columns>
+                  <TableColumn prefWidth="122.0" text="User">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="nameLawyer" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="192.0" text="วัน - เวลา">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="county" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="190.0" text="ประเภทคดี">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="attorneyLicenseNumber" />
+                     </cellValueFactory>
+                  </TableColumn>
+               </columns>
+            </TableView>
+            <Text layoutX="618.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ   :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="807.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="643.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ประเภทคดี   :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="618.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายละเอียดคดี   :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="625.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" text="วัน - เวลา   :">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Label layoutX="672.0" layoutY="194.0" prefHeight="30.0" prefWidth="120.0" text="Label">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="877.0" layoutY="194.0" prefHeight="30.0" prefWidth="120.0" text="Label">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="771.0" layoutY="241.0" prefHeight="30.0" prefWidth="164.0" text="Label">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="771.0" layoutY="281.0" prefHeight="150.0" prefWidth="164.0" text="Label">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="740.0" layoutY="446.0" prefHeight="30.0" prefWidth="200.0" text="Label">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="profileLawyerImage" fitHeight="150.0" fitWidth="200.0" layoutX="710.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="671.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXButton layoutX="80.0" layoutY="572.0" onAction="#goToLawyerHomePage" prefHeight="70.0" prefWidth="110.0" text="หน้าหลัก" />
+            <JFXButton layoutX="109.0" layoutY="384.0" text="Button" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="2.0" prefHeight="125.0" prefWidth="1000.0" style="-fx-background-color: #4169E1;">
+         <children>
+            <Label layoutX="44.0" layoutY="28.0" prefHeight="50.0" prefWidth="190.0" text="บริการปรึกษา" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <JFXButton layoutX="270.0" layoutY="719.0" onAction="#goToLawyerWarn" text="เเจ้งเตือน" />
+      <JFXButton layoutX="382.0" layoutY="719.0" onAction="#goToLawyerHistory" text="ประวัติ" />
    </children>
 </AnchorPane>

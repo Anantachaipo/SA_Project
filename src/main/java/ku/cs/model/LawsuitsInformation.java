@@ -1,5 +1,7 @@
 package ku.cs.model;
 
+import javafx.beans.value.ObservableValue;
+
 public class LawsuitsInformation {
 
     private Integer id;
@@ -11,9 +13,8 @@ public class LawsuitsInformation {
     private Integer uID;
     private Integer lID;
 
-    public LawsuitsInformation(Integer id,String name, String type, String information, String date,Integer uID,Integer lID) {
+    public LawsuitsInformation(Integer id, String type, String information, String date,Integer uID,Integer lID) {
         this.id = id;
-        this.name = name;
         this.type = type;
         this.information = information;
         this.date = date;
@@ -80,4 +81,6 @@ public class LawsuitsInformation {
     public String toCsv(){
         return "LawsuitsInformation" + "," +getName() +","+ getType() + "," + getInformation() +"," + getDate();
     }
+
+
 }

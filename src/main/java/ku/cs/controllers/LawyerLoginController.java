@@ -63,7 +63,7 @@ public class LawyerLoginController {
                 System.out.println("Current user = " + lawyer.getUsernameLawyer());
                 System.out.println( lawyer.getNameLawyer());
                 System.out.println( lawyer.getSurnameLawyer());
-                com.github.saacsos.FXRouter.goTo("test");
+                com.github.saacsos.FXRouter.goTo("lawyer_home_page");
 
             }else {
                 System.out.println("login fail");
