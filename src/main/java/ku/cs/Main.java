@@ -45,6 +45,7 @@ public class Main extends Application {
         com.github.saacsos.FXRouter.when("user_history", packageStr+"user_history.fxml");
         com.github.saacsos.FXRouter.when("search_lawyer", packageStr+"search_lawyer.fxml");
 
+        com.github.saacsos.FXRouter.when("test", packageStr+"test.fxml");
         com.github.saacsos.FXRouter.when("lawyer_home_page", packageStr+"lawyer_home_page.fxml");
         com.github.saacsos.FXRouter.when("lawyer_consultation_service", packageStr+"lawyer_consultation_service.fxml");
         com.github.saacsos.FXRouter.when("lawyer_history", packageStr+"lawyer_history.fxml");

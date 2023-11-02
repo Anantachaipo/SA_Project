@@ -24,14 +24,17 @@ public class Lawyer  {
     private String caseAptitude;
     private String sex;
 
+    private Integer countConsult;
+    private Integer countProgress;
+    private Integer countSuccess;
+
 //    public Lawyer(String username, String name, String surname, String password, String dateOfBirth, String attorneyLicensenumber, String idCard, String lawyerTicket,String cardIssueDate, String cardReplacementDate, String number, String email , String pathProfile, String lawOffice , String county) {
 //        this(username,name, surname,password, dateOfBirth,attorneyLicensenumber,idCard,lawyerTicket,cardIssueDate,cardReplacementDate,number,email,pathProfile, lawOffice,county,LocalDateTime.of(0,1,1,0,0));
 //    }
 
 
 
-    public Lawyer(Integer lawyerID,String usernameLawyer,String nameLawyer, String surnameLawyer,String sex,String password,String number, String email, String dateOfBirth, String attorneyLicensenumber, String idCard, String cardIssueDate, String cardReplacementDate, String lawOffice,String county,String caseAptitude,String pathProfile) {
-//        super(username,name,surname,password,pathProfile,email,number);
+    public Lawyer(Integer lawyerID,String usernameLawyer,String nameLawyer, String surnameLawyer,String sex,String password,String number, String email, String dateOfBirth, String attorneyLicensenumber, String idCard, String cardIssueDate, String cardReplacementDate, String lawOffice,String county,String caseAptitude,Integer countConsult,Integer countProgress,Integer countSuccess,String pathProfile) {
         this.lawyerID = lawyerID;
         this.usernameLawyer = usernameLawyer;
         this.nameLawyer = nameLawyer;
@@ -49,6 +52,9 @@ public class Lawyer  {
         this.pathProfile = pathProfile;
         this.caseAptitude = caseAptitude;
         this.sex = sex;
+        this.countConsult = countConsult;
+        this.countProgress = countProgress;
+        this.countSuccess = countSuccess;
     }
     public Lawyer(String nameLawyer,String surnameLawyer){
         this.nameLawyer = nameLawyer;
@@ -122,15 +128,27 @@ public class Lawyer  {
         return sex;
     }
 
-    @Override
-    public String toString() {
-        return "LAWYER"+ " ชื่อ-นามสกุล : "+ nameLawyer + " - "+
-               surnameLawyer + " หมายเลขทนายความ : "+
-               attorneyLicensenumber + " สำนักงานทนายความ : "+
-               lawOffice + " จังหวัด : "+ county ;
+    public Integer getCountConsult() {
+        return countConsult;
     }
 
-    public String toCsv(){
-        return "Lawyer" + "," +getUsernameLawyer() + "," + getNameLawyer()  +"," + getSurnameLawyer()+","+ getSex() + "," + getNumber() + ","+ getEmail() + "," + getPassword()+","+ getDateOfBirth() + "," + getAttorneyLicensenumber()  + "," + getIdCard() + ","+ getCardIssueDate() + "," +getCardReplacementDate()+ "," +getLawOffice()+ "," + getCounty() +","+getCaseAptitude()+"," + getPathProfile()  ;
+    public void setCountConsult(Integer countConsult) {
+        this.countConsult = countConsult;
+    }
+
+    public Integer getCountProgress() {
+        return countProgress;
+    }
+
+    public void setCountProgress(Integer countProgress) {
+        this.countProgress = countProgress;
+    }
+
+    public Integer getCountSuccess() {
+        return countSuccess;
+    }
+
+    public void setCountSuccess(Integer countSuccess) {
+        this.countSuccess = countSuccess;
     }
 }

@@ -77,6 +77,8 @@ public class User {
     }
 
 
+
+
 //    public String toCsv(){
 //        return "User" + "," + username + "," + name + "," + surname + "," + number+ "," + email+  "," + password +","+ pathProfile ;
 //    }

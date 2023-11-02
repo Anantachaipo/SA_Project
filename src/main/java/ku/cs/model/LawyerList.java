@@ -25,16 +25,16 @@ public class LawyerList {
     public void sort(Comparator<Lawyer> userComparator) {
         Collections.sort(lawyers, userComparator);
     }
-    public LawyerList(String nameLawyer,String surnameLawyer,String sex ,String attorneyLicensenumber,String lawOffice,String county,String caseAptitude){
-        this.nameLawyer = nameLawyer ;
-        this.surnameLawyer = surnameLawyer ;
-        this.sex = sex ;
-        this.attorneyLicensenumber = attorneyLicensenumber ;
-        this.lawOffice = lawOffice ;
-        this.county = county ;
-        this.caseAptitude = caseAptitude ;
-        lawyers = new ArrayList<>() ;
-    }
+//    public LawyerList(String nameLawyer,String surnameLawyer,String sex ,String attorneyLicensenumber,String lawOffice,String county,String caseAptitude){
+//        this.nameLawyer = nameLawyer ;
+//        this.surnameLawyer = surnameLawyer ;
+//        this.sex = sex ;
+//        this.attorneyLicensenumber = attorneyLicensenumber ;
+//        this.lawOffice = lawOffice ;
+//        this.county = county ;
+//        this.caseAptitude = caseAptitude ;
+//        lawyers = new ArrayList<>() ;
+//    }
     public ArrayList<Lawyer> getLawyers(){
         return this.lawyers;
     }
@@ -48,13 +48,7 @@ public class LawyerList {
         }
         return false;
     }
-    public String toCsv() {
-        String result = "";
-        for (Lawyer lawyer : this.lawyers){
-            result += lawyer.toCsv() + "\n";
-        }
-        return result;
-    }
+
     @Override
     public String toString() {
         return "LawyerList{" +

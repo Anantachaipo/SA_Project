@@ -83,7 +83,10 @@ public class SearchLawyerController {
                     rs.getString(14),
                     rs.getString(15),
                     rs.getString(16),
-                    rs.getString(17)
+                    rs.getInt(17),
+                    rs.getInt(18),
+                    rs.getInt(19),
+                    rs.getString(20)
 
             );
             lawyerArrayList.add(law);
@@ -172,7 +175,10 @@ public class SearchLawyerController {
                         rs.getString(14),
                         rs.getString(15),
                         rs.getString(16),
-                        rs.getString(17)
+                        rs.getInt(17),
+                        rs.getInt(18),
+                        rs.getInt(19),
+                        rs.getString(20)
                 );
                 lawyerArrayList.add(law);
             }
