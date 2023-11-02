@@ -18,9 +18,9 @@
                <font>
                   <Font size="20.0" />
                </font></JFXButton>
-            <Text fill="WHITE" layoutX="480.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ตั้งค่า">
+            <Text fill="WHITE" layoutX="470.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ตั้งค่า">
                <font>
-                  <Font size="20.0" />
+                  <Font size="30.0" />
                </font></Text>
             <JFXButton layoutX="889.0" layoutY="33.0" onAction="#Logout" text="Logout" textFill="WHITE">
                <font>

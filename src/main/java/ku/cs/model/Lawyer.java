@@ -4,7 +4,8 @@ package ku.cs.model;
 public class Lawyer  {
 
 
-    //officer
+    //lawyer
+    private Integer lawyerID;
     private String nameLawyer;
     private String surnameLawyer;
     private String usernameLawyer;
@@ -29,8 +30,9 @@ public class Lawyer  {
 
 
 
-    public Lawyer(String usernameLawyer,String nameLawyer, String surnameLawyer,String sex,String password,String number, String email, String dateOfBirth, String attorneyLicensenumber, String idCard, String cardIssueDate, String cardReplacementDate, String lawOffice,String county,String caseAptitude,String pathProfile) {
+    public Lawyer(Integer lawyerID,String usernameLawyer,String nameLawyer, String surnameLawyer,String sex,String password,String number, String email, String dateOfBirth, String attorneyLicensenumber, String idCard, String cardIssueDate, String cardReplacementDate, String lawOffice,String county,String caseAptitude,String pathProfile) {
 //        super(username,name,surname,password,pathProfile,email,number);
+        this.lawyerID = lawyerID;
         this.usernameLawyer = usernameLawyer;
         this.nameLawyer = nameLawyer;
         this.surnameLawyer = surnameLawyer;
@@ -51,6 +53,9 @@ public class Lawyer  {
     public Lawyer(String nameLawyer,String surnameLawyer){
         this.nameLawyer = nameLawyer;
         this.surnameLawyer = surnameLawyer;
+    }
+
+    public Lawyer(String lName, String lSurname, String lAttorneyLicensenumber, String lLawOffice, String lCounty) {
     }
 
 
