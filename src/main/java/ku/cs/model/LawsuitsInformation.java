@@ -10,17 +10,21 @@ public class LawsuitsInformation {
     private String type;
     private String information;
     private String date;
+    private String status;
     private Integer uID;
     private Integer lID;
 
-    public LawsuitsInformation(Integer id, String type, String information, String date,Integer uID,Integer lID) {
+    public LawsuitsInformation(Integer id, String name,String type, String information, String date,String status,Integer uID,Integer lID) {
         this.id = id;
+        this.name = name;
         this.type = type;
         this.information = information;
         this.date = date;
+        this.status = status;
         this.uID = uID;
         this.lID = lID;
     }
+
 
     public String getName() {
         return name;
@@ -60,6 +64,14 @@ public class LawsuitsInformation {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Integer getuID() {

@@ -5,21 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ku.cs.controllers.*;
 
 import java.io.IOException;
 
 
 public class Main extends Application {
-//    @Override
-//    public void start(Stage stage) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("first_page.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load(),600,800);
-//        configRoute();
-//        stage.setTitle("Lawyer For The Public");
-//        stage.setScene(scene);
-//        stage.show();
-//
-//    }
+
     private static Scene scene;
 
     @Override
@@ -37,19 +29,27 @@ public class Main extends Application {
         com.github.saacsos.FXRouter.when("lawyer_register", packageStr+"lawyer_register.fxml");
         com.github.saacsos.FXRouter.when("user_menu", packageStr+"user_menu.fxml");
         com.github.saacsos.FXRouter.when("user_home_page", packageStr+"user_home_page.fxml");
-
+/*
         com.github.saacsos.FXRouter.when("user_consult_lawyer", packageStr+"user_consult_lawyer.fxml");
         com.github.saacsos.FXRouter.when("user_home_page", packageStr+"user_home_page.fxml");
         com.github.saacsos.FXRouter.when("user_settings", packageStr+"user_settings.fxml");
         com.github.saacsos.FXRouter.when("user_warn", packageStr+"user_warn.fxml");
         com.github.saacsos.FXRouter.when("user_history", packageStr+"user_history.fxml");
         com.github.saacsos.FXRouter.when("search_lawyer", packageStr+"search_lawyer.fxml");
-
+*/
         com.github.saacsos.FXRouter.when("test", packageStr+"lawyer_home_page.fxml");
         com.github.saacsos.FXRouter.when("lawyer_home_page", packageStr+"lawyer_home_page.fxml");
         com.github.saacsos.FXRouter.when("lawyer_consultation_service", packageStr+"lawyer_consultation_service.fxml");
         com.github.saacsos.FXRouter.when("lawyer_history", packageStr+"lawyer_history.fxml");
         com.github.saacsos.FXRouter.when("lawyer_warn", packageStr+"lawyer_warn.fxml");
+
+
+        com.github.saacsos.FXRouter.when("user_consult_lawyer", packageStr + "user_consult_lawyer.fxml", String.valueOf(UserConsultLawyerController.class));
+        com.github.saacsos.FXRouter.when("user_settings", packageStr + "user_settings.fxml", String.valueOf(UserSettingsController.class));
+        com.github.saacsos.FXRouter.when("user_warn", packageStr + "user_warn.fxml", String.valueOf(UserWarnController.class));
+        com.github.saacsos.FXRouter.when("user_history", packageStr + "user_history.fxml", String.valueOf(UserHistoryController.class));
+        com.github.saacsos.FXRouter.when("search_lawyer", packageStr + "search_lawyer.fxml", String.valueOf(SearchLawyerController.class));
+        com.github.saacsos.FXRouter.when("lawyer_home_page", packageStr + "lawyer_home_page.fxml", String.valueOf(LawyerHomePageController.class));
     }
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));

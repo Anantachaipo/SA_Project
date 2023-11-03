@@ -47,8 +47,8 @@ public class UserHomePageController {
 
     @FXML
     public void initialize() throws SQLException {
-        System.out.println(user);
-        System.out.println(user.getUsername());
+//        System.out.println(user);
+//        System.out.println(user.getUsername());
         usernameText.setText(user.getUsername());
         nameText.setText(user.getAccountName());
         surnameText.setText(user.getSurname());
@@ -80,7 +80,7 @@ public class UserHomePageController {
             }
             countLawyerLabel.setText(Integer.toString(i));
             countLawsuitsLabel.setText(Integer.toString(j));
-            System.out.println(i + " - " + j);
+//            System.out.println(i + " - " + j);
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("ใช้ SQL ไม่ได้");

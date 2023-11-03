@@ -1,85 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserWarnController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserWarnController">
    <children>
-      <HBox layoutY="745.0" prefHeight="50.0" prefWidth="600.0">
+      <AnchorPane prefHeight="125.0" prefWidth="1001.0" style="-fx-background-color: #4169E1;">
          <children>
-            <JFXButton fx:id="homepage_button" onAction="#goToHomePage" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4169E1;" text="หน้าหลัก" textFill="WHITE">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
-               </HBox.margin>
-            </JFXButton>
-            <JFXButton prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4169E1;" text="เเจ้งเตือน" textFill="WHITE">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
-               </HBox.margin>
-            </JFXButton>
-            <JFXButton fx:id="consult_a_lawyer" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4169E1;" text="ปรึกษาทนาย" textFill="WHITE">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
-               </HBox.margin>
-            </JFXButton>
-            <JFXButton fx:id="search_lawyer" onAction="#goToSearchLawyerPage" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4169E1;" text="ค้นหาทนาย" textFill="WHITE">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
-               </HBox.margin>
-            </JFXButton>
-            <JFXButton fx:id="history" onAction="#goToUserHistory" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4169E1;" text="ประวัติ" textFill="WHITE">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
-               </HBox.margin>
-            </JFXButton>
-         </children>
-      </HBox>
-      <SplitPane dividerPositions="0.5" layoutX="18.0" layoutY="74.0" prefHeight="663.0" prefWidth="570.0">
-         <items>
-            <VBox prefHeight="735.0" prefWidth="281.0">
-               <children>
-                  <Label text="ปรึกษา">
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label text="ถาม-ตอบ">
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-         </items>
-      </SplitPane>
-      <HBox layoutY="4.0" prefHeight="50.0" prefWidth="600.0">
-         <children>
-            <Label text="เเจ้งเตือน">
-               <HBox.margin>
-                  <Insets left="20.0" top="10.0" />
-               </HBox.margin>
+            <Label layoutX="450.0" layoutY="40.0" text="แจ้งเตือน" textFill="WHITE">
                <font>
-                  <Font size="24.0" />
+                  <Font size="30.0" />
                </font>
             </Label>
          </children>
-      </HBox>
+      </AnchorPane>
+      <AnchorPane layoutY="125.0" prefHeight="677.0" prefWidth="110.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <JFXButton layoutY="92.0" onAction="#goToHomePage" prefHeight="59.0" prefWidth="110.0" style="-fx-background-color: #4169E1;" text="หน้าหลัก" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutY="151.0" prefHeight="59.0" prefWidth="110.0" style="-fx-background-color: #4169E1;" text="เเจ้งเตือน" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="history" layoutY="210.0" onAction="#goToUserHistory" prefHeight="59.0" prefWidth="110.0" style="-fx-background-color: #4169E1;" text="ประวัติ" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="search_lawyer" layoutY="269.0" onAction="#goToSearchLawyerPage" prefHeight="59.0" prefWidth="110.0" style="-fx-background-color: #4169E1;" text="ค้นหาทนาย" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <Text layoutX="408.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="การแจ้งเตือน   :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TableView fx:id="lawsuitsInformationTableView" layoutX="221.0" layoutY="264.0" prefHeight="200.0" prefWidth="710.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Text layoutX="362.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คำร้องขอปรึกษาของ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="147.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายละเอียดคำร้อง">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="243.0" layoutY="560.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อเรื่อง   :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="223.0" layoutY="599.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ประเภทคดี   :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="252.0" layoutY="644.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ข้อมูล   :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="692.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ทนายที่ขอคำปรึกษา">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="541.0" layoutY="599.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ   :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="744.0" layoutY="599.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล   :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="541.0" layoutY="643.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สังกัดสำนักงานทนาย   :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="180.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สถานะการปรึกษา   :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="warningLabel" layoutX="530.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="usernameLabel" layoutX="530.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="nameLabel" layoutX="330.0" layoutY="558.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="typeLabel" layoutX="330.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="informationLabel" layoutX="330.0" layoutY="642.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="statusLabel" layoutX="330.0" layoutY="688.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="nameLawyerLabel" layoutX="601.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="surnameLawyerLabel" layoutX="850.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="lawyerOfficeLabel" layoutX="721.0" layoutY="650.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>
 </AnchorPane>

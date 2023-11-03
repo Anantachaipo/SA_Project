@@ -25,6 +25,7 @@ public final class FXRouter {
     private static String animationType;
     private static Double animationDuration;
     private static AbstractMap<String, RouteScene> routes = new HashMap();
+    private static AbstractMap<String, Object> controllerList = new HashMap();
     private static RouteScene currentRoute;
 
     private FXRouter() {
@@ -149,6 +150,9 @@ public final class FXRouter {
 
     public static Object getData() {
         return currentRoute.data;
+    }
+    public static Object getController(String route) {
+        return controllerList.get(route);
     }
 
     private static class RouteScene {

@@ -11,11 +11,11 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserHomePageController">
    <children>
-      <AnchorPane prefHeight="150.0" prefWidth="1001.0" style="-fx-background-color: #4169E1;">
+      <AnchorPane prefHeight="125.0" prefWidth="1012.0" style="-fx-background-color: #4169E1;">
          <children>
-            <Text fx:id="usernameText" fill="WHITE" layoutX="17.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ User">
+            <Text fx:id="usernameText" fill="WHITE" layoutX="14.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ User">
                <font>
-                  <Font size="35.0" />
+                  <Font size="30.0" />
                </font>
             </Text>
             <Label layoutX="14.0" layoutY="14.0" text="Welcome" textFill="WHITE">
@@ -23,43 +23,43 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <JFXButton fx:id="button_user_settings" layoutX="778.0" layoutY="14.0" onAction="#goToSettingsUser" text="ตั้งค่า" textFill="WHITE">
+            <Text fx:id="nameText" fill="WHITE" layoutX="154.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ">
                <font>
-                  <Font size="15.0" />
+                  <Font size="16.0" />
                </font>
-            </JFXButton>
-            <ImageView fx:id="profile" fitHeight="172.0" fitWidth="162.0" layoutX="839.0" pickOnBounds="true" preserveRatio="true">
+            </Text>
+            <Text fx:id="surnameText" fill="WHITE" layoutX="224.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="profile" fitHeight="130.0" fitWidth="150.0" layoutX="882.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/user.png" />
                </image>
             </ImageView>
-            <Text fx:id="nameText" fill="WHITE" layoutX="178.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ">
+            <JFXButton fx:id="button_user_settings" layoutX="806.0" layoutY="14.0" onAction="#goToSettingsUser" text="ตั้งค่า" textFill="WHITE">
                <font>
-                  <Font size="16.0" />
+                  <Font size="15.0" />
                </font>
-            </Text>
-            <Text fx:id="surnameText" fill="WHITE" layoutX="254.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
+            </JFXButton>
          </children>
       </AnchorPane>
 <!--      <JFXButton layoutX="415.0" layoutY="261.0" onAction="#goTo" text="เข้าใช้บริการ">-->
 <!--         <font>-->
 <!--            <Font size="28.0" />-->
 <!--         </font></JFXButton>-->
-      <Label fx:id="number_lawyer" layoutX="132.0" layoutY="446.0" text="จำนวนทนาย">
+      <Label fx:id="number_lawyer" layoutX="173.0" layoutY="443.0" text="จำนวนทนาย">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="number_case" layoutX="637.0" layoutY="445.0" text="จำนวนที่ว่าคดี">
+      <Label fx:id="number_case" layoutX="652.0" layoutY="444.0" text="จำนวนที่ว่าคดี">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="175.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="216.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../image/lawyer.png" />
          </image>
@@ -73,29 +73,29 @@
             <JFXButton fx:id="history" layoutX="498.0" layoutY="23.0" onAction="#goToUserHistory" text="ประวัติ" />
          </children>
       </AnchorPane>
-      <Line endX="241.0" layoutX="180.0" layoutY="417.0" startX="-100.0" />
+      <Line endX="241.0" layoutX="220.0" layoutY="415.0" startX="-100.0" />
       <Line endX="241.0" layoutX="703.0" layoutY="416.0" startX="-100.0" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="699.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../image/lawyer3.png" />
          </image>
       </ImageView>
-      <Label fx:id="countLawyerLabel" layoutX="240.0" layoutY="446.0" prefHeight="27.0" prefWidth="21.0" textAlignment="CENTER" textFill="#ff7777">
+      <Label fx:id="countLawyerLabel" layoutX="318.0" layoutY="444.0" prefHeight="27.0" prefWidth="21.0" textAlignment="CENTER" textFill="#ff7777">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fontSmoothingType="LCD" layoutX="271.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คน">
+      <Text fontSmoothingType="LCD" layoutX="366.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คน">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="795.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คดี">
+      <Text layoutX="849.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คดี">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Label fx:id="countLawsuitsLabel" layoutX="763.0" layoutY="445.0" prefHeight="27.0" prefWidth="21.0" textAlignment="CENTER" textFill="#ff7777">
+      <Label fx:id="countLawsuitsLabel" layoutX="799.0" layoutY="444.0" prefHeight="27.0" prefWidth="21.0" textAlignment="CENTER" textFill="#ff7777">
          <font>
             <Font size="18.0" />
          </font>

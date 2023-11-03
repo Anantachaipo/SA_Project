@@ -23,8 +23,7 @@ import java.util.ArrayList;
 import static ku.cs.controllers.UserLoginController.user;
 
 public class SearchLawyerController {
-    @FXML
-    private ListView<Lawyer> lawyerListListView;
+
     @FXML
     private TextField searchTextField;
     @FXML
@@ -44,7 +43,10 @@ public class SearchLawyerController {
     private ImageView profileLawyerImage;
 
     private Lawyer lawyer;
+    private static Lawyer selectedLawyer;
     private LawyerList lawyerList;
+
+
 
     @FXML
     public void initialize() throws SQLException {
@@ -52,7 +54,15 @@ public class SearchLawyerController {
         clearSelectedMember();
         handleSelectedListView();
         showLawyerTableView();
+        if (selectedLawyer != null) {
+            // ตรงนี้คุณสามารถใช้ข้อมูลจาก selectedLawyer เพื่อแสดงใน UI
+        }
     }
+    public void setSelectedLawyer(Lawyer lawyer) {
+        this.selectedLawyer = lawyer;
+    }
+
+
     @FXML
     private void handleToRefresh() throws SQLException {
         lawyerTableView.getItems().clear();
@@ -147,9 +157,12 @@ public class SearchLawyerController {
 
     @FXML
     public void goToSearchLawyerPage(ActionEvent actionEvent) {
-        String text = searchTextField.getText();
-        lawyerTableView.getItems().clear();
-        showSearchLawyerList(text);
+        try {
+            com.github.saacsos.FXRouter.goTo("search_lawyer");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า search ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
     }
 
     private void showSearchLawyerList(String searchString) {
@@ -197,16 +210,54 @@ public class SearchLawyerController {
         lawOfficeLabel.setText("-");
         countyLabel.setText("-");
     }
-
+    public static Lawyer getSelectedLawyer() {
+        return selectedLawyer;
+    }
     @FXML
     public void goToConsultLawyer(ActionEvent actionEvent) {
-        try {
-            FXRouter.goTo("user_consult_lawyer");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า help ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
+        Lawyer selectedLawyer = lawyerTableView.getSelectionModel().getSelectedItem();
+
+        if (selectedLawyer != null) {
+            try {
+                setSelectedLawyer(selectedLawyer);
+                System.out.println("เลือกทนาย: " + selectedLawyer.getNameLawyer());
+
+                FXRouter.goTo("user_consult_lawyer");
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า user_consult_lawyer ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        } else {
+            System.err.println("โปรดเลือกทนายที่คุณต้องการก่อน");
         }
     }
+
+//    @FXML
+//    public void goToConsultLawyer(ActionEvent actionEvent) {
+//        Lawyer selectedLawyer = lawyerTableView.getSelectionModel().getSelectedItem();
+//        setSelectedLawyer(selectedLawyer);
+//        System.out.println(selectedLawyer.getNameLawyer());
+//
+//        try {
+//            FXRouter.goTo("user_consult_lawyer");
+//            UserConsultLawyerController consultLawyerController = (UserConsultLawyerController) FXRouter.getController("user_consult_lawyer");
+//            consultLawyerController.setSelectedLawyer(selectedLawyer);
+//        } catch (IOException e) {
+//            System.err.println("ไปที่หน้า user_consult_lawyer ไม่ได้");
+//            System.err.println("ให้ตรวจสอบการกำหนด route");
+//        }
+//
+//    }
+
+
+
+
+
+
+
+
+
+
 
     @FXML
     public void goToUserWarn(ActionEvent actionEvent) {

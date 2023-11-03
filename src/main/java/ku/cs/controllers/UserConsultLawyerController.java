@@ -1,43 +1,109 @@
 package ku.cs.controllers;
 
+import com.github.saacsos.FXRouter;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import ku.cs.DBConnect;
-import ku.cs.model.User;
+import ku.cs.model.Lawyer;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import static ku.cs.controllers.UserLoginController.user;
 
+
 public class UserConsultLawyerController {
+
+    //ส่วนของ user
     @FXML
-    private MenuButton ls_typeMenuButton ;
+    private Label usernameLabel;
     @FXML
-    private TextField ls_informationTextField ;
+    private ImageView profileUserImage;
+
+
+    //ส่วนของ lawyer
     @FXML
-    private TextField u_idTextField ;
+    private Label lawyernameLabel;
     @FXML
-    private TextField ls_dateTextField ;
+    private Label lawyersurnameLabel;
+    @FXML
+    private Label attorneyLicensenumberLabel;
+    @FXML
+    private Label lawOfficeLabel;
+    @FXML
+    private Label countyLabel;
+    @FXML
+    private ImageView profileLawyer;
+
+
+    @FXML
+    private MenuButton menuButton ;
+    @FXML
+    private TextField informationTextField ;
+    @FXML
+    private DatePicker datePicker;
+
     public DBConnect db;
+    private Lawyer selectedLawyer;
+    private Integer l_id;
+    private String status = "A";
+
+
     @FXML
     public void initialize(){
-        System.out.println(user.getId());
+        Lawyer selectedLawyer = SearchLawyerController.getSelectedLawyer();
+        System.out.println("U_id = "+user.getId());
+        l_id = selectedLawyer.getLawyerID();
+        System.out.println("L_id = "+selectedLawyer.getLawyerID());
 
+        if (selectedLawyer != null) {
+            // นำข้อมูลจาก selectedLawyer มาใช้
+            String lawyerName = selectedLawyer.getNameLawyer();
+            String lawyerSurname = selectedLawyer.getSurnameLawyer();
+            String attoneynumber = selectedLawyer.getAttorneyLicensenumber();
+            String lawOffice = selectedLawyer.getLawOffice();
+            String county = selectedLawyer.getCounty();
+            String image = selectedLawyer.getPathProfile();
+
+            lawyernameLabel.setText(lawyerName);
+            lawyersurnameLabel.setText(lawyerSurname);
+            attorneyLicensenumberLabel.setText(attoneynumber);
+            lawOfficeLabel.setText(lawOffice);
+            countyLabel.setText(county);
+            profileLawyer.setImage(new Image("file:" + selectedLawyer.getPathProfile(), true));
+
+            usernameLabel.setText(user.getUsername());
+
+            System.out.println(l_id);
+            System.out.println(lawyerName);
+            System.out.println(lawyerSurname);
+            // ... นำข้อมูลอื่น ๆ มาใช้ตามที่ต้องการ
+        }
     }
 
     @FXML
-    private void   SubmitLawsuitDetails() {
-        String ls_information = ls_informationTextField.getText();
-        String ls_type = ls_typeMenuButton.getText();
-        String ls_date = ls_dateTextField.getText();
+    private void  SubmitLawsuitDetails() {
         Integer u_id = user.getId();
+        String type = menuButton.getText();
+        String information = informationTextField.getText();
+        LocalDate localDate = datePicker.getValue();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String date = localDate.format(formatter);
 
+        
         db = new DBConnect();
         ResultSet rs = db.getConnect("SELECT * FROM mydb.lawsuits_information;");
-        String sql = String.format("INSERT INTO lawsuits_information (LS_type,LS_information,LS_date,U_id) VALUES('%s','%s','%s',%d) ;", ls_type, ls_information, ls_date,u_id);
+
+        String sql = String.format("INSERT INTO lawsuits_information (LS_type,LS_information,LS_date,LS_status,U_id,L_id) VALUES('%s','%s','%s','%s',%d,'%d') ;", type, information, date,status,u_id,l_id);
         try {
             db.getUpdate(sql);
             com.github.saacsos.FXRouter.goTo("user_history");
@@ -47,43 +113,88 @@ public class UserConsultLawyerController {
         }
     }
 
-    // ตัวเลือกประเภทคดีต่างๆ
+
+
+
+    @FXML
+    public void goToHomePage(ActionEvent actionEvent) {
+        try {
+            FXRouter.goTo("user_home_page");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า help ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+    @FXML
+    public void goToUserWarn(ActionEvent actionEvent) {
+        try {
+            FXRouter.goTo("user_warn");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า help ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void goToUserHistory(ActionEvent actionEvent) {
+        try {
+            FXRouter.goTo("user_history");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า help ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+    @FXML
+    public void goToSearchLawyer(ActionEvent actionEvent) {
+        try {
+            FXRouter.goTo("search_lawyer");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า help ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+
+
+//     ตัวเลือกประเภทคดีต่างๆ
     @FXML
     public void handleToType1(){
-        ls_typeMenuButton.setText("คดีอาชญากรรม");
+        menuButton.setText("คดีอาชญากรรม");
     }
     @FXML
     public void handleToType2(){
-        ls_typeMenuButton.setText("คดีเชิงอาชญากรรม");
+        menuButton.setText("คดีเชิงอาชญากรรม");
     }
     @FXML
     public void handleToType3(){
-        ls_typeMenuButton.setText("คดีอาศัย");
+        menuButton.setText("คดีอาศัย");
     }
     @FXML
     public void handleToType4(){
-        ls_typeMenuButton.setText("คดีแพ่ง");
+        menuButton.setText("คดีแพ่ง");
     }
     @FXML
     public void handleToType5(){
-        ls_typeMenuButton.setText("คดีที่เกี่ยวกับทรัพย์สินทางปัญญา");
+        menuButton.setText("คดีที่เกี่ยวกับทรัพย์สินทางปัญญา");
     }
     @FXML
     public void handleToType6(){
-        ls_typeMenuButton.setText("คดีด้านสุขภาพ");
+        menuButton.setText("คดีด้านสุขภาพ");
     }
     @FXML
     public void handleToType7(){
-        ls_typeMenuButton.setText("คดีแรงงาน");
+        menuButton.setText("คดีแรงงาน");
     }
     @FXML
     public void handleToType8(){
-        ls_typeMenuButton.setText("คดีที่เกี่ยวกับสิทธิและเสรีภาพ");
+        menuButton.setText("คดีที่เกี่ยวกับสิทธิและเสรีภาพ");
     }
     @FXML
     public void handleToType9(){
-        ls_typeMenuButton.setText("คดีที่เกี่ยวกับทรัพย์สิน");
+        menuButton.setText("คดีที่เกี่ยวกับทรัพย์สิน");
     }
+
+
 
 
 }

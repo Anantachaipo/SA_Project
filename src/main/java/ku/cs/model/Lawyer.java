@@ -64,6 +64,10 @@ public class Lawyer  {
     public Lawyer(String lName, String lSurname, String lAttorneyLicensenumber, String lLawOffice, String lCounty) {
     }
 
+    public Integer getLawyerID() {
+        return lawyerID;
+    }
+
 
     public String getNameLawyer() {
         return nameLawyer;
@@ -150,5 +154,11 @@ public class Lawyer  {
 
     public void setCountSuccess(Integer countSuccess) {
         this.countSuccess = countSuccess;
+    }
+
+    @Override
+    public String toString() {
+        return "Lawyer --> " +
+                "usernameLawyer = '" + nameLawyer + " - " + surnameLawyer ;
     }
 }
