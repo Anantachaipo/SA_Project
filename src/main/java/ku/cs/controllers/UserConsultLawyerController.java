@@ -48,6 +48,8 @@ public class UserConsultLawyerController {
     @FXML
     private MenuButton menuButton ;
     @FXML
+    private TextField nameTextField;
+    @FXML
     private TextField informationTextField ;
     @FXML
     private DatePicker datePicker;
@@ -93,6 +95,7 @@ public class UserConsultLawyerController {
     @FXML
     private void  SubmitLawsuitDetails() {
         Integer u_id = user.getId();
+        String name = nameTextField.getText();
         String type = menuButton.getText();
         String information = informationTextField.getText();
         LocalDate localDate = datePicker.getValue();
@@ -103,7 +106,7 @@ public class UserConsultLawyerController {
         db = new DBConnect();
         ResultSet rs = db.getConnect("SELECT * FROM mydb.lawsuits_information;");
 
-        String sql = String.format("INSERT INTO lawsuits_information (LS_type,LS_information,LS_date,LS_status,U_id,L_id) VALUES('%s','%s','%s','%s',%d,'%d') ;", type, information, date,status,u_id,l_id);
+        String sql = String.format("INSERT INTO lawsuits_information (LS_name,LS_type,LS_information,LS_date,LS_status,U_id,L_id) VALUES('%s','%s','%s','%s','%s',%d,'%d') ;", name,type, information, date,status,u_id,l_id);
         try {
             db.getUpdate(sql);
             com.github.saacsos.FXRouter.goTo("user_history");

@@ -38,10 +38,10 @@ public class Main extends Application {
         com.github.saacsos.FXRouter.when("search_lawyer", packageStr+"search_lawyer.fxml");
 */
         com.github.saacsos.FXRouter.when("test", packageStr+"lawyer_home_page.fxml");
-        com.github.saacsos.FXRouter.when("lawyer_home_page", packageStr+"lawyer_home_page.fxml");
-        com.github.saacsos.FXRouter.when("lawyer_consultation_service", packageStr+"lawyer_consultation_service.fxml");
-        com.github.saacsos.FXRouter.when("lawyer_history", packageStr+"lawyer_history.fxml");
-        com.github.saacsos.FXRouter.when("lawyer_warn", packageStr+"lawyer_warn.fxml");
+        com.github.saacsos.FXRouter.when("lawyer_home_page", packageStr+"lawyer_home_page.fxml",String.valueOf(LawyerHomePageController.class));
+        com.github.saacsos.FXRouter.when("lawyer_consultation_service", packageStr+"lawyer_consultation_service.fxml",String.valueOf(LawyerConsultationServiceController.class));
+        com.github.saacsos.FXRouter.when("lawyer_history", packageStr+"lawyer_history.fxml",String.valueOf(LawyerHistoryController.class));
+        com.github.saacsos.FXRouter.when("lawyer_warn", packageStr+"lawyer_warn.fxml",String.valueOf(LawyerWarnController.class));
 
 
         com.github.saacsos.FXRouter.when("user_consult_lawyer", packageStr + "user_consult_lawyer.fxml", String.valueOf(UserConsultLawyerController.class));

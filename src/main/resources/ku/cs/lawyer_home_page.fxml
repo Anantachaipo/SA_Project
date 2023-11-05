@@ -18,6 +18,11 @@
                   <Font size="30.0" />
                </font>
             </Text>
+            <JFXButton layoutX="864.0" layoutY="38.0" onAction="#goToLawyerHistory" prefHeight="39.0" prefWidth="111.0" style="-fx-background-color: #000000; -fx-background-radius: 30;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
       <Text layoutX="86.0" layoutY="662.0" strokeType="OUTSIDE" strokeWidth="0.0" text="จำนวนที่รับคำปรึกษา">
@@ -35,12 +40,11 @@
             <Image url="@../../image/user.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="48.0" layoutY="172.0" onAction="#goToLawyerWarn" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="การแจ้งเตือน" textFill="WHITE">
+      <JFXButton layoutX="20.0" layoutY="152.0" onAction="#goToLawyerConsultService" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="จัดการการปรึกษา" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </JFXButton>
-      <Label fx:id="noticeLabel" layoutX="190.0" layoutY="183.0" text="Label" textAlignment="CENTER" textFill="#ee6868" />
       <Label fx:id="usernameLabel" layoutX="398.0" layoutY="361.0" text="UsernameLabel" textAlignment="CENTER">
          <font>
             <Font size="30.0" />
@@ -107,7 +111,14 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <JFXButton layoutX="264.0" layoutY="709.0" onAction="#goToLawyerConsultService" text="ปรึกษา" />
-      <JFXButton layoutX="372.0" layoutY="709.0" onAction="#goToLawyerHistory" text="ประวัติ" />
+      <JFXButton layoutX="20.0" layoutY="207.0" onAction="#goToLawyerHistory" prefHeight="39.0" prefWidth="111.0" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="ประวัติ" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></JFXButton>
+      <Label fx:id="noticeLabel" layoutX="843.0" layoutY="146.0" prefHeight="25.0" prefWidth="122.0" textFill="#f56262">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -21,10 +21,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import static ku.cs.controllers.UserLoginController.user;
+
 public class UserWarnController {
 
-    @FXML
-    private Text warningLabel;
+
     @FXML
     private Text usernameLabel;
 
@@ -54,9 +55,10 @@ public class UserWarnController {
 
     @FXML
     public void initialize() throws SQLException {
-
+        usernameLabel.setText(user.getUsername());
         showLawsuitsInformationTableView();
         handleSelectedListView();
+
 
 
     }
@@ -96,8 +98,11 @@ private void showLawsuitsInformationTableView() throws SQLException {
 }
 
     private static ArrayList<LawsuitsInformation> getLawsuitsInformations() throws SQLException {
+        int uid = user.getId();
+
         DBConnect db = new DBConnect();
-        ResultSet rs = db.getConnect("SELECT * FROM mydb.lawsuits_information;");
+        String sql = String.format("SELECT * FROM mydb.lawsuits_information WHERE U_id = '%d'", uid);
+        ResultSet rs = db.getConnect(sql);
         ArrayList<LawsuitsInformation> lawsuitsArrayList = new ArrayList<>();
 
         while (rs.next()) {
@@ -219,15 +224,7 @@ private void showLawsuitsInformationTableView() throws SQLException {
 
 
 
-    @FXML
-    public void goToConsultLawyer(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("user_consult_lawyer");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า help ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
+
     @FXML
     public void goToUserWarn(ActionEvent actionEvent) {
         try {

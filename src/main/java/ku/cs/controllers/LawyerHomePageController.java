@@ -75,26 +75,6 @@ public class LawyerHomePageController {
             noticeLabel.setText("");
             profile.setImage(null); // ลบรูปภาพ
         }
-//        System.out.println(lawyer);
-//        System.out.println(lawyer.getUsernameLawyer());
-//
-//        int notice = lawyer.getCountConsult();
-//
-//        usernameLabel.setText(lawyer.getUsernameLawyer());
-//        nameLabel.setText(lawyer.getNameLawyer());
-//        surnameLabel.setText(lawyer.getSurnameLawyer());
-//        attorneyLicensenumberLabel.setText(lawyer.getAttorneyLicensenumber());
-//        lawOfficeLabel.setText(lawyer.getLawOffice());
-//        countyLabel.setText(lawyer.getCounty());
-//
-//        if(notice == 0){
-//            noticeLabel.setText("");
-//        }else{
-//            noticeLabel.setText(String.format("มีการแจ้งเตือน %d รายการ", notice));
-//        }
-//        profile.setImage(new Image("file:" + lawyer.getPathProfile(), true));
-
-
 
     }
 

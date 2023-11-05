@@ -21,30 +21,30 @@
                   <Font size="30.0" />
                </font>
             </Text>
-            <Label fx:id="usernameLabel" layoutX="871.0" layoutY="47.0" text="ชื่อ User" textFill="WHITE">
+            <Label fx:id="usernameLabel" layoutX="871.0" layoutY="47.0" text="ชื่อ User" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-            <MenuButton fx:id="menuButton" layoutX="240.0" layoutY="485.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" text="ประเภทคดี" textFill="#250000">
+            <MenuButton fx:id="menuButton" layoutX="246.0" layoutY="516.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" text="ประเภทคดี" textFill="#250000">
                 <font>
                     <Font size="18.0" />
                 </font>
                 <items>
-                    <MenuItem mnemonicParsing="false" onAction="#handleToType1" text="Unspecified Action" />
-                    <MenuItem mnemonicParsing="false" onAction="#handleToType2" text="Unspecified Action" />
-                    <MenuItem mnemonicParsing="false" onAction="#handleToType3" text="Unspecified Action" />
-                    <MenuItem mnemonicParsing="false" onAction="#handleToType4" text="Unspecified Action" />
-                    <MenuItem mnemonicParsing="false" onAction="#handleToType5" text="Unspecified Action" />
-                    <MenuItem mnemonicParsing="false" onAction="#handleToType6" text="Unspecified Action" />
-                    <MenuItem mnemonicParsing="false" onAction="#handleToType7" text="Unspecified Action" />
-                    <MenuItem mnemonicParsing="false" onAction="#handleToType8" text="Unspecified Action" />
-                    <MenuItem mnemonicParsing="false" onAction="#handleToType9" text="Unspecified Action" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleToType1" text="คดีอาชญากรรม" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleToType2" text="คดีเชิงอาชญากรรม" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleToType3" text="คดีอาศัย" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleToType4" text="คดีแพ่ง" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleToType5" text="คดีที่เกี่ยวกับทรัพย์สินทางปัญญา" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleToType6" text="คดีด้านสุขภาพ" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleToType7" text="คดีแรงงาน" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleToType8" text="คดีที่เกี่ยวกับสิทธิและเสรีภาพ" />
+                    <MenuItem mnemonicParsing="false" onAction="#handleToType9" text="คดีที่เกี่ยวกับทรัพย์สิน" />
                 </items>
             </MenuButton>
-            <TextField fx:id="informationTextField" layoutX="246.0" layoutY="538.0" maxHeight="100.0" maxWidth="535.0" prefHeight="40.0" prefWidth="535.0" promptText="รายละเอียด" style="-fx-background-radius: 30;">
+            <TextField fx:id="informationTextField" layoutX="246.0" layoutY="568.0" maxHeight="100.0" maxWidth="535.0" prefHeight="40.0" prefWidth="535.0" promptText="รายละเอียด" style="-fx-background-radius: 30;">
          <font>
             <Font size="18.0" />
          </font>
@@ -54,7 +54,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <DatePicker fx:id="datePicker" layoutX="492.0" layoutY="485.0" prefHeight="39.0" prefWidth="226.0" promptText="วัน/เดือน/ปี" style="-fx-background-radius: 30;" />
+      <DatePicker fx:id="datePicker" layoutX="486.0" layoutY="516.0" prefHeight="39.0" prefWidth="239.0" promptText="นัดวันขอปรึกษา (วัน/เดือน/ปี)" style="-fx-background-radius: 30;" />
       <Label fx:id="lawyernameLabel" layoutX="339.0" layoutY="322.0" prefHeight="30.0" prefWidth="158.0" text="Lawyername">
          <font>
             <Font size="20.0" />
@@ -106,7 +106,7 @@
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="397.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="profileLawyer" fitHeight="150.0" fitWidth="200.0" layoutX="402.0" layoutY="118.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="profileLawyer" fitHeight="150.0" fitWidth="136.0" layoutX="453.0" layoutY="134.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
       <AnchorPane layoutY="130.0" prefHeight="670.0" prefWidth="102.0" style="-fx-background-color: #87CEFA;">
          <children>
                       <JFXButton layoutX="-8.0" layoutY="92.0" onAction="#goToHomePage" prefHeight="59.0" prefWidth="110.0" style="-fx-background-color: #4169E1;" text="หน้าหลัก" textFill="WHITE">
@@ -131,5 +131,15 @@
             </JFXButton>
          </children>
       </AnchorPane>
+      <TextField fx:id="nameTextField" layoutX="389.0" layoutY="457.0" prefHeight="30.0" prefWidth="226.0" style="-fx-background-radius: 30;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Text layoutX="256.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เรื่องที่ปรึกษา   :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

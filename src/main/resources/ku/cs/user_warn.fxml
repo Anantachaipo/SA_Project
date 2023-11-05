@@ -26,7 +26,7 @@
                   <Font size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutY="151.0" prefHeight="59.0" prefWidth="110.0" style="-fx-background-color: #4169E1;" text="เเจ้งเตือน" textFill="WHITE">
+            <JFXButton layoutY="151.0" onAction="#goToUserWarn" prefHeight="59.0" prefWidth="110.0" style="-fx-background-color: #4169E1;" text="เเจ้งเตือน" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -43,18 +43,13 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <Text layoutX="408.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="การแจ้งเตือน   :">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Text>
-      <TableView fx:id="lawsuitsInformationTableView" layoutX="221.0" layoutY="264.0" prefHeight="200.0" prefWidth="710.0">
+      <TableView fx:id="lawsuitsInformationTableView" layoutX="175.0" layoutY="235.0" prefHeight="200.0" prefWidth="710.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
-      <Text layoutX="362.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คำร้องขอปรึกษาของ">
+      <Text layoutX="362.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คำร้องขอปรึกษาของ">
          <font>
             <Font size="18.0" />
          </font>
@@ -104,8 +99,7 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fx:id="warningLabel" layoutX="530.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fx:id="usernameLabel" layoutX="530.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="usernameLabel" layoutX="530.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text fx:id="nameLabel" layoutX="330.0" layoutY="558.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text fx:id="typeLabel" layoutX="330.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text fx:id="informationLabel" layoutX="330.0" layoutY="642.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />

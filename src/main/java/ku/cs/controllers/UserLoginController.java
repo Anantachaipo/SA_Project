@@ -9,17 +9,13 @@ import ku.cs.DBConnect;
 import ku.cs.model.Lawyer;
 import ku.cs.model.User;
 
-import java.sql.*;
 
-import javax.swing.*;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserLoginController {
 
-    public static Lawyer lawyer;
+//    public static Lawyer lawyer;
     @FXML
     private TextField usernameTextField;
 
