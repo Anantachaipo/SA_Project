@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -43,15 +44,15 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="110.0" layoutY="125.0" prefHeight="677.0" prefWidth="891.0">
+      <AnchorPane layoutX="110.0" layoutY="117.0" prefHeight="677.0" prefWidth="891.0">
          <children>
-            <TableView fx:id="lawsuitsInformationTableView1" layoutX="57.0" layoutY="92.0" prefHeight="200.0" prefWidth="541.0">
+            <TableView fx:id="lawsuitsInformationTableView1" layoutX="57.0" layoutY="92.0" prefHeight="200.0" prefWidth="392.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />
               </columns>
             </TableView>
-            <TableView fx:id="lawsuitsInformationTableView2" layoutX="57.0" layoutY="397.0" prefHeight="200.0" prefWidth="541.0">
+            <TableView fx:id="lawsuitsInformationTableView2" layoutX="57.0" layoutY="397.0" prefHeight="200.0" prefWidth="392.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />
@@ -62,9 +63,116 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="57.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คำร้องขอปรึกษาเสร็จสิ้น แต่งตั้งทนายแล้ว">
+            <Text layoutX="57.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คำร้องที่ได้รับการปรึกษาแล้ว">
                <font>
                   <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="488.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เรื่องที่ปรึกษา   :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="501.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ประเภทคดี   :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="463.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ข้อมูลเกี่ยวกับคดี   :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="627.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายละเอียด">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="607.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ทนายที่ให้คำปรึกษา">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="482.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ  :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="636.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล  :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="481.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="หมายเลขใบอนุญาตการเป็นทนายความ  :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="482.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สำนักงานทนาย   :" wrappingWidth="118.859375">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="482.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คำแนะนำ   :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#c35050" layoutX="488.0" layoutY="591.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ติดต่อสอบถามเพิ่มเติม">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="645.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel.    :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="636.0" layoutY="632.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email   :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="nameLawsuitText" layoutX="600.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="typsLawsuitsText" layoutX="600.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="informatonTextArea" layoutX="594.0" layoutY="169.0" prefHeight="68.0" prefWidth="283.0" />
+            <TextArea fx:id="commentLawsuitsText" layoutX="483.0" layoutY="465.0" prefHeight="98.0" prefWidth="392.0" />
+            <Text fx:id="nameLawyerText" layoutX="535.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="surnameLawyerText" layoutX="721.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="attorneyLicensenumberText" layoutX="736.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="lawOfficeText" layoutX="607.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="numberText" layoutX="706.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="emailText" layoutX="706.0" layoutY="632.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font size="16.0" />
                </font>
             </Text>
          </children></AnchorPane>

@@ -80,11 +80,11 @@ public class LawyerHomePageController {
 
 
     @FXML
-    public void  goToLawyerQuestion(ActionEvent actionEvent){
+    public void  goToLogout(ActionEvent actionEvent){
         try {
-            com.github.saacsos.FXRouter.goTo("lawyer_question");
+            com.github.saacsos.FXRouter.goTo("first_page");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า help ไม่ได้");
+            System.err.println("ไปที่หน้า first_page ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

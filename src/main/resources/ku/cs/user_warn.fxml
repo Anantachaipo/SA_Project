@@ -74,22 +74,22 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Text layoutX="692.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ทนายที่ขอคำปรึกษา">
+      <Text layoutX="705.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ทนายที่ขอคำปรึกษา">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text layoutX="541.0" layoutY="599.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ   :">
+      <Text layoutX="623.0" layoutY="558.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ   :">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text layoutX="744.0" layoutY="599.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล   :">
+      <Text layoutX="826.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล   :">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text layoutX="541.0" layoutY="643.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สังกัดสำนักงานทนาย   :">
+      <Text layoutX="623.0" layoutY="598.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สังกัดสำนักงานทนาย   :">
          <font>
             <Font size="16.0" />
          </font>
@@ -104,8 +104,8 @@
       <Text fx:id="typeLabel" layoutX="330.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text fx:id="informationLabel" layoutX="330.0" layoutY="642.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text fx:id="statusLabel" layoutX="330.0" layoutY="688.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fx:id="nameLawyerLabel" layoutX="601.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fx:id="surnameLawyerLabel" layoutX="850.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fx:id="lawyerOfficeLabel" layoutX="721.0" layoutY="650.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="nameLawyerLabel" layoutX="705.0" layoutY="558.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="surnameLawyerLabel" layoutX="918.0" layoutY="558.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="lawyerOfficeLabel" layoutX="788.0" layoutY="596.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>
 </AnchorPane>

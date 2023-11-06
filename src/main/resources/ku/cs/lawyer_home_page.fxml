@@ -18,7 +18,7 @@
                   <Font size="30.0" />
                </font>
             </Text>
-            <JFXButton layoutX="864.0" layoutY="38.0" onAction="#goToLawyerHistory" prefHeight="39.0" prefWidth="111.0" style="-fx-background-color: #000000; -fx-background-radius: 30;" text="Logout" textFill="WHITE">
+            <JFXButton layoutX="864.0" layoutY="38.0" onAction="#goToLogout" prefHeight="39.0" prefWidth="111.0" style="-fx-background-color: #000000; -fx-background-radius: 30;" text="Logout" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -40,7 +40,7 @@
             <Image url="@../../image/user.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="20.0" layoutY="152.0" onAction="#goToLawyerConsultService" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="จัดการการปรึกษา" textFill="WHITE">
+      <JFXButton layoutX="20.0" layoutY="139.0" onAction="#goToLawyerConsultService" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="จัดการการปรึกษา" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -111,7 +111,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <JFXButton layoutX="20.0" layoutY="207.0" onAction="#goToLawyerHistory" prefHeight="39.0" prefWidth="111.0" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="ประวัติ" textFill="WHITE">
+      <JFXButton layoutX="20.0" layoutY="186.0" onAction="#goToLawyerHistory" prefHeight="39.0" prefWidth="111.0" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="ประวัติ" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></JFXButton>

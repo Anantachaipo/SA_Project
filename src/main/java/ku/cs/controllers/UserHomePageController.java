@@ -66,7 +66,7 @@ public class UserHomePageController {
             ResultSet rs = null;
             ResultSet rs2 = null;
             String sql = String.format("SELECT * FROM mydb.lawyer_information ;");
-            String sql2 = String.format("SELECT * FROM mydb.lawsuits_information ;");
+            String sql2 = String.format("SELECT * FROM mydb.lawsuits_information WHERE LS_status = 'B'");
             rs = db.getConnect(sql);
             Integer i = 0 ;
             ArrayList<Lawyer> lawyerArrayList = new ArrayList<>();

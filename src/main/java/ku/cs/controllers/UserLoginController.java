@@ -40,6 +40,14 @@ public class UserLoginController {
             String sql = String.format("SELECT * FROM mydb.user_information WHERE U_username = '%s' AND U_password = '%s'",userName,password);
             rs = db.getConnect(sql);
 
+//            if (userName.equals("Admin") && password.equals("Admin")){
+//                System.out.println("login Form Admin");
+//                com.github.saacsos.FXRouter.goTo("Admin");
+//            }
+
+
+
+
             if(rs.next()){
                 user = new User(
                         rs.getInt(1),
@@ -51,10 +59,14 @@ public class UserLoginController {
                         rs.getString(7),
                         rs.getString(8));
                 rs.close();
-                System.out.println("login successful");
-                System.out.println("Current user = " + user.toString());
-                com.github.saacsos.FXRouter.goTo("user_home_page");
-
+                if (userName.equals("Admin") && password.equals("Admin")){
+                    System.out.println("login Form Admin");
+                    com.github.saacsos.FXRouter.goTo("admin");
+                }else {
+                    System.out.println("login successful");
+                    System.out.println("Current user = " + user.toString());
+                    com.github.saacsos.FXRouter.goTo("user_home_page");
+                }
             }else {
                 System.out.println("login fail");
                 rs.close();

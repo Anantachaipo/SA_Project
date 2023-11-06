@@ -1,63 +1,54 @@
 package ku.cs.controllers;
 
-
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
+import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ku.cs.DBConnect;
 import ku.cs.model.LawsuitsInformation;
-import ku.cs.model.Lawyer;
-import ku.cs.model.User;
 
+
+import java.awt.*;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import static ku.cs.controllers.LawyerLoginController.lawyer;
-import static ku.cs.controllers.UserLoginController.user;
 
 
-public class LawyerConsultationServiceController {
+public class LawyerConsultationServiceController2 {
 
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private Label typeLabel;
+
+
+
+    @FXML
+    private TextArea informationTextArea;
+    @FXML
+    private TextArea commentTextArea;
     @FXML
     private TableView<LawsuitsInformation> lawsuitsInformationTableView;
 
-    @FXML
-    private Label nameuserLabel;
-    @FXML
-    private Label surnameLabel;
-
-    @FXML
-    private Label nameLawsuitsLabel;
-    @FXML
-    private Label typeLabel;
-    @FXML
-    private Label informationLabel;
-    @FXML
-    private Label dateLabel;
-    private User user;
-    private DBConnect db;
-
-
-    private Integer uid ;
-    private Integer lawsuitsId;
+    Integer ls_id;
 
 
     @FXML
     public void initialize() throws SQLException {
         showLawsuitsInformationTableView();
         handleSelectedListView();
-
     }
+
+
 
     private void showLawsuitsInformationTableView() throws SQLException {
         ArrayList<LawsuitsInformation> lawsuitsArrayList = getLawsuitsInformations();
@@ -88,10 +79,9 @@ public class LawyerConsultationServiceController {
         lawsuitsInformationTableView.getItems().addAll(lawsuitsArrayList);
         lawsuitsInformationTableView.refresh();
     }
-
     private static ArrayList<LawsuitsInformation> getLawsuitsInformations() throws SQLException {
         DBConnect db = new DBConnect();
-        String sql = String.format("SELECT * FROM mydb.lawsuits_information WHERE LS_status = 'A' AND L_id = %d ", lawyer.getLawyerID());
+        String sql = String.format("SELECT * FROM mydb.lawsuits_information WHERE LS_status = 'B' AND L_id = %d ", lawyer.getLawyerID());
         ResultSet rs = db.getConnect(sql);
         ArrayList<LawsuitsInformation> lawsuitsArrayList = new ArrayList<>();
 
@@ -111,7 +101,6 @@ public class LawyerConsultationServiceController {
         }
         return lawsuitsArrayList;
     }
-
     private void handleSelectedListView() {
         lawsuitsInformationTableView.getSelectionModel().selectedItemProperty().addListener(
                 (ObservableValue<? extends LawsuitsInformation> observable, LawsuitsInformation oldValue, LawsuitsInformation newValue) -> {
@@ -128,50 +117,30 @@ public class LawyerConsultationServiceController {
     private void showSelectedMember(LawsuitsInformation lawsuitsInformation) throws SQLException {
         if (lawsuitsInformation != null) {
 
-            nameLawsuitsLabel.setText(lawsuitsInformation.getName());
+            nameLabel.setText(lawsuitsInformation.getName());
             typeLabel.setText(lawsuitsInformation.getType());
-            informationLabel.setText(lawsuitsInformation.getInformation());
-            dateLabel.setText(lawsuitsInformation.getDate());
+            informationTextArea.setText(lawsuitsInformation.getInformation());
+            ls_id = lawsuitsInformation.getId();
 
-            Integer U_id = lawsuitsInformation.getuID();
-
-            DBConnect db = new DBConnect();
-            ResultSet rs = null;
-            String sql = String.format("SELECT * FROM mydb.User_information WHERE U_id = '%d'",lawsuitsInformation.getuID());
-            rs = db.getConnect(sql);
-
-            if(rs.next()) {
-                user = new User(
-                        rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getString(7),
-                        rs.getString(8));
-                rs.close();
-
-                nameuserLabel.setText(user.getAccountName());
-                surnameLabel.setText(user.getSurname());
-                lawsuitsId = lawsuitsInformation.getId();
-                System.out.println(lawsuitsInformation.getId());
-
-
-            }
 
         }
+
     }
+
+
     @FXML
     private void  SubmitLawsuitDetails() {
 
-        DBConnect db = new DBConnect();
-        ResultSet rs = db.getConnect("SELECT * FROM mydb.lawsuits_information ");
+        String comment = commentTextArea.getText();
 
-        String sql = String.format("UPDATE lawsuits_information SET LS_status = 'B' WHERE  LS_id = '%d' " ,lawsuitsId);
+        DBConnect db = new DBConnect();
+        ResultSet rs = db.getConnect("SELECT * FROM mydb.lawsuits_information INNER JOIN mydb.comment_lawsuits ON lawsuits_information.LS_id = comment_lawsuits.LS_id;");
+        String sql = String.format("INSERT INTO comment_lawsuits (C_lawsuits_comment,LS_id)  VALUES('%s','%d') ",comment,ls_id);
+        String sql2 = String.format("UPDATE lawsuits_information SET LS_status = 'C' WHERE  LS_id = '%d' ",ls_id);
 
         try {
             db.getUpdate(sql);
+            db.getUpdate(sql2);
             com.github.saacsos.FXRouter.goTo("lawyer_consultation_service2");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า lawyer_home_page ไม่ได้");
@@ -187,42 +156,18 @@ public class LawyerConsultationServiceController {
 
 
 
-    // ปุ่มไปหน้าต่างๆ
-    @FXML
-    public void goToLawyerWarn(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("lawyer_warn");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า help ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-    @FXML
-    public void goToLawyerHistory(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("lawyer_history");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า help ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
-    @FXML
-    public void goToLawyerHomePage(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("lawyer_home_page");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า lawyer_home_page ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
+
+
+
+
+
     @FXML
     public void goToBack(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("lawyer_home_page");
+            com.github.saacsos.FXRouter.goTo("lawyer_consultation_service");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า lawyer_home_page ไม่ได้");
+            System.err.println("ไปที่หน้า lawyer_consultation_service ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
-
 }

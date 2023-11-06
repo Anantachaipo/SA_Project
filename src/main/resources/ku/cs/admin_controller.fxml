@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.AdminController">
+   <children>
+      <AnchorPane layoutX="-9.0" prefHeight="125.0" prefWidth="1012.0" style="-fx-background-color: #4169E1;">
+         <children>
+            <Label layoutX="388.0" layoutY="40.0" text="Admin (ผู้ดูแลระบบ)" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="883.0" layoutY="33.0" onAction="#goToFirstPage" text="Logout" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <Text layoutX="114.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายชื่อ User ที่มีอยู่ในระบบ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="646.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายชื่อ Lawyer ที่มีอยู่ในระบบ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TableView fx:id="userTableView" layoutX="77.0" layoutY="227.0" prefHeight="382.0" prefWidth="302.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <TableView fx:id="lawyerTableView" layoutX="607.0" layoutY="234.0" prefHeight="382.0" prefWidth="302.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <JFXButton layoutX="723.0" layoutY="661.0" onAction="#deleteLawyer" style="-fx-background-color: #000000; -fx-background-radius: 30;" text="ลบรายชื่อทนาย" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="163.0" layoutY="661.0" onAction="#deleteUser" style="-fx-background-color: #000000; -fx-background-radius: 30;" text="ลบรายชื่อผู้ใช้" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

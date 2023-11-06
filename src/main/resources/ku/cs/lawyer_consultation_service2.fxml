@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.LawyerConsultationServiceController2">
+   <children>
+      <AnchorPane prefHeight="125.0" prefWidth="1012.0" style="-fx-background-color: #4169E1;">
+         <children>
+            <Label layoutX="374.0" layoutY="40.0" text="รายการปรึกษาที่ตอบรับ" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Button layoutX="35.0" layoutY="45.0" mnemonicParsing="false" onAction="#goToBack" style="-fx-background-color: #000000; -fx-background-radius: 30;" text="back" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="lawsuitsInformationTableView" layoutX="39.0" layoutY="196.0" prefHeight="232.0" prefWidth="459.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Text layoutX="48.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายการที่รับเรื่องปรึกษา">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="71.0" layoutY="537.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เรื่อง   :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="26.0" layoutY="582.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ประเภทคดี   :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="645.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายละเอียดคดี   :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="586.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ให้คำปรึกษา   :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="commentTextArea" layoutX="586.0" layoutY="196.0" prefHeight="145.0" prefWidth="358.0" />
+      <Text layoutX="205.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ข้อมูลเกี่ยวกับคดี">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+
+      <Button layoutX="711.0" layoutY="381.0" mnemonicParsing="false" onAction="#SubmitLawsuitDetails" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="ส่งคำปรึกษา" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Line endY="-19.0" layoutX="531.0" layoutY="155.0" startY="608.0" />
+      <Label fx:id="nameLabel" layoutX="154.0" layoutY="516.0" prefHeight="27.0" prefWidth="318.0" text="namelabel">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="typeLabel" layoutX="160.0" layoutY="561.0" prefHeight="27.0" prefWidth="318.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="informationTextArea" layoutX="142.0" layoutY="626.0" prefHeight="137.0" prefWidth="364.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+
+   </children>
+</AnchorPane>
