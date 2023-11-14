@@ -49,66 +49,66 @@
 <!--         <font>-->
 <!--            <Font size="28.0" />-->
 <!--         </font></JFXButton>-->
-      <Label fx:id="number_lawyer" layoutX="74.0" layoutY="443.0" text="จำนวนทนายทั้งหมด">
+      <Label fx:id="number_lawyer" layoutX="77.0" layoutY="359.0" text="จำนวนทนายทั้งหมด">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="number_case" layoutX="620.0" layoutY="443.0" text="จำนวนที่ว่าคดีทั้งหมด">
+      <Label fx:id="number_case" layoutX="615.0" layoutY="358.0" text="จำนวนที่ว่าคดีทั้งหมด">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="141.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="162.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../image/lawyer.png" />
          </image>
       </ImageView>
-      <Line endX="241.0" layoutX="166.0" layoutY="416.0" startX="-100.0" />
-      <Line endX="241.0" layoutX="703.0" layoutY="416.0" startX="-100.0" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="699.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+      <Line endX="241.0" layoutX="177.0" layoutY="332.0" startX="-100.0" />
+      <Line endX="241.0" layoutX="715.0" layoutY="331.0" startX="-100.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="689.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../image/lawyer3.png" />
          </image>
       </ImageView>
-      <Label fx:id="countLawyerLabel" layoutX="237.0" layoutY="443.0" prefHeight="27.0" prefWidth="21.0" textAlignment="CENTER" textFill="#ff7777">
+      <Label fx:id="countLawyerLabel" layoutX="237.0" layoutY="359.0" prefHeight="27.0" prefWidth="21.0" textAlignment="CENTER" textFill="#ff7777">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fontSmoothingType="LCD" layoutX="290.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คน">
+      <Text fontSmoothingType="LCD" layoutX="290.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คน">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="839.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คดี">
+      <Text layoutX="839.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คดี">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Label fx:id="countLawsuitsLabel" layoutX="786.0" layoutY="443.0" prefHeight="27.0" prefWidth="21.0" textAlignment="CENTER" textFill="#ff7777">
+      <Label fx:id="countLawsuitsLabel" layoutX="786.0" layoutY="358.0" prefHeight="27.0" prefWidth="21.0" textAlignment="CENTER" textFill="#ff7777">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <JFXButton fx:id="homepage_button" layoutX="39.0" layoutY="526.0" prefHeight="35.0" prefWidth="102.0" style="-fx-background-color: #4169E1;" text="หน้าหลัก" textFill="WHITE">
+      <JFXButton fx:id="homepage_button" layoutX="58.0" layoutY="427.0" prefHeight="65.0" prefWidth="896.0" style="-fx-background-color: #4169E1;" text="หน้าหลัก" textFill="WHITE">
          <font>
-            <Font size="16.0" />
+            <Font size="30.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="39.0" layoutY="579.0" onAction="#goToUserWarn" prefHeight="35.0" prefWidth="102.0" style="-fx-background-color: #4169E1;" text="เเจ้งเตือน" textFill="WHITE">
+      <JFXButton layoutX="58.0" layoutY="507.0" onAction="#goToUserWarn" prefHeight="65.0" prefWidth="896.0" style="-fx-background-color: #4169E1;" text="เเจ้งเตือน" textFill="WHITE">
          <font>
-            <Font size="15.0" />
+            <Font size="30.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="search_lawyer" layoutX="39.0" layoutY="683.0" onAction="#goToSearchLawyerPage" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #4169E1;" text="ค้นหาทนาย" textFill="WHITE">
+      <JFXButton fx:id="search_lawyer" layoutX="52.0" layoutY="671.0" onAction="#goToSearchLawyerPage" prefHeight="65.0" prefWidth="908.0" style="-fx-background-color: #4169E1;" text="ค้นหาทนาย" textFill="WHITE">
          <font>
-            <Font size="16.0" />
+            <Font size="30.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="history" layoutX="39.0" layoutY="632.0" onAction="#goToUserHistory" prefHeight="35.0" prefWidth="102.0" style="-fx-background-color: #4169E1;" text="ประวัติ" textFill="WHITE">
+      <JFXButton fx:id="history" layoutX="58.0" layoutY="590.0" onAction="#goToUserHistory" prefHeight="65.0" prefWidth="896.0" style="-fx-background-color: #4169E1;" text="ประวัติ" textFill="WHITE">
          <font>
-            <Font size="16.0" />
+            <Font size="30.0" />
          </font>
       </JFXButton>
    </children>

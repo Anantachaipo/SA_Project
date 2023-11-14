@@ -97,6 +97,11 @@
                 <TableColumn prefWidth="75.0" text="C2" />
               </columns>
             </TableView>
+            <JFXButton layoutX="422.0" layoutY="603.0" onAction="#goToConsult" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="รายการที่รับปรึกษา" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="125.0" prefWidth="1002.0" style="-fx-background-color: #4169E1;">

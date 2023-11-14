@@ -67,7 +67,7 @@ public class UserHistoryController {
 
     @FXML
     public void initialize() throws SQLException {
-
+        clearSelectedMember();
         showLawsuitsInformationTableView1();
         showLawsuitsInformationTableView2();
         handleSelectedListView();
@@ -75,6 +75,22 @@ public class UserHistoryController {
 
 
     }
+
+    private void clearSelectedMember() {
+        nameLawyerText.setText("-");
+        typsLawsuitsText.setText("-");
+        informatonTextArea.setText("-");
+        nameLawsuitText.setText("-");
+
+        surnameLawyerText.setText("-");
+        attorneyLicensenumberText.setText("-");
+        lawOfficeText.setText("-");
+        numberText.setText("-");
+        emailText.setText("-");
+        commentLawsuitsText.setText("-");
+    }
+
+
 
     private void showLawsuitsInformationTableView1() throws SQLException {
         ArrayList<LawsuitsInformation> lawsuitsArrayList = getLawsuitsInformations();

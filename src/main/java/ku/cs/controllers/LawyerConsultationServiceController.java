@@ -44,6 +44,9 @@ public class LawyerConsultationServiceController {
     private Label informationLabel;
     @FXML
     private Label dateLabel;
+
+
+
     private User user;
     private DBConnect db;
 
@@ -54,9 +57,18 @@ public class LawyerConsultationServiceController {
 
     @FXML
     public void initialize() throws SQLException {
+        clearSelectedMember();
         showLawsuitsInformationTableView();
         handleSelectedListView();
 
+    }
+    private void clearSelectedMember() {
+        nameuserLabel.setText("-");
+        surnameLabel.setText("-");
+        nameLawsuitsLabel.setText("-");
+        typeLabel.setText("-");
+        informationLabel.setText("-");
+        dateLabel.setText("-");
     }
 
     private void showLawsuitsInformationTableView() throws SQLException {
@@ -221,6 +233,16 @@ public class LawyerConsultationServiceController {
             com.github.saacsos.FXRouter.goTo("lawyer_home_page");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า lawyer_home_page ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+    @FXML
+    public void goToConsult(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("lawyer_consultation_service2");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า lawyer_consultation_service ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

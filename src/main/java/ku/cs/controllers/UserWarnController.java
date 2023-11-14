@@ -55,12 +55,23 @@ public class UserWarnController {
 
     @FXML
     public void initialize() throws SQLException {
+        clearSelectedMember();
         usernameLabel.setText(user.getUsername());
         showLawsuitsInformationTableView();
         handleSelectedListView();
 
 
 
+    }
+    private void clearSelectedMember() {
+        nameLabel.setText("-");
+        typeLabel.setText("-");
+        informationLabel.setText("-");
+        statusLabel.setText("-");
+
+        nameLawyerLabel.setText("-");
+        surnameLawyerLabel.setText("-");
+        lawyerOfficeLabel.setText("-");
     }
 
 
@@ -196,16 +207,7 @@ private void showLawsuitsInformationTableView() throws SQLException {
     }
 
 
-    private void clearSelectedMember() {
-        nameLabel.setText("-");
-        typeLabel.setText("-");
-        informationLabel.setText("-");
-        statusLabel.setText("-");
 
-        nameLawyerLabel.setText("-");
-        surnameLawyerLabel.setText("-");
-        lawyerOfficeLabel.setText("-");
-    }
 
 
 

@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -44,12 +45,7 @@
                     <MenuItem mnemonicParsing="false" onAction="#handleToType9" text="คดีที่เกี่ยวกับทรัพย์สิน" />
                 </items>
             </MenuButton>
-            <TextField fx:id="informationTextField" layoutX="246.0" layoutY="568.0" maxHeight="100.0" maxWidth="535.0" prefHeight="40.0" prefWidth="535.0" promptText="รายละเอียด" style="-fx-background-radius: 30;">
-         <font>
-            <Font size="18.0" />
-         </font>
-            </TextField>
-            <Button layoutX="431.0" layoutY="626.0" mnemonicParsing="false" onAction="#SubmitLawsuitDetails" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="ส่งคำขอปรึกษา" textFill="WHITE">
+            <Button layoutX="426.0" layoutY="711.0" mnemonicParsing="false" onAction="#SubmitLawsuitDetails" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="ส่งคำขอปรึกษา" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -141,5 +137,10 @@
             <Font size="18.0" />
          </font>
       </Text>
+      <TextArea fx:id="informationTextArea" layoutX="184.0" layoutY="576.0" prefHeight="124.0" prefWidth="675.0" promptText="รายละเอียด">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
     </children>
 </AnchorPane>

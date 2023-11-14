@@ -4,10 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -23,6 +20,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 
 public class LawyerRegisterController implements ActionListener {
@@ -46,11 +44,11 @@ public class LawyerRegisterController implements ActionListener {
     @FXML
     private TextField idcardField;
     @FXML
-    private TextField myDateOfBirth;
+    private DatePicker myDateOfBirthDatePicker;
     @FXML
-    private TextField cardReplacementDateField;
+    private DatePicker cardReplacementDatePicker;
     @FXML
-    private TextField cardIssueDateField;
+    private DatePicker cardIssueDatePicker;
     @FXML
     private TextField lawOfficeField;
     @FXML
@@ -91,10 +89,10 @@ public class LawyerRegisterController implements ActionListener {
         String username = usernameTextField.getText();
         String password = passwordField.getText();
         String confirmPassword = confirmPasswordField.getText();
-        String dateOfBirth = myDateOfBirth.getText();
+//        String dateOfBirth = myDateOfBirth.getText();
         String idCard = idcardField.getText();
-        String cardIssueDate = cardIssueDateField.getText();
-        String cardReplacementDate = cardReplacementDateField.getText();
+//        String cardIssueDate = cardIssueDateField.getText();
+//        String cardReplacementDate = cardReplacementDateField.getText();
         String lawOffice = lawOfficeField.getText();
         String county = menuButton.getText();
         String caseAptitude = menuButton2.getText();
@@ -103,6 +101,14 @@ public class LawyerRegisterController implements ActionListener {
         Integer countConsult = 0;
         Integer countProgress = 0;
         Integer countSuccess = 0;
+        LocalDate localDate1 = myDateOfBirthDatePicker.getValue();
+        LocalDate localDate2 = cardIssueDatePicker.getValue();
+        LocalDate localDate3 = cardReplacementDatePicker.getValue();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dateOfBirth = localDate1.format(formatter);
+        String cardIssueDate = localDate2.format(formatter);
+        String cardReplacementDate = localDate3.format(formatter);
 
 
 

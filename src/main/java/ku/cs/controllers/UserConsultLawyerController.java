@@ -3,10 +3,7 @@ package ku.cs.controllers;
 import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import ku.cs.DBConnect;
 import ku.cs.model.Lawyer;
@@ -15,6 +12,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -50,7 +48,7 @@ public class UserConsultLawyerController {
     @FXML
     private TextField nameTextField;
     @FXML
-    private TextField informationTextField ;
+    private TextArea informationTextArea ;
     @FXML
     private DatePicker datePicker;
 
@@ -93,16 +91,32 @@ public class UserConsultLawyerController {
     }
 
     @FXML
-    private void  SubmitLawsuitDetails() {
+    private void  SubmitLawsuitDetails() throws SQLException {
         Integer u_id = user.getId();
         String name = nameTextField.getText();
         String type = menuButton.getText();
-        String information = informationTextField.getText();
+        String information = informationTextArea.getText();
         LocalDate localDate = datePicker.getValue();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String date = localDate.format(formatter);
 
-        
+        DBConnect db1 = new DBConnect();
+
+        String sql1 = String.format("SELECT * FROM lawsuits_information WHERE LS_date = '%s'",date);
+        ResultSet result = db1.getConnect(sql1);
+
+        if (result.next()) {
+//            registerMessageLabel.setText("Username is already used");
+            System.out.println("ffff");
+
+            result.close();
+//                pst.close();
+            return;
+        }
+        else {
+//            registerMessageLabel.setText("");
+            System.out.println("dddd");
+        }
         db = new DBConnect();
         ResultSet rs = db.getConnect("SELECT * FROM mydb.lawsuits_information;");
 
