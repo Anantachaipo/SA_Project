@@ -65,6 +65,9 @@ public class LawyerRegisterController implements ActionListener {
     @FXML
     private MenuButton menuButton2 ;
 
+    @FXML
+    private Label registerMessageLabel;
+
 
 
     private String pathProfile = "images/user.png";
@@ -100,6 +103,7 @@ public class LawyerRegisterController implements ActionListener {
         Integer countConsult = 0;
         Integer countProgress = 0;
         Integer countSuccess = 0;
+
 
 
 

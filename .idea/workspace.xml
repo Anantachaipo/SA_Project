@@ -5,26 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ede2c6ed-5149-46a1-95bd-409b7dc5251d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/2023-11-06_1699267760675.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerConsultationServiceController2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/model/CommentLawsuits.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/model/CommentLawsuitsList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/admin_controller.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_consultation_service2.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/2023-11-11_1699691775525.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/2023-11-11_1699692208658.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_10_2566_16_13_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_10_2566_16_13__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_11_2566_0_04_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_11_2566_0_04__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerConsultationServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerConsultationServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerHomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerHomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserHomePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserHomePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_consultation_service.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_consultation_service.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_history.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_history.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_home_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_home_page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_history.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_history.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_warn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_warn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/DBConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerRegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LawyerRegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserRegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UserRegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/lawyer_register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/user_register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/user_register.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

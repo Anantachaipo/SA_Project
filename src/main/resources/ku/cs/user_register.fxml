@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserRegisterController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserRegisterController">
    <children>
       <AnchorPane prefHeight="100.0" prefWidth="1022.0" style="-fx-background-color: #4169E1;">
          <children>
@@ -100,6 +100,21 @@
                   <Font size="20.0" />
                </font>
             </JFXButton>
+            <Label layoutX="198.0" layoutY="21.0" text="name" />
+            <Label layoutX="199.0" layoutY="89.0" text="number" />
+            <Label layoutX="199.0" layoutY="153.0" text="username" />
+            <Label layoutX="511.0" layoutY="30.0" text="surname" />
+            <Label layoutX="507.0" layoutY="89.0" text="email" />
+            <Label layoutX="507.0" layoutY="162.0" text="password" />
+            <Label layoutX="507.0" layoutY="228.0" text="confirm password" />
+            <Label fx:id="nameTag" layoutX="456.0" layoutY="55.0" textFill="RED" />
+            <Label fx:id="numberTag" layoutX="456.0" layoutY="118.0" textFill="RED" />
+            <Label fx:id="usernameTag" layoutX="456.0" layoutY="190.0" textFill="RED" />
+            <Label fx:id="surnameTag" layoutX="769.0" layoutY="62.0" textFill="RED" />
+            <Label fx:id="emailTag" layoutX="769.0" layoutY="118.0" textFill="RED" />
+            <Label fx:id="passwordTag" layoutX="769.0" layoutY="190.0" textFill="RED" />
+            <Label fx:id="comPasswordTag" layoutX="769.0" layoutY="257.0" textFill="RED" />
+            <Label fx:id="registerMessageLabel" layoutX="465.0" layoutY="330.0" textFill="RED" />
          </children>
       </AnchorPane>
       <JFXButton layoutX="618.0" layoutY="116.0" onAction="#handleToChangeImage" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: #000000;" text="Edit" textFill="#fcfcfc">

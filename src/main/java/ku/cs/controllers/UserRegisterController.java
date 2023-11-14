@@ -18,7 +18,9 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class UserRegisterController implements ActionListener {
@@ -43,6 +45,24 @@ public class UserRegisterController implements ActionListener {
     private Label registerLabel;
     private String pathProfile = "images/user.png";
 
+    private static final String TAG = "*";
+    @FXML
+    private Label nameTag;
+    @FXML
+    private Label usernameTag;
+    @FXML
+    private Label numberTag;
+    @FXML
+    private Label passwordTag;
+    @FXML
+    private Label comPasswordTag;
+    @FXML
+    private Label emailTag;
+    @FXML
+    private Label surnameTag;
+    @FXML
+    private Label registerMessageLabel;
+
     @FXML
     public void initialize(){
 // String path ใส่รูป
@@ -59,9 +79,123 @@ public class UserRegisterController implements ActionListener {
         String password = passwordField.getText();
         String confirmPassword =  confirmPasswordField.getText();
 
+        boolean checkBlank = true;
+
+        if (name.isBlank()) {
+            surnameTag.setText(TAG);
+            checkBlank = false;
+        }
+        if (name.isBlank()) {
+            emailTag.setText(TAG);
+            checkBlank = false;
+        }
+        if (name.isBlank()) {
+            nameTag.setText(TAG);
+            checkBlank = false;
+        }
+        if (username.isBlank()) {
+            usernameTag.setText(TAG);
+            checkBlank = false;
+        }
+        if (number.isBlank()) {
+            numberTag.setText(TAG);
+            checkBlank = false;
+        }
+        if (password.isBlank()) {
+            passwordTag.setText(TAG);
+            checkBlank = false;
+        }
+        if (confirmPassword.isBlank()) {
+            comPasswordTag.setText(TAG);
+            checkBlank = false;
+        }
+        if (!checkBlank) {
+            registerMessageLabel.setText("Input field must not be empty");
+            return;
+        }
+
+        try {
+            int localtel = Integer.parseInt(number);
+            if (localtel <= 0) {
+                numberTag.setText(TAG);
+                registerMessageLabel.setText("Input field can only contain numeric values");
+                return;
+            }
+        } catch (IllegalArgumentException e) {
+            numberTag.setText(TAG);
+            registerMessageLabel.setText("Input field can only contain numeric values");
+            return;
+        }
+
+        /*
+         * check result value doesn't exceed DB size
+         ** name     (50)
+         ** username (30)
+         ** telephone (10)
+         ** password (20)
+         */
+        if (name.length() > 50) {
+            nameTag.setText(TAG);
+            registerMessageLabel.setText("Characters input limit exceeded (50)");
+            return;
+        } else if (username.length() > 30) {
+            usernameTag.setText(TAG);
+            registerMessageLabel.setText("Characters input limit exceeded (30)");
+            return;
+        } else if (!(number.length() == 9 || number.length() == 10)) {
+            numberTag.setText(TAG);
+            registerMessageLabel.setText("Invalid Telephone number");
+            return;
+        } else if (password.length() > 20||password.length()<4) {
+            passwordTag.setText(TAG);
+            registerMessageLabel.setText("Characters input limit exceeded 4-20");
+            return;
+        }
+        else {
+            registerMessageLabel.setText("");
+        }
+
+
+
 
         db = new DBConnect();
         ResultSet rs = db.getConnect("SELECT * FROM mydb.user_information;");
+
+        try {
+            DBConnect db = new DBConnect();
+
+            String sql = String.format("SELECT * FROM mydb.user_information WHERE U_username = '%s'",username);
+//            PreparedStatement pst = (PreparedStatement) db.getConnect(sql);
+//            pst.setString(1, username);
+            ResultSet result = db.getConnect(sql);
+
+            if (result.next()) {
+                usernameTag.setText(TAG);
+                registerMessageLabel.setText("Username is already used");
+
+                result.close();
+//                pst.close();
+                return;
+            }
+            else {
+                registerMessageLabel.setText("");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        // check password match
+        if (!password.equals(confirmPassword)) {
+            registerMessageLabel.setText("Unmatched password");
+            passwordTag.setText(TAG);
+            comPasswordTag.setText(TAG);
+            return;
+        }
+        else {
+            registerMessageLabel.setText("");
+        }
+
 
 
         String sql = String.format("INSERT INTO user_information (U_username,U_name,U_surname,U_number,U_email,U_password,U_pathProfile) VALUES('%s','%s','%s','%s','%s','%s','%s');",username,name,surname,number,email,password,pathProfile);
