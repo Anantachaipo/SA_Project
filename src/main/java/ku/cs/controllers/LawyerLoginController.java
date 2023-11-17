@@ -57,13 +57,20 @@ public class LawyerLoginController {
                         rs.getInt(17),
                         rs.getInt(18),
                         rs.getInt(19),
-                        rs.getString(20));
+                        rs.getString(20),
+                        rs.getString(21));
                 rs.close();
                 System.out.println("login successful");
                 System.out.println("Current user = " + lawyer.getUsernameLawyer());
                 System.out.println( lawyer.getNameLawyer());
                 System.out.println( lawyer.getSurnameLawyer());
-                com.github.saacsos.FXRouter.goTo("lawyer_home_page");
+
+                if(lawyer.getStatus().equals("0")){
+                    System.out.println("รอการตรวขสอบบัญญชีผู้ใช้");
+                }else if(lawyer.getStatus().equals("1")){
+                    System.out.println("Login สำเร็จ");
+                    com.github.saacsos.FXRouter.goTo("lawyer_home_page");
+                }
 
             }else {
                 System.out.println("login fail");

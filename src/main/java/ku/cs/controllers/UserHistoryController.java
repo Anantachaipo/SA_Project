@@ -248,7 +248,9 @@ public class UserHistoryController {
                         rs.getInt(17),
                         rs.getInt(18),
                         rs.getInt(19),
-                        rs.getString(20));
+                        rs.getString(20),
+                        rs.getString(21)
+                );
                 rs.close();
 
                 nameLawyerText.setText(lawyer.getNameLawyer());

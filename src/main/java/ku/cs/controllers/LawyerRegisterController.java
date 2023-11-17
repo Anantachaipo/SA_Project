@@ -69,6 +69,7 @@ public class LawyerRegisterController implements ActionListener {
 
 
     private String pathProfile = "images/user.png";
+    private String status = "0";
 
 
 
@@ -118,7 +119,7 @@ public class LawyerRegisterController implements ActionListener {
         db = new DBConnect();
         ResultSet rs = db.getConnect("SELECT * FROM mydb.lawyer_information;");
 
-        String sql = String.format("INSERT INTO lawyer_information (L_username,L_name,L_surname,L_sex,L_number,L_email,L_password,L_dateOfBirth,L_attorneyLicensenumber,L_idCard,L_cardIssueDate,L_cardReplacementDate,L_lawOffice,L_county,L_caseAptitude,L_countConsult,L_countProgress,L_countSuccess,L_pathProfile) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%d','%d','%d','%s');",username,  name,  surname,sex, number, email ,password, dateOfBirth,  attorneyLicensenumber, idCard, cardIssueDate,cardReplacementDate,lawOffice,county,caseAptitude,countConsult,countProgress,countSuccess,pathProfile);
+        String sql = String.format("INSERT INTO lawyer_information (L_username,L_name,L_surname,L_sex,L_number,L_email,L_password,L_dateOfBirth,L_attorneyLicensenumber,L_idCard,L_cardIssueDate,L_cardReplacementDate,L_lawOffice,L_county,L_caseAptitude,L_countConsult,L_countProgress,L_countSuccess,L_status,L_pathProfile) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%d','%d','%d','%s','%s');",username,  name,  surname,sex, number, email ,password, dateOfBirth,  attorneyLicensenumber, idCard, cardIssueDate,cardReplacementDate,lawOffice,county,caseAptitude,countConsult,countProgress,countSuccess,status,pathProfile);
         //String username,String name,String surname,String password,Loca dateOfBirth, String attorneyLicensenumber,String idCard, String lawyerTicket,String cardIssueDate,String cardReplacementDate,String number, String email ,String pathProfile, String lawOffice ,String county
 
         try{

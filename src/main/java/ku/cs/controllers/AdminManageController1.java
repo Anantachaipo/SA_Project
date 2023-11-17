@@ -8,7 +8,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ku.cs.DBConnect;
-import ku.cs.model.LawsuitsInformation;
 import ku.cs.model.Lawyer;
 import ku.cs.model.User;
 
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 
 import static ku.cs.controllers.UserLoginController.user;
 
-public class AdminController {
+public class AdminManageController1 {
 
 
     private Integer uid ;
@@ -32,10 +31,6 @@ public class AdminController {
     private TableView<User> userTableView;
 
 
-
-
-
-
     @FXML
     public void initialize() throws SQLException {
         lawyerTableView.refresh();
@@ -44,11 +39,7 @@ public class AdminController {
         showUser();
         handleSelectedUser();
         handleSelectedLawyer();
-
-
-
     }
-
 
     private void showLawyer() throws SQLException {
         ArrayList<Lawyer> lawyer = getLawyer();
@@ -108,7 +99,8 @@ public class AdminController {
                     rs.getInt(17),
                     rs.getInt(18),
                     rs.getInt(19),
-                    rs.getString(20)
+                    rs.getString(20),
+                    rs.getString(21)
 
             );
             lawyerArrayList.add(law);
@@ -121,11 +113,9 @@ public class AdminController {
 
         userTableView.getColumns().clear();
 
-
         TableColumn<User, String> userIDColumn = new TableColumn<>("ID");
         userIDColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         userTableView.getColumns().add(userIDColumn);
-
 
         TableColumn<User, String> userNameColumn = new TableColumn<>("ชื่อ");
         userNameColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getAccountName()));
@@ -134,8 +124,6 @@ public class AdminController {
         TableColumn<User, String> surnameColumn = new TableColumn<>("นามสกุล");
         surnameColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getSurname()));
         userTableView.getColumns().add(surnameColumn);
-
-
 
         userTableView.getItems().addAll(user);
         userTableView.refresh();
@@ -274,6 +262,14 @@ public class AdminController {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+    @FXML
+    public void backToAdminHomePage(ActionEvent actionEvent) {
+        try {
+            com.github.saacsos.FXRouter.goTo("admin_home_page");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า admin_home_page ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 
 }
-// DELETE FROM `mydb`.`comment_lawsuits` WHERE (`C_id` = '5');

@@ -22,7 +22,13 @@ public class Main extends Application {
     }
     private static void configRoute() {
         String packageStr = "ku/cs/";
-        com.github.saacsos.FXRouter.when("admin", packageStr+"admin_controller.fxml");
+
+        //admin
+        com.github.saacsos.FXRouter.when("admin_home_page", packageStr+"admin_home_page.fxml");
+        com.github.saacsos.FXRouter.when("admin_manage_1", packageStr+"admin_manage_controller_1.fxml");
+        com.github.saacsos.FXRouter.when("admin_manage_2", packageStr+"admin_manage_controller_2.fxml");
+
+        //login and register
         com.github.saacsos.FXRouter.when("first_page", packageStr+"first_page.fxml");
         com.github.saacsos.FXRouter.when("lawyer_login", packageStr+"lawyer_login.fxml");
         com.github.saacsos.FXRouter.when("user_login", packageStr+"user_login.fxml");
@@ -30,14 +36,8 @@ public class Main extends Application {
         com.github.saacsos.FXRouter.when("lawyer_register", packageStr+"lawyer_register.fxml");
         com.github.saacsos.FXRouter.when("user_menu", packageStr+"user_menu.fxml");
         com.github.saacsos.FXRouter.when("user_home_page", packageStr+"user_home_page.fxml");
-/*
-        com.github.saacsos.FXRouter.when("user_consult_lawyer", packageStr+"user_consult_lawyer.fxml");
-        com.github.saacsos.FXRouter.when("user_home_page", packageStr+"user_home_page.fxml");
-        com.github.saacsos.FXRouter.when("user_settings", packageStr+"user_settings.fxml");
-        com.github.saacsos.FXRouter.when("user_warn", packageStr+"user_warn.fxml");
-        com.github.saacsos.FXRouter.when("user_history", packageStr+"user_history.fxml");
-        com.github.saacsos.FXRouter.when("search_lawyer", packageStr+"search_lawyer.fxml");
-*/
+
+        //lawyer
         com.github.saacsos.FXRouter.when("test", packageStr+"lawyer_home_page.fxml");
         com.github.saacsos.FXRouter.when("lawyer_home_page", packageStr+"lawyer_home_page.fxml",String.valueOf(LawyerHomePageController.class));
         com.github.saacsos.FXRouter.when("lawyer_consultation_service", packageStr+"lawyer_consultation_service.fxml",String.valueOf(LawyerConsultationServiceController.class));
@@ -45,7 +45,7 @@ public class Main extends Application {
         com.github.saacsos.FXRouter.when("lawyer_history", packageStr+"lawyer_history.fxml",String.valueOf(LawyerHistoryController.class));
         com.github.saacsos.FXRouter.when("lawyer_warn", packageStr+"lawyer_warn.fxml",String.valueOf(LawyerWarnController.class));
 
-
+        //user
         com.github.saacsos.FXRouter.when("user_consult_lawyer", packageStr + "user_consult_lawyer.fxml", String.valueOf(UserConsultLawyerController.class));
         com.github.saacsos.FXRouter.when("user_settings", packageStr + "user_settings.fxml", String.valueOf(UserSettingsController.class));
         com.github.saacsos.FXRouter.when("user_warn", packageStr + "user_warn.fxml", String.valueOf(UserWarnController.class));

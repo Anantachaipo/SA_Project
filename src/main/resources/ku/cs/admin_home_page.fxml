@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.AdminHomePageController">
+   <children>
+      <AnchorPane layoutX="-3.0" prefHeight="125.0" prefWidth="1020.0" style="-fx-background-color: #4169E1;">
+         <children>
+            <Label layoutX="392.0" layoutY="40.0" text="Admin (ผู้ดูแลระบบ)" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="897.0" layoutY="43.0" onAction="#logout" text="Logout" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <JFXButton layoutX="118.0" layoutY="194.0" onAction="#goTomanage1" prefHeight="65.0" prefWidth="778.0" style="-fx-background-color: #4169E1;" text="จัดการผู้ใช้" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="120.0" layoutY="287.0" onAction="#goTomanage2" prefHeight="65.0" prefWidth="778.0" style="-fx-background-color: #4169E1;" text="ตรวจสอบใบอนุญาติทนาย" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

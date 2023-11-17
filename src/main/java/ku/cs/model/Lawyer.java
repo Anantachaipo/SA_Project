@@ -1,6 +1,8 @@
 package ku.cs.model;
 
 
+import javafx.scene.image.Image;
+
 public class Lawyer  {
 
 
@@ -24,6 +26,15 @@ public class Lawyer  {
     private String caseAptitude;
     private String sex;
 
+    private String status;
+
+
+
+
+
+
+
+
     private Integer countConsult;
     private Integer countProgress;
     private Integer countSuccess;
@@ -34,7 +45,7 @@ public class Lawyer  {
 
 
 
-    public Lawyer(Integer lawyerID,String usernameLawyer,String nameLawyer, String surnameLawyer,String sex,String password,String number, String email, String dateOfBirth, String attorneyLicensenumber, String idCard, String cardIssueDate, String cardReplacementDate, String lawOffice,String county,String caseAptitude,Integer countConsult,Integer countProgress,Integer countSuccess,String pathProfile) {
+    public Lawyer(Integer lawyerID,String usernameLawyer,String nameLawyer, String surnameLawyer,String sex,String password,String number, String email, String dateOfBirth, String attorneyLicensenumber, String idCard, String cardIssueDate, String cardReplacementDate, String lawOffice,String county,String caseAptitude,Integer countConsult,Integer countProgress,Integer countSuccess,String status,String pathProfile) {
         this.lawyerID = lawyerID;
         this.usernameLawyer = usernameLawyer;
         this.nameLawyer = nameLawyer;
@@ -55,6 +66,7 @@ public class Lawyer  {
         this.countConsult = countConsult;
         this.countProgress = countProgress;
         this.countSuccess = countSuccess;
+        this.status = status;
     }
     public Lawyer(String nameLawyer,String surnameLawyer){
         this.nameLawyer = nameLawyer;
@@ -154,6 +166,14 @@ public class Lawyer  {
 
     public void setCountSuccess(Integer countSuccess) {
         this.countSuccess = countSuccess;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override

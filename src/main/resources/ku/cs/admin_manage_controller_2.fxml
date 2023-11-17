@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.AdminManageController2">
+   <children>
+      <AnchorPane prefHeight="125.0" prefWidth="1013.0" style="-fx-background-color: #4169E1;">
+         <children>
+            <Label layoutX="363.0" layoutY="40.0" text="ตรวจสอบใบอนุญาติทนาย" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="59.0" layoutY="43.0" onAction="#backToAdminHomePage" text="Back" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="lawyerTableView" layoutX="38.0" layoutY="158.0" prefHeight="596.0" prefWidth="287.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Text layoutX="659.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="659.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="373.0" layoutY="714.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="371.0" layoutY="748.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เบอร์โทรศัพท์">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="660.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="วัน/เดือน/ปี เกิด">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="394.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="หมายเลขใบอนุญาติทนายความ" wrappingWidth="211.5185546875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="438.0" layoutY="597.0" strokeType="OUTSIDE" strokeWidth="0.0" text="วันออกบัตร" wrappingWidth="76.53515625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="678.0" layoutY="596.0" strokeType="OUTSIDE" strokeWidth="0.0" text="กำหนดวันเปลี่ยนบัตร">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="371.0" layoutY="639.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สำนักงานทนายความ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="371.0" layoutY="679.0" strokeType="OUTSIDE" strokeWidth="0.0" text="จังหวัด">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="661.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เพศ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="394.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="หมายเลขบัตรปรระชาชน">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="nameLabel" layoutX="752.0" layoutY="201.0" prefHeight="27.0" prefWidth="200.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="surnameLabel" layoutX="749.0" layoutY="235.0" prefHeight="27.0" prefWidth="200.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="sexLabel" layoutX="752.0" layoutY="274.0" prefHeight="27.0" prefWidth="141.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateBirthLabel" layoutX="797.0" layoutY="322.0" prefHeight="27.0" prefWidth="192.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="idCardLabel" layoutX="644.0" layoutY="373.0" prefHeight="27.0" prefWidth="275.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="cardIssueDateLabel" layoutX="529.0" layoutY="576.0" prefHeight="27.0" prefWidth="130.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="cardReplacementDateLabel" layoutX="840.0" layoutY="575.0" prefHeight="27.0" prefWidth="142.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lawOfficeLabel" layoutX="542.0" layoutY="618.0" prefHeight="27.0" prefWidth="275.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="countyLabel" layoutX="488.0" layoutY="658.0" prefHeight="27.0" prefWidth="311.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="emailLabel" layoutX="488.0" layoutY="693.0" prefHeight="27.0" prefWidth="275.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="numberLabel" layoutX="488.0" layoutY="727.0" prefHeight="27.0" prefWidth="275.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="profile" fitHeight="150.0" fitWidth="200.0" layoutX="401.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/user.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="610.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายละอียด">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="811.0" layoutY="678.0" onAction="#summitLawyer" prefHeight="84.0" prefWidth="164.0" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="ตรวจสอบแล้ว" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="attorneyLicensenumberLabel" layoutX="644.0" layoutY="417.0" prefHeight="27.0" prefWidth="275.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
