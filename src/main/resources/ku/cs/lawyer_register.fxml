@@ -20,7 +20,7 @@
         <AnchorPane layoutX="-4.0" prefHeight="133.0" prefWidth="1014.0" style="-fx-background-color: #4169E1;">
             <children>
                 <Button layoutX="40.0" layoutY="44.0" mnemonicParsing="false" onAction="#backToUserLogin" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" text="back" />
-                <Text fill="WHITE" layoutX="410.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สมาชิกทนายความ">
+                <Text fill="WHITE" layoutX="410.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สมาชิกทนายความ">
                     <font>
                         <Font name="Californian FB Italic" size="28.0" />
                     </font>
@@ -47,15 +47,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </TextField>
-                <TextField fx:id="surnameTextField" layoutX="691.0" layoutY="84.0" prefHeight="35.0" prefWidth="226.0" promptText="นามสกุล" style="-fx-background-radius: 30;">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </TextField>
-                <TextField fx:id="attorneyLicensenumberField" layoutX="448.0" layoutY="203.0" prefHeight="35.0" prefWidth="226.0" promptText="เลขที่ใบอนุญาติทนายความ" style="-fx-background-radius: 30;">
+                <TextField fx:id="surnameTextField" layoutX="712.0" layoutY="84.0" prefHeight="35.0" prefWidth="226.0" promptText="นามสกุล" style="-fx-background-radius: 30;">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -71,7 +63,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </TextField>
-                <TextField fx:id="emailTextField" layoutX="691.0" layoutY="319.0" prefHeight="35.0" prefWidth="226.0" promptText="email" style="-fx-background-radius: 30;">
+                <TextField fx:id="emailTextField" layoutX="712.0" layoutY="319.0" prefHeight="35.0" prefWidth="226.0" promptText="email" style="-fx-background-radius: 30;">
                     <font>
                         <Font size="16.0" />
                     </font>
@@ -114,7 +106,7 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <TextField fx:id="idcardField" layoutX="691.0" layoutY="203.0" prefHeight="35.0" prefWidth="226.0" promptText="เลขบัตรประชาชน" style="-fx-background-radius: 30;">
+            <TextField fx:id="idcardField" layoutX="712.0" layoutY="202.0" prefHeight="35.0" prefWidth="226.0" promptText="เลขบัตรประชาชน" style="-fx-background-radius: 30;">
                <font>
                   <Font size="16.0" />
                </font>
@@ -122,7 +114,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </TextField>
-            <TextField fx:id="sexField" layoutX="691.0" layoutY="143.0" prefHeight="35.0" prefWidth="226.0" promptText="เพศ" style="-fx-background-radius: 30;">
+            <TextField fx:id="sexField" layoutX="712.0" layoutY="143.0" prefHeight="35.0" prefWidth="226.0" promptText="เพศ" style="-fx-background-radius: 30;">
                <font>
                   <Font size="16.0" />
                </font>
@@ -135,7 +127,7 @@
                         <Font size="14.0" />
                     </font>
                 </JFXButton>
-            <MenuButton fx:id="menuButton" layoutX="691.0" layoutY="378.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" text="จังหวัด" textFill="#ab9e9e">
+            <MenuButton fx:id="menuButton" layoutX="712.0" layoutY="378.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" text="จังหวัด" textFill="#ab9e9e">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#handleToItem1" text="กรุงเทพมหานคร (Bangkok)" />
                 <MenuItem mnemonicParsing="false" onAction="#handleToItem2" text="เชียงใหม่ (Chiang Mai)" />
@@ -165,7 +157,23 @@
             <Label fx:id="registerMessageLabel" layoutX="498.0" layoutY="591.0" textFill="RED" />
             <DatePicker fx:id="myDateOfBirthDatePicker" layoutX="448.0" layoutY="143.0" prefHeight="35.0" prefWidth="226.0" promptText="วัน/เดือน/ปี ที่เกิด" style="-fx-background-radius: 30;" />
             <DatePicker fx:id="cardIssueDatePicker" layoutX="448.0" layoutY="265.0" prefHeight="35.0" prefWidth="226.0" promptText="วันออกบัตร" style="-fx-background-radius: 30;" />
-            <DatePicker fx:id="cardReplacementDatePicker" layoutX="691.0" layoutY="265.0" prefHeight="35.0" prefWidth="226.0" promptText="กำหนดวันเปลี่ยนบัตร" />
+            <DatePicker fx:id="cardReplacementDatePicker" layoutX="712.0" layoutY="265.0" prefHeight="35.0" prefWidth="226.0" promptText="กำหนดวันเปลี่ยนบัตร" />
+            <Text layoutX="431.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เลขที่ใบอนุญาติทนายความ">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <JFXButton layoutX="633.0" layoutY="205.0" onAction="#handleToAddAttorneyLicense" prefHeight="30.0" prefWidth="58.0" style="-fx-background-color: #696969;" text="แนบไฟล์" textFill="#fcfcfc" />
+            <Text layoutX="410.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="กรอกรายละเอียด">
+               <font>
+                  <Font name="Californian FB Italic" size="28.0" />
+               </font>
+            </Text>
+            <Label fx:id="registerMessageLabel" layoutX="374.0" layoutY="516.0" prefHeight="27.0" prefWidth="263.0" text="Label" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
     </children>

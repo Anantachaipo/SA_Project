@@ -153,7 +153,7 @@
             <Image url="@../../image/user.png" />
          </image>
       </ImageView>
-      <Text layoutX="610.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายละอียด">
+      <Text layoutX="610.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายละเอียด">
          <font>
             <Font size="25.0" />
          </font>
@@ -163,10 +163,6 @@
             <Font size="21.0" />
          </font>
       </JFXButton>
-      <Label fx:id="attorneyLicensenumberLabel" layoutX="644.0" layoutY="417.0" prefHeight="27.0" prefWidth="275.0" text="Label">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+      <ImageView fx:id="attorneyLicense" fitHeight="150.0" fitWidth="200.0" layoutX="682.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

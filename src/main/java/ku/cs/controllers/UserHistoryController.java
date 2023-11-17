@@ -40,8 +40,6 @@ public class UserHistoryController {
     @FXML
     private Text surnameLawyerText;
     @FXML
-    private Text attorneyLicensenumberText;
-    @FXML
     private Text lawOfficeText;
     @FXML
     private Text numberText;
@@ -83,7 +81,6 @@ public class UserHistoryController {
         nameLawsuitText.setText("-");
 
         surnameLawyerText.setText("-");
-        attorneyLicensenumberText.setText("-");
         lawOfficeText.setText("-");
         numberText.setText("-");
         emailText.setText("-");
@@ -114,9 +111,9 @@ public class UserHistoryController {
         lawsuitsDateColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDate()));
         lawsuitsInformationTableView1.getColumns().add(lawsuitsDateColumn);
 
-        TableColumn<LawsuitsInformation, String> lawsuitsStatusColumn = new TableColumn<>("สถานะ");
-        lawsuitsStatusColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getStatus()));
-        lawsuitsInformationTableView1.getColumns().add(lawsuitsStatusColumn);
+//        TableColumn<LawsuitsInformation, String> lawsuitsStatusColumn = new TableColumn<>("สถานะ");
+//        lawsuitsStatusColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getStatus()));
+//        lawsuitsInformationTableView1.getColumns().add(lawsuitsStatusColumn);
 
         lawsuitsInformationTableView1.getItems().addAll(lawsuitsArrayList);
         lawsuitsInformationTableView1.refresh();
@@ -124,7 +121,7 @@ public class UserHistoryController {
 
     private static ArrayList<LawsuitsInformation> getLawsuitsInformations() throws SQLException {
         DBConnect db = new DBConnect();
-        String sql = String.format("SELECT * FROM mydb.lawsuits_information WHERE U_id = %d;", user.getId());
+        String sql = String.format("SELECT * FROM mydb.lawsuits_information WHERE U_id = %d AND LS_status = 'ฺB' ;", user.getId());
         ResultSet rs = db.getConnect(sql);
         ArrayList<LawsuitsInformation> lawsuitsArrayList = new ArrayList<>();
 
@@ -167,9 +164,9 @@ public class UserHistoryController {
         lawsuitsDateColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDate()));
         lawsuitsInformationTableView2.getColumns().add(lawsuitsDateColumn);
 
-        TableColumn<LawsuitsInformation, String> lawsuitsStatusColumn = new TableColumn<>("สถานะ");
-        lawsuitsStatusColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getStatus()));
-        lawsuitsInformationTableView2.getColumns().add(lawsuitsStatusColumn);
+//        TableColumn<LawsuitsInformation, String> lawsuitsStatusColumn = new TableColumn<>("สถานะ");
+//        lawsuitsStatusColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getStatus()));
+//        lawsuitsInformationTableView2.getColumns().add(lawsuitsStatusColumn);
 
         lawsuitsInformationTableView2.getItems().addAll(lawsuitsArrayList);
         lawsuitsInformationTableView2.refresh();
@@ -256,7 +253,6 @@ public class UserHistoryController {
                 nameLawyerText.setText(lawyer.getNameLawyer());
                 surnameLawyerText.setText(lawyer.getSurnameLawyer());
                 lawOfficeText.setText(lawyer.getLawOffice());
-                attorneyLicensenumberText.setText((lawyer.getAttorneyLicensenumber()));
                 numberText.setText(lawyer.getNumber());
                 emailText.setText(lawyer.getEmail());
 

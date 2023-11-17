@@ -41,6 +41,7 @@ public class LawyerRegisterController implements ActionListener {
     private PasswordField confirmPasswordField;
     @FXML
     private ImageView profile;
+
     @FXML
     private TextField idcardField;
     @FXML
@@ -51,8 +52,8 @@ public class LawyerRegisterController implements ActionListener {
     private DatePicker cardIssueDatePicker;
     @FXML
     private TextField lawOfficeField;
-    @FXML
-    private TextField attorneyLicensenumberField;
+//    @FXML
+//    private TextField attorneyLicensenumberField;
     @FXML
     private TextField sexField;
 
@@ -69,6 +70,8 @@ public class LawyerRegisterController implements ActionListener {
 
 
     private String pathProfile = "images/user.png";
+
+    private String attorneyLicenseImage ;
     private String status = "0";
 
 
@@ -90,15 +93,12 @@ public class LawyerRegisterController implements ActionListener {
         String username = usernameTextField.getText();
         String password = passwordField.getText();
         String confirmPassword = confirmPasswordField.getText();
-//        String dateOfBirth = myDateOfBirth.getText();
         String idCard = idcardField.getText();
-//        String cardIssueDate = cardIssueDateField.getText();
-//        String cardReplacementDate = cardReplacementDateField.getText();
         String lawOffice = lawOfficeField.getText();
         String county = menuButton.getText();
         String caseAptitude = menuButton2.getText();
         String sex = sexField.getText();
-        String attorneyLicensenumber = attorneyLicensenumberField.getText();
+//        String attorneyLicensenumber = attorneyLicensenumberField.getText();
         Integer countConsult = 0;
         Integer countProgress = 0;
         Integer countSuccess = 0;
@@ -119,7 +119,7 @@ public class LawyerRegisterController implements ActionListener {
         db = new DBConnect();
         ResultSet rs = db.getConnect("SELECT * FROM mydb.lawyer_information;");
 
-        String sql = String.format("INSERT INTO lawyer_information (L_username,L_name,L_surname,L_sex,L_number,L_email,L_password,L_dateOfBirth,L_attorneyLicensenumber,L_idCard,L_cardIssueDate,L_cardReplacementDate,L_lawOffice,L_county,L_caseAptitude,L_countConsult,L_countProgress,L_countSuccess,L_status,L_pathProfile) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%d','%d','%d','%s','%s');",username,  name,  surname,sex, number, email ,password, dateOfBirth,  attorneyLicensenumber, idCard, cardIssueDate,cardReplacementDate,lawOffice,county,caseAptitude,countConsult,countProgress,countSuccess,status,pathProfile);
+        String sql = String.format("INSERT INTO lawyer_information (L_username,L_name,L_surname,L_sex,L_number,L_email,L_password,L_dateOfBirth,L_attorneyLicensenumber,L_idCard,L_cardIssueDate,L_cardReplacementDate,L_lawOffice,L_county,L_caseAptitude,L_countConsult,L_countProgress,L_countSuccess,L_status,L_pathProfile) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%d','%d','%d','%s','%s');",username,  name,  surname,sex, number, email ,password, dateOfBirth,  attorneyLicenseImage, idCard, cardIssueDate,cardReplacementDate,lawOffice,county,caseAptitude,countConsult,countProgress,countSuccess,status,pathProfile);
         //String username,String name,String surname,String password,Loca dateOfBirth, String attorneyLicensenumber,String idCard, String lawyerTicket,String cardIssueDate,String cardReplacementDate,String number, String email ,String pathProfile, String lawOffice ,String county
 
         try{
@@ -170,6 +170,50 @@ public class LawyerRegisterController implements ActionListener {
         }
 
     }
+
+    @FXML
+    public void handleToAddAttorneyLicense(ActionEvent actionEvent) {
+
+        FileChooser chooser = new FileChooser();
+        // SET FILECHOOSER INITIAL DIRECTORY
+        chooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+        // DEFINE ACCEPTABLE FILE EXTENSION
+        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("images PNG JPG", "*.png", "*.jpg", "*.jpeg"));
+        // GET FILE FROM FILECHOOSER WITH JAVAFX COMPONENT WINDOW
+        Node source = (Node) actionEvent.getSource();
+        //เลือกรูป
+        File file = chooser.showOpenDialog(source.getScene().getWindow());
+        if (file != null) {
+            try {
+                // CREATE FOLDER IF NOT EXIST
+                File destDir = new File("images");
+                if (!destDir.exists()) destDir.mkdirs();
+                // RENAME FILE
+                String[] fileSplit = file.getName().split("\\.");
+                String filename = LocalDate.now() + "_" + System.currentTimeMillis() + "."
+                        + fileSplit[fileSplit.length - 1];
+                Path target = FileSystems.getDefault().getPath(
+                        destDir.getAbsolutePath() + System.getProperty("file.separator") + filename
+                );
+                // COPY WITH FLAG REPLACE FILE IF FILE IS EXIST
+                Files.copy(file.toPath(), target, StandardCopyOption.REPLACE_EXISTING);
+                // SET NEW FILE PATH TO IMAGE
+//                profile.setImage(new Image(target.toUri().toString()));
+                attorneyLicenseImage = destDir + "/" + filename;
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+
+
+
+
+
+
     @FXML
     public void backToUserLogin(ActionEvent actionEvent) {
         try {

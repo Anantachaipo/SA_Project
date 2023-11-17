@@ -51,12 +51,12 @@
          </font>
       </Button>
       <DatePicker fx:id="datePicker" layoutX="486.0" layoutY="516.0" prefHeight="39.0" prefWidth="239.0" promptText="นัดวันขอปรึกษา (วัน/เดือน/ปี)" style="-fx-background-radius: 30;" />
-      <Label fx:id="lawyernameLabel" layoutX="339.0" layoutY="322.0" prefHeight="30.0" prefWidth="158.0" text="Lawyername">
+      <Label fx:id="lawyernameLabel" layoutX="374.0" layoutY="365.0" prefHeight="30.0" prefWidth="158.0" text="Lawyername">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lawyersurnameLabel" layoutX="605.0" layoutY="322.0" prefHeight="30.0" prefWidth="186.0" text="Lawyersurname">
+      <Label fx:id="lawyersurnameLabel" layoutX="653.0" layoutY="365.0" prefHeight="30.0" prefWidth="186.0" text="Lawyersurname">
          <font>
             <Font size="20.0" />
          </font>
@@ -66,22 +66,12 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="attorneyLicensenumberLabel" layoutX="521.0" layoutY="361.0" text="LawyerAtto">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Text layoutX="288.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ   :">
+      <Text layoutX="319.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ   :">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="502.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="378.0" layoutY="383.0" strokeType="OUTSIDE" strokeWidth="0.0" text="หมายเลขทนาย   :">
+      <Text layoutX="560.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล">
          <font>
             <Font size="18.0" />
          </font>
@@ -102,7 +92,7 @@
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="397.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="profileLawyer" fitHeight="150.0" fitWidth="136.0" layoutX="453.0" layoutY="134.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="profileLawyer" fitHeight="213.0" fitWidth="207.0" layoutX="418.0" layoutY="134.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
       <AnchorPane layoutY="130.0" prefHeight="670.0" prefWidth="102.0" style="-fx-background-color: #87CEFA;">
          <children>
                       <JFXButton layoutX="-8.0" layoutY="92.0" onAction="#goToHomePage" prefHeight="59.0" prefWidth="110.0" style="-fx-background-color: #4169E1;" text="หน้าหลัก" textFill="WHITE">

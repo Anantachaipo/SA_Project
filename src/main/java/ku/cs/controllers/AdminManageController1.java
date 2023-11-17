@@ -41,6 +41,12 @@ public class AdminManageController1 {
         handleSelectedLawyer();
     }
 
+//    @FXML
+//    private void handleToRefresh() throws SQLException {
+//        lawyerTableView.getItems().clear();
+//        userTableView.getItems().clear();
+//    }
+
     private void showLawyer() throws SQLException {
         ArrayList<Lawyer> lawyer = getLawyer();
 
@@ -211,15 +217,12 @@ public class AdminManageController1 {
                 String deleteSql = String.format("DELETE FROM mydb.user_information WHERE U_id = %d", uid);
                 db.getUpdate(deleteSql);
                 userTableView.refresh();
-                com.github.saacsos.FXRouter.goTo("admin");
             } else {
                 // ไม่พบแถวที่ตรงกับ uid
                 System.out.println("ไม่พบข้อมูลผู้ใช้ที่ต้องการลบ");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 

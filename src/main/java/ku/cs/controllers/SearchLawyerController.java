@@ -33,14 +33,14 @@ public class SearchLawyerController {
     @FXML
     private Label surnameLabel;
     @FXML
-    private Label attorneyLicenseNumberLabel;
-    @FXML
     private Label lawOfficeLabel;
     @FXML
     private Label countyLabel;
+    @FXML
+    private Label caseAptitudeLabel;
 
     @FXML
-    private ImageView profileLawyerImage;
+    private ImageView profileLawyerImage ;
 
     private Lawyer lawyer;
     private static Lawyer selectedLawyer;
@@ -66,13 +66,14 @@ public class SearchLawyerController {
     @FXML
     private void handleToRefresh() throws SQLException {
         lawyerTableView.getItems().clear();
+        profileLawyerImage.setImage(null);
         clearSelectedMember();
         showLawyerTableView();
     }
 
     private void showLawyerTableView() throws SQLException {
         DBConnect db = new DBConnect();
-        ResultSet rs = db.getConnect("SELECT * FROM mydb.lawyer_information;");
+        ResultSet rs = db.getConnect("SELECT * FROM mydb.lawyer_information WHERE L_status = '1';");
         ArrayList<Lawyer> lawyerArrayList = new ArrayList<>();
 
         while (rs.next()) {
@@ -113,9 +114,9 @@ public class SearchLawyerController {
         lawyerSurnameColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getSurnameLawyer()));
         lawyerTableView.getColumns().add(lawyerSurnameColumn);
 
-        TableColumn<Lawyer, String> attorneyLicenseNumberColumn = new TableColumn<>("หมายเลขใบอนุญาตทนาย");
-        attorneyLicenseNumberColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getAttorneyLicensenumber()));
-        lawyerTableView.getColumns().add(attorneyLicenseNumberColumn);
+//        TableColumn<Lawyer, String> attorneyLicenseNumberColumn = new TableColumn<>("หมายเลขใบอนุญาตทนาย");
+//        attorneyLicenseNumberColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getAttorneyLicensenumber()));
+//        lawyerTableView.getColumns().add(attorneyLicenseNumberColumn);
 
         TableColumn<Lawyer, String> lawOfficeColumn = new TableColumn<>("สำนักงานทนายความ");
         lawOfficeColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getLawOffice()));
@@ -139,7 +140,7 @@ public class SearchLawyerController {
         if (lawyer != null) {
             nameLabel.setText(lawyer.getNameLawyer());
             surnameLabel.setText(lawyer.getSurnameLawyer());
-            attorneyLicenseNumberLabel.setText(lawyer.getAttorneyLicensenumber());
+            caseAptitudeLabel.setText(lawyer.getCaseAptitude());
             lawOfficeLabel.setText(lawyer.getLawOffice());
             countyLabel.setText(lawyer.getCounty());
             profileLawyerImage.setImage(new Image("file:" + lawyer.getPathProfile(), true));
@@ -208,7 +209,7 @@ public class SearchLawyerController {
     private void clearSelectedMember() {
         nameLabel.setText("-");
         surnameLabel.setText("-");
-        attorneyLicenseNumberLabel.setText("-");
+        caseAptitudeLabel.setText("-");
         lawOfficeLabel.setText("-");
         countyLabel.setText("-");
     }

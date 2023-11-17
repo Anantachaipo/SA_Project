@@ -36,8 +36,8 @@ public class AdminManageController2 {
     private Label dateBirthLabel;
     @FXML
     private Label idCardLabel;
-    @FXML
-    private Label attorneyLicensenumberLabel;
+//    @FXML
+//    private Label attorneyLicensenumberLabel;
     @FXML
     private Label cardIssueDateLabel;
     @FXML
@@ -53,6 +53,8 @@ public class AdminManageController2 {
 
     @FXML
     private ImageView profile;
+    @FXML
+    private ImageView attorneyLicense;
 
     @FXML
     private Integer l_id;
@@ -75,7 +77,7 @@ public class AdminManageController2 {
         dateBirthLabel.setText("-");
         sexLabel.setText("-");
         idCardLabel.setText("-");
-        attorneyLicensenumberLabel.setText("-");
+//        attorneyLicensenumberLabel.setText("-");
         cardIssueDateLabel.setText("-");
         cardReplacementDateLabel.setText("-");
         lawOfficeLabel.setText("-");
@@ -169,7 +171,7 @@ public class AdminManageController2 {
             dateBirthLabel.setText(lawyer.getDateOfBirth());
             sexLabel.setText(lawyer.getSex());
             idCardLabel.setText(lawyer.getIdCard());
-            attorneyLicensenumberLabel.setText(lawyer.getAttorneyLicensenumber());
+//            attorneyLicensenumberLabel.setText(lawyer.getAttorneyLicensenumber());
             cardIssueDateLabel.setText(lawyer.getCardIssueDate());
             cardReplacementDateLabel.setText(lawyer.getCardReplacementDate());
             lawOfficeLabel.setText(lawyer.getLawOffice());
@@ -177,6 +179,7 @@ public class AdminManageController2 {
             emailLabel.setText(lawyer.getEmail());
             numberLabel.setText(lawyer.getNumber());
             profile.setImage(new Image("file:" + lawyer.getPathProfile(), true));
+            attorneyLicense.setImage(new Image("file:" + lawyer.getAttorneyLicensenumber(), true));
 
             l_id = lawyer.getLawyerID();
             System.out.println(lawyer.getLawyerID());
@@ -208,7 +211,7 @@ public class AdminManageController2 {
     @FXML
     public void backToAdminHomePage(ActionEvent actionEvent) {
         try {
-            com.github.saacsos.FXRouter.goTo("first_page");
+            com.github.saacsos.FXRouter.goTo("admin_home_page");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า logout ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

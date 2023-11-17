@@ -58,7 +58,7 @@
                 <TableColumn prefWidth="75.0" text="C2" />
               </columns>
             </TableView>
-            <Text layoutX="57.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คำร้องขอปรึกษาทั้งหมด">
+            <Text layoutX="57.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คำร้องขอปรึกษาที่รอดำเนินการ">
                <font>
                   <Font size="18.0" />
                </font>
@@ -103,22 +103,17 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <Text layoutX="481.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="หมายเลขใบอนุญาตการเป็นทนายความ  :">
+            <Text layoutX="481.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สำนักงานทนาย   :" wrappingWidth="118.859375">
                <font>
                   <Font size="16.0" />
                </font>
             </Text>
-            <Text layoutX="482.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สำนักงานทนาย   :" wrappingWidth="118.859375">
+            <Text layoutX="486.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คำแนะนำ   :">
                <font>
                   <Font size="16.0" />
                </font>
             </Text>
-            <Text layoutX="482.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="คำแนะนำ   :">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-            <Text fill="#c35050" layoutX="488.0" layoutY="591.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ติดต่อสอบถามเพิ่มเติม">
+            <Text fill="#07a421" layoutX="488.0" layoutY="591.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ติดต่อสอบถามเพิ่มเติม">
                <font>
                   <Font size="16.0" />
                </font>
@@ -144,7 +139,7 @@
                </font>
             </Text>
             <TextArea fx:id="informatonTextArea" layoutX="594.0" layoutY="169.0" prefHeight="68.0" prefWidth="283.0" />
-            <TextArea fx:id="commentLawsuitsText" layoutX="483.0" layoutY="465.0" prefHeight="98.0" prefWidth="392.0" />
+            <TextArea fx:id="commentLawsuitsText" layoutX="478.0" layoutY="435.0" prefHeight="125.0" prefWidth="392.0" />
             <Text fx:id="nameLawyerText" layoutX="535.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
                <font>
                   <Font size="16.0" />
@@ -155,12 +150,7 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <Text fx:id="attorneyLicensenumberText" layoutX="736.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-            <Text fx:id="lawOfficeText" layoutX="607.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+            <Text fx:id="lawOfficeText" layoutX="607.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
                <font>
                   <Font size="16.0" />
                </font>

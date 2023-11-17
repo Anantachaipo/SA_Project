@@ -24,17 +24,13 @@ public class UserConsultLawyerController {
     //ส่วนของ user
     @FXML
     private Label usernameLabel;
-    @FXML
-    private ImageView profileUserImage;
-
 
     //ส่วนของ lawyer
     @FXML
     private Label lawyernameLabel;
     @FXML
     private Label lawyersurnameLabel;
-    @FXML
-    private Label attorneyLicensenumberLabel;
+
     @FXML
     private Label lawOfficeLabel;
     @FXML
@@ -76,7 +72,6 @@ public class UserConsultLawyerController {
 
             lawyernameLabel.setText(lawyerName);
             lawyersurnameLabel.setText(lawyerSurname);
-            attorneyLicensenumberLabel.setText(attoneynumber);
             lawOfficeLabel.setText(lawOffice);
             countyLabel.setText(county);
             profileLawyer.setImage(new Image("file:" + selectedLawyer.getPathProfile(), true));

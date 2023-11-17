@@ -27,8 +27,6 @@ public class LawyerHomePageController {
     @FXML
     private Label surnameLabel;
     @FXML
-    private Label attorneyLicensenumberLabel;
-    @FXML
     private Label lawOfficeLabel;
     @FXML
     private Label countyLabel;
@@ -47,7 +45,6 @@ public class LawyerHomePageController {
             usernameLabel.setText(lawyer.getUsernameLawyer());
             nameLabel.setText(lawyer.getNameLawyer());
             surnameLabel.setText(lawyer.getSurnameLawyer());
-            attorneyLicensenumberLabel.setText(lawyer.getAttorneyLicensenumber());
             lawOfficeLabel.setText(lawyer.getLawOffice());
             countyLabel.setText(lawyer.getCounty());
             countProgressLabel.setText(String.valueOf(lawyer.getCountProgress()));
@@ -69,7 +66,6 @@ public class LawyerHomePageController {
             usernameLabel.setText("");
             nameLabel.setText("");
             surnameLabel.setText("");
-            attorneyLicensenumberLabel.setText("");
             lawOfficeLabel.setText("");
             countyLabel.setText("");
             noticeLabel.setText("");
