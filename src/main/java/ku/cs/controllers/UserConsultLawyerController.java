@@ -25,6 +25,10 @@ public class UserConsultLawyerController {
     @FXML
     private Label usernameLabel;
 
+    //warning
+    @FXML
+    private Label warnngLabel;
+
     //ส่วนของ lawyer
     @FXML
     private Label lawyernameLabel;
@@ -101,7 +105,7 @@ public class UserConsultLawyerController {
         ResultSet result = db1.getConnect(sql1);
 
         if (result.next()) {
-//            registerMessageLabel.setText("Username is already used");
+            warnngLabel.setText("วันที่นี้ได้มีการจองขอการปรึกษาแล้ว กรุณาเลือกวันใหม่");
             System.out.println("ffff");
 
             result.close();
@@ -118,7 +122,7 @@ public class UserConsultLawyerController {
         String sql = String.format("INSERT INTO lawsuits_information (LS_name,LS_type,LS_information,LS_date,LS_status,U_id,L_id) VALUES('%s','%s','%s','%s','%s',%d,'%d') ;", name,type, information, date,status,u_id,l_id);
         try {
             db.getUpdate(sql);
-            com.github.saacsos.FXRouter.goTo("user_history");
+            com.github.saacsos.FXRouter.goTo("user_warn");
         } catch (IOException e) {
             System.err.println("ไปที่หน้า help ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");

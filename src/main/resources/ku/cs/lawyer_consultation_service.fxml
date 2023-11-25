@@ -5,60 +5,56 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.LawyerConsultationServiceController">
    <children>
-      <AnchorPane layoutX="2.0" layoutY="125.0" prefHeight="675.0" prefWidth="1000.0">
+      <AnchorPane layoutX="1.0" layoutY="125.0" prefHeight="675.0" prefWidth="1000.0">
          <children>
-            <Text layoutX="592.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ   :">
+            <Text layoutX="516.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อ   :">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="777.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล">
+            <Text layoutX="760.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="นามสกุล">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="592.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ประเภทคดี   :">
+            <Text layoutX="516.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ประเภทคดี   :">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="592.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายละเอียดคดี   :">
+            <Text layoutX="57.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="รายละเอียดคดี   :">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text layoutX="592.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="วันที่ขอรับปรึกษา" wrappingWidth="133.0">
+            <Text layoutX="612.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="วันที่ขอรับปรึกษา" wrappingWidth="133.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Label fx:id="nameuserLabel" layoutX="647.0" layoutY="106.0" prefHeight="30.0" prefWidth="120.0" text="Label">
+            <Label fx:id="nameuserLabel" layoutX="574.0" layoutY="103.0" prefHeight="30.0" prefWidth="170.0" text="Label">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="surnameLabel" layoutX="849.0" layoutY="104.0" prefHeight="30.0" prefWidth="120.0" text="Label">
+            <Label fx:id="surnameLabel" layoutX="829.0" layoutY="103.0" prefHeight="30.0" prefWidth="162.0" text="Label">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="typeLabel" layoutX="695.0" layoutY="179.0" prefHeight="30.0" prefWidth="164.0" text="Label">
+            <Label fx:id="typeLabel" layoutX="631.0" layoutY="206.0" prefHeight="30.0" prefWidth="339.0" text="Label">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="informationLabel" layoutX="595.0" layoutY="259.0" prefHeight="30.0" prefWidth="388.0" text="Label">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="dateLabel" layoutX="740.0" layoutY="302.0" prefHeight="30.0" prefWidth="200.0" text="Label">
+            <Label fx:id="dateLabel" layoutX="759.0" layoutY="294.0" prefHeight="30.0" prefWidth="200.0" text="Label">
                <font>
                   <Font size="18.0" />
                </font>
@@ -67,16 +63,16 @@
                <font>
                   <Font size="18.0" />
                </font></JFXButton>
-            <JFXButton layoutX="441.0" layoutY="450.0" onAction="#SubmitLawsuitDetails" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="รับเรื่องปรึกษา" textFill="WHITE">
+            <JFXButton layoutX="439.0" layoutY="466.0" onAction="#SubmitLawsuitDetails" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="รับเรื่องปรึกษา" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></JFXButton>
-            <Text layoutX="592.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เรื่องที่ขอปึกษา   :">
+            <Text layoutX="516.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เรื่องที่ขอปึกษา   :">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Label fx:id="nameLawsuitsLabel" layoutX="729.0" layoutY="144.0" prefHeight="30.0" prefWidth="120.0" text="Label">
+            <Label fx:id="nameLawsuitsLabel" layoutX="649.0" layoutY="159.0" prefHeight="30.0" prefWidth="339.0" text="Label">
                <font>
                   <Font size="18.0" />
                </font>
@@ -102,6 +98,11 @@
                   <Font size="18.0" />
                </font>
             </JFXButton>
+            <TextArea fx:id="informationTextArea" layoutX="208.0" layoutY="294.0" prefHeight="125.0" prefWidth="388.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextArea>
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="125.0" prefWidth="1002.0" style="-fx-background-color: #4169E1;">

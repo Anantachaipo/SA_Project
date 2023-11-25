@@ -29,7 +29,7 @@
             </Label>
          </children>
       </AnchorPane>
-            <MenuButton fx:id="menuButton" layoutX="246.0" layoutY="516.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" text="ประเภทคดี" textFill="#250000">
+            <MenuButton fx:id="menuButton" layoutX="245.0" layoutY="516.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" text="ประเภทคดี" textFill="#250000">
                 <font>
                     <Font size="18.0" />
                 </font>
@@ -45,12 +45,12 @@
                     <MenuItem mnemonicParsing="false" onAction="#handleToType9" text="คดีที่เกี่ยวกับทรัพย์สิน" />
                 </items>
             </MenuButton>
-            <Button layoutX="426.0" layoutY="711.0" mnemonicParsing="false" onAction="#SubmitLawsuitDetails" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="ส่งคำขอปรึกษา" textFill="WHITE">
+            <Button layoutX="431.0" layoutY="733.0" mnemonicParsing="false" onAction="#SubmitLawsuitDetails" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="ส่งคำขอปรึกษา" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <DatePicker fx:id="datePicker" layoutX="486.0" layoutY="516.0" prefHeight="39.0" prefWidth="239.0" promptText="นัดวันขอปรึกษา (วัน/เดือน/ปี)" style="-fx-background-radius: 30;" />
+      <DatePicker fx:id="datePicker" layoutX="487.0" layoutY="516.0" prefHeight="39.0" prefWidth="239.0" promptText="นัดวันขอปรึกษา (วัน/เดือน/ปี)" style="-fx-background-radius: 30;" />
       <Label fx:id="lawyernameLabel" layoutX="374.0" layoutY="365.0" prefHeight="30.0" prefWidth="158.0" text="Lawyername">
          <font>
             <Font size="20.0" />
@@ -127,10 +127,15 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextArea fx:id="informationTextArea" layoutX="184.0" layoutY="576.0" prefHeight="124.0" prefWidth="675.0" promptText="รายละเอียด">
+      <TextArea fx:id="informationTextArea" layoutX="165.0" layoutY="594.0" prefHeight="124.0" prefWidth="675.0" promptText="รายละเอียด">
          <font>
             <Font size="18.0" />
          </font>
       </TextArea>
+      <Label fx:id="warnngLabel" layoutX="292.0" layoutY="564.0" prefHeight="30.0" prefWidth="391.0" textFill="#ff5656">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

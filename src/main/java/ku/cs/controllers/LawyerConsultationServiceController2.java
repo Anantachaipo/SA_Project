@@ -81,7 +81,7 @@ public class LawyerConsultationServiceController2 {
     }
     private static ArrayList<LawsuitsInformation> getLawsuitsInformations() throws SQLException {
         DBConnect db = new DBConnect();
-        String sql = String.format("SELECT * FROM mydb.lawsuits_information WHERE LS_status = 'B' AND L_id = %d ", lawyer.getLawyerID());
+        String sql = String.format("SELECT * FROM mydb.lawsuits_information WHERE LS_status = 'B' AND L_id = %d AND U_id IS NOT NULL AND L_id IS NOT NULL", lawyer.getLawyerID());
         ResultSet rs = db.getConnect(sql);
         ArrayList<LawsuitsInformation> lawsuitsArrayList = new ArrayList<>();
 

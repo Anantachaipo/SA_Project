@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ku.cs.DBConnect;
 import ku.cs.model.LawsuitsInformation;
@@ -41,7 +42,7 @@ public class LawyerConsultationServiceController {
     @FXML
     private Label typeLabel;
     @FXML
-    private Label informationLabel;
+    private TextArea informationTextArea;
     @FXML
     private Label dateLabel;
 
@@ -67,7 +68,7 @@ public class LawyerConsultationServiceController {
         surnameLabel.setText("-");
         nameLawsuitsLabel.setText("-");
         typeLabel.setText("-");
-        informationLabel.setText("-");
+        informationTextArea.setText("-");
         dateLabel.setText("-");
     }
 
@@ -103,7 +104,7 @@ public class LawyerConsultationServiceController {
 
     private static ArrayList<LawsuitsInformation> getLawsuitsInformations() throws SQLException {
         DBConnect db = new DBConnect();
-        String sql = String.format("SELECT * FROM mydb.lawsuits_information WHERE LS_status = 'A' AND L_id = %d ", lawyer.getLawyerID());
+        String sql = String.format("SELECT * FROM mydb.lawsuits_information WHERE LS_status = 'A' AND U_id IS NOT NULL AND L_id IS NOT NULL", lawyer.getLawyerID());
         ResultSet rs = db.getConnect(sql);
         ArrayList<LawsuitsInformation> lawsuitsArrayList = new ArrayList<>();
 
@@ -142,7 +143,8 @@ public class LawyerConsultationServiceController {
 
             nameLawsuitsLabel.setText(lawsuitsInformation.getName());
             typeLabel.setText(lawsuitsInformation.getType());
-            informationLabel.setText(lawsuitsInformation.getInformation());
+            informationTextArea.setText(lawsuitsInformation.getInformation());
+//            informationLabel.setText(lawsuitsInformation.getInformation());
             dateLabel.setText(lawsuitsInformation.getDate());
 
             Integer U_id = lawsuitsInformation.getuID();

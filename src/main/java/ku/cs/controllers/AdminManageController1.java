@@ -217,16 +217,46 @@ public class AdminManageController1 {
                 String deleteSql = String.format("DELETE FROM mydb.user_information WHERE U_id = %d", uid);
                 db.getUpdate(deleteSql);
                 userTableView.refresh();
+                com.github.saacsos.FXRouter.goTo("admin_home_page");
             } else {
                 // ไม่พบแถวที่ตรงกับ uid
                 System.out.println("ไม่พบข้อมูลผู้ใช้ที่ต้องการลบ");
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
 
+//    @FXML
+//    public void deleteLawyer(ActionEvent actionEvent) {
+//        // สร้างการเชื่อมต่อกับฐานข้อมูล
+//        DBConnect db = new DBConnect();
+//
+//        try {
+//            // ดึงข้อมูลลักษณะของแถวที่คุณต้องการลบ
+//            String selectSql = String.format("SELECT * FROM mydb.lawyer_information WHERE L_id = %d", lid);
+//            ResultSet rs = db.getConnect(selectSql);
+//
+//            // ตรวจสอบว่ามีแถวที่ตรงกับ lid หรือไม่
+//            if (rs.next()) {
+//                // ลบแถวที่ตรงกับ lid
+//                String deleteSql = String.format("DELETE FROM mydb.lawyer_information WHERE L_id = %d", lid);
+//                db.getUpdate(deleteSql);
+//                lawyerTableView.refresh();
+//                com.github.saacsos.FXRouter.goTo("admin");
+//            } else {
+//                // ไม่พบแถวที่ตรงกับ lid
+//                System.out.println("ไม่พบข้อมูลทนายความที่ต้องการลบ");
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
     @FXML
     public void deleteLawyer(ActionEvent actionEvent) {
         // สร้างการเชื่อมต่อกับฐานข้อมูล
@@ -239,11 +269,15 @@ public class AdminManageController1 {
 
             // ตรวจสอบว่ามีแถวที่ตรงกับ lid หรือไม่
             if (rs.next()) {
+                // อัปเดตค่า U_id ในตาราง lawsuits_information เป็นค่าที่เหมาะสม (เช่น null)
+                String updateLawsuitsSql = String.format("UPDATE mydb.lawsuits_information SET U_id = NULL WHERE L_id = %d", lid);
+                db.getUpdate(updateLawsuitsSql);
+
                 // ลบแถวที่ตรงกับ lid
                 String deleteSql = String.format("DELETE FROM mydb.lawyer_information WHERE L_id = %d", lid);
                 db.getUpdate(deleteSql);
                 lawyerTableView.refresh();
-                com.github.saacsos.FXRouter.goTo("admin");
+                com.github.saacsos.FXRouter.goTo("admin_home_page");
             } else {
                 // ไม่พบแถวที่ตรงกับ lid
                 System.out.println("ไม่พบข้อมูลทนายความที่ต้องการลบ");
@@ -255,16 +289,6 @@ public class AdminManageController1 {
         }
     }
 
-
-    @FXML
-    public void goToFirstPage(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("first_page");
-        } catch (IOException e) {
-            System.err.println("ไปที่หน้า first_page ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
-        }
-    }
     @FXML
     public void backToAdminHomePage(ActionEvent actionEvent) {
         try {
