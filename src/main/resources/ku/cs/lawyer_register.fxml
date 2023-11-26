@@ -15,12 +15,191 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<?import com.jfoenix.controls.JFXButton?>-->
+<!--<?import javafx.scene.Cursor?>-->
+<!--<?import javafx.scene.control.Button?>-->
+<!--<?import javafx.scene.control.DatePicker?>-->
+<!--<?import javafx.scene.control.Label?>-->
+<!--<?import javafx.scene.control.MenuButton?>-->
+<!--<?import javafx.scene.control.MenuItem?>-->
+<!--<?import javafx.scene.control.PasswordField?>-->
+<!--<?import javafx.scene.control.TextField?>-->
+<!--<?import javafx.scene.image.Image?>-->
+<!--<?import javafx.scene.image.ImageView?>-->
+<!--<?import javafx.scene.layout.AnchorPane?>-->
+<!--<?import javafx.scene.text.Font?>-->
+<!--<?import javafx.scene.text.Text?>-->
+<!--<AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.LawyerRegisterController">-->
+<!--    <children>-->
+<!--        <AnchorPane layoutX="-4.0" prefHeight="133.0" prefWidth="1014.0" style="-fx-background-color: #4169E1;">-->
+<!--            <children>-->
+<!--                <Button layoutX="40.0" layoutY="44.0" mnemonicParsing="false" onAction="#backToUserLogin" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" text="back" />-->
+<!--                <Text fill="WHITE" layoutX="410.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สมาชิกทนายความ">-->
+<!--                    <font>-->
+<!--                        <Font name="Californian FB Italic" size="28.0" />-->
+<!--                    </font>-->
+<!--                </Text>-->
+<!--            </children>-->
+<!--        </AnchorPane>-->
+<!--        <AnchorPane layoutY="119.0" prefHeight="688.0" prefWidth="1010.0" style="-fx-background-color: #FFFFFF;">-->
+<!--            <children>-->
+<!--            <ImageView fitHeight="635.0" fitWidth="1124.0" layoutX="-114.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">-->
+<!--               <image>-->
+<!--                  <Image url="@../../image/Untitled-design.jpg" />-->
+<!--               </image>-->
+<!--            </ImageView>-->
+<!--                <ImageView fx:id="profile" fitHeight="203.0" fitWidth="295.0" layoutX="67.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                    <image>-->
+<!--                        <Image url="@../../image/user.png" />-->
+<!--                    </image>-->
+<!--                </ImageView>-->
+<!--                <TextField fx:id="nameTextField" layoutX="448.0" layoutY="84.0" prefHeight="35.0" prefWidth="226.0" promptText="ชื่อ" style="-fx-background-radius: 30;">-->
+<!--                    <font>-->
+<!--                        <Font size="16.0" />-->
+<!--                    </font>-->
+<!--                    <cursor>-->
+<!--                        <Cursor fx:constant="HAND" />-->
+<!--                    </cursor>-->
+<!--                </TextField>-->
+<!--                <TextField fx:id="surnameTextField" layoutX="712.0" layoutY="84.0" prefHeight="35.0" prefWidth="226.0" promptText="นามสกุล" style="-fx-background-radius: 30;">-->
+<!--                    <font>-->
+<!--                        <Font size="16.0" />-->
+<!--                    </font>-->
+<!--                    <cursor>-->
+<!--                        <Cursor fx:constant="HAND" />-->
+<!--                    </cursor>-->
+<!--                </TextField>-->
+<!--                <TextField fx:id="numberTextField" layoutX="448.0" layoutY="319.0" prefHeight="35.0" prefWidth="226.0" promptText="เบอร์โทรศัพท์" style="-fx-background-radius: 30;">-->
+<!--                    <font>-->
+<!--                        <Font size="16.0" />-->
+<!--                    </font>-->
+<!--                    <cursor>-->
+<!--                        <Cursor fx:constant="HAND" />-->
+<!--                    </cursor>-->
+<!--                </TextField>-->
+<!--                <TextField fx:id="emailTextField" layoutX="712.0" layoutY="319.0" prefHeight="35.0" prefWidth="226.0" promptText="email" style="-fx-background-radius: 30;">-->
+<!--                    <font>-->
+<!--                        <Font size="16.0" />-->
+<!--                    </font>-->
+<!--                    <cursor>-->
+<!--                        <Cursor fx:constant="HAND" />-->
+<!--                    </cursor>-->
+<!--                </TextField>-->
+<!--                <JFXButton layoutX="287.0" layoutY="554.0" onAction="#registerNewLawyer" prefHeight="75.0" prefWidth="437.0" style="-fx-background-color: #4169E1; -fx-background-radius: 30;" text="สมัครสมาชิก" textFill="WHITE">-->
+<!--                    <font>-->
+<!--                        <Font size="20.0" />-->
+<!--                    </font>-->
+<!--                </JFXButton>-->
+<!--                <TextField fx:id="lawOfficeField" layoutX="448.0" layoutY="378.0" prefHeight="35.0" prefWidth="226.0" promptText="สำนักงานกฏหมาย" style="-fx-background-radius: 30;">-->
+<!--                    <font>-->
+<!--                        <Font size="16.0" />-->
+<!--                    </font>-->
+<!--                    <cursor>-->
+<!--                        <Cursor fx:constant="HAND" />-->
+<!--                    </cursor>-->
+<!--                </TextField>-->
+<!--            <TextField fx:id="usernameTextField" layoutX="55.0" layoutY="327.0" prefHeight="35.0" prefWidth="226.0" promptText="username" style="-fx-background-radius: 30;">-->
+<!--               <font>-->
+<!--                  <Font size="16.0" />-->
+<!--               </font>-->
+<!--               <cursor>-->
+<!--                  <Cursor fx:constant="HAND" />-->
+<!--               </cursor>-->
+<!--            </TextField>-->
+<!--            <PasswordField fx:id="passwordField" layoutX="55.0" layoutY="385.0" prefHeight="35.0" prefWidth="226.0" promptText="password" style="-fx-background-radius: 30;">-->
+<!--               <font>-->
+<!--                  <Font size="16.0" />-->
+<!--               </font>-->
+<!--            </PasswordField>-->
+<!--            <PasswordField fx:id="confirmPasswordField" layoutX="55.0" layoutY="441.0" prefHeight="35.0" prefWidth="226.0" promptText="comfirm password" style="-fx-background-radius: 30;">-->
+<!--               <font>-->
+<!--                  <Font size="16.0" />-->
+<!--               </font>-->
+<!--            </PasswordField>-->
+<!--            <Label fx:id="registerLabel" layoutX="438.0" layoutY="578.0" prefHeight="17.0" prefWidth="135.0" textFill="RED">-->
+<!--               <font>-->
+<!--                  <Font size="16.0" />-->
+<!--               </font></Label>-->
+<!--            <TextField fx:id="idcardField" layoutX="712.0" layoutY="202.0" prefHeight="35.0" prefWidth="226.0" promptText="เลขบัตรประชาชน" style="-fx-background-radius: 30;">-->
+<!--               <font>-->
+<!--                  <Font size="16.0" />-->
+<!--               </font>-->
+<!--               <cursor>-->
+<!--                  <Cursor fx:constant="HAND" />-->
+<!--               </cursor>-->
+<!--            </TextField>-->
+<!--            <TextField fx:id="sexField" layoutX="712.0" layoutY="143.0" prefHeight="35.0" prefWidth="226.0" promptText="เพศ" style="-fx-background-radius: 30;">-->
+<!--               <font>-->
+<!--                  <Font size="16.0" />-->
+<!--               </font>-->
+<!--               <cursor>-->
+<!--                  <Cursor fx:constant="HAND" />-->
+<!--               </cursor>-->
+<!--            </TextField>-->
+<!--                <JFXButton layoutX="292.0" layoutY="54.0" onAction="#handleToChangeImage" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: #696969;" text="Edit" textFill="#fcfcfc">-->
+<!--                    <font>-->
+<!--                        <Font size="14.0" />-->
+<!--                    </font>-->
+<!--                </JFXButton>-->
+<!--            <MenuButton fx:id="menuButton" layoutX="712.0" layoutY="378.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" text="จังหวัด" textFill="#ab9e9e">-->
+<!--              <items>-->
+<!--                <MenuItem mnemonicParsing="false" onAction="#handleToItem1" text="กรุงเทพมหานคร (Bangkok)" />-->
+<!--                <MenuItem mnemonicParsing="false" onAction="#handleToItem2" text="เชียงใหม่ (Chiang Mai)" />-->
+<!--                  <MenuItem mnemonicParsing="false" onAction="#handleToItem3" text="ขอนแก่น (Khon Kaen)" />-->
+<!--                  <MenuItem mnemonicParsing="false" onAction="#handleToItem4" text="นครราชสีมา (Nakhon Ratchasima)" />-->
+<!--                  <MenuItem mnemonicParsing="false" onAction="#handleToItem5" text="ชลบุรี (Chon Buri)" />-->
+<!--                  <MenuItem mnemonicParsing="false" onAction="#handleToItem6" text="นครศรีธรรมราช (Nakhon Si Thammarat)" />-->
+<!--              </items>-->
+<!--               <font>-->
+<!--                  <Font size="16.0" />-->
+<!--               </font>-->
+<!--            </MenuButton>-->
+<!--            <MenuButton fx:id="menuButton2" layoutX="448.0" layoutY="441.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" text="ความถนัดด้านคดี" textFill="#ab9e9e">-->
+<!--               <items>-->
+<!--                  <MenuItem mnemonicParsing="false" onAction="#handleToItem11" text="การขโมย" />-->
+<!--                  <MenuItem mnemonicParsing="false" onAction="#handleToItem12" text="คุกคามเพศ" />-->
+<!--                  <MenuItem mnemonicParsing="false" onAction="#handleToItem13" text="มรดกและพินัยกรรม" />-->
+<!--                  <MenuItem mnemonicParsing="false" onAction="#handleToItem14" text="กฏหมายทรรัพย์สินทางปัญญา" />-->
+<!--                  <MenuItem mnemonicParsing="false" onAction="#handleToItem15" text="อุบัติเหตุและการจราจรทั่วไป" />-->
+<!--                  <MenuItem mnemonicParsing="false" onAction="#handleToItem16" text="การโกงออนไลน์และซื้อขายแลกเปลี่ยน" />-->
+<!--                  <MenuItem mnemonicParsing="false" onAction="#handleToItem17" text="การหย่าร้างและครอบครัว" />-->
+<!--               </items>-->
+<!--               <font>-->
+<!--                  <Font size="16.0" />-->
+<!--               </font>-->
+<!--            </MenuButton>-->
+<!--            <Label fx:id="registerMessageLabel" layoutX="498.0" layoutY="591.0" textFill="RED" />-->
+<!--            <DatePicker fx:id="myDateOfBirthDatePicker" layoutX="448.0" layoutY="143.0" prefHeight="35.0" prefWidth="226.0" promptText="วัน/เดือน/ปี ที่เกิด" style="-fx-background-radius: 30;" />-->
+<!--            <DatePicker fx:id="cardIssueDatePicker" layoutX="448.0" layoutY="265.0" prefHeight="35.0" prefWidth="226.0" promptText="วันออกบัตร" style="-fx-background-radius: 30;" />-->
+<!--            <DatePicker fx:id="cardReplacementDatePicker" layoutX="712.0" layoutY="265.0" prefHeight="35.0" prefWidth="226.0" promptText="กำหนดวันเปลี่ยนบัตร" />-->
+<!--            <Text layoutX="431.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เลขที่ใบอนุญาติทนายความ">-->
+<!--               <font>-->
+<!--                  <Font size="19.0" />-->
+<!--               </font>-->
+<!--            </Text>-->
+<!--            <JFXButton layoutX="633.0" layoutY="205.0" onAction="#handleToAddAttorneyLicense" prefHeight="30.0" prefWidth="58.0" style="-fx-background-color: #696969;" text="แนบไฟล์" textFill="#fcfcfc" />-->
+<!--            <Text layoutX="410.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="กรอกรายละเอียด">-->
+<!--               <font>-->
+<!--                  <Font name="Californian FB Italic" size="28.0" />-->
+<!--               </font>-->
+<!--            </Text>-->
+<!--            <Label fx:id="registerMessageLabel" layoutX="374.0" layoutY="516.0" prefHeight="27.0" prefWidth="263.0" text="Label" textAlignment="CENTER" textFill="RED">-->
+<!--               <font>-->
+<!--                  <Font size="18.0" />-->
+<!--               </font>-->
+<!--            </Label>-->
+<!--            </children>-->
+<!--        </AnchorPane>-->
+<!--    </children>-->
+<!--</AnchorPane>-->
+
 <AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.LawyerRegisterController">
     <children>
-        <AnchorPane layoutX="-4.0" prefHeight="133.0" prefWidth="1014.0" style="-fx-background-color: #4169E1;">
+        <AnchorPane prefHeight="133.0" prefWidth="1031.0" style="-fx-background-color: #4169E1;">
             <children>
                 <Button layoutX="40.0" layoutY="44.0" mnemonicParsing="false" onAction="#backToUserLogin" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" text="back" />
-                <Text fill="WHITE" layoutX="410.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สมาชิกทนายความ">
+                <Text fill="WHITE" layoutX="465.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="สมาชิกทนายความ">
                     <font>
                         <Font name="Californian FB Italic" size="28.0" />
                     </font>
@@ -29,11 +208,11 @@
         </AnchorPane>
         <AnchorPane layoutY="119.0" prefHeight="688.0" prefWidth="1010.0" style="-fx-background-color: #FFFFFF;">
             <children>
-            <ImageView fitHeight="635.0" fitWidth="1124.0" layoutX="-114.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/Untitled-design.jpg" />
-               </image>
-            </ImageView>
+                <ImageView fitHeight="635.0" fitWidth="1158.0" layoutX="-98.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/Untitled-design.jpg" />
+                    </image>
+                </ImageView>
                 <ImageView fx:id="profile" fitHeight="203.0" fitWidth="295.0" layoutX="67.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../image/user.png" />
@@ -84,96 +263,109 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </TextField>
-            <TextField fx:id="usernameTextField" layoutX="55.0" layoutY="327.0" prefHeight="35.0" prefWidth="226.0" promptText="username" style="-fx-background-radius: 30;">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </TextField>
-            <PasswordField fx:id="passwordField" layoutX="55.0" layoutY="385.0" prefHeight="35.0" prefWidth="226.0" promptText="password" style="-fx-background-radius: 30;">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </PasswordField>
-            <PasswordField fx:id="confirmPasswordField" layoutX="55.0" layoutY="441.0" prefHeight="35.0" prefWidth="226.0" promptText="comfirm password" style="-fx-background-radius: 30;">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </PasswordField>
-            <Label fx:id="registerLabel" layoutX="438.0" layoutY="578.0" prefHeight="17.0" prefWidth="135.0" textFill="RED">
-               <font>
-                  <Font size="16.0" />
-               </font></Label>
-            <TextField fx:id="idcardField" layoutX="712.0" layoutY="202.0" prefHeight="35.0" prefWidth="226.0" promptText="เลขบัตรประชาชน" style="-fx-background-radius: 30;">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </TextField>
-            <TextField fx:id="sexField" layoutX="712.0" layoutY="143.0" prefHeight="35.0" prefWidth="226.0" promptText="เพศ" style="-fx-background-radius: 30;">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </TextField>
+                <TextField fx:id="usernameTextField" layoutX="55.0" layoutY="327.0" prefHeight="35.0" prefWidth="226.0" promptText="username" style="-fx-background-radius: 30;">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </TextField>
+                <PasswordField fx:id="passwordField" layoutX="55.0" layoutY="385.0" prefHeight="35.0" prefWidth="226.0" promptText="password" style="-fx-background-radius: 30;">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </PasswordField>
+                <PasswordField fx:id="confirmPasswordField" layoutX="55.0" layoutY="441.0" prefHeight="35.0" prefWidth="226.0" promptText="comfirm password" style="-fx-background-radius: 30;">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </PasswordField>
+                <Label fx:id="registerLabel" layoutX="438.0" layoutY="578.0" prefHeight="17.0" prefWidth="135.0" textFill="RED">
+                    <font>
+                        <Font size="16.0" />
+                    </font></Label>
+                <TextField fx:id="idcardField" layoutX="712.0" layoutY="202.0" prefHeight="35.0" prefWidth="226.0" promptText="เลขบัตรประชาชน" style="-fx-background-radius: 30;">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </TextField>
+                <TextField fx:id="sexField" layoutX="712.0" layoutY="143.0" prefHeight="35.0" prefWidth="226.0" promptText="เพศ" style="-fx-background-radius: 30;">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </TextField>
                 <JFXButton layoutX="292.0" layoutY="54.0" onAction="#handleToChangeImage" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: #696969;" text="Edit" textFill="#fcfcfc">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </JFXButton>
-            <MenuButton fx:id="menuButton" layoutX="712.0" layoutY="378.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" text="จังหวัด" textFill="#ab9e9e">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#handleToItem1" text="กรุงเทพมหานคร (Bangkok)" />
-                <MenuItem mnemonicParsing="false" onAction="#handleToItem2" text="เชียงใหม่ (Chiang Mai)" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleToItem3" text="ขอนแก่น (Khon Kaen)" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleToItem4" text="นครราชสีมา (Nakhon Ratchasima)" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleToItem5" text="ชลบุรี (Chon Buri)" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleToItem6" text="นครศรีธรรมราช (Nakhon Si Thammarat)" />
-              </items>
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </MenuButton>
-            <MenuButton fx:id="menuButton2" layoutX="448.0" layoutY="441.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" text="ความถนัดด้านคดี" textFill="#ab9e9e">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#handleToItem11" text="การขโมย" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleToItem12" text="คุกคามเพศ" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleToItem13" text="มรดกและพินัยกรรม" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleToItem14" text="กฏหมายทรรัพย์สินทางปัญญา" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleToItem15" text="อุบัติเหตุและการจราจรทั่วไป" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleToItem16" text="การโกงออนไลน์และซื้อขายแลกเปลี่ยน" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleToItem17" text="การหย่าร้างและครอบครัว" />
-               </items>
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </MenuButton>
-            <Label fx:id="registerMessageLabel" layoutX="498.0" layoutY="591.0" textFill="RED" />
-            <DatePicker fx:id="myDateOfBirthDatePicker" layoutX="448.0" layoutY="143.0" prefHeight="35.0" prefWidth="226.0" promptText="วัน/เดือน/ปี ที่เกิด" style="-fx-background-radius: 30;" />
-            <DatePicker fx:id="cardIssueDatePicker" layoutX="448.0" layoutY="265.0" prefHeight="35.0" prefWidth="226.0" promptText="วันออกบัตร" style="-fx-background-radius: 30;" />
-            <DatePicker fx:id="cardReplacementDatePicker" layoutX="712.0" layoutY="265.0" prefHeight="35.0" prefWidth="226.0" promptText="กำหนดวันเปลี่ยนบัตร" />
-            <Text layoutX="431.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เลขที่ใบอนุญาติทนายความ">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Text>
-            <JFXButton layoutX="633.0" layoutY="205.0" onAction="#handleToAddAttorneyLicense" prefHeight="30.0" prefWidth="58.0" style="-fx-background-color: #696969;" text="แนบไฟล์" textFill="#fcfcfc" />
-            <Text layoutX="410.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="กรอกรายละเอียด">
-               <font>
-                  <Font name="Californian FB Italic" size="28.0" />
-               </font>
-            </Text>
-            <Label fx:id="registerMessageLabel" layoutX="374.0" layoutY="516.0" prefHeight="27.0" prefWidth="263.0" text="Label" textAlignment="CENTER" textFill="RED">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
+                <MenuButton fx:id="menuButton" layoutX="712.0" layoutY="378.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" text="จังหวัด" textFill="#ab9e9e">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleToItem1" text="กรุงเทพมหานคร (Bangkok)" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleToItem2" text="เชียงใหม่ (Chiang Mai)" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleToItem3" text="ขอนแก่น (Khon Kaen)" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleToItem4" text="นครราชสีมา (Nakhon Ratchasima)" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleToItem5" text="ชลบุรี (Chon Buri)" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleToItem6" text="นครศรีธรรมราช (Nakhon Si Thammarat)" />
+                    </items>
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </MenuButton>
+                <MenuButton fx:id="menuButton2" layoutX="448.0" layoutY="441.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" text="ความถนัดด้านคดี" textFill="#ab9e9e">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleToItem11" text="การขโมย" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleToItem12" text="คุกคามเพศ" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleToItem13" text="มรดกและพินัยกรรม" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleToItem14" text="กฏหมายทรรัพย์สินทางปัญญา" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleToItem15" text="อุบัติเหตุและการจราจรทั่วไป" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleToItem16" text="การโกงออนไลน์และซื้อขายแลกเปลี่ยน" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleToItem17" text="การหย่าร้างและครอบครัว" />
+                    </items>
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </MenuButton>
+                <Label fx:id="registerMessageLabel" layoutX="498.0" layoutY="591.0" textFill="RED" />
+                <DatePicker fx:id="myDateOfBirthDatePicker" layoutX="448.0" layoutY="143.0" prefHeight="35.0" prefWidth="226.0" promptText="วัน/เดือน/ปี ที่เกิด" style="-fx-background-radius: 30;" />
+                <DatePicker fx:id="cardIssueDatePicker" layoutX="448.0" layoutY="265.0" prefHeight="35.0" prefWidth="226.0" promptText="วันออกบัตร" style="-fx-background-radius: 30;" />
+                <DatePicker fx:id="cardReplacementDatePicker" layoutX="712.0" layoutY="265.0" prefHeight="35.0" prefWidth="226.0" promptText="กำหนดวันเปลี่ยนบัตร" />
+                <Text layoutX="431.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="เลขที่ใบอนุญาติทนายความ">
+                    <font>
+                        <Font size="19.0" />
+                    </font>
+                </Text>
+                <JFXButton layoutX="633.0" layoutY="205.0" onAction="#handleToAddAttorneyLicense" prefHeight="30.0" prefWidth="58.0" style="-fx-background-color: #696969;" text="แนบไฟล์" textFill="#fcfcfc" />
+                <Text layoutX="473.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="กรอกรายละเอียด">
+                    <font>
+                        <Font name="Californian FB Italic" size="28.0" />
+                    </font>
+                </Text>
+<!--                <Label fx:id="registerMessageLabel" layoutX="269.0" layoutY="516.0" prefHeight="27.0" prefWidth="474.0" textAlignment="CENTER" textFill="RED">-->
+<!--                    <font>-->
+<!--                        <Font size="18.0" />-->
+<!--                    </font>-->
+<!--                </Label>-->
+                <Label fx:id="nameTag" layoutX="410.0" layoutY="94.0" textFill="RED" />
+                <Label fx:id="surnameTag" layoutX="686.0" layoutY="94.0" prefHeight="18.0" prefWidth="22.0" textFill="RED" />
+                <Label fx:id="localDateTag" layoutX="410.0" layoutY="152.0" textFill="RED" />
+                <Label fx:id="usernameTag" layoutX="14.0" layoutY="337.0" textFill="RED" />
+                <Label fx:id="passwordTag" layoutX="14.0" layoutY="395.0" textFill="RED" />
+                <Label fx:id="comPasswordTag" layoutX="14.0" layoutY="451.0" textFill="RED" />
+                <Label fx:id="sexTag" layoutX="683.0" layoutY="152.0" textFill="RED" />
+                <Label fx:id="idCardTag" layoutX="694.0" layoutY="212.0" textFill="RED" />
+                <Label fx:id="numberTag" layoutX="417.0" layoutY="329.0" textFill="RED" />
+                <Label fx:id="emailTag" layoutX="683.0" layoutY="329.0" textFill="RED" />
+                <Label fx:id="lawOfficeTag" layoutX="417.0" layoutY="388.0" textFill="RED" />
+                <Label fx:id="countyTag" layoutX="683.0" layoutY="388.0" textFill="RED" />
+                <Label fx:id="caseAptitudeTag" layoutX="417.0" layoutY="451.0" textFill="RED" />
             </children>
         </AnchorPane>
     </children>
